@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/DebugPanel.gd" id="1"]
+
+[node name="DebugPanel" type="CanvasLayer"]
+layer = 50
+script = ExtResource("1")
+
+[node name="Root" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 64.0
+offset_right = -16.0
+offset_bottom = 360.0
+grow_horizontal = 0
+
+[node name="Margin" type="MarginContainer" parent="Root"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Root/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Root/Margin/VBox"]
+layout_mode = 2
+text = "Debug (F3)"
+
+[node name="Info" type="RichTextLabel" parent="Root/Margin/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+fit_content = true
+
+[node name="DayRow" type="HBoxContainer" parent="Root/Margin/VBox"]
+layout_mode = 2
+
+[node name="DaySpin" type="SpinBox" parent="Root/Margin/VBox/DayRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 30.0
+value = 1.0
+
+[node name="ApplyDayBtn" type="Button" parent="Root/Margin/VBox/DayRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Set Day"
+
+[node name="SusBtn" type="Button" parent="Root/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Suspicion=40"
+
+[node name="TensionBtn" type="Button" parent="Root/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Tension=75"
+
+[node name="MoneyBtn" type="Button" parent="Root/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Money=200"
+
+[node name="PulseBtn" type="Button" parent="Root/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pulse Event"
+
+[node name="EndBBtn" type="Button" parent="Root/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Force B Clash Ready"

@@ -897,20 +897,74 @@ tip.dialogue_branch,同一场面可换口吻：软、硬、留白，收益不同
 tip.dialogue_variant,人物对你的好感不同，同一场对话会说出不一样的话。
 tip.dock_office,码头办公室会在第 2 天开放：汇报、偷单、收买都在那里。
 tip.ending_show,A/B/C 都要先播「阶段演出」再进结局，避免跳戏。
+tip.enter_menu,这里是地点菜单：先点设施，再选行动。没事可做就点「出门」回港区。
 tip.first_exchange,交易所吃的是消息差。假消息来钱快，也更烫手。
 tip.first_rival,通洋已对你开门。频繁往来会抬高宏远的疑心。
 tip.flag_su,晚晴好感、礼物与背叛风险会变成旗标，进而锁行动、改对白。
 tip.idle_listen,场景闲聊会换。多待一会儿，码头会自己说话。
-tip.intro_1,每天有上午、傍晚、夜晚三个时段，每时段只能行动一次。
-tip.intro_2,点地点→热点→行动。数值会立刻变化，请留意嫌疑。
-tip.intro_3,与人对话会改变关系。关系够高或够低，都会触发新事态。
-tip.intro_4,三条路可混用：留在宏远离间、投奔通洋、或去交易所。
+tip.intro_1,欢迎来到码头。每天分上午、傍晚、夜晚，每时段只能行动一次。
+tip.intro_2,用 WASD（或方向键）走动。跟着石板路与黄色光带，走近建筑门口就会进入。
+tip.intro_3,进建筑后弹出地点菜单：先选设施，再选行动。点「出门」返回港区。
+tip.intro_4,顶栏是天数、时段、金钱、信任与嫌疑。嫌疑太高会出事，回家可降嫌疑。
+tip.intro_5,三条路可混用：留在宏远离间、投奔通洋、或去交易所翻云覆雨。
 tip.low_money,金钱过低时行动会迟缓。先去码头打工或接差事。
+tip.near_door,再走近一点就会进入。门口牌子上的名字就是可进的建筑。
+tip.after_action,行动会推进时段。可继续在此地选择，或「出门」去别的地方。
+tip.pick_action,带百分比的是检定行动。灰掉的选项是条件未满足，可先做别的。
 tip.route_plan,在家「筹划」可强化路线倾向，不取代第七天的选择。
+tip.save_hint,右上角可随时保存。关键抉择前建议先存档。
 tip.stock,买卖与做空走持仓公式：手数、开仓价、杠杆会参与结算。
 tip.stock_close,金融线请用「买卖/做空」开仓，用「交易大厅·短线」平仓结算第一桶金。
 tip.suspicion,嫌疑过高会被打压甚至开除。回家休息可降低嫌疑。
 tip.trust_sync,公司信任度影响职位；老板对你的关系信任会随关键行动同步变化。
+quest.panel.header,当前任务
+quest.panel.progress,{i} / {n}
+quest.panel.complete,已完成
+quest.done.title,主线指引完成
+quest.done.hint,1. 之后可自由探索港区各地||2. 顶栏留意天数、金钱、信任、嫌疑||3. 嫌疑过高就回家点「床边」→「休息恢复」||4. 继续行动推进到结局演出
+quest.approach.title,熟悉港区怎么走
+quest.approach.hint,1. 用 WASD 或方向键走动||2. 跟着地上石板路和淡黄色光带走||3. 走到任意建筑门口（出现名牌）就算完成||4. 不用按键：再走近一点会自动进门
+quest.enter_dock.title,第一次进码头货场
+quest.enter_dock.hint,1. 沿石板路走到地图下方的「码头货场」||2. 站到门口名牌附近||3. 再走近一点自动进入||4. 进入后会出现地点菜单（设施列表）
+quest.dock_work.title,搬货赚第一笔钱
+quest.dock_work.hint,1. 若在室外：先进入「码头货场」||2. 在地点菜单里点「装卸货区」||3. 再点行动「搬货打工」||4. 看底栏结算；顶栏金钱会增加||5. 完成后可点「出门」回港区
+quest.enter_company.title,进入宏远贸易公司
+quest.enter_company.hint,1. 出门回到港区地图||2. 走到左上方石砌建筑「宏远贸易公司」||3. 走近门口名牌自动进入||4. 出现宏远的地点菜单
+quest.co_work.title,在公司做日常办公
+quest.co_work.hint,1. 进入「宏远贸易公司」||2. 点设施「大办公区」||3. 点行动「日常办公」||4. 这会推进一个时段；可继续选别的或「出门」
+quest.enter_home.title,回到自己的出租屋
+quest.enter_home.hint,1. 回到港区||2. 走到上方正中白墙红瓦的「出租屋」||3. 走近门口进入||4. 这里是降嫌疑、整理情报的据点
+quest.home_settle.title,在家安顿（整理或休息）
+quest.home_settle.hint,1. 进入「出租屋」||2. 任选其一：||　· 点「书桌」→「整理情报」或「分析局势」||　· 若已是夜晚：点「床边」→「休息恢复」（可降嫌疑）||3. 做完一项即完成任务
+quest.dock_office.title,去货仓办公室办一件事
+quest.dock_office.hint,1. 确认顶栏至少到第 2 天（办公室才开放）||2. 进入「码头货场」||3. 点设施「货仓办公室」||4. 推荐选「向主管汇报」；也可「偷取进货清单」或「收买仓管员」||5. 完成其中一项即可
+quest.meet_people.title,见晚晴或少霆
+quest.meet_people.hint,1. 进入「宏远贸易公司」||2. 点设施「副理办公室」||3. 二选一：||　·「偶遇未婚妻」（见晚晴）||　·「对接副理」（见少霆）||4. 点选后完成对话/结算即算完成
+quest.gather_intel.title,搜集一条情报
+quest.gather_intel.hint,任选一条路线完成即可：||路线A：进宏远 →「大办公区」→「偷听同事谈话」||路线B：进码头 →「装卸货区」→「和工人闲聊」||路线C：进码头 →「装卸货区」→「观察进出货单」||（副理处「传递假消息」也可）
+quest.day5.title,把日子推进到第 5 天
+quest.day5.hint,1. 每天有上午/傍晚/夜晚三个时段||2. 每完成一项行动通常推进 1 个时段||3. 继续去各地做事、休息都可以||4. 看到顶栏变成「第 5 天」即完成||5. 嫌疑高时优先回家「休息恢复」
+quest.day7.title,迎来第 7 天（新地点解锁）
+quest.day7.hint,1. 继续任意行动推进时段||2. 顶栏到「第 7 天」时通洋与交易所开放||3. 港区会出现新建筑入口（留意名牌）||4. 到第 7 天即完成本任务
+quest.new_path.title,踏足通洋或交易所
+quest.new_path.hint,1. 确认已到第 7 天且地点已解锁||2. 二选一走进去：||　·「通洋商行」（竞品线）||　·「股票交易所」（金融线）||3. 走近门口进入即可完成||4. 进去后先看地点菜单有哪些设施
+quest.path_act.title,在新地点完成一次行动
+quest.path_act.hint,通洋线示例：进通洋 →「接待大堂」→「询问招聘/投递简历」||交易所示例：进交易所 →「交易大厅」→「买入宏远股票」或「买卖宏远股票」||也可点茶馆散布消息等||完成任意一项通洋/交易所行动即可
+quest.day12.title,推进到第 12 天
+quest.day12.hint,1. 继续在宏远/码头/家/新地点行动||2. 用顶栏确认天数进度||3. 到「第 12 天」即完成||4. 记得存档（右上角「保存」）
+quest.deepen.title,加深一条剧情线
+quest.deepen.hint,任选其一做完即可：||A. 宏远 →「老板办公室」→「讨好老板」/「接受老板任务」/「主动背锅」||B. 码头 →「码头拐角」→「与竞品线人接头」（需已解锁）||C. 出租屋 →「客厅」→「与未婚妻对话」或「引导她吹枕边风」（需已解锁客厅）
+quest.day20.title,推进到第 20 天
+quest.day20.hint,1. 中后期更要盯顶栏「嫌疑」与「金钱」||2. 嫌疑高：回家「床边」→「休息恢复」||3. 缺钱：码头「搬货打工」或交易所操作||4. 顶栏到「第 20 天」即完成
+quest.finale.title,冲刺第 28 天附近
+quest.finale.hint,1. 继续按你的路线推进（离间/通洋/金融）||2. 关键抉择前先右上角「保存」||3. 顶栏推进到第 28 天附近||4. 之后留意事件与结局演出||5. 到第 28 天即完成本指引
+guide.coach.move,引导：WASD 沿石板路走到建筑门口
+guide.coach.enter,引导：再走近门口，会自动进入
+guide.coach.menu,引导：点选一个设施，查看可做的事
+guide.coach.act,引导：选择一项行动（每时段一次）
+guide.coach.free,顶栏看数值 · 右上角可存档 · 嫌疑高就回家歇
+ui.guide.title,引导
+ui.guide.more,还有 {n} 条
 ui.action.confirm,执行
 ui.action.locked,尚未解锁
 ui.action.select,选择行动
@@ -985,3 +1039,8 @@ ui.toast.stat_change,{stat} {delta}
 ui.toast.unlock_hotspot,发现可交互处：{name}
 ui.toast.unlock_location,得知地点：{name}
 ui.tutorial.skip,跳过提示
+ui.game.title,码头风云
+ui.game.subtitle,复仇之路
+ui.game.tagline,近代港口 · 权谋与选择
+ui.menu.title,标题
+ui.nav.locations,地点

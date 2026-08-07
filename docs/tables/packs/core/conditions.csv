@@ -40,6 +40,7 @@ c_ev_ev_b_public_clash_stat_father_son_tension_70,event,ev_b_public_clash,1,stat
 c_ev_ev_b_public_clash_flag_ending_route_b_ready_0,event,ev_b_public_clash,1,flag,ending_show_b,eq,0,未播过公开对立结局演出
 c_ev_ev_a_offer_stat_intel_15,event,ev_a_offer,1,stat,intel,gte,15,
 c_ev_ev_a_offer_stat_network_base_20,event,ev_a_offer,1,stat,network_base,gte,20,
+c_ev_ev_a_offer_flag_can_join_tongyang_0,event,ev_a_offer,1,flag,can_join_tongyang,eq,0,未接通过洋邀约
 c_ev_ev_a_first_strike_flag_ending_route_a_ready_1,event,ev_a_first_strike,1,flag,ending_route_a_ready,eq,1,
 c_ev_ev_c_first_short_flag_ending_route_c_ready_1,event,ev_c_first_short,1,flag,ending_route_c_ready,eq,1,
 c_ev_ev_fail_fired_stat_suspicion_95,event,ev_fail_fired,1,stat,suspicion,gte,95,

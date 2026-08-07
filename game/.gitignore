@@ -1,0 +1,6 @@
+# Godot local (optional)
+.godot/
+export_presets.cfg.bak
+
+# Keep export copy optional; prefer docs/tables/packs in editor
+data/packs/

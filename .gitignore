@@ -34,3 +34,8 @@ venv/
 *.tmp
 *.bak
 *~
+
+# Local engine downloads
+.tools/
+Godot_v*/
+*.tpz

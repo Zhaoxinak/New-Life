@@ -1,11 +1,11 @@
 {
   "id": "core",
   "name": "码头风云·核心",
-  "version": "0.9.1",
+  "version": "0.9.3",
   "schema_version": 6,
   "load_priority": 0,
   "dependencies": [],
-  "description": "Demo 核心包 0.9.1：检定成功率由双方角色数据缩放（关系/属性/旗标），不再只靠固定加减。",
+  "description": "Demo 核心包 0.9.3：左上角任务栏逐步引导，贯穿 Demo 主线节点。",
   "tables": [
     "periods",
     "routes",
@@ -34,6 +34,7 @@
     "dialogue_lines",
     "dialogue_choices",
     "tips",
+    "quests",
     "dialogue_line_variants",
     "idle_chatter",
     "stock_config",

@@ -7,7 +7,7 @@
 ## 原则
 
 1. **逻辑在 CSV，文案在 l10n**  
-2. **UI 布局不进玩法表**  
+2. **玩法逻辑与文案分离**；热区可选 `pos_x/pos_y`（0–1000）仅供 2D 点选布局  
 3. **加内容 = 加行 / 加 Pack**；同 id 后覆盖前  
 4. `_examples/` 默认不加载  
 
@@ -18,6 +18,8 @@
 | 目的 | 文件 |
 |---|---|
 | 调数值 | `effects.csv`、热区 `suspicion_mult` |
+| 热区画面位置 | `hotspots.csv` 的 `pos_x` / `pos_y`（0–1000，缺省自动排布） |
+| 场景/立绘贴图 | 可选放入 `game/art/locations/`、`game/art/portraits/` |
 | 成功率 | `checks.csv`、`check_mods.csv`（**双方角色数据**） |
 | 文案 | `l10n/*.csv` |
 | 对白 / 变体 / 锁 | `dialogues*`、`conditions` |

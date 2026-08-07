@@ -897,20 +897,74 @@ tip.dialogue_branch,"Same scene, different tones: soft, hard, or half-said—dif
 tip.dialogue_variant,Favor changes the same dialogue's lines.
 tip.dock_office,"Dock office unlocks on Day 2: reports, stolen lists, and bribes live there."
 tip.ending_show,A/B/C all require a stage scene before the ending—no skipping the beat.
+tip.enter_menu,"Location menu: pick a facility, then an action. Choose Exit to return outdoors."
 tip.first_exchange,The exchange feeds on gaps in news. Fake news pays—and burns.
 tip.first_rival,Tongyang's door is open. Frequent visits raise Hongyuan suspicion.
 tip.flag_su,"Wanqing's favor, gifts, and betrayal risk become flags that lock actions and rewrite lines."
 tip.idle_listen,Idle lines rotate. Linger—the docks talk on their own.
-tip.intro_1,"Each day has morning, afternoon, and night. One action per period."
-tip.intro_2,Location → spot → action. Stats change at once—watch Suspicion.
-tip.intro_3,Talks change relations. High or low values unlock new situations.
-tip.intro_4,"Mix routes: stay and divide, defect to Tongyang, or play the exchange."
+tip.intro_1,"Welcome to the harbor. Each day has morning, afternoon, and night—one action per period."
+tip.intro_2,"Move with WASD (or arrows). Follow the cobble path and yellow glow; walk up to a door to enter."
+tip.intro_3,"Inside: facility list → actions. Exit returns you to the harbor map."
+tip.intro_4,"Top bar shows day, period, money, trust, and suspicion. High suspicion hurts—rest at home to cool it."
+tip.intro_5,"Mix routes: stay and divide at Hongyuan, defect to Tongyang, or play the exchange."
 tip.low_money,Low money slows you. Work the docks or take errands first.
+tip.near_door,Walk a little closer to enter. The name plate marks an enterable building.
+tip.after_action,"Acting advances the period. Stay and choose again, or Exit to go elsewhere."
+tip.pick_action,"Percentages are check odds. Grey options need unmet conditions—try another first."
 tip.route_plan,Home 'planning' reinforces route lean—doesn't replace Day 7.
+tip.save_hint,Save anytime from the top-right. Save before key choices.
 tip.stock,"Buys/shorts use position formulas: lots, entry, leverage."
 tip.stock_close,Open with buy/short; close on the trading floor to bank the first pot.
 tip.suspicion,High suspicion brings crackdowns or firing. Rest at home to cool it.
 tip.trust_sync,Company trust drives rank; the boss's relational trust syncs on key actions.
+quest.panel.header,Current Quest
+quest.panel.progress,{i} / {n}
+quest.panel.complete,Done
+quest.done.title,Guide Complete
+quest.done.hint,1. Explore the harbor freely||2. Watch day money trust suspicion on the top bar||3. If suspicion is high: Home → Bedside → Rest||4. Keep acting toward your ending
+quest.approach.title,Learn How to Move
+quest.approach.hint,1. Move with WASD or arrow keys||2. Follow the cobble path and yellow glow||3. Reach any building door (name plate appears)||4. No button needed: walk closer to auto-enter
+quest.enter_dock.title,Enter the Dock Yard
+quest.enter_dock.hint,1. Follow the path to Dock Yard at the bottom||2. Stand by the door name plate||3. Walk closer to auto-enter||4. A location menu (facilities) appears
+quest.dock_work.title,Earn Your First Pay
+quest.dock_work.hint,1. If outdoors: enter Dock Yard first||2. In the menu tap Loading Bay||3. Tap action Dock Labor||4. Check the bottom result; money rises on the top bar||5. Tap Exit to return outdoors
+quest.enter_company.title,Enter Hongyuan Trading
+quest.enter_company.hint,1. Return to the outdoor map||2. Go to the stone building Hongyuan Trading (upper left)||3. Walk to the door to enter||4. Hongyuan location menu appears
+quest.co_work.title,Do Daily Office Work
+quest.co_work.hint,1. Enter Hongyuan Trading||2. Tap facility Office Floor||3. Tap action Daily Work||4. This advances one period; continue or Exit
+quest.enter_home.title,Go to Your Rented Room
+quest.enter_home.hint,1. Back outdoors||2. Go to the white cottage Rented Room (top center)||3. Walk in at the door||4. Use this place to rest and sort intel
+quest.home_settle.title,Settle at Home
+quest.home_settle.hint,1. Enter Rented Room||2. Pick one:||   · Desk → Organize Intel or Analyze Situation||   · At night: Bedside → Rest (lowers suspicion)||3. Finishing either completes the quest
+quest.dock_office.title,Handle Warehouse Office Business
+quest.dock_office.hint,1. Be at least Day 2 (office unlocks then)||2. Enter Dock Yard||3. Tap Warehouse Office||4. Prefer Report to Supervisor; or Steal Manifest / Bribe Clerk||5. Finish any one
+quest.meet_people.title,Meet Wanqing or Shaoting
+quest.meet_people.hint,1. Enter Hongyuan Trading||2. Tap VP Office||3. Pick one:||   · Chance Meeting (Wanqing)||   · Meet the VP (Shaoting)||4. Finish the scene to complete
+quest.gather_intel.title,Gather One Lead
+quest.gather_intel.hint,Finish any route:||A: Hongyuan → Office Floor → Eavesdrop||B: Dock → Loading Bay → Chat with Workers||C: Dock → Loading Bay → Watch Manifests||(VP Office → Pass a Rumor also works)
+quest.day5.title,Reach Day 5
+quest.day5.hint,1. Each day has morning afternoon night||2. Most actions advance one period||3. Keep acting or resting anywhere||4. Top bar shows Day 5 → done||5. High suspicion: rest at home first
+quest.day7.title,Reach Day 7 (New Places Unlock)
+quest.day7.hint,1. Keep acting to advance time||2. On Day 7 Tongyang and the Exchange unlock||3. New door name plates appear outdoors||4. Hitting Day 7 completes this quest
+quest.new_path.title,Enter Tongyang or the Exchange
+quest.new_path.hint,1. Confirm Day 7+ and unlocks||2. Enter one:||   · Tongyang Firm (rival path)||   · Stock Exchange (finance path)||3. Walk in at the door||4. Check the facility list inside
+quest.path_act.title,Act Once on the New Path
+quest.path_act.hint,Tongyang example: Tongyang → Lobby → Ask About Hiring||Exchange example: Exchange → Trading Hall → Buy Hongyuan Stock||Tea house rumors also count||Any Tongyang/Exchange action completes it
+quest.day12.title,Reach Day 12
+quest.day12.hint,1. Keep acting across locations||2. Watch the day on the top bar||3. Day 12 completes it||4. Save via top-right Save
+quest.deepen.title,Push One Plot Line
+quest.deepen.hint,Finish any one:||A: Hongyuan → Boss Office → Flatter / Take Task / Take Blame||B: Dock → Corner → Meet Rival Contact (if unlocked)||C: Home → Living Room → Talk / Guide Wanqing (if unlocked)
+quest.day20.title,Reach Day 20
+quest.day20.hint,1. Watch Suspicion and Money closely||2. High suspicion: Home → Bedside → Rest||3. Low money: Dock Labor or Exchange trades||4. Day 20 completes it
+quest.finale.title,Push Toward Day 28
+quest.finale.hint,1. Keep pushing your route (divide / Tongyang / finance)||2. Save before key choices||3. Advance toward Day 28||4. Watch events and ending scenes||5. Day 28 finishes this guide
+guide.coach.move,Guide: WASD along the path to a building door
+guide.coach.enter,Guide: walk closer—entering is automatic
+guide.coach.menu,Guide: pick a facility to see available actions
+guide.coach.act,Guide: choose an action (one per period)
+guide.coach.free,Watch the top bar · save top-right · rest at home if suspicion climbs
+ui.guide.title,Guide
+ui.guide.more,{n} more
 ui.action.confirm,Do it
 ui.action.locked,Locked
 ui.action.select,Choose Action
@@ -985,3 +1039,8 @@ ui.toast.stat_change,{stat} {delta}
 ui.toast.unlock_hotspot,New spot: {name}
 ui.toast.unlock_location,Learned location: {name}
 ui.tutorial.skip,Skip Tips
+ui.game.title,Dockside Storm
+ui.game.subtitle,Path of Revenge
+ui.game.tagline,A port city of schemes and choices
+ui.menu.title,Title
+ui.nav.locations,Locations

@@ -1,24 +1,30 @@
 id,category,sort_order,text_key,once,enabled,notes
-tip_intro_1,tutorial,1,tip.intro_1,1,1,
-tip_intro_2,tutorial,2,tip.intro_2,1,1,
-tip_intro_3,tutorial,3,tip.intro_3,1,1,
-tip_intro_4,tutorial,4,tip.intro_4,1,1,
-tip_suspicion,status,10,tip.suspicion,1,1,
-tip_low_money,status,11,tip.low_money,1,1,
-tip_boss_watching,status,12,tip.boss_watching,1,1,
-tip_first_rival,unlock,20,tip.first_rival,1,1,
-tip_first_exchange,unlock,21,tip.first_exchange,1,1,
-tip_trust_sync,system,30,tip.trust_sync,1,1,
-tip_clash,story,31,tip.clash,1,1,
-tip_stock_close,system,32,tip.stock_close,1,1,
-tip_dialogue_branch,system,33,tip.dialogue_branch,1,1,v0.7
-tip_idle_listen,system,34,tip.idle_listen,1,1,v0.7
-tip_route_plan,story,35,tip.route_plan,1,1,v0.7
-tip_a_cuff,story,36,tip.a_cuff,1,1,v0.7
-tip_c_margin,story,37,tip.c_margin,1,1,v0.7
-tip_b_gift,story,38,tip.b_gift,1,1,v0.7
-tip_flag_su,story,40,tip.flag_su,1,1,v0.8
-tip_ending_show,system,41,tip.ending_show,1,1,v0.8
-tip_choice_lock,system,42,tip.choice_lock,1,1,v0.8
-tip_dock_office,unlock,43,tip.dock_office,1,1,v0.8
-tip_checks,system,44,tip.checks,1,1,v0.9
+tip_intro_1,tutorial,1,tip.intro_1,1,0,replaced by quests
+tip_intro_2,tutorial,2,tip.intro_2,1,0,replaced by quests
+tip_intro_3,tutorial,3,tip.intro_3,1,0,replaced by quests
+tip_intro_4,tutorial,4,tip.intro_4,1,0,replaced by quests
+tip_intro_5,tutorial,5,tip.intro_5,1,0,replaced by quests
+tip_near_door,control,10,tip.near_door,1,0,replaced by quests
+tip_enter_menu,control,11,tip.enter_menu,1,0,replaced by quests
+tip_pick_action,control,12,tip.pick_action,1,0,replaced by quests
+tip_after_action,control,13,tip.after_action,1,0,replaced by quests
+tip_save_hint,control,14,tip.save_hint,1,0,replaced by quests
+tip_suspicion,status,20,tip.suspicion,1,1,
+tip_low_money,status,21,tip.low_money,1,1,
+tip_boss_watching,status,22,tip.boss_watching,1,1,
+tip_first_rival,unlock,30,tip.first_rival,1,1,
+tip_first_exchange,unlock,31,tip.first_exchange,1,1,
+tip_dock_office,unlock,32,tip.dock_office,1,1,
+tip_trust_sync,system,40,tip.trust_sync,1,1,
+tip_clash,story,41,tip.clash,1,1,
+tip_stock_close,system,42,tip.stock_close,1,1,
+tip_dialogue_branch,system,43,tip.dialogue_branch,1,1,
+tip_idle_listen,system,44,tip.idle_listen,1,1,
+tip_route_plan,story,45,tip.route_plan,1,1,
+tip_a_cuff,story,46,tip.a_cuff,1,1,
+tip_c_margin,story,47,tip.c_margin,1,1,
+tip_b_gift,story,48,tip.b_gift,1,1,
+tip_flag_su,story,49,tip.flag_su,1,1,
+tip_ending_show,system,50,tip.ending_show,1,1,
+tip_choice_lock,system,51,tip.choice_lock,1,1,
+tip_checks,system,52,tip.checks,1,1,

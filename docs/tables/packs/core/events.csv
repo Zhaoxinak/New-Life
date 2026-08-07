@@ -6,7 +6,7 @@ ev_day6_su_distance,90,1,100,B,evening,1,关系下滑事件入口
 ev_day7_choice,100,1,100,all,evening,1,玩家选发展方向
 ev_b_pillow_talk,70,0,100,B,any,1,可重复或限次；条件表控制
 ev_b_public_clash,100,1,100,B,afternoon,1,路线B Demo终点钩子
-ev_a_offer,80,0,100,A,any,1,条件：intel/人脉
+ev_a_offer,80,1,100,A,any,1,条件：intel/人脉；限一次
 ev_a_first_strike,100,1,100,A,afternoon,1,A线终点
 ev_c_first_short,100,1,100,C,afternoon,1,C线终点
 ev_fail_fired,100,1,100,all,any,1,失败结局之一

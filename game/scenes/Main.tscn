@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scenes/Main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://world/WorldHost.tscn" id="2_world"]
+[ext_resource type="PackedScene" path="res://ui/HUD.tscn" id="3_hud"]
+[ext_resource type="PackedScene" path="res://ui/PlayChrome.tscn" id="4_chrome"]
+[ext_resource type="PackedScene" path="res://ui/DialoguePanel.tscn" id="5_dlg"]
+[ext_resource type="PackedScene" path="res://ui/EventPanel.tscn" id="6_ev"]
+[ext_resource type="PackedScene" path="res://ui/EndingScreen.tscn" id="7_end"]
+[ext_resource type="PackedScene" path="res://ui/TipBanner.tscn" id="8_tip"]
+[ext_resource type="PackedScene" path="res://ui/DebugPanel.tscn" id="9_dbg"]
+[ext_resource type="PackedScene" path="res://ui/QuestTracker.tscn" id="10_quest"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_main")
+
+[node name="WorldHost" parent="." instance=ExtResource("2_world")]
+unique_name_in_owner = true
+
+[node name="HudLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="HUD" parent="HudLayer" instance=ExtResource("3_hud")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 12.0
+offset_top = 8.0
+offset_right = -12.0
+offset_bottom = 60.0
+grow_horizontal = 2
+
+[node name="QuestTracker" parent="." instance=ExtResource("10_quest")]
+
+[node name="PlayChrome" parent="." instance=ExtResource("4_chrome")]
+unique_name_in_owner = true
+
+[node name="DialoguePanel" parent="." instance=ExtResource("5_dlg")]
+
+[node name="EventPanel" parent="." instance=ExtResource("6_ev")]
+
+[node name="EndingScreen" parent="." instance=ExtResource("7_end")]
+
+[node name="TipBanner" parent="." instance=ExtResource("8_tip")]
+
+[node name="DebugPanel" parent="." instance=ExtResource("9_dbg")]

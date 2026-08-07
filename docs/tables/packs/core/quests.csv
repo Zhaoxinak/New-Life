@@ -1,0 +1,19 @@
+id,sort_order,title_key,hint_key,complete_type,complete_param,enabled,notes
+q_approach,1,quest.approach.title,quest.approach.hint,near_door,,1,开局
+q_enter_dock,2,quest.enter_dock.title,quest.enter_dock.hint,enter_location,dock,1,
+q_dock_work,3,quest.dock_work.title,quest.dock_work.hint,run_action,dock_work,1,
+q_enter_company,4,quest.enter_company.title,quest.enter_company.hint,enter_location,company,1,
+q_co_work,5,quest.co_work.title,quest.co_work.hint,run_action,co_work,1,
+q_enter_home,6,quest.enter_home.title,quest.enter_home.hint,enter_location,home,1,
+q_home_settle,7,quest.home_settle.title,quest.home_settle.hint,run_action,home_organize|home_plan|home_rest,1,
+q_dock_office,8,quest.dock_office.title,quest.dock_office.hint,run_action,dock_report|dock_steal_list|dock_bribe_clerk,1,D2 办公室
+q_meet_people,9,quest.meet_people.title,quest.meet_people.hint,run_action,co_meet_su|co_meet_son,1,
+q_gather_intel,10,quest.gather_intel.title,quest.gather_intel.hint,run_action,co_eavesdrop|dock_chat|dock_watch_manifest|co_pass_rumor,1,
+q_day5,11,quest.day5.title,quest.day5.hint,reach_day,5,1,
+q_day7,12,quest.day7.title,quest.day7.hint,reach_day,7,1,抉择窗口
+q_new_path,13,quest.new_path.title,quest.new_path.hint,enter_location,rival|exchange,1,
+q_path_act,14,quest.path_act.title,quest.path_act.hint,run_action_prefix,rival_|ex_,1,
+q_day12,15,quest.day12.title,quest.day12.hint,reach_day,12,1,
+q_deepen,16,quest.deepen.title,quest.deepen.hint,run_action,co_flatter_boss|co_boss_task|co_take_blame|dock_meet_contact|home_talk_su|home_guide_su,1,
+q_day20,17,quest.day20.title,quest.day20.hint,reach_day,20,1,
+q_finale,18,quest.finale.title,quest.finale.hint,reach_day,28,1,冲刺结局
