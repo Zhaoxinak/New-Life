@@ -1,0 +1,14 @@
+id,kind,enabled,once
+th_su_leak,relation,1,1
+th_su_drift,relation,1,1
+th_su_betray,relation,1,1
+th_father_conflict,relation,1,1
+th_boss_watch,relation,1,1
+th_son_hostile,relation,1,1
+th_chen_ally,relation,1,1
+st_low_money,stat,1,0
+st_clear_low_money,stat,1,0
+st_suspicion_light,stat,1,0
+st_suspicion_mid,stat,1,0
+st_suspicion_heavy,stat,1,0
+st_b_tension,stat,1,0

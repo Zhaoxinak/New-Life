@@ -1,0 +1,2 @@
+id,source_id,target_id,relation_key,initial,min,max,notes
+rel_tea_broker_player_favor,tea_broker,player,favor,30,0,100,

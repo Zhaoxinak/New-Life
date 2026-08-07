@@ -1,0 +1,38 @@
+id,base_line_id,priority,enabled,notes
+var_su_talk_l02_high,dlg_su_talk_l02,10,1,
+var_su_talk_l02_low,dlg_su_talk_l02,10,1,
+var_su_talk_l03_high,dlg_su_talk_l03,10,1,
+var_su_talk_l03_drift,dlg_su_talk_l03,10,1,
+var_son_meet_l01_hostile,dlg_son_meet_l01,10,1,
+var_boss_flatter_l03_hightrust,dlg_boss_flatter_l03,10,1,
+var_chen_lobby_l02_known,dlg_chen_lobby_l02,10,1,
+var_su_guide_l02_low,dlg_su_guide_l02,10,1,
+var_su_guide_l02_high,dlg_su_guide_l02,10,1,
+var_boss_blame_l03_watch,dlg_boss_blame_l03,10,1,
+var_son_rumor_l04_tension,dlg_son_rumor_l04,10,1,
+var_chen_sell_l03_ally,dlg_chen_sell_l03,10,1,
+var_broker_l02_elite,dlg_broker_l02,10,1,
+var_su_office_l02_intimacy,dlg_su_office_l02,10,1,
+var_white_l02_short,dlg_white_knight_l02,10,1,
+var_dock_chat_l02_lowmoney,dlg_dock_chat_l02,10,1,v0.7
+var_co_eaves_l02_tension,dlg_co_eavesdrop_l02,10,1,v0.7
+var_home_rest_l02_watch,dlg_home_rest_l02,10,1,v0.7
+var_boss_task_l01_hightrust,dlg_boss_task_l01,10,1,v0.7
+var_son_meet_l02_tension,dlg_son_meet_l02,10,1,v0.7
+var_chen_hire_l01_sold,dlg_chen_hire_l01,10,1,v0.7
+var_broker_l01_money,dlg_broker_l01,10,1,v0.7
+var_dock_steal_l02_suspect,dlg_dock_steal_l02,10,1,v0.7
+var_co_frame_l02_framed,dlg_co_frame_l02,10,1,v0.7
+var_home_plan_l02_b,dlg_home_plan_l02,10,1,v0.7
+var_ex_lev_l02_used,dlg_ex_leverage_l02,10,1,v0.7
+var_rival_hijack_l02_a,dlg_rival_hijack_l02,10,1,v0.7
+var_su_talk_l01_leak,dlg_su_talk_l01,12,1,v0.8 flag-driven
+var_su_talk_l01_gift,dlg_su_talk_l01,12,1,v0.8 flag-driven
+var_su_talk_l03_betray,dlg_su_talk_l03,12,1,v0.8 flag-driven
+var_son_meet_l01_hostile_flag,dlg_son_meet_l01,12,1,v0.8 flag-driven
+var_boss_flatter_l02_watch,dlg_boss_flatter_l02,12,1,v0.8 flag-driven
+var_chen_sell_l01_ally,dlg_chen_sell_l01,12,1,v0.8 flag-driven
+var_ex_buy_l02_low,dlg_ex_buy_l02,12,1,v0.8 flag-driven
+var_ex_short_l02_lev,dlg_ex_short_l02,12,1,v0.8 flag-driven
+var_home_guide_l04_leak,dlg_su_guide_l04,12,1,v0.8 flag-driven
+var_dock_chat_l03_hostile,dlg_dock_chat_l03,12,1,v0.8 flag-driven

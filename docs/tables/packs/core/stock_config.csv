@@ -1,0 +1,14 @@
+key,value,notes
+lot_size,10,每手对应股价乘数（简化）
+buy_lots_default,1,ex_buy 默认手数
+short_lots_default,1,ex_short 默认手数
+buy_fee_flat,5,开多固定手续费
+short_margin_flat,30,开空占用保证金（简化扣款）
+leverage_default,2,ex_leverage 设定倍数
+bust_price_floor,25,杠杆下股价≤此可能爆仓
+day_drift_min,-3,每日收盘随机漂移下限
+day_drift_max,3,每日收盘随机漂移上限
+min_price,10,与 stats.stock_price.min 对齐
+max_price,200,与 stats.stock_price.max 对齐
+route_c_profit_target,80,平仓累计盈利达此→ending_route_c_ready
+watched_slippage,2,boss_watching 时额外不利滑点

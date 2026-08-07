@@ -1,0 +1,15 @@
+key,text
+actions.tea_gossip.description,Spend a little for rumors
+actions.tea_gossip.name,Listen to Guests
+actions.tea_meet_broker.description,Pay for a Hongyuan inside tip
+actions.tea_meet_broker.name,Meet the Middleman
+flags.tea_house_known.description,Knows the street tearoom
+hotspots.tea_backroom.name,Back Room
+hotspots.tea_corner.name,Window Seat
+locations.tea_house.description,Dock gossip and middlemen
+locations.tea_house.name,Street Tearoom
+npcs.tea_broker.initial_relation_to_player,Neutral
+npcs.tea_broker.motive,Make money
+npcs.tea_broker.name,Tearoom Broker
+npcs.tea_broker.personality,Smooth and chatty
+npcs.tea_broker.role,Info peddler

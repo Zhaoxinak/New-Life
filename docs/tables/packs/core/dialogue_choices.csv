@@ -1,0 +1,77 @@
+id,dialogue_id,after_line_id,sort,enabled,notes
+dch_dlg_su_talk_soft,dlg_su_talk,dlg_su_talk_l04,1,1,
+dch_dlg_su_talk_press,dlg_su_talk,dlg_su_talk_l04,2,1,
+dch_dlg_su_talk_scheme,dlg_su_talk,dlg_su_talk_l04,3,1,
+dch_dlg_su_guide_ok,dlg_su_guide,dlg_su_guide_l04,1,1,
+dch_dlg_su_guide_cold,dlg_su_guide,dlg_su_guide_l04,2,1,
+dch_dlg_su_office_calm,dlg_su_office,dlg_su_office_l03,1,1,
+dch_dlg_su_office_jab,dlg_su_office,dlg_su_office_l03,2,1,
+dch_dlg_boss_flatter_ok,dlg_boss_flatter,dlg_boss_flatter_l03,1,1,
+dch_dlg_boss_blame_ok,dlg_boss_blame,dlg_boss_blame_l03,1,1,
+dch_dlg_boss_task_ok,dlg_boss_task,dlg_boss_task_l02,1,1,
+dch_dlg_son_meet_endure,dlg_son_meet,dlg_son_meet_l03,1,1,
+dch_dlg_son_meet_needle,dlg_son_meet,dlg_son_meet_l03,2,1,
+dch_dlg_son_rumor_ok,dlg_son_rumor,dlg_son_rumor_l04,1,1,
+dch_dlg_chen_lobby_ok,dlg_chen_lobby,dlg_chen_lobby_l03,1,1,
+dch_dlg_chen_sell_ok,dlg_chen_sell,dlg_chen_sell_l03,1,1,
+dch_dlg_chen_hire_ok,dlg_chen_hire,dlg_chen_hire_l03,1,1,
+dch_dlg_contact_corner_ok,dlg_contact_corner,dlg_contact_corner_l03,1,1,
+dch_dlg_broker_ok,dlg_broker,dlg_broker_l03,1,1,
+dch_dlg_white_knight_ok,dlg_white_knight,dlg_white_knight_l03,1,1,
+dch_dlg_dock_work_ok,dlg_dock_work,dlg_dock_work_l03,1,1,
+dch_dlg_dock_chat_soft,dlg_dock_chat,dlg_dock_chat_l03,1,1,
+dch_dlg_dock_chat_push,dlg_dock_chat,dlg_dock_chat_l03,2,1,
+dch_dlg_dock_manifest_ok,dlg_dock_manifest,dlg_dock_manifest_l03,1,1,
+dch_dlg_dock_report_humble,dlg_dock_report,dlg_dock_report_l03,1,1,
+dch_dlg_dock_report_claim,dlg_dock_report,dlg_dock_report_l03,2,1,
+dch_dlg_dock_steal_ok,dlg_dock_steal,dlg_dock_steal_l03,1,1,
+dch_dlg_dock_steal_extra,dlg_dock_steal,dlg_dock_steal_l03,2,1,
+dch_dlg_dock_bribe_ok,dlg_dock_bribe,dlg_dock_bribe_l03,1,1,
+dch_dlg_dock_board_ok,dlg_dock_board,dlg_dock_board_l03,1,1,
+dch_dlg_dock_black_ok,dlg_dock_black,dlg_dock_black_l03,1,1,
+dch_dlg_dock_black_greed,dlg_dock_black,dlg_dock_black_l03,2,1,
+dch_dlg_co_work_ok,dlg_co_work,dlg_co_work_l03,1,1,
+dch_dlg_co_eaves_safe,dlg_co_eavesdrop,dlg_co_eavesdrop_l03,1,1,
+dch_dlg_co_eaves_linger,dlg_co_eavesdrop,dlg_co_eavesdrop_l03,2,1,
+dch_dlg_co_elder_toast,dlg_co_elder,dlg_co_elder_l03,1,1,
+dch_dlg_co_elder_ask,dlg_co_elder,dlg_co_elder_l03,2,1,
+dch_dlg_co_peek_ok,dlg_co_peek,dlg_co_peek_l03,1,1,
+dch_dlg_co_bribe_acc_ok,dlg_co_bribe_acc,dlg_co_bribe_acc_l03,1,1,
+dch_dlg_co_frame_ok,dlg_co_frame,dlg_co_frame_l03,1,1,
+dch_dlg_co_frame_fan,dlg_co_frame,dlg_co_frame_l03,2,1,
+dch_dlg_home_organize_ok,dlg_home_organize,dlg_home_organize_l03,1,1,
+dch_dlg_home_plan_b,dlg_home_plan,dlg_home_plan_l03,1,1,
+dch_dlg_home_plan_a,dlg_home_plan,dlg_home_plan_l03,2,1,
+dch_dlg_home_plan_c,dlg_home_plan,dlg_home_plan_l03,3,1,
+dch_dlg_home_rest_ok,dlg_home_rest,dlg_home_rest_l03,1,1,
+dch_dlg_rival_poach_ok,dlg_rival_poach,dlg_rival_poach_l03,1,1,
+dch_dlg_rival_poach_push,dlg_rival_poach,dlg_rival_poach_l03,2,1,
+dch_dlg_rival_hijack_ok,dlg_rival_hijack,dlg_rival_hijack_l03,1,1,
+dch_dlg_rival_hijack_delay,dlg_rival_hijack,dlg_rival_hijack_l03,2,1,
+dch_dlg_ex_rumor_true_ok,dlg_ex_rumor_true,dlg_ex_rumor_true_l03,1,1,
+dch_dlg_ex_rumor_fake_ok,dlg_ex_rumor_fake,dlg_ex_rumor_fake_l03,1,1,
+dch_dlg_ex_rumor_fake_bold,dlg_ex_rumor_fake,dlg_ex_rumor_fake_l03,2,1,
+dch_dlg_ex_leverage_ok,dlg_ex_leverage,dlg_ex_leverage_l03,1,1,
+dch_dlg_ex_leverage_hesitate,dlg_ex_leverage,dlg_ex_leverage_l03,2,1,
+dch_dlg_boss_flatter_humble,dlg_boss_flatter,dlg_boss_flatter_l03,2,1,v0.7 branch
+dch_dlg_boss_task_askpay,dlg_boss_task,dlg_boss_task_l02,2,1,v0.7 branch
+dch_dlg_chen_sell_hold,dlg_chen_sell,dlg_chen_sell_l03,2,1,v0.7 branch
+dch_dlg_broker_listen,dlg_broker,dlg_broker_l03,2,1,v0.7 branch
+dch_dlg_white_knight_hesitate,dlg_white_knight,dlg_white_knight_l03,2,1,v0.7 branch
+dch_dlg_contact_corner_wary,dlg_contact_corner,dlg_contact_corner_l03,2,1,v0.7 branch
+dch_dlg_son_rumor_soft,dlg_son_rumor,dlg_son_rumor_l04,2,1,v0.7 branch
+dch_dlg_chen_hire_delay,dlg_chen_hire,dlg_chen_hire_l03,2,1,v0.7 branch
+dch_dlg_ex_buy_ok,dlg_ex_buy,dlg_ex_buy_l03,1,1,
+dch_dlg_ex_buy_small,dlg_ex_buy,dlg_ex_buy_l03,2,1,
+dch_dlg_ex_short_ok,dlg_ex_short,dlg_ex_short_l03,1,1,
+dch_dlg_ex_short_hedge,dlg_ex_short,dlg_ex_short_l03,2,1,
+dch_dlg_ex_trade_ok,dlg_ex_trade,dlg_ex_trade_l03,1,1,
+dch_dlg_ex_trade_partial,dlg_ex_trade,dlg_ex_trade_l03,2,1,
+dch_dlg_boss_blame_quiet,dlg_boss_blame,dlg_boss_blame_l03,2,1,v0.8
+dch_dlg_chen_lobby_wary,dlg_chen_lobby,dlg_chen_lobby_l03,2,1,v0.8
+dch_dlg_dock_work_slow,dlg_dock_work,dlg_dock_work_l03,2,1,v0.8
+dch_dlg_co_work_overtime,dlg_co_work,dlg_co_work_l03,2,1,v0.8
+dch_dlg_home_rest_think,dlg_home_rest,dlg_home_rest_l03,2,1,v0.8
+dch_dlg_ex_rumor_true_quiet,dlg_ex_rumor_true,dlg_ex_rumor_true_l03,2,1,v0.8
+dch_dlg_co_peek_copy,dlg_co_peek,dlg_co_peek_l03,2,1,v0.8
+dch_dlg_home_organize_burn,dlg_home_organize,dlg_home_organize_l03,2,1,v0.8

@@ -1,0 +1,6 @@
+id,name_key,expr,output_stat,notes
+pnl_long,stock_formulas.pnl_long.name,(stock_price - entry_price) * position_lots * lot_size * leverage_mult,money,平多/标记：position_lots>0
+pnl_short,stock_formulas.pnl_short.name,(entry_price - stock_price) * abs(position_lots) * lot_size * leverage_mult,money,平空/标记：position_lots<0
+open_long_cost,stock_formulas.open_long_cost.name,stock_price * lots * lot_size + buy_fee_flat,money,开多扣款（取负）
+open_short_margin,stock_formulas.open_short_margin.name,short_margin_flat * lots * leverage_mult,money,开空保证金（取负）
+bust_check,stock_formulas.bust_check.name,leverage_mult >= 2 and stock_price <= bust_price_floor and position_lots != 0,,真则强制平仓并 set ending 风险 / 大额亏损

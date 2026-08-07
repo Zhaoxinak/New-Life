@@ -1,0 +1,3 @@
+id,day,unlock_type,unlock_id,enabled,notes
+ul_tea_loc,6,location,tea_house,1,示例：第6天听说茶楼
+ul_tea_flag,6,flag,tea_house_known,1,

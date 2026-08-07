@@ -1,0 +1,6 @@
+id,default_periods,tags,sort_order,enabled,start_unlocked,notes
+dock,any,all,1,1,1,宏远所属货场
+company,morning|afternoon,B|A,2,1,1,白天为主
+home,afternoon|evening,B|all,3,1,1,傍晚夜晚客厅解锁
+rival,any,A,4,1,0,频繁前往抬升宏远疑心
+exchange,morning|afternoon,C,5,1,0,大户室需资金/声望

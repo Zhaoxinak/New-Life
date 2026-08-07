@@ -1,0 +1,13 @@
+id,category,min,max,initial,warn_low,warn_high,hidden,mod_locked,notes
+money,resource,0,99999,80,20,,0,0,低于警戒线：精神差、行动效率降低（flag:low_money）
+intel,resource,0,100,5,,,0,0,越高解锁阴谋等级越高
+network_base,social,0,100,25,,,0,0,码头工人/酒馆线人
+network_elite,social,0,100,0,,,0,0,商会/资本/大户室
+trust,company,0,100,45,15,,0,0,对应 ranks.csv
+suspicion,company,0,100,0,,70,0,0,轻度敲打/中度降职开除/重度身败名裂
+company_share,company,0,100,60,,,0,0,被截单/价格战降低
+stock_price,market,10,200,100,,,0,0,基准100
+father_son_tension,progress,0,100,20,,,0,0,≥阈值触发公开对立
+position_lots,market,-20,20,0,,,0,0,正=多仓手数，负=空仓手数
+entry_price,market,0,200,0,,,1,0,开仓均价；0表示无仓
+leverage_mult,market,1,5,1,,,1,0,当前杠杆倍数

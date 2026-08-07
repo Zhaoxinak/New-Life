@@ -1,0 +1,16 @@
+id,source_id,target_id,relation_key,initial,min,max,notes
+rel_su_qing_player_favor,su_qing,player,favor,65,0,100,对主角好感
+rel_su_qing_player_trust,su_qing,player,trust,55,0,100,对主角信任
+rel_su_qing_player_suspicion,su_qing,player,suspicion,10,0,100,对主角疑心（怕被利用时上升）
+rel_zhou_hongye_player_favor,zhou_hongye,player,favor,40,0,100,赏识度
+rel_zhou_hongye_player_trust,zhou_hongye,player,trust,35,0,100,信任（与stats.trust可同步或分轨；Demo建议事件写两边）
+rel_zhou_hongye_player_suspicion,zhou_hongye,player,suspicion,15,0,100,老板对主角疑心
+rel_zhou_shaoting_player_favor,zhou_shaoting,player,favor,15,0,100,看不起底层
+rel_zhou_shaoting_player_trust,zhou_shaoting,player,trust,10,0,100,
+rel_zhou_shaoting_player_suspicion,zhou_shaoting,player,suspicion,20,0,100,
+rel_chen_manager_player_favor,chen_manager,player,favor,20,0,100,仅闻其名
+rel_chen_manager_player_trust,chen_manager,player,trust,10,0,100,
+rel_chen_manager_player_suspicion,chen_manager,player,suspicion,5,0,100,
+rel_su_qing_zhou_shaoting_intimacy,su_qing,zhou_shaoting,intimacy,25,0,100,与少霆亲密值
+rel_zhou_hongye_zhou_shaoting_father_son_trust,zhou_hongye,zhou_shaoting,father_son_trust,55,0,100,父子信任；降低会抬高stats.father_son_tension
+rel_zhou_shaoting_zhou_hongye_father_son_trust,zhou_shaoting,zhou_hongye,father_son_trust,45,0,100,少霆视角的父子信任（可简化只读一边）

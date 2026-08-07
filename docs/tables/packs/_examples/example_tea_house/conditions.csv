@@ -1,0 +1,3 @@
+id,owner_type,owner_id,cond_group,cond_type,key,op,value,notes
+c_tea_back_flag,hotspot,tea_backroom,1,flag,tea_house_known,eq,1,
+c_tea_broker_money,action,tea_meet_broker,1,stat,money,gte,30,

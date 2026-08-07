@@ -1,0 +1,11 @@
+id,action_id,target_npc_id,base,chance_min,chance_max,enabled,notes
+chk_dock_chat,dock_chat,,0.50,0.08,0.92,1,无具名对手：玩家基层人脉 vs 公司风声(鸿业疑心/全局嫌疑)
+chk_co_eavesdrop,co_eavesdrop,zhou_hongye,0.48,0.08,0.92,1,对手=公司戒心(鸿业)；兼看少霆疑心
+chk_dock_steal,dock_steal_list,zhou_hongye,0.42,0.08,0.92,1,对手=宏远管控(鸿业)
+chk_dock_bribe,dock_bribe_clerk,zhou_hongye,0.45,0.08,0.92,1,仓管怕老板；鸿业信任高更好办，疑心高更难
+chk_co_peek,co_peek_books,zhou_hongye,0.40,0.08,0.92,1,对手=账房戒备≈鸿业
+chk_co_bribe_acc,co_bribe_accountant,zhou_hongye,0.38,0.08,0.92,1,会计对老板的忠诚≈鸿业信任/疑心
+chk_co_frame,co_frame_finance,zhou_hongye,0.36,0.08,0.92,1,栽赃：鸿业为主，少霆为辅
+chk_dock_black,dock_black_market,chen_manager,0.44,0.08,0.92,1,黑市路子与通洋暗线；陈掌柜好感/信任
+chk_ex_rumor_fake,ex_rumor_fake,zhou_hongye,0.40,0.08,0.92,1,砸宏远牌：对手=宏远体面(鸿业)；玩家声望
+chk_co_pass_rumor,co_pass_rumor,zhou_shaoting,0.42,0.08,0.92,1,骗少霆：完全看少霆对你的态度+你的情报

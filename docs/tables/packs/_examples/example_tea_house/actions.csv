@@ -1,0 +1,3 @@
+id,hotspot_id,periods,tags,time_cost,suspicion_base,cooldown_days,max_uses,sort_order,enabled,notes
+tea_gossip,tea_corner,afternoon|evening,all,1,0,0,0,1,1,示例
+tea_meet_broker,tea_backroom,evening,A|B,1,0,2,0,1,1,示例

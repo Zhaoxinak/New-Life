@@ -1,0 +1,10 @@
+id,action_id,when_phase,rule_type,param1,param2,param3,param4,enabled,notes
+rule_buy_open,ex_buy,on_action,open_long,lots:buy_lots_default,fee:buy_fee_flat,set_entry:stock_price,clear_short:1,1,开多；引擎写 position_lots/entry_price，并可镜像 flag_holding_long
+rule_short_open,ex_short,on_action,open_short,lots:short_lots_default,margin:short_margin_flat,set_entry:stock_price,clear_long:1,1,开空；镜像 flag_holding_short
+rule_trade_close,ex_trade,on_action,close_position,pnl_to_money:1,reset_lots:0,reset_entry:0,check_route_c:route_c_profit_target|set_flag:ending_route_c_ready,1,平仓结算；累计盈利>=target → 只设 ending_route_c_ready；ending_show_c 由 ev_c_first_short 写入
+rule_rumor_true,ex_rumor_true,on_action,price_shock,price_delta:-6,intel_cost:8,money_cost:10,suspicion:5,1,真消息砸盘
+rule_rumor_fake,ex_rumor_fake,on_action,price_shock,price_delta:-10,intel_cost:5,money_cost:15,suspicion:10,1,假消息；嫌疑更高
+rule_leverage,ex_leverage,on_action,set_leverage,mult:leverage_default,flag:flag_used_leverage,suspicion:4,,1,设 leverage_mult；镜像 flag_used_leverage
+rule_white_knight,ex_white_knight,on_action,flag_only,flag:flag_white_knight,money_cost:40,network_elite:5,,1,收购铺垫，不直接改仓
+rule_day_end,,on_day_end,price_drift,min:day_drift_min,max:day_drift_max,apply_pnl_mark:1,bust_check:bust_price_floor,1,每日漂移并标记盈亏；杠杆可爆仓
+rule_event_price,,on_effect_stock_price,clamp_price,min:min_price,max:max_price,,,1,任何股价变更后钳制

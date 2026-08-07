@@ -1,0 +1,30 @@
+id,default,tags,notes
+forced_night_shift,0,core,Day5事件
+son_notices_su,0,core,
+route_focus_a,0,core,可与其它focus并存
+route_focus_b,0,core,
+route_focus_c,0,core,
+su_leaks_zhou_info,0,core,关系阈值
+su_accepts_son_gifts,0,core,
+su_may_betray,0,core,
+boss_watching,0,core,
+son_hostile,0,core,
+can_join_tongyang,0,core,
+joined_tongyang,0,core,
+flag_sold_intel,0,core,
+flag_finance_framed,0,core,
+flag_holding_long,0,core,DEPRECATED: use stats position_lots/entry_price/leverage_mult; stock_rules may mirror
+flag_holding_short,0,core,DEPRECATED: use stats position_lots/entry_price/leverage_mult; stock_rules may mirror
+flag_used_leverage,0,core,DEPRECATED: use stats position_lots/entry_price/leverage_mult; stock_rules may mirror
+flag_white_knight,0,core,
+ending_route_a_ready,0,core,
+ending_route_b_ready,0,core,
+ending_route_c_ready,0,core,Set by stock_rules on profitable close (route_c_profit_target)
+ending_show_a,0,core,
+ending_show_b,0,core,
+ending_show_c,0,core,
+ending_fail,0,core,
+low_money,0,core,可由系统按stats自动维护
+suspicion_light,0,core,stat threshold
+suspicion_mid,0,core,stat threshold
+tension_high,0,core,父子矛盾达阈值，等待公开对立事件

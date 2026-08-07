@@ -1,0 +1,7 @@
+id,portrait_key,tags,enabled,is_player,notes
+player,portrait_player,core,1,1,玩家自身不进关系表主体
+zhou_hongye,portrait_boss,core,1,0,
+zhou_shaoting,portrait_son,core,1,0,
+su_qing,portrait_su,core,1,0,
+chen_manager,portrait_chen,core,1,0,
+narrator,portrait_narrator,system,1,0,旁白/系统叙述，非真人

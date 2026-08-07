@@ -1,0 +1,28 @@
+{
+  "id": "example_tea_house",
+  "name": "示例Mod·街边茶楼",
+  "version": "0.1.0",
+  "schema_version": 3,
+  "load_priority": 100,
+  "dependencies": [
+    "core"
+  ],
+  "description": "示范如何新增地点/热区/行动/条件/效果，而不改核心包。",
+  "tables": [
+    "locations",
+    "hotspots",
+    "actions",
+    "conditions",
+    "effects",
+    "flags",
+    "npcs",
+    "relations_init",
+    "unlock_schedule",
+    "l10n"
+  ],
+  "default_locale": "zh_CN",
+  "supported_locales": [
+    "zh_CN",
+    "en"
+  ]
+}
