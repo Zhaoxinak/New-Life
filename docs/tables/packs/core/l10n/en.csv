@@ -2,7 +2,7 @@
 actions.co_boss_task.description,Errands for pay and trust
 actions.co_boss_task.name,Take Boss's Task
 actions.co_boss_task.result,Errand done. Your pocket clicks a little fuller.
-actions.co_bribe_accountant.description,Cash for leaks and proof
+actions.co_bribe_accountant.description,"Tea money for gaps and proof. You buy a handle, not a friend."
 actions.co_bribe_accountant.name,Bribe Accountant
 actions.co_bribe_accountant.result,"Behind the accountant's lenses, a price flickers."
 actions.co_eavesdrop.description,Collect floor rumors
@@ -11,7 +11,7 @@ actions.co_eavesdrop.result,Gossip behind the screen—success or failure hangs 
 actions.co_flatter_boss.description,Play loyal for trust
 actions.co_flatter_boss.name,Flatter the Boss
 actions.co_flatter_boss.result,The boss taps his tea lid—you've passed.
-actions.co_frame_finance.description,Shift blame to deepen the feud
+actions.co_frame_finance.description,Dump blame into the ledger room—pens bite; the hall stumbles.
 actions.co_frame_finance.name,Frame a Ledger Gap
 actions.co_frame_finance.result,You toss the blame. Teeth find each other.
 actions.co_meet_son.description,Jockey with Zhou Shaoting
@@ -23,7 +23,7 @@ actions.co_meet_su.result,"Eyes meet in the hall, then tear apart."
 actions.co_pass_rumor.description,Use the son to divide father and son
 actions.co_pass_rumor.name,Plant a False Tip
 actions.co_pass_rumor.result,A false word enters a true ear. The air tightens.
-actions.co_peek_books.description,Spot finance irregularities
+actions.co_peek_books.description,"Lift the ledger crack: who saw, who played deaf—numbers remember."
 actions.co_peek_books.name,Peek at the Books
 actions.co_peek_books.result,The ledger's crack is deeper than you thought.
 actions.co_recruit_elder.description,Treat them; buy street support
@@ -35,7 +35,7 @@ actions.co_take_blame.result,You take the blame—and a moment of being one of t
 actions.co_work.description,Honest labor to hold your post
 actions.co_work.name,Office Work
 actions.co_work.result,The brush goes stiff. You still write yourself as reliable.
-actions.dock_black_market.description,"Fast cash, high heat"
+actions.dock_black_market.description,Corner short deals. Cargo burns; silver burns; your back burns.
 actions.dock_black_market.name,Fence Gray Goods
 actions.dock_black_market.result,Gray goods become silver. Someone seems to watch the scale.
 actions.dock_bribe_clerk.description,Pay for inside talk
@@ -43,7 +43,7 @@ actions.dock_bribe_clerk.name,Bribe Warehouse Clerk
 actions.dock_bribe_clerk.result,The clerk's fingers loosen; news slips out before the cash.
 actions.dock_chat.description,Pick up yard gossip and quiet grudges
 actions.dock_chat.name,Chat with Workers
-actions.dock_chat.result,Workers whisper: someone fiddled the night manifests.
+actions.dock_chat.result,Worker crushes a cigarette: night manifest rewritten two lines—accounts ink. Keep quiet.
 actions.dock_check_board.description,Public sailings and market wind
 actions.dock_check_board.name,Check Harbor Board
 actions.dock_check_board.result,The board's ink is still wet: sailings changed again.
@@ -62,13 +62,13 @@ actions.dock_watch_manifest.result,You pocket ship names and tonnage like a key.
 actions.dock_work.description,Work the docks for wages
 actions.dock_work.name,Haul Cargo
 actions.dock_work.result,Chants land on your shoulders. Pay hits; sweat isn't dry—someone laughs: even the foreman has days like this.
-actions.ex_buy.description,Open long via formula (price×lots + fee)
+actions.ex_buy.description,Bet Hongyuan can still hold. Stamp falls; silver and fees leave together.
 actions.ex_buy.name,Buy Hongyuan Shares
 actions.ex_buy.result,You bet on a rise. Street talk crawls into your ear.
 actions.ex_leverage.description,Amplify gains and blow-up risk
 actions.ex_leverage.name,Use Leverage
 actions.ex_leverage.result,Leverage lifts you—and hangs you.
-actions.ex_meet_broker.description,Raise elite standing
+actions.ex_meet_broker.description,Back room: who pushes Hongyuan—and whom they smashed first.
 actions.ex_meet_broker.name,Meet a Broker
 actions.ex_meet_broker.result,The broker writes your name into a small book.
 actions.ex_rumor_fake.description,Force a drop; higher heat
@@ -77,7 +77,7 @@ actions.ex_rumor_fake.result,Lies travel faster. Your back burns hotter.
 actions.ex_rumor_true.description,Spend intel to move the price
 actions.ex_rumor_true.name,Spread True News
 actions.ex_rumor_true.result,Truth hits the price like a hammer.
-actions.ex_short.description,Open short via formula (post margin)
+actions.ex_short.description,"Bet the fall. Margin first—when it drops, will the dock chant skip?"
 actions.ex_short.name,Short Hongyuan
 actions.ex_short.result,You bet on a fall. Some call you mad; some nod.
 actions.ex_trade.description,Close position if any; otherwise watch the board
@@ -107,7 +107,7 @@ actions.rival_accept_job.result,The old door closes. The new sign stings the eye
 actions.rival_apply.description,Probe Tongyang's interest
 actions.rival_apply.name,Ask about Hiring
 actions.rival_apply.result,Tongyang's clerk notes your name—and your cuffs.
-actions.rival_hijack_order.description,Defect-route demo milestone
+actions.rival_hijack_order.description,Show Tongyang the crack in Hongyuan's morning berth—and show yourself with it.
 actions.rival_hijack_order.name,Hijack a Hongyuan Order
 actions.rival_hijack_order.result,The sailing changes hands. Someone curses at Hongyuan.
 actions.rival_plot_poach.description,Plan the first commercial strike
@@ -186,23 +186,23 @@ dialogue_choices.dch_dlg_dock_steal_extra.label,Tear an extra half-page
 dialogue_choices.dch_dlg_dock_steal_ok.label,Copy and leave
 dialogue_choices.dch_dlg_dock_work_ok.label,Finish the shift
 dialogue_choices.dch_dlg_dock_work_slow.label,Slow half a beat to listen
-dialogue_choices.dch_dlg_ex_buy_ok.label,Confirm the long
+dialogue_choices.dch_dlg_ex_buy_ok.label,Bet it still holds
 dialogue_choices.dch_dlg_ex_buy_small.label,Try a smaller hand
 dialogue_choices.dch_dlg_ex_leverage_hesitate.label,Ask the liquidation line
-dialogue_choices.dch_dlg_ex_leverage_ok.label,Sign for more
+dialogue_choices.dch_dlg_ex_leverage_ok.label,Sign—stretch the neck
 dialogue_choices.dch_dlg_ex_rumor_fake_bold.label,Make it harsher
 dialogue_choices.dch_dlg_ex_rumor_fake_ok.label,Release the lie
 dialogue_choices.dch_dlg_ex_rumor_true_ok.label,Loosen the rumor
 dialogue_choices.dch_dlg_ex_rumor_true_quiet.label,Tell only one person
 dialogue_choices.dch_dlg_ex_short_hedge.label,Ask the margin line first
-dialogue_choices.dch_dlg_ex_short_ok.label,Confirm the short
-dialogue_choices.dch_dlg_ex_trade_ok.label,Close it all
+dialogue_choices.dch_dlg_ex_short_ok.label,Bet the fall
+dialogue_choices.dch_dlg_ex_trade_ok.label,Tide enough—close all
 dialogue_choices.dch_dlg_ex_trade_partial.label,Close half and watch
 dialogue_choices.dch_dlg_home_organize_burn.label,Burn the hottest papers
 dialogue_choices.dch_dlg_home_organize_ok.label,Stash the proof
-dialogue_choices.dch_dlg_home_plan_a.label,Lean Tongyang
-dialogue_choices.dch_dlg_home_plan_b.label,Lean divide
-dialogue_choices.dch_dlg_home_plan_c.label,Lean exchange
+dialogue_choices.dch_dlg_home_plan_a.label,Tongyang: trade goods for a seat
+dialogue_choices.dch_dlg_home_plan_b.label,Stay: deepen the father–son rift
+dialogue_choices.dch_dlg_home_plan_c.label,Exchange: flip the board
 dialogue_choices.dch_dlg_home_rest_ok.label,Close your eyes
 dialogue_choices.dch_dlg_home_rest_think.label,Lie still—retrace the threads
 dialogue_choices.dch_dlg_rival_hijack_delay.label,Wait one more night
@@ -217,9 +217,9 @@ dialogue_choices.dch_dlg_su_guide_cold.label,Demand results; skip the softness
 dialogue_choices.dch_dlg_su_guide_ok.label,Promise to protect her
 dialogue_choices.dch_dlg_su_office_calm.label,Hold your temper and leave
 dialogue_choices.dch_dlg_su_office_jab.label,Throw a cold jab at Shaoting
-dialogue_choices.dch_dlg_su_talk_press.label,Press her about Shaoting
-dialogue_choices.dch_dlg_su_talk_scheme.label,Hint she should watch the father–son rift
-dialogue_choices.dch_dlg_su_talk_soft.label,Speak gently; ask about the Zhous
+dialogue_choices.dch_dlg_su_talk_press.label,Press: how close are you to Shaoting
+dialogue_choices.dch_dlg_su_talk_scheme.label,Probe: watch the father–son rift for me
+dialogue_choices.dch_dlg_su_talk_soft.label,Steady her first; ask about the Zhous gently
 dialogue_choices.dch_dlg_white_knight_hesitate.label,Shake hands—no deposit yet
 dialogue_choices.dch_dlg_white_knight_ok.label,Leave a token of contact
 dialogue_line_variants.var_boss_blame_l03_watch.text,Hmph. Backbone—don't wander. Someone's watching you.
@@ -241,7 +241,7 @@ dialogue_line_variants.var_ex_buy_l02_low.text,Buy the rise. But the pocket's th
 dialogue_line_variants.var_ex_lev_l02_used.text,Again? The counter smile deepens.
 dialogue_line_variants.var_ex_short_l02_lev.text,I bet the fall. Leverage's still on my neck—too little drop can still choke.
 dialogue_line_variants.var_home_guide_l04_leak.text,She nods: 'About the key—I can listen more carefully.'
-dialogue_line_variants.var_home_plan_l02_b.text,Endure. Divide. Feed the crack.
+dialogue_line_variants.var_home_plan_l02_b.text,Endure. Divide. Keep father and son choking on their own words.
 dialogue_line_variants.var_home_rest_l02_watch.text,Play innocent tomorrow—and pretend not to see the eyes behind.
 dialogue_line_variants.var_rival_hijack_l02_a.text,Show the seam—haven't you already picked a side?
 dialogue_line_variants.var_son_meet_l01_hostile.text,You again? Even Hongyuan's rats climb stairs now?
@@ -253,8 +253,8 @@ dialogue_line_variants.var_su_guide_l02_low.text,"Ah-Hai, you're scarier now.…
 dialogue_line_variants.var_su_office_l02_intimacy.text,Ah-Hai? Shaoting said… he'll walk me home later.
 dialogue_line_variants.var_su_talk_l01_gift.text,"A-Hai, the box… I put it in the cabinet. Don't be angry."
 dialogue_line_variants.var_su_talk_l01_leak.text,A-Hai… I heard about the ledger key today. Don't ask how.
-dialogue_line_variants.var_su_talk_l02_high.text,I'm fine. You've grown thin.… Has Shaoting bothered you?
-dialogue_line_variants.var_su_talk_l02_low.text,Fine. You've been… close to Shaoting lately.
+dialogue_line_variants.var_su_talk_l02_high.text,"Holding up. You're thinner.… If he pushes more gifts, tell me first?"
+dialogue_line_variants.var_su_talk_l02_low.text,"Fine. Don't look at me like that. Shaoting—you know, and so do I."
 dialogue_line_variants.var_su_talk_l03_betray.text,He… he said he'll send something dearer tomorrow. I don't know what to tell you.
 dialogue_line_variants.var_su_talk_l03_drift.text,The foreign cloth is soft… don't look at me like that.
 dialogue_line_variants.var_su_talk_l03_high.text,"When he gives gifts, I still think of you. Truly."
@@ -265,70 +265,70 @@ dialogue_lines.dlg_boss_blame_l03.text,"Hmph. Backbone—remember, backbone can 
 dialogue_lines.dlg_boss_flatter_l01.text,Zhou Hongye looks up: 'More loyalty talk? Hongyuan needs shoulders—not tongues.'
 dialogue_lines.dlg_boss_flatter_l02.text,I watched too loosely. I'll check the manifests myself.
 dialogue_lines.dlg_boss_flatter_l03.text,Sensible. Hongyuan doesn't keep complainers.
-dialogue_lines.dlg_boss_task_l01.text,A ship must catch the night tide. Watch it. Don't shame us.
-dialogue_lines.dlg_boss_task_l02.text,Yes.
-dialogue_lines.dlg_broker_l01.text,"In the tearoom, abacus beads out-talk the guests."
+dialogue_lines.dlg_boss_task_l01.text,Seagull's unloading sugar on the night tide. Watch it—don't let them say Hongyuan can't lift.
+dialogue_lines.dlg_boss_task_l02.text,Yes. Hatch clear before dawn.
+dialogue_lines.dlg_broker_l01.text,Back-room abacus louder than voices. Broker's cuff holds a scrap of Hongyuan news.
 dialogue_lines.dlg_broker_l02.text,"A broker looks up: ""Hongyuan's price is a tide—someone pushes, someone falls."""
-dialogue_lines.dlg_broker_l03.text,I want to know who pushes.
+dialogue_lines.dlg_broker_l03.text,I want who pushes Hongyuan's price—and who they smashed first.
 dialogue_lines.dlg_chen_hire_l01.text,"From today, you're Tongyang's. Don't look back at Hongyuan."
 dialogue_lines.dlg_chen_hire_l02.text,I won't. I'll make them regret.
 dialogue_lines.dlg_chen_hire_l03.text,Hate is useful. Don't let it burn your head.
 dialogue_lines.dlg_chen_lobby_l01.text,Tongyang's brass plaque glares. Tide at the door sounds like another firm's breath.
 dialogue_lines.dlg_chen_lobby_l02.text,Hongyuan man? Bold. What did you bring for a seat?
-dialogue_lines.dlg_chen_lobby_l03.text,"I know the docks. Manifests, sailings—I can get them."
+dialogue_lines.dlg_chen_lobby_l03.text,I know dock work. Seagull tonnage didn't match yesterday—I can find more seams.
 dialogue_lines.dlg_chen_sell_l01.text,I've seen the list. Real. Name your price.
 dialogue_lines.dlg_chen_sell_l02.text,Money second. I want a footing that holds.
 dialogue_lines.dlg_chen_sell_l03.text,Tongyang keeps no idlers. Sharp intel earns a chair.
 dialogue_lines.dlg_co_bribe_acc_l01.text,A price flickers behind the accountant's lenses.
 dialogue_lines.dlg_co_bribe_acc_l02.text,Holes can be sold. So can evidence.
 dialogue_lines.dlg_co_bribe_acc_l03.text,Paper rustles like a gavel.
-dialogue_lines.dlg_co_eavesdrop_l01.text,Teacups tap behind the screen. Gossip beats memos.
-dialogue_lines.dlg_co_eavesdrop_l02.text,Father and son? Ledgers? Or promotions?
-dialogue_lines.dlg_co_eavesdrop_l03.text,You fit the overheard shards into a blade spine—good for blocking talk, better for stabbing back.
+dialogue_lines.dlg_co_eavesdrop_l01.text,Lid taps behind the screen. Someone whispers Shaoting and the promotion slot.
+dialogue_lines.dlg_co_eavesdrop_l02.text,"…Father–son clash, or the night-shift ledger gap?"
+dialogue_lines.dlg_co_eavesdrop_l03.text,You fit the overheard shards into a blade spine—good for blocking talk
 dialogue_lines.dlg_co_elder_l01.text,The elder takes the wine; his eyes loosen an inch.
 dialogue_lines.dlg_co_elder_l02.text,Hongyuan feeds people—and wears them down. We both know.
 dialogue_lines.dlg_co_elder_l03.text,He sighs like turning an old ledger page.
-dialogue_lines.dlg_co_frame_l01.text,Blame flies. People start biting each other.
+dialogue_lines.dlg_co_frame_l01.text,Blame hits finance. Ledger bites clerks; clerks bite night shift—pens sharper than teeth.
 dialogue_lines.dlg_co_frame_l02.text,Not me—the books cracked themselves.
-dialogue_lines.dlg_co_frame_l03.text,Hallway footsteps miss a beat.
+dialogue_lines.dlg_co_frame_l03.text,"Hall steps stumble half a beat. Someone runs for the boss office, ledger in fist."
 dialogue_lines.dlg_co_peek_l01.text,The ledger crack is deeper than you thought.
 dialogue_lines.dlg_co_peek_l02.text,This page… has Shaoting seen it? Hongye?
 dialogue_lines.dlg_co_peek_l03.text,Numbers don't speak. They bite.
-dialogue_lines.dlg_co_work_l01.text,"The brush goes stiff. Outside, other people laugh."
-dialogue_lines.dlg_co_work_l02.text,Write yourself as 'reliable' first.
+dialogue_lines.dlg_co_work_l01.text,"Brush hand stiff. Corridor laugh outside—not at you, not unrelated either."
+dialogue_lines.dlg_co_work_l02.text,Clean hand. At least Shaoting didn't red-X your margin today.
 dialogue_lines.dlg_co_work_l03.text,Ink dries; ambition stays damp.
 dialogue_lines.dlg_contact_corner_l01.text,"In the tide-smell, someone crushes a cigarette on a crate."
-dialogue_lines.dlg_contact_corner_l02.text,"(Agent) The manager says: bring papers, or don't waste the night."
-dialogue_lines.dlg_contact_corner_l03.text,Tell him—I'm listening.
-dialogue_lines.dlg_dock_black_l01.text,The corner scale is missing a weight.
-dialogue_lines.dlg_dock_black_l02.text,The cargo is hot. So are the people.
+dialogue_lines.dlg_contact_corner_l02.text,Bring papers. Or don't waste the night.
+dialogue_lines.dlg_contact_corner_l03.text,Tide call—I'm listening. Papers tonight. Don't hold over.
+dialogue_lines.dlg_dock_black_l01.text,Corner scale missing a weight. He covers with a sleeve; only silver edges show.
+dialogue_lines.dlg_dock_black_l02.text,Cargo burns. Don't ask the ship name—askers vanish by night.
 dialogue_lines.dlg_dock_black_l03.text,Silver lands; something watches the pan behind you.
 dialogue_lines.dlg_dock_board_l01.text,"Ink on the board is still wet, cramped into one line."
 dialogue_lines.dlg_dock_board_l02.text,Schedules shift again… first to know eats first.
-dialogue_lines.dlg_dock_board_l03.text,You pin the wind into memory.
+dialogue_lines.dlg_dock_board_l03.text,"You memorize ""berth at yin, short two tons"" twice before you walk."
 dialogue_lines.dlg_dock_bribe_l01.text,The clerk rubs his hands like rubbing a price.
 dialogue_lines.dlg_dock_bribe_l02.text,Tea money… for a convenient 'I forget.'
 dialogue_lines.dlg_dock_bribe_l03.text,Silver hits his pocket; news slips out first.
 dialogue_lines.dlg_dock_chat_l01.text,A resting docker hides the cigarette in his palm.
-dialogue_lines.dlg_dock_chat_l02.text,Who changed the night-shift order again?
-dialogue_lines.dlg_dock_chat_l03.text,Someone chuckles without lifting his eyes.
-dialogue_lines.dlg_dock_manifest_l01.text,The wind peels a corner of the manifest.
-dialogue_lines.dlg_dock_manifest_l02.text,Tonnage doesn't match… and the ship name looks dirty.
+dialogue_lines.dlg_dock_chat_l02.text,Night manifest got two lines rewritten—accounts pen busier than the chant.
+dialogue_lines.dlg_dock_chat_l03.text,"Someone laughs: ""Tongyang's price."" Then crushes the cigarette."
+dialogue_lines.dlg_dock_manifest_l01.text,Tide wind lifts a corner of the manifest; wet ink shows a second stroke.
+dialogue_lines.dlg_dock_manifest_l02.text,Short two tons; ship name scraped by a fingernail.
 dialogue_lines.dlg_dock_manifest_l03.text,You tuck the numbers under your tongue like a key.
 dialogue_lines.dlg_dock_report_l01.text,The supervisor's tea is cold; his pen is sharp.
 dialogue_lines.dlg_dock_report_l02.text,Today's loading is clear. Anomalies… on the addendum.
-dialogue_lines.dlg_dock_report_l03.text,"He grunts—heard, at least."
+dialogue_lines.dlg_dock_report_l03.text,"He grunts: ""I'll read the annex. Err again—night roster still has room."""
 dialogue_lines.dlg_dock_steal_l01.text,Light leaks from the warehouse door. The paper edge is too clean.
 dialogue_lines.dlg_dock_steal_l02.text,One page… enough for one sentence.
 dialogue_lines.dlg_dock_steal_l03.text,Your pulse stutters. Footsteps turn the corner.
 dialogue_lines.dlg_dock_work_l01.text,Chants stack on chants. Brine works into your collar.
-dialogue_lines.dlg_dock_work_l02.text,Two more loads… at least the wages are mine.
+dialogue_lines.dlg_dock_work_l02.text,Two more loads. Salt in the shoulder cut—but pay in the pocket is yours.
 dialogue_lines.dlg_dock_work_l03.text,Shoulders burn. Someone shouts your old nickname.
 dialogue_lines.dlg_ex_buy_l01.text,The hall board ticks. A long is tide pressed into a pocket.
 dialogue_lines.dlg_ex_buy_l02.text,Buy the rise. Bet Hongyuan holds—or that others panic first.
 dialogue_lines.dlg_ex_buy_l03.text,The desk stamps. Tide sounds half an inch farther.
 dialogue_lines.dlg_ex_leverage_l01.text,Leverage lifts you—and hangs you.
-dialogue_lines.dlg_ex_leverage_l02.text,Wins are fast. Losses… also.
+dialogue_lines.dlg_ex_leverage_l02.text,"Win fast. Lose fast—stamp hits, palms full of sweat."
 dialogue_lines.dlg_ex_leverage_l03.text,The man behind the counter smiles thinly.
 dialogue_lines.dlg_ex_rumor_fake_l01.text,Lies travel faster. Your back runs hotter.
 dialogue_lines.dlg_ex_rumor_fake_l02.text,As long as someone believes today.
@@ -346,33 +346,33 @@ dialogue_lines.dlg_home_organize_l01.text,"Old letters, slips, brine on a cuff."
 dialogue_lines.dlg_home_organize_l02.text,Straighten the threads. Knives need chaos later.
 dialogue_lines.dlg_home_organize_l03.text,The desk is clean. The mind isn't.
 dialogue_lines.dlg_home_plan_l01.text,The wick pops. Three paths knot on the paper.
-dialogue_lines.dlg_home_plan_l02.text,"Endure, defect, or bet?"
-dialogue_lines.dlg_home_plan_l03.text,You nail tomorrow's first step.
+dialogue_lines.dlg_home_plan_l02.text,"Pen stalls: show face at the dock, ask about Shaoting's yarn box, or try the board."
+dialogue_lines.dlg_home_plan_l03.text,You cross out two lines. Tomorrow: one step that lands—don't knot yourself in arrows.
 dialogue_lines.dlg_home_rest_l01.text,The bed creaks. Tide washes suspicion down an inch.
-dialogue_lines.dlg_home_rest_l02.text,Tomorrow you still play innocent.
+dialogue_lines.dlg_home_rest_l02.text,Tomorrow you play fine outdoors. Tonight shoulders and hate rest—just Ah-Hai.
 dialogue_lines.dlg_home_rest_l03.text,In dreams someone slams a table—and a door.
 dialogue_lines.dlg_rival_hijack_l01.text,"On the schedule, Hongyuan's name is blotted out."
 dialogue_lines.dlg_rival_hijack_l02.text,Show us the seam. We'll take the cut.
 dialogue_lines.dlg_rival_hijack_l03.text,If the seam shows—so do I.
 dialogue_lines.dlg_rival_poach_l01.text,"In Tongyang's tea room, the list is hotter than tea."
 dialogue_lines.dlg_rival_poach_l02.text,Hongyuan hands can become Tongyang hands.
-dialogue_lines.dlg_rival_poach_l03.text,Hands can be borrowed. Hearts… separately.
-dialogue_lines.dlg_son_meet_l01.text,Dock hands in the building? Speak—what do you want?
-dialogue_lines.dlg_son_meet_l02.text,"The schedule report, as you asked."
-dialogue_lines.dlg_son_meet_l03.text,Leave it. And stop eyeing my office—filthy habit.
+dialogue_lines.dlg_rival_poach_l03.text,Hands borrow. Hearts stay cold—warm ones don't last on the list.
+dialogue_lines.dlg_son_meet_l01.text,Loaders in the building? Drop the report—don't look at me with sack eyes.
+dialogue_lines.dlg_son_meet_l02.text,Schedule report as ordered. Exceptions on the annex—please review.
+dialogue_lines.dlg_son_meet_l03.text,Drop it and go. This isn't a warehouse—don't stand dirty too long.
 dialogue_lines.dlg_son_rumor_l01.text,You lower your voice and slip half-true schedules into Shaoting's ear—like an unsharpened knife.
 dialogue_lines.dlg_son_rumor_l02.text,Who? One of my father's eyes?
 dialogue_lines.dlg_son_rumor_l03.text,I wouldn't dare say. I only thought you should know.
-dialogue_lines.dlg_son_rumor_l04.text,Good. You know how to talk.
-dialogue_lines.dlg_su_guide_l01.text,"The wick pops. You say: if she 'casually' mentions the books again, the crack will grow itself."
+dialogue_lines.dlg_son_rumor_l04.text,Good. Smooth tongue—I noted it. Truth I'll check myself.
+dialogue_lines.dlg_su_guide_l01.text,"Wick pops. Soft: ledger keys, father–son clashes—if she mentions them, ask one more line."
 dialogue_lines.dlg_su_guide_l02.text,"Isn't that hurting people? Ah-Hai, you've changed."
-dialogue_lines.dlg_su_guide_l03.text,The docks changed. I want us free of other people's faces.
+dialogue_lines.dlg_su_guide_l03.text,The dock changed. I want us free of their faces—even if it starts with half a Zhou word from her.
 dialogue_lines.dlg_su_guide_l04.text,…I'll try. But don't throw me into the fire.
-dialogue_lines.dlg_su_office_l01.text,The vice office door is ajar. Wanqing steps out with papers and sees you.
-dialogue_lines.dlg_su_office_l02.text,Ah-Hai? I… Shaoting asked me to deliver a file.
-dialogue_lines.dlg_su_office_l03.text,"Oh, the dock man. Queue up if you want me."
+dialogue_lines.dlg_su_office_l01.text,VP door ajar. Wanqing with files; fingertips pause on the folder when she sees you.
+dialogue_lines.dlg_su_office_l02.text,A-Hai? …Shaoting sent me with this schedule. Back to the floor soon.
+dialogue_lines.dlg_su_office_l03.text,Loading crew in line too—more reports than people.
 dialogue_lines.dlg_su_talk_l01.text,Ah-Hai… you're late. Still hard at the docks?
-dialogue_lines.dlg_su_talk_l02.text,Manageable. And you? Has Shaoting been bothering you?
+dialogue_lines.dlg_su_talk_l02.text,Shoulder's still sore. You? No lies here—how much of Shaoting's gifts did you take?
 dialogue_lines.dlg_su_talk_l03.text,"He just… likes giving things. Cloth, handkerchiefs. I didn't take the expensive ones."
 dialogue_lines.dlg_su_talk_l04.text,The lamp flickers. You catch the unease in her fingers.
 dialogue_lines.dlg_white_knight_l01.text,VIP curtains hide the docks. Someone shows only a gold cuff.
@@ -388,10 +388,10 @@ endings.ending_b.description,You force a public clash and brush the warehouse se
 endings.ending_b.name,Father–Son Fracture · Warehouse Chief
 endings.ending_c.description,A successful short funds you and opens higher market tools.
 endings.ending_c.name,First Pot · Exchange
-endings.ending_fail_broke.description,Money hits zero; ambition cools for now.
+endings.ending_fail_broke.description,"Pockets empty. Boards, chants, lids remain; only ambition's fire dies for now.|||The harbor won't mourn—only whether you dare another sack tomorrow."
 endings.ending_fail_broke.name,Penniless
-endings.ending_fail_fired.description,Suspicion piles high; Hongyuan cuts you out.
-endings.ending_fail_fired.name,Ruined
+endings.ending_fail_fired.description,"Hongyuan's door shuts. Badge gone, life not—the chant is honester than the roster.|||Harbor remains: haul, find another door, or pry the crack wider."
+endings.ending_fail_fired.name,Shown the door (disabled)
 event_choices.ch_a_ok.label,First strike landed
 event_choices.ch_b_clash_ok.label,The crack is here — milestone reached
 event_choices.ch_b_push.label,Add more fuel
@@ -502,19 +502,19 @@ event_choices.ch_ev_rank_foreman_remind_ok.label,Keep carrying it
 event_choices.ch_fail_broke_ok.label,End
 event_choices.ch_fail_fired_ok.label,End
 event_choices.ch_intro_ok.label,Begin the day
-events.ev_a_d10_list.body,Manager Chen slides a folded list: 'Hongyuan hands can be Tongyang hands.'
+events.ev_a_d10_list.body,"Chen slides a folded list past the cup: ""Hongyuan hands can be Tongyang's.""|||Wet ink holds shifts you know—and names you won't claim."
 events.ev_a_d10_list.title,A Poachable List
-events.ev_a_d12_probe.body,The note becomes a whisper: Chen wants a sailing that makes Hongyuan hurt.
+events.ev_a_d12_probe.body,"Paper becomes voice. Chen taps the table: ""A berth that makes Hongyuan hurt—hurt enough, and the door opens.""|||Your old badge suddenly weighs."
 events.ev_a_d12_probe.title,Tongyang Probes Again
-events.ev_a_d14_tea.body,Chen's man offers half price for your schedules—weighing whether you're desperate or can wait.
+events.ev_a_d14_tea.body,"Chen's man offers half for your schedule. His eyes weigh: desperate, or patient?|||Half is still a price—Tongyang never drinks tea free."
 events.ev_a_d14_tea.title,Tongyang's Probe Price
-events.ev_a_d15_leak.body,Someone says Tongyang ink is on your cuff. Hongye doesn't ask—he just adds a patrol.
+events.ev_a_d15_leak.body,Tea room whisper: Tongyang ink on your cuff. Hongye doesn't call you—just adds a patrol that brushes your usual hatch.
 events.ev_a_d15_leak.title,Ink on the Cuff
-events.ev_a_d17_shadow.body,"Hongye adds a 'voluntary' patrol. Your name isn't listed, but the route passes the door you haunt."
+events.ev_a_d17_shadow.body,"The ""volunteer"" patrol skips your name, but steps stay half a zhang behind. No chant—only who has clean cuffs."
 events.ev_a_d17_shadow.title,Hongyuan's Shadow Shift
 events.ev_a_d18_order.body,Tongyang wants confirmation: can Hongyuan still seize tomorrow's berth? Your answer becomes a blade.
 events.ev_a_d18_order.title,Night Before the Hijack
-events.ev_a_d20_pressure.body,Word is Hongye is hunting who fed Tongyang the manifests. Your cuffs feel loud.
+events.ev_a_d20_pressure.body,Word is Hongye hunts who fed manifests to Tongyang. You hitch your cuff walking—the ink smell seems to follow.
 events.ev_a_d20_pressure.title,Hongyuan's Retaliation Rumor
 events.ev_a_d21_packet.body,"A corner envelope holds four words: schedules, tonight. No name—but Tongyang ledger ink."
 events.ev_a_d21_packet.title,A Sealed Envelope
@@ -526,7 +526,7 @@ events.ev_a_d26_choice.body,At Tongyang's door you can still see Hongyuan's sign
 events.ev_a_d26_choice.title,Hongyuan Behind You
 events.ev_a_d28_ready.body,"Tongyang sends a note: three things for the cut—ship, tonnage, shift. Missing one dulls the blade."
 events.ev_a_d28_ready.title,The Defect Checklist
-events.ev_a_d30_hook.body,Day thirty. Tongyang's door isn't wide—just a crack. Hongyuan's sign burns behind you. The demo blade rests on the frame.
+events.ev_a_d30_hook.body,Day thirty thins. Tongyang's door isn't wide—just a crack. Hongyuan burns behind.|||The paper still rests on the jamb—in or not depends if you dare one more page.
 events.ev_a_d30_hook.title,Tongyang's Door Crack
 events.ev_a_d8_smoke.body,Corner smoke thins slowly. A Tongyang man says: 'We can wait for schedules. You can't.'
 events.ev_a_d8_smoke.title,Corner Smoke
@@ -544,13 +544,13 @@ events.ev_b_d13_gift.body,"A box of foreign yarn at the door—no card. Wanqing 
 events.ev_b_d13_gift.title,Foreign Yarn Arrives
 events.ev_b_d14_elder_drink.body,"After cups, an elder says Hongye and Shaoting fought over a ship—ledgers nearly slammed on the table."
 events.ev_b_d14_elder_drink.title,Elder's Drunk Talk
-events.ev_b_d16_fake_ledger.body,Rumor: a finance page won't balance. True or false—you can still use it.
+events.ev_b_d16_fake_ledger.body,"Rumor: one finance page won't balance. Truth unclear—false still fits Shaoting's ear, and both jaws bite."
 events.ev_b_d16_fake_ledger.title,Ledger Rumor
 events.ev_b_d17_ledger_echo.body,The page you framed is mentioned again. Some blame Shaoting; some say Hongye plays deaf on purpose.
 events.ev_b_d17_ledger_echo.title,Ledger Echo
 events.ev_b_d19_su_afraid.body,"Under the lamp she grips your sleeve, knuckles white.|||""If father and son tear apart, will I be pulled in?""|||The question isn't only comfort—it's whether you still count her as a person, or a piece."
 events.ev_b_d19_su_afraid.title,Wanqing Afraid
-events.ev_b_d21_watchman.body,You look back thrice; the same man is there. The boss's suspicion grows legs.
+events.ev_b_d21_watchman.body,"Three glances back: the same man—dark blue tunic, brim equally low. The boss's suspicion grew legs on your usual stones."
 events.ev_b_d21_watchman.title,A Tail
 events.ev_b_d22_rain.body,"Rain hits the window. Wanqing asks: 'Those words you had me say… for Hongyuan, or for me?'"
 events.ev_b_d22_rain.title,Rain-Night Confrontation
@@ -558,7 +558,7 @@ events.ev_b_d24_boardroom_noise.body,Through the wall: a slammed table. Shaoting
 events.ev_b_d24_boardroom_noise.title,Through the Wall
 events.ev_b_d25_mirror.body,"In the washroom mirror you see yourself: smile intact, eyes no longer a stevedore's. The building's crack sits in your pupils."
 events.ev_b_d25_mirror.title,Crack in the Mirror
-events.ev_b_d27_promotion_hint.body,"Someone asks quietly: if father and son keep fighting, might the warehouse chair empty?"
+events.ev_b_d27_promotion_hint.body,"Someone tugs your cuff: if father and son clash again, might warehouse chief empty?|||Honey and hook—you hear both, smile at neither."
 events.ev_b_d27_promotion_hint.title,Promotion Whisper
 events.ev_b_d28_calm_before.body,Hongyuan is too quiet. Everyone waits for a slammed table. The crack is wide enough.
 events.ev_b_d28_calm_before.title,Night Before the Break
@@ -576,25 +576,25 @@ events.ev_b_public_clash.body,"Shouts in the office block. Hongye smashes a cup;
 events.ev_b_public_clash.title,Father and Son Clash
 events.ev_boss_watching.body,"Footsteps behind you. The boss's suspicion rises like tide—extra patrols, sharper tea taps, your name on addenda."
 events.ev_boss_watching.title,Being Watched
-events.ev_c_d10_tip.body,"Someone winks: Hongyuan insiders will slam the price tonight. Half true, half bait."
+events.ev_c_d10_tip.body,"A tea guest winks: Hongyuan ""insiders"" smash tonight. Half true—but his eyes keep flicking toward the Hongyuan board."
 events.ev_c_d10_tip.title,A Wink in the Teahouse
 events.ev_c_d12_open.body,"Three minutes to open, your fingers are all sweat. Someone laughs: first-timers always are."
 events.ev_c_d12_open.title,Sweat Before the Open
-events.ev_c_d13_tick.body,"Hongyuan ticks down a hair for no reason. In the tearoom, someone winks: someone knew first."
+events.ev_c_d13_tick.body,"Hongyuan drops half a tick for no reason. A lid taps: someone knew.|||You stare two beats longer—cuffs wet with sweat, your own book not yet due."
 events.ev_c_d13_tick.title,Board Tick
-events.ev_c_d15_margin.body,The desk warns: another night and you'll top up margin. Tide outside sounds like a collector.
+events.ev_c_d15_margin.body,"Counter taps the abacus: ""One more night, margin due."" Tide outside sounds like collection.|||You count thrice—top up or fold, the pocket hurts either way."
 events.ev_c_d15_margin.title,Sweat on Margin
 events.ev_c_d16_audit.body,Hongyuan's 'internal audit' wind reaches the exchange. Some close; some add shorts. Your position hears the wind.
 events.ev_c_d16_audit.title,Audit Whisper
-events.ev_c_d17_rumor_war.body,True and false rumors collide in one pot. Eyes on your cuff like a weather vane.
+events.ev_c_d17_rumor_war.body,One pot: true and false collide. Eyes on your cuff like a weather vane.|||Spine to the chair—don't let your face read the position.
 events.ev_c_d17_rumor_war.title,Rumor Collision
 events.ev_c_d18_ally.body,Outside VIP someone locks eyes for a second: same short on Hongyuan—not necessarily a friend.
 events.ev_c_d18_ally.title,A Fellow Speculator's Look
 events.ev_c_d19_vip.body,The broker leads you to the VIP door: 'Pockets go in heavy first.'
 events.ev_c_d19_vip.title,VIP Door
-events.ev_c_d21_spike.body,The board spikes two ticks. Shorts curse. Someone says Hongye's people are defending the price.
+events.ev_c_d21_spike.body,Board jumps two ticks. Shorts curse; longs clap. Whisper: Hongye's men defending.|||Leverage loosens half a notch—ready to tighten again.
 events.ev_c_d21_spike.title,A Squeeze Spike
-events.ev_c_d22_drift.body,"Before open, the board is already lower. Some cheer; some blow up. Your position breathes."
+events.ev_c_d22_drift.body,Pre-open already lower. Cheers; a blown account tears at the counter.|||Tea heads lift: morning tide hits those who wouldn't let go first.
 events.ev_c_d22_drift.title,Overnight Gap
 events.ev_c_d24_broker.body,The broker says: 'White knights drink tonight.' Half true—but no one drinks for free at that table.
 events.ev_c_d24_broker.title,Broker's Half-Truth
@@ -612,9 +612,9 @@ events.ev_c_first_short.body,Bad news hits; Hongyuan stock drops. You close the 
 events.ev_c_first_short.title,First Short Pays
 events.ev_c_profit_milestone.body,"You close the position; silver weighs heavy. Exchange men start calling you ""sir."""
 events.ev_c_profit_milestone.title,First Pot Secured
-events.ev_d16_festival.body,Dockfolk burn incense at the tide temple. Wanqing wants to go; Shaoting's car waits outside. You stand between smoke and grease.
+events.ev_d16_festival.body,"Dock folk burn incense at Tide Temple. Wanqing wants to go; Shaoting's car waits outside, harbor mud on the wheels.|||You stand in smoke—gods mute; eyes hotter than incense."
 events.ev_d16_festival.title,Incense at the Tide Temple
-events.ev_d20_storm.body,"Wind skews the notice board. Schedules shatter. Hongyuan, Tongyang, the exchange—everyone says 'opportunity' while dodging waves."
+events.ev_d20_storm.body,"Wind skews the board; berth ink bleeds in rain.|||Hongyuan, Tongyang, exchange—all cry opportunity, all hike collars from the wave. You pull the brim: chaos hides a hand."
 events.ev_d20_storm.title,Outside the Eye
 events.ev_d4_salary.body,"Pay is thinner than hoped. Some curse the supervisor, some the market.|||You warm the silver in your fist—still empty: too little for face, too little to stop the talk."
 events.ev_d4_salary.title,Thin Payday
@@ -642,7 +642,7 @@ events.ev_flag_su_leak.body,"At night she mentions the old ledger key in Hongye'
 events.ev_flag_su_leak.title,Wanqing Lets Slip
 events.ev_low_money_debuff.body,Empty pockets make even walking light. Bribes and entries narrow; today's actions feel half a beat late.
 events.ev_low_money_debuff.title,Empty Pockets
-events.ev_rank_foreman_remind.body,You remain the loading crew's spine—at least the chant still follows you.
+events.ev_rank_foreman_remind.body,"The chant still answers you—crew backbone is prize and nail. If the tower takes more, the dock still knows Ah-Hai."
 events.ev_rank_foreman_remind.title,Rank Reminder
 flags.boss_watching.description,Boss has you watched
 flags.can_join_tongyang.description,Eligible to negotiate defection
@@ -707,34 +707,34 @@ hotspots.rival_meet.description,Meeting room—lists hotter than tea.
 hotspots.rival_meet.name,Meeting Room
 hotspots.rival_office.description,Chen's inner office—closing the door picks a side.
 hotspots.rival_office.name,Manager's Office
-idle_chatter.chatter_all_rain.text,Rain on tin roofs. Collars go up.
+idle_chatter.chatter_all_rain.text,Rain on dock tin. Chant skips a beat; collars up to the nose.
 idle_chatter.chatter_co_01.text,Pantry whispers: Shaoting crossed the boss again.
 idle_chatter.chatter_co_02.text,"An elder sighs: ""If Hongyuan falls, it starts at home."""
 idle_chatter.chatter_co_03.text,Perfume and foreign soap drift from the door crack.
 idle_chatter.chatter_co_04.text,A stifled cough from the boss's office—anger held down.
 idle_chatter.chatter_co_05.text,A new lock on finance; no one admits who holds the key.
-idle_chatter.chatter_co_06.text,Word is Shaoting vows to tear Hongyuan's old rules.
-idle_chatter.chatter_co_07.text,Someone says Shaoting slammed a door last night.
+idle_chatter.chatter_co_06.text,Tea room whisper: Shaoting told a wine-house—Hongyuan old rules should tear.
+idle_chatter.chatter_co_07.text,Someone found VP porcelain shards—Shaoting's smash last night; no one dares sweep.
 idle_chatter.chatter_co_08.text,A box of foreign yarn sits at the VP's—no one asks for whom.
 idle_chatter.chatter_co_09.text,Finance curtains are shut tight—afraid of light.
-idle_chatter.chatter_co_10.text,"In the pantry, only half a sentence: father and son…"
+idle_chatter.chatter_co_10.text,"Tea room half-line: father and son—again, over that promotion slot."
 idle_chatter.chatter_co_11.text,Rumor: teacups shattered behind the boss's door.
-idle_chatter.chatter_dock_01.text,In the chant: night manifests changed again.
+idle_chatter.chatter_dock_01.text,Chant slips a line: north quay yin berth—manifest inked over again.
 idle_chatter.chatter_dock_02.text,Someone curses the foreman for skimping—then goes quiet.
 idle_chatter.chatter_dock_03.text,"A corner cigarette dies: ""Tongyang pays better."""
 idle_chatter.chatter_dock_04.text,In the night tide someone curses: promotions were fixed.
 idle_chatter.chatter_dock_05.text,"A corner of the board was torn, then pasted back."
-idle_chatter.chatter_dock_06.text,Tide's out. Chants get sharper.
+idle_chatter.chatter_dock_06.text,"Tide out, sacks remain. Foreman: clear before sun, or silver forgets you."
 idle_chatter.chatter_dock_07.text,The supervisor taps his pen like a drum.
 idle_chatter.chatter_dock_08.text,Lanterns in a row. Shadows of contraband stretch.
-idle_chatter.chatter_dock_09.text,Corner smoke thins slowly—like waiting for someone.
+idle_chatter.chatter_dock_09.text,"Corner smoke hangs. Someone waits a Tongyang meet, half a schedule in the cuff."
 idle_chatter.chatter_ex_01.text,The board ticks; every guest looks up.
 idle_chatter.chatter_ex_02.text,Someone mutters: fake news eats people too.
 idle_chatter.chatter_ex_03.text,An apprentice cracks his voice bidding; the master only shakes his head.
 idle_chatter.chatter_ex_04.text,VIP curtains stir; a gold cuff flashes again.
 idle_chatter.chatter_ex_05.text,An apprentice asks if shorting is evil. The master: markets don't care.
 idle_chatter.chatter_ex_06.text,"Fake news like tide: quick in, quick out, footprints everywhere."
-idle_chatter.chatter_ex_07.text,The board ticks once. Applause—and sweat.
+idle_chatter.chatter_ex_07.text,Hongyuan short jumps half a tick. Applause; someone crumples a margin slip.
 idle_chatter.chatter_ex_08.text,VIP curtains are thicker—as if light audits books.
 idle_chatter.chatter_ex_09.text,False and true rumors steep in the same pot.
 idle_chatter.chatter_ex_10.text,"Some call leverage a ladder; others, a noose."
@@ -750,7 +750,7 @@ idle_chatter.chatter_home_bed_02.text,In dreams someone slams a table—and some
 idle_chatter.chatter_rival_01.text,"A Tongyang clerk grins: ""Hongyuan cargo always leaks."""
 idle_chatter.chatter_rival_02.text,Tea goes cold in the meeting room: Tongyang only digs in with manifests.
 idle_chatter.chatter_rival_03.text,A whisper: Hongyuan's sailing could change names tonight.
-idle_chatter.chatter_rival_04.text,Tongyang reception smiles to measure.
+idle_chatter.chatter_rival_04.text,"Tongyang smile measured: first checks your cuff for a manifest edge, then refills tea."
 idle_chatter.chatter_rival_05.text,A schedule hangs; Hongyuan is inked over.
 idle_chatter.chatter_rival_06.text,"Someone whispers: hijack fast, or become a joke."
 location.company.enter,"Floors shine; people tread light. Here, speech watches who listens."
@@ -768,11 +768,11 @@ locations.home.description,"Rest, sort intel, fiancée scenes, cool suspicion"
 locations.home.name,Rented Room
 locations.rival.description,"Rival contact, defection, intel sales, strikes"
 locations.rival.name,Tongyang Firm
-npcs.chen_manager.bio,Pragmatic and sharp—built to undermine Hongyuan.
+npcs.chen_manager.bio,Tongyang's harbor manager. Weighs urgency and hate—berths open doors; empty talk gets no refill.
 npcs.chen_manager.initial_relation_to_player,"Potential ally, name only for now"
-npcs.chen_manager.motive,Crush Hongyuan
+npcs.chen_manager.motive,Undermine Hongyuan; turn useful hands Tongyang
 npcs.chen_manager.name,Manager Chen
-npcs.chen_manager.personality,Practical and ruthless
+npcs.chen_manager.personality,"Tea hot, abacus hotter; smile measured, price never"
 npcs.chen_manager.role,Head of Tongyang Firm
 npcs.chen_manager.title,Tongyang Manager
 npcs.narrator.bio,Recorder of tide and hearts.
@@ -781,31 +781,31 @@ npcs.narrator.name,Narrator
 npcs.narrator.personality,—
 npcs.narrator.role,Narration
 npcs.narrator.title,Narrator
-npcs.player.bio,"A Hongyuan dock youth—promotion near, torn by hate and ambition."
-npcs.player.motive,Revenge and power
+npcs.player.bio,"Lin Ah-Hai. Dock body, ledger ambition. Fiancée Su Wanqing, rival Zhou Shaoting, boss Zhou Hongye—three paths twist: divide from inside, jump to Tongyang, or flip the board."
+npcs.player.motive,Take back the title and face that were stolen
 npcs.player.name,Lin Ah-Hai
-npcs.player.personality,"Steady, ambitious, loyal"
+npcs.player.personality,"Steady outside, keeps books inside; loyal, will grit teeth for a title"
 npcs.player.role,Dock loading foreman (you)
 npcs.player.title,Dock Foreman
-npcs.su_qing.bio,"Between mill and firm—vain, yet soft-hearted."
+npcs.su_qing.bio,"Mill-born, half a step into the firm by pen. Loves face, still leaves Ah-Hai a lamp—and squints at young-master light."
 npcs.su_qing.initial_relation_to_player,"Cares, but wants comfort"
-npcs.su_qing.motive,Join high society
+npcs.su_qing.motive,From mill floor to a life that can look up—even if the road bends
 npcs.su_qing.name,Su Wanqing
-npcs.su_qing.personality,"Vain, soft, climbs for status"
+npcs.su_qing.personality,"Wants face and shelter; soft when soft, hides when afraid"
 npcs.su_qing.role,Mill / foreign-firm clerk (fiancée)
 npcs.su_qing.title,Fiancée
-npcs.zhou_hongye.bio,An old fox gripping firm and authority in one hand.
+npcs.zhou_hongye.bio,"Old fox at Hongyuan's helm. Manifests, networks, rules under the lid—he wants Ah-Hai's strength, not his heart."
 npcs.zhou_hongye.initial_relation_to_player,"Boss: some praise, little trust"
-npcs.zhou_hongye.motive,Keep the firm and his grip
+npcs.zhou_hongye.motive,Hongyuan's flag stays up; his hand stays closed
 npcs.zhou_hongye.name,Zhou Hongye
-npcs.zhou_hongye.personality,"Cunning, greedy, controlling"
+npcs.zhou_hongye.personality,"Soft lid taps, hard ledgers; praise is not trust"
 npcs.zhou_hongye.role,Owner of Hongyuan Trading
 npcs.zhou_hongye.title,Hongyuan Boss
-npcs.zhou_shaoting.bio,"Heir's temper, VP's seat—eyes on estate and another's fiancée."
+npcs.zhou_shaoting.bio,Only son; VP mostly arranged. Dock and tea-house are his stage—Ah-Hai and Wanqing look movable in his eyes.
 npcs.zhou_shaoting.initial_relation_to_player,Rival in love and at work
-npcs.zhou_shaoting.motive,Inherit the fortune
+npcs.zhou_shaoting.motive,"Estate, face, and whoever can be lifted along the way"
 npcs.zhou_shaoting.name,Zhou Shaoting
-npcs.zhou_shaoting.personality,"Arrogant wastrel, hungry for glory"
+npcs.zhou_shaoting.personality,"Soft laugh, hard tread; VP seat feels born to him"
 npcs.zhou_shaoting.role,Owner's son / vice manager
 npcs.zhou_shaoting.title,Wastrel VP
 periods.afternoon.name,Afternoon
@@ -902,25 +902,25 @@ tip.first_exchange,The exchange feeds on gaps in news. Fake news pays—and burn
 tip.first_rival,Tongyang's door is open. Frequent visits raise Hongyuan suspicion.
 tip.flag_su,"Wanqing's favor, gifts, and betrayal risk become flags that lock actions and rewrite lines."
 tip.idle_listen,Idle lines rotate. Linger—the docks talk on their own.
-tip.intro_1,"Welcome to the harbor. Each day has morning, afternoon, and night—one action per period."
-tip.intro_2,Move with WASD (or arrows). Follow the cobble path and yellow glow; walk up to a door to enter.
-tip.intro_3,Inside: facility list → actions. Exit returns you to the harbor map.
-tip.intro_4,"Top bar shows day, period, money, trust, and suspicion. High suspicion hurts—rest at home to cool it."
-tip.intro_5,"Mix routes: stay and divide at Hongyuan, defect to Tongyang, or play the exchange."
+tip.intro_1,"Ah-Hai: harbor runs morning, noon, night. One act a slot—top-bar weather rides your shoulder too."
+tip.intro_2,"WASD (or arrows). Follow stones and yellow light—near the door ring, the building swallows you."
+tip.intro_3,"Inside: pick a spot, then an act. Done—""Leave"" spits you back onto harbor stone."
+tip.intro_4,"Top bar: day, slot, coin, trust, suspicion. Hot suspicion—rest home; don't gift the tower your cuff."
+tip.intro_5,"Three paths braid: divide in Hongyuan, jump Tongyang, flip the board. Live first; then how you hold the blade."
 tip.low_money,Low money slows you. Work the docks or take errands first.
 tip.near_door,Walk a little closer to enter. The name plate marks an enterable building.
 tip.after_action,"Acting advances the period. Stay and choose again, or Exit to go elsewhere."
-tip.pick_action,Percentages are check odds. Grey options need unmet conditions—try another first.
+tip.pick_action,Percents mean a check. Grey isn't cowardice—time or terms aren't ripe.
 tip.route_plan,Home 'planning' reinforces route lean—doesn't replace Day 7.
 tip.save_hint,Save anytime from the top-right. Save before key choices.
 tip.stock,"Buys/shorts use position formulas: lots, entry, leverage."
 tip.stock_close,Open with buy/short; close on the trading floor to bank the first pot.
 tip.suspicion,High suspicion brings crackdowns or firing. Rest at home to cool it.
 tip.street_npc,"Harbor folk keep routines: work, visit, go home. Walk up and press E to chat (usually once per person per day). Their ties and street rumors also show in the dossier."
-tip.minimap,Press M for the harbor minimap: blue is you, yellow are buildings. Press M again to close.
-tip.transit,"The harbor is large. E-bike at home (or where you dismounted): E to mount, ride faster, E to dismount. Entering a building parks you. Without a bike, blue rings are the harbor loop (2 silver)."
-tip.dossier,Press C for the character dossier: stats, favor, and contact log.
-tip.npc_world,The harbor lives on its own. Dossier shows attributes, ties, and street rumors.
+tip.minimap,Press M for the harbor minimap: blue is you
+tip.transit,"The harbor is large. Bicycle at home (or where you dismounted): E to mount, ride faster, E to dismount. Entering a building parks you. Without a bike, blue rings are the harbor loop (2 silver)."
+tip.dossier,"Press C for the dossier. Names, grudges, your private ledger—don't trust memory alone."
+tip.npc_world,The harbor lives on its own. Dossier shows attributes
 tip.variety,"Fun is spread around: tea-house stories, plaza dice/fist/scratchers, dock fishing and awning gossip, office errands. Jobs have daily limits."
 tip.trust_sync,Company trust drives rank; the boss's relational trust syncs on key actions.
 quest.panel.header,Current Quest
@@ -930,14 +930,14 @@ quest.done.title,Guide Complete
 quest.done.hint,1. Explore the harbor freely||2. Watch day money trust suspicion on the top bar||3. If suspicion is high: Home → Bedside → Rest||4. Keep acting toward your ending
 quest.approach.title,Learn How to Move
 quest.approach.hint,1. Move with WASD or arrow keys||2. Follow the cobble path and yellow glow||3. Reach any building door (name plate appears)||4. No button needed: walk closer to auto-enter
-quest.enter_dock.title,Enter the Dock Yard
-quest.enter_dock.hint,1. Follow the path to Dock Yard at the bottom||2. Stand by the door name plate||3. Walk closer to auto-enter||4. A location menu (facilities) appears
+quest.enter_dock.title,Step onto the yard
+quest.enter_dock.hint,The chant waits below.||1. Walk to Dock Yard||2. Near the yellow ring||3. Closer auto-enters||4. Menu lists spots
 quest.dock_work.title,Earn Your First Pay
 quest.dock_work.hint,1. If outdoors: enter Dock Yard first||2. In the menu tap Loading Bay||3. Tap action Dock Labor||4. Check the bottom result; money rises on the top bar||5. Tap Exit to return outdoors
 quest.enter_company.title,Enter Hongyuan Trading
 quest.enter_company.hint,1. Return to the outdoor map||2. Go to the stone building Hongyuan Trading (upper left)||3. Walk to the door to enter||4. Hongyuan location menu appears
-quest.co_work.title,Do Daily Office Work
-quest.co_work.hint,1. Enter Hongyuan Trading||2. Tap facility Office Floor||3. Tap action Daily Work||4. This advances one period; continue or Exit
+quest.co_work.title,Show your face at Hongyuan
+quest.co_work.hint,Brush-work is armor too.||1. Enter Hongyuan||2. Main floor||3. Daily desk work||4. One slot passes; continue or Leave
 quest.enter_home.title,Go to Your Rented Room
 quest.enter_home.hint,1. Back outdoors||2. Go to the white cottage Rented Room (top center)||3. Walk in at the door||4. Use this place to rest and sort intel
 quest.home_settle.title,Settle at Home
@@ -956,8 +956,8 @@ quest.new_path.title,Enter Tongyang or the Exchange
 quest.new_path.hint,1. Confirm Day 7+ and unlocks||2. Enter one:||   · Tongyang Firm (rival path)||   · Stock Exchange (finance path)||3. Walk in at the door||4. Check the facility list inside
 quest.path_act.title,Act Once on the New Path
 quest.path_act.hint,Tongyang example: Tongyang → Lobby → Ask About Hiring||Exchange example: Exchange → Trading Hall → Buy Hongyuan Stock||Tea house rumors also count||Any Tongyang/Exchange action completes it
-quest.day12.title,Reach Day 12
-quest.day12.hint,1. Keep acting across locations||2. Watch the day on the top bar||3. Day 12 completes it||4. Save via top-right Save
+quest.day12.title,Hold until Day 12
+quest.day12.hint,Days move on shoulder and abacus.||1. Act at firm/dock/home/Tongyang/exchange||2. Top bar Day 12 clears||3. Tongyang: build fame; board: start watching||4. Save
 quest.deepen.title,Push One Plot Line
 quest.deepen.hint,Finish any one:||A: Hongyuan → Boss Office → Flatter / Take Task / Take Blame||B: Dock → Corner → Meet Rival Contact (if unlocked)||C: Home → Living Room → Talk / Guide Wanqing (if unlocked)
 quest.day20.title,Reach Day 20
@@ -1035,7 +1035,7 @@ ui.beat.tension_up,Tension↑
 ui.beat.tension_down,Tension↓
 ui.beat.suspicion_up,Heat↑
 ui.beat.suspicion_down,Heat↓
-ui.prologue.body,Tide in; tide out. This harbor eats strength and calculation.|||You are Lin Ah-Hai—loading crew lead at Zhou's firm. One shout of your name, half the warehouse hears it.|||Years of hard work; promotion almost inked; fiancée Su Wanqing already talking marriage. You thought the climb had begun.|||This morning you stopped by the deputy's office about the promotion—before you knocked, Shaoting's laugh came through the door, and her lowered reply.
+ui.prologue.body,"Tide in; tide out. This harbor eats strength and calculation.|||You are Lin Ah-Hai—loading crew lead at Hongyuan Trading. One shout of your name, half the warehouse hears it.|||Years of hard work; promotion almost inked; fiancée Su Wanqing already talking marriage. You thought the climb had begun.|||This morning you stopped by the deputy's office about the promotion—before you knocked, Shaoting's laugh came through the door, and her lowered reply."
 ui.save.failed,Save failed
 ui.save.load,Load
 ui.save.load_failed,Load failed
@@ -1086,7 +1086,7 @@ events.ev_divorce_ultimatum.title,Lamp Oil Running Out
 events.ev_divorce_ultimatum.body,"The lamp cracks. Only the two of you left—night tide pressed to the window paper like an ear.|||Su Qing starts, then yields half a breath: ""This match… can it still count?"" Her nails dig the table edge. ""I've walked the mill road. If you drag me into the Zhou game—""|||The name ""Ting"" rolls in her throat and dies unfinished. Handkerchief warmth still hangs in the air.|||Tonight the match chooses: endure, break, or become a blade."
 events.ev_divorce_aftermath.title,The Match Is Off
 events.ev_divorce_aftermath.body,"Before the tea-house clapper, gossip lands: ""Hongyuan's engagement—called off."" Sighs and smirks.|||You open your door. A corner of the room is emptier: her sewing box gone, the lamp still remembering where you sat."
-events.ev_divorce_aftermath.body_divorce_weapon,"A lower voice on the corner: ""He meant it. Break it to push the crack."""
+events.ev_divorce_aftermath.body_divorce_weapon,"Street corner adds, lower: ""He meant it. Split so the Zhou father and son hear."""
 event_choices.ch_div_cold.label,Cold break: this match ends here
 event_choices.ch_div_wait.label,Endure one more night: swallow the words
 event_choices.ch_div_weapon.label,Wield the break: let the Zhous hear the crack
@@ -1098,7 +1098,7 @@ dialogue_lines.dlg_home_divorce_l01.text,One lamp left in the parlor. The table 
 dialogue_lines.dlg_home_divorce_l02.text,A-Hai… the way you look at me tonight isn't for rest.
 dialogue_lines.dlg_home_divorce_l03.text,Qing. The handkerchief. Shao-ting. The mill. Stop pretending we don't hear.
 dialogue_lines.dlg_home_divorce_l04.text,…You want out? Or should I keep standing at Zhou's door like a shield?
-dialogue_lines.dlg_home_divorce_l05.text,"Tide hits the quay. Three doors: cold break, endure, or write the break as a revenge blade."
+dialogue_lines.dlg_home_divorce_l05.text,"Tide on the shore. Three doors: cold split, one more night, or make the split loud enough for the Zhous."
 dialogue_choices.dch_dlg_home_divorce_cold.label,Cold break-off
 dialogue_choices.dch_dlg_home_divorce_wait.label,Endure one more night
 dialogue_choices.dch_dlg_home_divorce_weapon.label,Use the break as a blade
@@ -1115,16 +1115,16 @@ events.ev_b_public_clash.body_divorced,In the corridor someone mutters: home alr
 events.ev_b_public_clash.body_divorce_weapon,"A voice rises on purpose: ""Home already broken and still pretending—the crack isn't only in the teacup."""
 events.ev_a_first_strike.body_divorced,One less tie behind you. The cut lands with only your breath for witness.
 events.ev_c_first_short.body_divorced,"Closing the position, you think of the empty room: lonelier books, obedient numbers."
-ui.hud.goal.divorce_talk,Tonight you may need to talk it out at home
+ui.hud.goal.divorce_talk,Lamp oil low: maybe talk it home tonight
 ui.hud.goal.divorce_talk_tip,"After the handkerchief crack, favor collapse, resign/job-hop—parlor can open break-off talk; or wait for the ultimatum night."
 actions.co_ask_promotion.name,Ask for promotion
-actions.co_ask_promotion.description,"When ready, ask for a title you can say aloud. Check the dossier promotion bar."
+actions.co_ask_promotion.description,Ask for a title you can say aloud. Hongye's lid tap decides.
 actions.co_ask_promotion.result,You put the request on the desk. Whether it sticks depends on the ledger.
 actions.co_resign.name,Resign from Hongyuan
 actions.co_resign.description,Walk away from Hongyuan. Work and docks stay open; the Zhou game does not force you.
 actions.co_resign.result,The badge is gone. The harbor still needs hands.
 actions.rival_ask_promotion.name,Ask Tongyang for promotion
-actions.rival_ask_promotion.description,Ask Manager Chen for a louder title inside Tongyang.
+actions.rival_ask_promotion.description,Ask Chen for a Tongyang seat you can name—merit is manifests.
 actions.rival_ask_promotion.result,Chen weighs you like a schedule sheet.
 actions.rival_work.name,Tongyang office work
 actions.rival_work.description,Do the day job at Tongyang—trust and schedule muscle.
@@ -1166,21 +1166,21 @@ ui.hud.goal.ask_ty,Ask for promotion in the Tongyang office
 ui.hud.goal.ask_tip,Dossier promotion checks are green. Use Ask for promotion in the matching office.
 ui.hud.goal.boss_door,Earn a bit more trust to enter the boss's office
 ui.hud.goal.boss_door_tip,Company office work and boss tasks raise trust. Open the dossier for promotion progress.
-ui.hud.goal.cool,Heat is high—go home and cool off
-ui.hud.goal.cool_tip,"When suspicion is high, skip eavesdropping/theft. Rest at home."
+ui.hud.goal.cool,Wind on the cuff—home first; play the harmless man
+ui.hud.goal.cool_tip,High suspicion: skip eavesdrop/steal. Rest home; give Shaoting no handle.
 ui.hud.goal.fame,For Tongyang: build standing first
 ui.hud.goal.fame_tip,Tongyang contact wants standing ~20. Details in the dossier.
 ui.hud.goal.fame_ty,To join Tongyang: build elite standing
 ui.hud.goal.fame_ty_tip,"Tongyang contact wants standing ~20. Tea house, intel sales, network events help."
-ui.hud.goal.free,"Free play: work, meet people, or push the crack"
-ui.hud.goal.free_tip,"No urgent gate. Promote, earn, or follow the optional main quest."
-ui.hud.goal.intel,Thin intel—eavesdrop or chat at the dock
+ui.hud.goal.free,"Day still open: work, show face, or settle endure / jump / gamble"
+ui.hud.goal.free_tip,"No hard gate. Dock, company wind, home books—all fine. Main quest can fold away."
+ui.hud.goal.intel,"No cards yet: eavesdrop, dock chat, or buy a plaza whisper"
 ui.hud.goal.intel_tip,"Intel fuels rumors, poaching, plots. Office eavesdrop, dock chat, plaza tips."
 ui.hud.goal.jobless,"Dock work to survive, or wait for Tongyang"
 ui.hud.goal.jobless_tip,Unemployed: no Hongyuan office actions. Dock labor keeps you alive; Tongyang opens day 7 (earlier if you resign).
-ui.hud.goal.money,Earn at the dock or plaza first
+ui.hud.goal.money,Pockets light: haul silver at dock or plaza
 ui.hud.goal.money_tip,"Low cash tightens the day. Haul, overtime, help the stall."
-ui.hud.goal.promo,Do more office work toward “{rank}”
+ui.hud.goal.promo,Title still short: more desk work toward 「{rank}」
 ui.hud.goal.promo_tip,Open the dossier for checkboxes. Hongyuan: office/boss tasks; Tongyang: Tongyang office/intel.
 ui.hud.goal.ty_accept,Tongyang lobby: accept the job and start work
 ui.hud.goal.ty_accept_tip,Qualified. Enter Tongyang → lobby → Accept Tongyang job. Then Tongyang office work unlocks.
@@ -1215,7 +1215,7 @@ actions.home_upgrade_3.result,The parlor looks real. Voices soften; standing fol
 actions.home_upgrade_4.result,"New lintel, quieter talk. Even elite circles hear this door."
 tip.home_upgrade,Home contractor upgrades: rental → painted flat → street suite → harbor villa. Not just looks—raises street/elite standing. Spend cash for face.
 tip.money_ways,"Earn: dock haul/overtime/errands; plaza stall work. With cash, upgrade home, buy a ride, toast at the tea house—face can be bought. Exchange and Tongyang come later."
-ui.hud.goal.face,Cash in hand—upgrade home for face
+ui.hud.goal.face,Money enough—upgrade home; face beats hoarding
 ui.hud.goal.face_tip,"Money≥120 and home can still rise: Home → contractor. Upgrades buy standing, not just walls."
 events.ev_power_flex.title,Corridor Clears
 events.ev_power_flex.body,"Afternoon corridor brighter. Someone sidesteps; someone hugs papers to the chest—as if your title just arrived.|||At the turn, Shao-ting's eyes hitch half a beat, then slide away.|||A soft intake from the side hall. Su Qing—or you hearing her into it."
@@ -1228,25 +1228,25 @@ event_choices.ch_su_reconcile_ok.label,Nod: steady the person first
 events.ev_su_let_go.title,Closing the Sewing Box
 events.ev_su_let_go.body,"Empty room, lamp spark. Her sewing box shuts like a finished sentence.|||Letting go isn't the end of hate—it's stopping the push into the game. Person released; board remains—that is yours alone."
 event_choices.ch_su_let_go_ok.label,Shut the door. Ask no more.
-dialogue_choices.dch_dlg_su_talk_let_go.label,Let go: keep you out of the game
-dialogue_line_variants.var_su_office_l01_promo.text,"VP office door ajar. Su Qing with files; her eyes rest on your title a breath: ""…Manager."" First time she means it."
-dialogue_line_variants.var_su_talk_l01_tool.text,Door opens. She checks the hall before looking at you—a piece verifying it's her cue.
-dialogue_line_variants.var_su_talk_l03_tool.text,Father-son crack? I passed word. Satisfied—or pushing me one inch more?
-dialogue_line_variants.var_su_talk_l01_reconcile.text,"She left the lamp on. Softer: ""Good you're back. We can… talk slow."""
-dialogue_line_variants.var_su_talk_l03_reconcile.text,"I answer Shao-ting less. If you want the house steady, I'll stand farther from the crack."
-dialogue_line_variants.var_su_talk_l01_let_go.text,"Quiet room. A guest's nod: ""You let go. Good. Don't ask me to pass blades."""
-idle_chatter.chatter_su_used_tool.text,"Tea doctor whispers: ""That dock boy uses a woman to push Zhou cracks—match and person both pieces."""
+dialogue_choices.dch_dlg_su_talk_let_go.label,Let go: keep her out of the game
+dialogue_line_variants.var_su_office_l01_promo.text,"VP door ajar. Su Qing with files; her eyes rest on your title: ""…Manager."" First time she means it."
+dialogue_line_variants.var_su_talk_l01_tool.text,"Door opens. She scans the corner first: ""Need me to pass word again?"""
+dialogue_line_variants.var_su_talk_l03_tool.text,I passed the father–son rift. Satisfied—or one step further?
+dialogue_line_variants.var_su_talk_l01_reconcile.text,"She left the lamp on. Softer: ""Lamp's still lit. Tonight… less talk of the street."""
+dialogue_line_variants.var_su_talk_l03_reconcile.text,"I answer Shaoting less. If you want the house steady, I'll stand less at the Zhou door."
+dialogue_line_variants.var_su_talk_l01_let_go.text,"Quiet room. She nods like a guest: ""You let go. Fine. Don't ask me to pass word again."""
+idle_chatter.chatter_su_used_tool.text,"Tea host whispers: ""That dock boy has the woman pass Zhou words—match or not, he's counting."""
 events.ev_b_public_clash.body_reconcile,Someone mutters: home hasn't fully broken—he still guards that lamp.
 events.ev_day7_choice.body_let_go,Person released; board remains—picking a side is only your blade now.
 events.ev_power_flex.body_divorced,Side hall empty. Match off; the yielding looks cleaner—one less tie behind you.
-ui.period.curfew_forced,Exhaustion drags you home. You sleep until dawn.
-ui.period.rest_ok,You sleep at home. Morning light returns.
+ui.period.curfew_forced,"Late. Weariness hauls you home—chants in dreams, doors slammed too."
+ui.period.rest_ok,Tide eases the shoulder. At light you must play fine again.
 ui.period.curfew_ask_title,Late night
-ui.period.curfew_ask_body,It's nearly 2 AM. Go home to rest? If you stay out, you won't be forced home tonight — sleep at your place when you're ready.
+ui.period.curfew_ask_body,It's nearly 2 AM. Go home to rest? If you stay out
 ui.period.curfew_go_home,Go home
 ui.period.curfew_linger,Stay out
-ui.period.wake_title,Morning
-ui.period.curfew_wake,You pushed into the deep night. Exhaustion dragged you home. You wake to daylight.
+ui.period.wake_title,"Dawn, Ah-Hai"
+ui.period.curfew_wake,You pushed past midnight. Wick cold; the harbor wants face and shoulder again.
 ui.period.wake_speed_tip,A new day. Time speed is back to 1× — change it again on the top bar.
 ui.period.time_skip_title,Time skips
 ui.period.time_skip_hint,That took a while.
@@ -1256,16 +1256,16 @@ ui.hud.speed_paused_tip,Time pauses during dialogue/events.
 ui.hud.speed_pause_pick_tip,Pause world time
 ui.period.time_skip,Time skips ({from} → {to})
 beat.foreman_morning_call,"Foreman Zheng tightens the chant: ""Don't jam the hatch! A-Hai's crew—eyes open."""
-beat.foreman_night_count,Night lamps up; Zheng counts the manifest—missing one earns a yell, an extra one worse.
+beat.foreman_night_count,Night lamps up; Zheng counts the manifest—missing one earns a yell
 beat.foreman_garage_tire,Zheng pushes a flat cart to the garage. A-Qiang kneels at the valve; they curse the damp the whole way.
-beat.foreman_rain_shelter,Under the rain shed Zheng buys Auntie's hot cake—talks tide, watches the schedule board.
-beat.aunt_morning_stall,Auntie lifts the steamer: sugar-cake scent first, gossip second—who took two extra night hauls.
+beat.foreman_rain_shelter,Under the rain shed Zheng buys Auntie's hot cake—talks tide
+beat.aunt_morning_stall,Auntie lifts the steamer: sugar-cake scent first
 beat.aunt_plaza_price,"On the plaza Auntie bumps chestnut prices a half: ""News costs more—which do you want?"""
 beat.aunt_tea_drop,At dusk Auntie drops a cake box at the tea-house back seat. Xiao-Fu takes it and glances inward.
 beat.aunt_foreman_debt,"Auntie grins at Zheng: ""Tea on credit stays written—pay when the dock wind turns fair."""
 beat.waiter_sweep,Xiao-Fu sweeps the hall at dawn—brushing yesterday's leftover whispers off the threshold.
 beat.waiter_vip_seat,He polishes the back-seat cups again—someone asked for quiet; he doesn't dare ask who.
-beat.waiter_garage_chat,Before close Xiao-Fu and A-Qiang trade whispers under the lamp: who bought a ride, who still pedals a cart.
+beat.waiter_garage_chat,Before close Xiao-Fu and A-Qiang trade whispers under the lamp: who bought a ride
 beat.waiter_aunt_sugar,Xiao-Fu runs to Auntie's stall for sugar; returns with crumbs on his sleeve like half a secret.
 beat.garage_open,A-Qiang shoves the iron door and dusts: bikes first; rickshaw customers come after noon.
 beat.garage_rickshaw,"In the garage he offers a rickshaw sit: ""Face has tiers—you feel it when you sit."""
@@ -1276,21 +1276,233 @@ idle_chatter.chatter_dock_foreman_02.text,The foreman counts the night roster. O
 idle_chatter.chatter_plaza_aunt_01.text,"Auntie lifts the steamer: ""Hot first. Gossip? Gossip's hot too."""
 idle_chatter.chatter_plaza_aunt_02.text,In sugar-cake scent someone asks ship times; Auntie only smiles—the price sits in her eyes.
 idle_chatter.chatter_tea_waiter_01.text,Xiao-Fu polishes cups to a shine: back-seat lids fear noise more than the front hall.
-idle_chatter.chatter_tea_waiter_02.text,They say his memory is sharp—who enters the back seat, who stays half an incense stick.
+idle_chatter.chatter_tea_waiter_02.text,They say his memory is sharp—who enters the back seat
 idle_chatter.chatter_garage_hand_01.text,"A-Qiang twists screws smelling of oil: ""Garages don't sell face—they sell go."""
-idle_chatter.chatter_garage_hand_02.text,"Abacus clicks: bike, rickshaw, monthly hire—face is priced by tier."
-dialogue_line_variants.var_su_talk_l03_let_go.text,"I stop answering Shao-ting. You let go—so I step off the crack. Don't call me back."
-ui.situation.action.dock_work,Shoulders burn. Chant still going; pay hits the pocket—another inch of today nailed down.
-ui.situation.action.dock_chat,The butt dies; half a sentence about night-shift tricks lands in your ear.
-ui.situation.action.dock_watch_manifest,Ship names and tonnage line up in your head—usable later.
-ui.situation.action.co_work,Ink dries. Corridor tea-lid clicks fade—as if fewer eyes are on you.
-ui.situation.action.co_eavesdrop,Names and sailings from behind the screen slip into your sleeve. You pretend you only poured tea.
-ui.situation.action.home_organize,Paper edges align. Quiet in the room presses down half an inch of panic.
-ui.situation.action.home_plan,Only tomorrow's place to show face stays on the page—the rest crossed out.
-ui.situation.action.home_rest,Tide washes the ache from your shoulders. Tomorrow's board—you can still stand to meet it.
-ui.situation.action.home_talk_su,The parlor air changes taste—her look lands before her words.
-ui.situation.action.home_upgrade_2,Whitened lintel; the alley looks twice—face starts to cost standing.
-ui.situation.action.home_upgrade_3,Parlor looks real. Neighborhood voices soften; standing follows the facade.
-ui.situation.action.home_upgrade_4,Villa door sounds. Elite circles hear it: this one spends for face.
-ui.situation.action.co_meet_son,Shaoting's smile still hangs. Walking away, your back feels a pen tip tap.
-ui.situation.action.co_meet_su,Eyes meet and part. That scent on her cuff reminds you the crack remains.
+idle_chatter.chatter_garage_hand_02.text,Wrench taps: chain half-loose—did this bike chew harbor cobbles yesterday?
+dialogue_line_variants.var_su_talk_l03_let_go.text,I won't answer Shaoting. You let go—I'll stand less at the Zhou door. Don't call me.
+ui.situation.action.dock_work,Shoulder burns. Chant goes on; pay lands—another day nailed to sacks.
+ui.situation.action.dock_chat,Cigarette dies. Night-manifest rewrite hits your ear—chew it under the lamp.
+ui.situation.action.dock_watch_manifest,"Ship and tons queue in your head. If Shaoting laughs, you still have numbers."
+ui.situation.action.co_work,Ink dries. Corridor lids farther—no red X on your margin today.
+ui.situation.action.co_eavesdrop,Names and berths into the cuff. You pour tea; you keep books.
+ui.situation.action.home_organize,Edges square. Mess shows panic—you won't gift them that view.
+ui.situation.action.home_plan,Three arrows under the lamp. Keep tomorrow's landing step; cross the rest.
+ui.situation.action.home_rest,"Tide on the shoulder. Dreams of slammed doors—before wake, still Ah-Hai."
+ui.situation.action.home_talk_su,Living-room air shifts. Her eyes land before words—you swallow jealousy.
+ui.situation.action.home_upgrade_2,Walls white. Extra glances at the lane—face starts to outprice the badge.
+ui.situation.action.home_upgrade_3,"Parlor proper. If Wanqing sighs, it won't be at a hovel."
+ui.situation.action.home_upgrade_4,New lintel. Softer gossip—upper rooms should hear wheels and stone.
+ui.situation.action.co_meet_son,Shaoting's smile stays. Report down; a pen-point taps your back as you go.
+ui.situation.action.co_meet_su,"Eyes meet, split. Cuff scent isn't home's—the crack remains."
+beat.b_pillow_echo,"At the tea table again, someone sets Wanqing's name beside Shaoting's. The pillow draft bites softer than the work-chant—and deeper."
+dialogue_lines.dlg_street_garage_l01.text,Bike just oiled. Harbor cobbles—ride and you save two breaths.
+tip.garage,Starter bicycle at home—press E to mount. West market Garage upgrades rickshaw→moto→sedan.
+vehicle.tier.1,Bicycle
+vehicle.mount,You swing on; hands on the bars.
+dialogue_line_variants.var_su_office_l01_promo_ty.text,"VP door ajar. She sees the Tongyang mark on your cuff, tight: ""…Supervisor."" Forced through her teeth."
+dialogue_line_variants.var_su_office_l03_promo.text,Manager in line too? Title burns—don't scorch yourself.
+dialogue_line_variants.var_su_office_l03_promo_ty.text,Tongyang dog in Hongyuan's hall? Queue for me too.
+dialogue_line_variants.var_su_talk_l02_divorced.text,Match is off. I didn't come back to hear his name. Speak plain.
+dialogue_line_variants.var_su_talk_l02_let_go.text,"…I let go. No dock talk, no Zhous today. Leave if you want—I won't stop you."
+dialogue_line_variants.var_su_talk_l02_tool.text,Fine. You? Which rift today—say it; I'll book it.
+dialogue_line_variants.var_street_su_l01_divorced.text,A-Hai. On the road… look after yourself.
+dialogue_line_variants.var_street_su_l03_divorced.text,Mm. The lamp keeps for no one now.
+dialogue_line_variants.var_street_su_l01_let_go.text,…Excuse me.
+dialogue_line_variants.var_street_su_l03_let_go.text,We walk apart. Don't stop me.
+dialogue_line_variants.var_street_su_l01_tool.text,A-Hai? Crowded corner—talk at home.
+dialogue_line_variants.var_street_su_l03_tool.text,Check who's watching. Then the line you want.
+dialogue_line_variants.var_street_su_l01_reconciled.text,A-Hai. The lamp… still kept for you.
+dialogue_line_variants.var_street_su_l03_reconciled.text,Mm. Quieter wind today is fine.
+dialogue_line_variants.var_street_son_l01_hostile.text,Hongyuan rat strolling the street?
+dialogue_line_variants.var_street_son_l01_night.text,"You're on the night roster—hero of the dock, sleep with the tide."
+dialogue_line_variants.var_street_son_l01_promo.text,Manager? Strolling counts as rounds? Titles aren't walked into.
+dialogue_line_variants.var_street_son_l01_promo_ty.text,Tongyang supervisor on Hongyuan ground? Bold.
+dialogue_line_variants.var_street_son_l01_flex.text,…More people make way. Don't think corridor face lasts forever.
+dialogue_line_variants.var_street_boss_l01_night.text,A-Hai. Night tide's yours—steady beats noisy.
+dialogue_line_variants.var_street_boss_l01_watch.text,A-Hai. Eyes open. Some winds are louder indoors.
+dialogue_line_variants.var_street_boss_l01_resigned.text,A-Hai. Door slammed; street meeting makes us strangers. Go on.
+dialogue_line_variants.var_street_chen_l01_joined.text,One of ours. Don't show it—Tongyang tea stays hot.
+dialogue_line_variants.var_street_chen_l01_resigned.text,Hongyuan door shut? Good. Tongyang tea's hot.
+dialogue_line_variants.var_street_chen_l01_focus_a.text,Heard you looked Tongyang's way. Bring goods; I don't buy empty talk.
+dialogue_line_variants.var_street_foreman_l01_night.text,You're on the night list—don't shame the crew. Manifest still gets dirty hands.
+dialogue_line_variants.var_street_waiter_l01_heard.text,Shh—back table split seats these two days. Lid taps; talk dies.
+dialogue_line_variants.var_street_waiter_l01_divorced.text,Tea talk: Hongyuan match is off. Back-table laughs louder than the clapper.
+dialogue_line_variants.var_street_aunt_l01_divorced.text,Hot cakes. That Hongyuan match… street mouths run. Don't swallow it all.
+dialogue_line_variants.var_street_aunt_l01_son.text,Hot cakes. Young master's eyes weren't on the manifest this morning—on a person.
+dialogue_line_variants.var_dock_chat_l03_night.text,Mate winks: board name wasn't yours? Night shift needs you—boss words sour as tide.
+idle_chatter.chatter_home_divorced.text,Corner without the sewing box; the lamp spark still remembers two seats.
+idle_chatter.chatter_dock_night_shift.text,"Some curse the board, some the night shift. In the chant: Ah-Hai's name got moved."
+idle_chatter.chatter_co_handkerchief.text,"That handkerchief with ""Ting"" at the VP's—seen, then unseen."
+idle_chatter.chatter_tea_waiter_follow.text,"Xiao Fu polishes cups: those two sat together yesterday, apart today—lids are honester than people."
+dialogue_line_variants.var_co_ask_promo_l01_night.text,"Hongye looks up: ""Your name just went on the night roster. And now you want a title?"""
+dialogue_line_variants.var_co_ask_promo_l03_night.text,"He taps the tea lid: ""Night tide still needs you. Title—if you can carry the nights."""
+dialogue_line_variants.var_street_boss_l01_focus_b.text,A-Hai. Heard you're staying. Steady beats noisy—keep your eyes open.
+dialogue_line_variants.var_street_boss_l01_focus_c.text,A-Hai. Don't let exchange wind into the warehouse. The firm wants steady.
+dialogue_line_variants.var_street_chen_l01_focus_c.text,I've seen board-watchers too. Tongyang tea stays hot—if you bring goods.
+dialogue_line_variants.var_street_waiter_l01_gifts.text,Shh—someone says the VP handkerchief has a character stitched. Lid taps; talk dies.
+dialogue_line_variants.var_street_su_l01_gifts.text,A-Hai? …I tucked the cuff. Wind's hard on the dock today.
+dialogue_line_variants.var_street_su_l03_gifts.text,Mm. Home later. Too many ears here.
+dialogue_line_variants.var_su_talk_l04_reconcile.text,"Lamp flickers. She nudges the cup toward you—half an inch, like pulling you back to the table."
+dialogue_line_variants.var_su_talk_l04_tool.text,Lamp flickers. She already has the next line ready—waiting which rift you want.
+dialogue_line_variants.var_su_talk_l04_let_go.text,Lamp flickers. Sewing-box lid shut; only polite space left in the room.
+idle_chatter.chatter_plaza_day7_a.text,Plaza whisper: that Hongyuan loader's eyes wandered toward Tongyang.
+idle_chatter.chatter_home_focus_b.text,"Only ""Hongyuan"" left on the paper. The pen pauses, then dots beside it."
+idle_chatter.chatter_ex_focus_c.text,"Tea laugh: even a dock boy watches the board—Hongyuan ticks, ears up."
+dialogue_lines.dlg_street_boss_l01.text,"A-Hai. Don't miss the night-tide run—firm wants steady, not you showing off on the street."
+dialogue_lines.dlg_street_boss_l02.text,"Yes, boss. I'll recheck the manifest."
+dialogue_lines.dlg_street_boss_l03.text,"Go. If Shaoting slams another door, you heard nothing."
+dialogue_lines.dlg_street_chen_l01.text,Hongyuan man? Street meeting counts. Tongyang tea's hot—fresh schedules open doors.
+dialogue_lines.dlg_street_chen_l02.text,Manager Chen. I'll hear the price first.
+dialogue_lines.dlg_street_chen_l03.text,Bring a schedule or manifest. Empty goodwill isn't on my books.
+dialogue_lines.dlg_street_garage_l02.text,I know the prices. Steady wheels first.
+dialogue_lines.dlg_street_garage_l03.text,Register it after you buy. Don't leave a masterless cart in the lane.
+dialogue_lines.dlg_street_foreman_l02.text,Noted. I'll ask the crew—whoever altered it left a hand.
+dialogue_lines.dlg_street_son_l01.text,Loading hero strolling? Reports pile on the VP desk—that isn't street glory.
+dialogue_lines.dlg_street_son_l02.text,…Deputy Shaoting. Reports on time. I make way.
+dialogue_lines.dlg_street_son_l03.text,"Know your place—hall, reports, out of my sight. Wanqing's business: don't dig."
+dialogue_lines.dlg_street_su_l01.text,A-Hai? Just delivered files… cuff still smells of VP ink.
+dialogue_lines.dlg_street_su_l02.text,Look after yourself. The lamp… we'll talk at home.
+dialogue_lines.dlg_street_aunt_l01.text,Hot cakes. North quay late again—and every tab still unpaid.
+dialogue_lines.dlg_street_waiter_l03.text,"Faces blur. But that cuff was foreign cloth; lid tapped, names cut mid-word."
+dialogue_lines.dlg_co_memo_l02.text,Going. Wax still warm—VP just sealed it. No delay.
+dialogue_lines.dlg_co_ask_promo_l01.text,"Hongye looks up: ""Carry nights, then ask by day. What do you want?"""
+dialogue_lines.dlg_rival_work_l02.text,"Copy today's hijack schedule clean. Dirty ink, Tongyang won't own your hand."
+dialogue_lines.dlg_tea_gossip_l02.text,That late north-quay berth—what are the tea mouths saying?
+dialogue_lines.dlg_tea_gossip_l03.text,Front hall jokes schedules; back room finishes names. You catch half a line.
+dialogue_lines.dlg_tea_broker_l02.text,"Talk. Price goes soft, I stand up."
+dialogue_lines.dlg_tea_listen_l02.text,Listening. Today I want the story to name who alters manifests.
+dialogue_lines.dlg_tea_toast_l01.text,"Old Chen from the warehouse lifts a cup: ""One drink—not friendship; for tonight's ship."""
+dialogue_lines.dlg_tea_toast_l02.text,Cheers. Rims touch; words stay short.
+dialogue_lines.dlg_tea_toast_l03.text,Burns the throat. He lets slip: VP foreign yarn's already tea talk.
+dialogue_lines.dlg_garage_buy_1_l02.text,"This one. Tide runs, file runs—saved legs buy time to count."
+dialogue_lines.dlg_garage_buy_2_l02.text,Monthly. Neighbors know the curtain faster than a badge.
+dialogue_lines.dlg_garage_buy_3_l02.text,Want the roar—lane should know I don't only haul sacks.
+dialogue_lines.dlg_garage_buy_4_l02.text,"Drive it home. If the lintel's poor, wheels hold face first."
+dialogue_lines.dlg_home_up_2_l02.text,"Do it. White walls, so visitors don't smell my panic."
+dialogue_lines.dlg_home_up_3_l02.text,Upgrade. A proper parlor—Wanqing shouldn't sigh at the door.
+dialogue_lines.dlg_home_up_4_l02.text,"This plan. New lintel, softer gossip—that's the quiet I buy."
+dialogue_lines.dlg_plaza_sell_goods_l02.text,"Today: one old watch, two spare buttons. Ask grade, not source."
+dialogue_lines.dlg_plaza_storyteller_l02.text,Dock chapter. Coin stays down till the clapper falls.
+dialogue_lines.dlg_plaza_dice_l02.text,"In. Lid down, eight silver—lose and I buy you the sound."
+idle_chatter.chatter_garage_02.text,"Ah-Qiang polishes a bell: ""Run first, face later. Ink dry on the plate—then it's yours."""
+locations.garage.description,West market end: start on a bicycle; upgrade rickshaw→moto→sedan.
+dialogue_lines.dlg_street_aunt_l02.text,Aunt hears fast. You caught the late north-quay berth too?
+npcs.player.background,"You rose on dock loads—chants, sacks, night tides. Promotion nearly inked when Shaoting's laugh came first from the VP office, and Wanqing's lowered reply. You want more than wages: a name, a life no one lifts away."
+npcs.player.disposition,Yourself—the one counting under the lamp.
+dialogue_line_variants.var_home_plan_l02_a.text,"Tongyang. Trade manifests for a seat—if Hongyuan shuts, their tea stays hot."
+dialogue_line_variants.var_home_plan_l02_c.text,"Exchange. Boards obey better than chants—Hongyuan ticks, pockets can too."
+ui.situation.generic,You file this step between your teeth—you'll need it tomorrow.
+journal.flag.forced_night_shift,Noted: promotion stolen; your name is on the night roster.
+journal.flag.son_notices_su,Noted: Shaoting's eyes on Wanqing—like sizing something to take.
+journal.flag.su_accepts_son_gifts,"Noted: yarn in the cabinet, stitched handkerchief—the crack entered home."
+journal.flag.divorced_su,Noted: match off. Empty sewing corner; lamp spark still remembers two.
+journal.flag.divorce_as_weapon,Noted: you used the split as a blade—the Zhous will hear it.
+journal.flag.route_focus_a,Noted: you looked Tongyang—tea hot across; Hongyuan burns behind.
+journal.flag.route_focus_b,Noted: you stay to endure—father and son choking on their words.
+journal.flag.route_focus_c,"Noted: eyes on the board—Hongyuan ticks, pockets should too."
+journal.flag.joined_tongyang,Noted: Tongyang man from today. Don't look back at Hongyuan.
+journal.flag.resigned_hongyuan,"Noted: Hongyuan door shut—badge gone, life not."
+journal.flag.claimed_promo_manager,Noted: manager title lands. Corridor yields; Shaoting's gaze hitch.
+journal.flag.su_reconcile_path,Noted: you still want her under the lamp—reconcile is a hand drawn back.
+journal.flag.su_used_as_tool,"Noted: you have her pass Zhou words—cold heart, clean moves."
+journal.flag.su_let_go,Noted: you let go. Person released; board remains.
+journal.flag.power_flex_done,Noted: you took the corridor yield—title burns others' eyes too.
+journal.street.su_qing,Street brush with Wanqing. Short words; your private ledger turns a page.
+journal.street.zhou_shaoting,Street with Shaoting. You yield the path; jaw stays tight.
+journal.street.zhou_hongye,Boss on the street. He wants steady—you swallow the word.
+journal.street.chen_manager,Chen on the road. Tongyang tea hot; your price unopened.
+ui.situation.action.dock_report,"Supervisor grunts. Annex up—you write the fault, and yourself, into the book."
+ui.situation.action.dock_steal_list,"Edges too clean. Heart skips—this page buys talk, and suspicion."
+ui.situation.action.dock_bribe_clerk,"Tea money for ""forgot."" Silver lands; you feel one inch dirtier."
+ui.situation.action.dock_check_board,Board ink wet. Who knows the berth first pins Hongyuan's price.
+ui.situation.action.dock_meet_contact,Tide-smell meet. You say you're listening—far shore cracks open.
+ui.situation.action.dock_black_market,Scale short a weight; cargo burns. Silver in; eyes on your old badge.
+ui.situation.action.dock_overtime,"Lamp white as a blade. Thicker pay, heavier spine—upstairs people sleep."
+ui.situation.action.dock_errand,"Legs beat mouth. Slip delivered; ship number in cuff—tip buys news, not face."
+ui.situation.action.dock_shelter_talk,"Rain-shelter talk saltier than sea. You crowd in; ears open, shoulders remember."
+ui.situation.action.dock_board_rumor,One soft line under the board. Exchange mouths hitch—Hongyuan pinched.
+ui.situation.action.co_recruit_elder,Elder loosens with wine. Hongyuan feeds and spends men—you file it as a blade-back.
+ui.situation.action.co_flatter_boss,"Loyalty shown. Hongye wants lifters—you wear ""can carry"" on your face."
+ui.situation.action.co_take_blame,You take the pot. Duty buys trust—and handles. You know.
+ui.situation.action.co_boss_task,Night-tide job lands. Don't shame Hongyuan—shame falls on you.
+ui.situation.action.co_pass_rumor,Half-true berth into Shaoting's ear. Brow lifts—you file the use.
+ui.situation.action.co_peek_books,Ledger crack deeper than thought. Numbers bite Hongyuan—and you.
+ui.situation.action.co_bribe_accountant,"Price behind lenses. Gaps for sale—you buy a handle, not a friend."
+ui.situation.action.co_frame_finance,Blame flies. Hall steps stumble—you listen to the crack from shade.
+ui.situation.action.co_memo_run,Wax warm. Empty stair turn—eyes faster than feet; that's you.
+ui.situation.action.co_resign,Resignation in the cuff. Hall pretends blindness—you spat Hongyuan's rice.
+ui.situation.action.co_ask_promotion,"Title on the desk. Lid taps—you want a name you can say, not charity."
+ui.situation.action.home_guide_su,"You push pillow wind. If she asks one ledger line—you harden, and push her nearer fire."
+ui.situation.action.home_propose_divorce,"Lamp oil low. Match on the table—cold, wait, or blade: your doors."
+ui.situation.action.home_window_watch,Lane lamps sway. Stack silhouettes and scraps—something to chew before sleep.
+ui.situation.action.rival_apply,Tongyang brass stings. You offer dock craft—mortgage the shoulder to the far shore.
+ui.situation.action.rival_sell_intel,Manifest for a back road. Money second—you want a seam that hurts Hongyuan.
+ui.situation.action.rival_plot_poach,List hotter than tea. Hongyuan hands can be Tongyang's—you pause on the margin.
+ui.situation.action.rival_accept_job,Tongyang from today. Hongyuan burns behind—you don't turn.
+ui.situation.action.rival_hijack_order,Hongyuan inked out on the schedule. Seam shows—you show too.
+ui.situation.action.rival_work,"Tongyang copy clean. Dirty ink, no credit—you dare less sloppiness than at Hongyuan."
+ui.situation.action.rival_ask_promotion,You dare ask the seat. Merit is manifests—hate from the old badge into the new book.
+ui.situation.action.ex_buy,Long. Bet Hongyuan holds—or others panic harder. Stamp; tide steps back.
+ui.situation.action.ex_short,Shorts speak soft. You bet the fall—will dock chants skip a beat?
+ui.situation.action.ex_trade,Close heavier than open. Win or loss in one press—pockets and face remember.
+ui.situation.action.ex_rumor_true,Truth hammers the board. Let it travel—without your accent.
+ui.situation.action.ex_rumor_fake,Lie folded into a paper boat. Belief today is enough—hot back accepted.
+ui.situation.action.ex_meet_broker,Abacus louder than talk. Who pushes Hongyuan—and whom they smashed first.
+ui.situation.action.ex_leverage,"Leverage lifts and hangs you. Stamp; palms sweat—win fast, lose fast."
+ui.situation.action.ex_white_knight,"Gold cuff only. You say you can—name for their entry, hate for your chip."
+ui.situation.action.plaza_practice,"Ball in. Loader who plays—suspicion thinner, face known on the square."
+ui.situation.action.plaza_snack,Heat kills worry. Stall curses berths; you pretend you only bought chestnuts.
+ui.situation.action.plaza_sell_goods,Watch and buttons for silver. Safe goods sleep easy—extra stares mean hot cargo.
+ui.situation.action.plaza_buy_tip,Truth can cost more. Half-hid berths and names—enough for a cuff note.
+ui.situation.action.plaza_sell_intel,"News out, coin in. No Tongyang stair—just a steadier night."
+ui.situation.action.plaza_help_stall,Sleeves smell of stall. Change lands—shoulders know you haul more than Hongyuan sacks.
+ui.situation.action.plaza_ball_wager,Silver burns the palm. Lose for friendship—win buys Wanqing a proper meal.
+ui.situation.action.plaza_dice,Lid up; breath in. Points cleaner than conscience—you book win/loss into tomorrow's face.
+ui.situation.action.plaza_scratch,"Foil snow. Luck fake, crowd real—plaza looser than the firm."
+ui.situation.action.plaza_storyteller,Clapper falls; story lands. You pay and cuff the lines—sweeter than memos.
+ui.situation.action.plaza_morra,Morra sharper than chant. Fingers out—you recall dock hand-signals for tons.
+ui.situation.action.dock_fish,"Float dips. Rare quiet in the tide—no sack, still counting."
+ui.situation.action.tea_gossip,Front hall jokes berths. Half cup more—back room finishes names; you catch half.
+ui.situation.action.tea_toast,Rims touch. Burn brings half a step closer—yarn gossip costs more than the toast.
+ui.situation.action.tea_broker,"Soft price, you stand. Silver moves; names don't—thickness is a bet, not a bond."
+ui.situation.action.tea_listen,Stay to the end. If the tale names who rewrites manifests—you match it first.
+ui.situation.action.garage_buy_1,Bell rings; road shortens. Tide and files—saved legs buy time to settle Shaoting.
+ui.situation.action.garage_buy_2,Curtain lifts; spine half-straighter. Lane knows the curtain faster than a badge.
+ui.situation.action.garage_buy_3,Moto roars; cups jump. Lane should know you don't only haul sacks.
+ui.situation.action.garage_buy_4,Wheels turn; harbor looks. Poor lintel—car holds face first.
+idle_chatter.chatter_home_focus_a.text,"""Tongyang"" on the margin. Pen stalls: tea hot across—leave Hongyuan a crack or not."
+idle_chatter.chatter_home_focus_c.text,"""Share price"" ink still wet. You circle Hongyuan, sketch a down arrow beside."
+ui.situation.action.home_drive,"Bars in hand. Cobbles bump—wherever you go, wheels leave with your face."
+ui.situation.action.nh_tea_waiter_search,Drawer gossip: who sat long at Tongyang—Xiao Fu remembers better than the clapper.
+ui.situation.action.nh_tea_waiter_rummage,Copper under sugar frost. You touch change that lived in other ears.
+ui.situation.action.nh_stall_aunt_search,Tabs for cakes and messages. Aunt's stall keeps names like a yamen.
+ui.situation.action.nh_stall_aunt_rummage,"Cash in the dark slot, bean paste on the edge. Sweet hides who carried whose word."
+ui.situation.action.nh_garage_hand_search,Night cars circled on the board. The grease ring—someone feared your eyes.
+ui.situation.action.nh_garage_hand_rummage,Washer coins and an old ticket stub. Ah-Qiang's bottom quieter than his bell.
+ui.situation.action.nh_dock_foreman_search,Unreported berth bitten by damp. Foreman's ink softer than his chant.
+ui.situation.action.nh_dock_foreman_rummage,Half a flask on a seal rubbing. Even he has nights not filed.
+ui.situation.action.nh_zhou_shaoting_search,Chips and a half-curse at his father. Shaoting's soft spot hotter than reports.
+ui.situation.action.nh_zhou_shaoting_rummage,Receipt ink stingingly dear. You memorize sums—and still yield in the hall.
+ui.situation.action.nh_chen_manager_search,Tongyang–Hongyuan gap in the case. Chen's seam is the ladder you want.
+ui.situation.action.nh_chen_manager_rummage,Silver by the ink pad like bait. You don't swallow whole—he books no empty talk.
+quest.a_strike.hint,"To put the blade in Tongyang's hand, walk this seam (watch intel/coin/fame):||1. Tongyang lobby → apply||2. Fame≥20, Day12 opens Meet room||3. Sell Hongyuan intel (or Chen favor≥50) → hire right||4. Intel≥20: poach/plot||5. Day20 office → accept job||6. Same: hijack order → hand them the seam||7. From Day18 noon: berth flips → ending||Stuck: grey text; farm fame/intel at dock/tea"
+quest.c_short.hint,Board-blade: close profit ≥80.||1. Day8+ exchange hall||2. ≥50 long or ≥80 short||3. Close via trade action; push profit to 80||4. Optional tea rumors||5. Day16+ noon first short climax → ending
+weather.clear.name,Clear
+weather.cloudy.name,Cloudy
+weather.rain.name,Rain
+weather.storm.name,Storm
+ui.weather.changed,Sky shifts: {name}. Cuff and tide-smell shift with it.
+weather.clear.blurb,"Hard sun; stones burn the soles. Brims down, steps shorter."
+weather.cloudy.blurb,Clouds press the bay; tide-smell thicker. Voices drop half an inch.
+weather.rain.blurb,Rain bleeds shop signs. Hagglers and whisperers hike their collars.
+weather.storm.blurb,Storm hammers glass and tin. Collars tight; abacuses hugged tighter.
+dialogue_choices.dch_dlg_garage_buy_1_ok.label,Bell rings—this one's mine
+dialogue_choices.dch_dlg_garage_buy_2_ok.label,Monthly—let the lane know the curtain
+dialogue_choices.dch_dlg_garage_buy_3_ok.label,I want that roar
+dialogue_choices.dch_dlg_garage_buy_4_ok.label,Drive it home—hold the lintel
+dialogue_choices.dch_dlg_home_up_2_ok.label,Paint—don't let them smell panic
+dialogue_choices.dch_dlg_home_up_3_ok.label,Make the parlor proper
+dialogue_choices.dch_dlg_home_up_4_ok.label,"New lintel, new mouths"
+dialogue_choices.dch_dlg_street_boss_ok.label,Yes—I'll recheck the manifest
+dialogue_choices.dch_dlg_tea_toast_ok.label,Down it—words stay short
+dialogue_choices.dch_dlg_plaza_dice_ok.label,Open the cup

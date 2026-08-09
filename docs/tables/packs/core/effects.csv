@@ -1,4 +1,4 @@
-﻿id,owner_type,owner_id,effect_type,target,key,op,value,chance,notes
+id,owner_type,owner_id,effect_type,target,key,op,value,chance,notes
 fx_0001,action,dock_work,stat,,money,add,24,1,
 fx_0002,action,dock_work,stat,,network_base,add,1,1,
 fx_0003,action,dock_work,stat,,trust,add,1,1,
@@ -787,8 +787,7 @@ fx_su_lg_fav,choice,ch_su_let_go_ok,relation,,su_qing:player:favor,add,-6,1,pill
 fx_su_lg_net,choice,ch_su_let_go_ok,stat,,network_base,add,1,1,pillars
 fx_flag_su_rec_mend,choice,ch_ev_flag_su_betray_mend,flag,,su_reconcile_path,set,1,1,arc flag
 fx_flag_su_rec_comfort,choice,ch_ev_b_d19_su_afraid_comfort,flag,,su_reconcile_path,set,1,1,arc flag
-fx_flag_su_rec_soft,dialogue_choice,dch_dlg_su_talk_soft,flag,,su_reconcile_path,set,1,1,arc flag
-fx_flag_su_tool_scheme,dialogue_choice,dch_dlg_su_talk_scheme,flag,,su_used_as_tool,set,1,1,arc flag
+fx_flag_su_rec_soft,dialogue_choice,dch_dlg_su_talk_soft,flag,,su_reconcile_path,set,1,1,arc flag; variants gated day6+crack
 fx_flag_su_tool_guide_ok,dialogue_choice,dch_dlg_su_guide_ok,flag,,su_used_as_tool,set,1,1,arc flag
 fx_flag_su_tool_guide_cold,dialogue_choice,dch_dlg_su_guide_cold,flag,,su_used_as_tool,set,1,1,arc flag
 fx_flag_su_tool_afraid_use,choice,ch_ev_b_d19_su_afraid_use,flag,,su_used_as_tool,set,1,1,arc flag

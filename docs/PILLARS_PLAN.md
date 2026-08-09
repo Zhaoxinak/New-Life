@@ -26,8 +26,8 @@
 
 | 弧 | 旗标 | 点亮 | 节拍 |
 |---|---|---|---|
-| 求合 | `su_reconcile_path` | mend / comfort / soft talk | `ev_su_reconcile`（不消 `divorced_su`） |
-| 利用 | `su_used_as_tool` | scheme / guide / afraid_use / 退婚当刀 | 变体 + `chatter_su_used_tool` |
+| 求合 | `su_reconcile_path` | mend / comfort / soft talk（客厅变体须 Day≥6+裂痕） | `ev_su_reconcile`（不消 `divorced_su`） |
+| 利用 | `su_used_as_tool` | guide / afraid_use / 退婚当刀（scheme 不点亮） | 变体 + `chatter_su_used_tool` |
 | 放手 | `su_let_go` | 冷退 / betray push / 客厅「放手」 | `ev_su_let_go` |
 
 变体优先级：利用(30) > 求合(22) > 放手(21) > 既有退婚。

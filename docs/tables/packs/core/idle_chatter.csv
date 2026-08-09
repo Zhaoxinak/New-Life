@@ -72,3 +72,12 @@ chatter_tea_waiter_01,tea_house,,morning|afternoon,all,9,1,1,小福擦盏
 chatter_tea_waiter_02,tea_house,tea_stage,afternoon|evening,all,8,1,1,后座谁来
 chatter_garage_hand_01,garage,,morning|afternoon,all,9,1,1,阿强拧螺丝
 chatter_garage_hand_02,garage,garage_counter,any,all,8,1,1,车行柜台气派价
+chatter_home_divorced,home,home_living,evening,B|all,9,1,1,退婚空屋
+chatter_dock_night_shift,dock,,evening,all,10,1,1,夜班发配闲话
+chatter_co_handkerchief,company,company_vp,afternoon,B,8,2,1,手帕/礼物后回声
+chatter_tea_waiter_follow,tea_house,,afternoon|evening,all,8,1,1,小福闲话递进
+chatter_plaza_day7_a,plaza,,any,all,8,2,1,站队通洋闲话
+chatter_home_focus_b,home,home_desk,evening,B|all,8,2,1,隐忍线筹划回声
+chatter_ex_focus_c,exchange,,morning|afternoon,C|all,8,2,1,证券线回声
+chatter_home_focus_a,home,home_desk,evening,A|all,8,2,1,通洋线筹划回声
+chatter_home_focus_c,home,home_desk,evening,C|all,8,2,1,证券线筹划回声

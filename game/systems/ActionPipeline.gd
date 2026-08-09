@@ -292,11 +292,13 @@ func finish_action(action_id: String, choice_id: String = "", prior_applied: Arr
 	elif period_changed and period_line != "":
 		message = "%s\n%s" % [message, period_line]
 	if str(GameState.weather) != prev_weather and str(GameState.weather) != "":
-		var wname: = L10n.t("weather.%s.name" % GameState.weather, GameState.weather)
-		message = "%s\n%s" % [
-			message, 
-			L10n.tf("ui.weather.changed", {"name": wname}, "天色转：%s" % wname), 
-		]
+		var wid: = str(GameState.weather)
+		var wname: = L10n.t("weather.%s.name" % wid, wid)
+		var wline: = L10n.tf("ui.weather.changed", {"name": wname}, "天色转：%s" % wname)
+		var wblurb: = L10n.t_if("weather.%s.blurb" % wid)
+		if wblurb != "":
+			wline = "%s\n%s" % [wline, wblurb]
+		message = "%s\n%s" % [message, wline]
 
 	ThresholdWatcher.evaluate_all()
 	EndingChecker.check_now()

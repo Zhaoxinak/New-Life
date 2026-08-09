@@ -423,6 +423,8 @@ func _rebuild_detail() -> void :
 				prefix = "〔巷闻〕"
 			elif kind == "street":
 				prefix = "〔街访〕"
+			elif kind == "flag":
+				prefix = "〔私账〕"
 			var entry: = Label.new()
 			entry.text = "· [%s] %s%s" % [head, prefix, body]
 			entry.add_theme_font_size_override("font_size", 12)

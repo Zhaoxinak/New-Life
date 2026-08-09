@@ -13,10 +13,26 @@ const STREET_DLG_TO_NPC: = {
 }
 
 const FLAG_LOG_KEYS: = {
-	"heard_foreman_rumor": "dock_foreman", 
-	"heard_waiter_gossip": "tea_waiter", 
-	"met_street_aunt": "stall_aunt", 
-	"met_garage_hand": "garage_hand", 
+	"heard_foreman_rumor": "dock_foreman",
+	"heard_waiter_gossip": "tea_waiter",
+	"met_street_aunt": "stall_aunt",
+	"met_garage_hand": "garage_hand",
+	# Plot beats → player private ledger (dossier on 林阿海)
+	"forced_night_shift": "player",
+	"son_notices_su": "player",
+	"su_accepts_son_gifts": "player",
+	"divorced_su": "player",
+	"divorce_as_weapon": "player",
+	"route_focus_a": "player",
+	"route_focus_b": "player",
+	"route_focus_c": "player",
+	"joined_tongyang": "player",
+	"resigned_hongyuan": "player",
+	"claimed_promo_manager": "player",
+	"su_reconcile_path": "player",
+	"su_used_as_tool": "player",
+	"su_let_go": "player",
+	"power_flex_done": "player",
 }
 
 const FAVOR_LOG_THRESHOLD: = 2.0
