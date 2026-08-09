@@ -52,3 +52,4 @@ su_used_as_tool,0,core,利用 path lit
 su_let_go,0,core,放手 path lit
 su_reconcile_done,0,core,ev_su_reconcile played
 su_let_go_done,0,core,ev_su_let_go played
+intro_lock,1,core,新游戏未看完开场前锁定行动

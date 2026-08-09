@@ -40,4 +40,4 @@ tip_home_upgrade,unlock,42,tip.home_upgrade,1,1,
 tip_minimap,unlock,43,tip.minimap,1,1,
 tip_street_npc,unlock,44,tip.street_npc,1,1,
 tip_dossier,unlock,45,tip.dossier,1,1,
-tip_npc_world,unlock,46,tip.npc_world,1,1,
+tip_npc_world,unlock,46,tip.npc_world,1,0,merged into tip_street_npc

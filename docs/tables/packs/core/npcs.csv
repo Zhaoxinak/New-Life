@@ -1,11 +1,11 @@
-﻿id,portrait_key,tags,enabled,is_player,notes
-player,portrait_player,core,1,1,玩家自身不进关系表主体
-zhou_hongye,portrait_boss,core,1,0,
-zhou_shaoting,portrait_son,core,1,0,
-su_qing,portrait_su,core,1,0,
-chen_manager,portrait_chen,core,1,0,
-narrator,portrait_narrator,system,1,0,旁白/系统叙述，非真人
-dock_foreman,,harbor|street,1,0,码头工头
-stall_aunt,,harbor|street,1,0,广场摊贩
-tea_waiter,,harbor|street,1,0,茶馆跑堂
-garage_hand,,harbor|street,1,0,车行伙计
+﻿id,portrait_key,walk_key,demo_ref,tags,enabled,is_player,notes
+player,portrait_player,qiao_yiming,resident_qiao_yiming_01|classic_walk,core,1,1,外观=乔一鸣肖像；走动=classic complete set
+zhou_hongye,portrait_boss,cheng_yan,resident_cheng_yan_01|classic_walk,core,1,0,外观=程砚；走动=classic complete set
+zhou_shaoting,portrait_son,wen_xu,resident_wen_xu_01|classic_walk,core,1,0,外观=闻叙；走动=classic complete set
+su_qing,portrait_su,su_tang,resident_su_tang_01|classic_walk,core,1,0,外观=苏棠；走动=classic complete set
+chen_manager,portrait_chen,zhou_jiming,resident_zhou_jiming_01|classic_walk,core,1,0,外观=周既明；走动=classic complete set
+narrator,portrait_narrator,,,system,1,0,旁白
+dock_foreman,portrait_dock_foreman,lu_qingzhou,resident_lu_qingzhou_01|classic_walk,harbor|street,1,0,外观=陆青舟；走动=classic complete set
+stall_aunt,portrait_stall_aunt,tang_xiaoman,resident_tang_xiaoman_01|classic_walk,harbor|street,1,0,外观=唐小满；走动=classic complete set
+tea_waiter,portrait_tea_waiter,hanako,resident_hanako_01|classic_walk,harbor|street,1,0,外观=花子；走动=classic complete set
+garage_hand,portrait_garage_hand,luo_yuan,resident_luo_yuan_01|classic_walk,harbor|street,1,0,外观=罗远；走动=classic complete set

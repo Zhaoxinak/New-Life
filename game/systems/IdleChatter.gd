@@ -37,7 +37,7 @@ func pick_for_current(hotspot_id: String = "") -> String:
 		if roll <= acc:
 			var id: = str(item["row"].get("id", ""))
 			GameState.chatter_last_day[id] = GameState.day
-			var text: = L10n.t("idle_chatter.%s.text" % id, "")
+			var text: = L10n.t_if("idle_chatter.%s.text" % id)
 			GameState.last_chatter_text = text
 			return text
 	return ""

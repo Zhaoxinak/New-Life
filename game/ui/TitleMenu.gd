@@ -19,7 +19,7 @@ extends Control
 
 const SettingsPanelScene: = preload("res://ui/SettingsPanel.tscn")
 const SaveSlotPanelScene: = preload("res://ui/SaveSlotPanel.tscn")
-const PROLOGUE_MIN_SEC: = 0.45
+const PROLOGUE_MIN_SEC: = 0.0
 
 var _settings: CanvasLayer = null
 var _slots: CanvasLayer = null
@@ -118,7 +118,7 @@ func _play_prologue() -> void :
 	_prologue_index = 0
 	var body: = L10n.t(
 		"ui.prologue.body", 
-		"潮起潮落，这座港靠力与算计吃饭。货轮靠岸、账房拨算盘，谁先站稳，谁就能往上爬。|||你是林阿海——周记洋行装卸组长。码头上喊一声「阿海」，半个货仓都听得见。|||苦干这些年，升职几乎板上钉钉，未婚妻苏晚晴也开始跟你谈婚事。你以为，日子终于往上走了。"
+		"潮起潮落，这座港靠力与算计吃饭。货轮靠岸、账房拨算盘，谁先站稳，谁就能往上爬。|||你是林阿海——周记洋行装卸组长。码头上喊一声「阿海」，半个货仓都听得见。|||苦干这些年，升职几乎板上钉钉，未婚妻苏晚晴也开始跟你谈婚事。你以为，日子终于往上走了。|||今早你顺路去副理办公室，想问一句升职——门还没敲，里面先传来少霆的笑声，还有她压低的应声。"
 	)
 	_prologue_segments = EventStaging.split_body(body)
 	menu_column.visible = false

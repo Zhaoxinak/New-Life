@@ -73,19 +73,13 @@ func _ready() -> void :
 		GameFlow.block_changed.connect(_on_block)
 	if not L10n.locale_changed.is_connected(_on_locale):
 		L10n.locale_changed.connect(_on_locale)
-	if not GameState.period_advanced.is_connected(_on_period_chatter):
-		GameState.period_advanced.connect(_on_period_chatter)
+	if not GameState.state_changed.is_connected(_on_state_chrome):
+		GameState.state_changed.connect(_on_state_chrome)
 	_refresh_labels()
 
 
-func _on_period_chatter(_day: int, _period: String) -> void :
-
-	await get_tree().process_frame
-	if GameState.last_chatter_text.strip_edges() != "":
-		result_label.text = "[%s] %s" % [
-			L10n.t("ui.chatter.title", "巷闻"), 
-			GameState.last_chatter_text, 
-		]
+func _on_state_chrome() -> void :
+	dossier_button.visible = GameState.day >= 2
 
 
 func _on_locale(_l: String) -> void :
@@ -103,6 +97,7 @@ func _on_locale(_l: String) -> void :
 func _refresh_labels() -> void :
 	settings_button.text = L10n.t("ui.menu.settings", "设置")
 	dossier_button.text = L10n.t("ui.chrome.dossier", "人物")
+	dossier_button.visible = GameState.day >= 2
 	people_title.text = L10n.t("ui.location.people", "在场人物")
 	people_hint.text = L10n.t("ui.location.people_hint", "点选人物")
 
@@ -140,8 +135,13 @@ func _on_block(blocked: bool) -> void :
 		action_panel.visible = false
 		if people_strip:
 			people_strip.visible = false
-	elif not blocked and _location_id != "" and (_menu_mode == "facilities" or _menu_mode == "npc"):
-		open_location_menu(_location_id)
+	elif not blocked and _location_id != "":
+		## Restore whichever menu was open; "actions" used to be skipped and
+		## left the player frozen with a hidden panel after time-skip beats.
+		if _menu_mode == "facilities" or _menu_mode == "npc":
+			open_location_menu(_location_id)
+		elif _menu_mode == "actions" and _hotspot_id != "":
+			_open_actions(_hotspot_id)
 
 
 func _set_player_frozen(frozen: bool) -> void :
@@ -476,21 +476,42 @@ func _on_action_resolved(result: Dictionary) -> void :
 	TipSystem.pulse_when_free()
 	if world and world.has_method("refresh_after_action"):
 		world.refresh_after_action()
-
-	if world and str(world.get("mode")) == "interior" and _location_id != "" and not GameFlow.is_blocked():
-		open_location_menu(_location_id)
-	else:
-		_hide_actions()
+	_reopen_interior_menu_when_free()
 
 
-func _on_event_resolved(_e: String, _c: String) -> void :
+func _on_event_resolved(_e: String, _c: String, _applied: Array = []) -> void :
 	TipSystem.on_flags_changed()
 	TipSystem.on_unlock_pulse()
 	TipSystem.pulse_when_free()
 	if world and world.has_method("refresh_after_action"):
 		world.refresh_after_action()
-	if world and str(world.get("mode")) == "interior" and _location_id != "" and not GameFlow.is_blocked():
-		open_location_menu(_location_id)
+	_reopen_interior_menu_when_free()
+
+
+func _reopen_interior_menu_when_free() -> void :
+	var want_interior: = world != null and str(world.get("mode")) == "interior" and _location_id != ""
+	if not want_interior:
+		_hide_actions()
+		return
+	## Keep freeze + location id while BeatFeed/events hold the gate, then restore.
+	if _menu_mode == "closed":
+		_menu_mode = "facilities"
+	_set_player_frozen(true)
+	action_panel.visible = false
+	call_deferred("_wait_and_reopen_interior_menu")
+
+
+func _wait_and_reopen_interior_menu() -> void :
+	var loc: = _location_id
+	while is_instance_valid(self) and GameFlow.is_blocked():
+		await get_tree().process_frame
+	if not is_instance_valid(self):
+		return
+	if world == null or str(world.get("mode")) != "interior" or loc == "" or loc != _location_id:
+		return
+	if GameFlow.is_blocked():
+		return
+	open_location_menu(loc)
 
 
 func _on_settings() -> void :

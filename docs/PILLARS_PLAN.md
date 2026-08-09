@@ -20,7 +20,7 @@
 | `ev_power_flex` | 下午；`claimed_promo_manager` **或** `claimed_promo_ty_supervisor`；`power_flex_done=0`；day≥10 |
 | `ch_power_flex_accept` | 收下场面：声望/信任微涨 |
 | `ch_power_flex_press` | 拿去压人：张力/嫌疑/情报；晚晴 favor↓ |
-| `var_su_office_l01_promo` | 经理名分日常再撞 |
+| `var_su_office_l01_promo` | 经理 **或** 通洋主管名分日常再撞 |
 
 ## 女人 — 三短弧
 
@@ -40,8 +40,8 @@
 
 ## 验收
 
-- [ ] 宅基升级后声望立刻动；tip/HUD 能串「赚钱→撑场面」
-- [ ] 晋升经理或通洋主管后下午能撞走廊碾压，两选项味道不同
-- [ ] 求合/利用/放手可由现有对话或事件点亮，客厅台词变味
-- [ ] 求合不抹掉 `divorced_su`；退婚线仍可选
-- [ ] 存读档旗标不丢
+- [x] 宅基升级后声望立刻动；tip/HUD 能串「赚钱→撑场面」
+- [x] 晋升经理或通洋主管后下午能撞走廊碾压，两选项味道不同
+- [x] 求合/利用/放手可由现有对话或事件点亮，客厅台词变味
+- [x] 求合不抹掉 `divorced_su`；退婚线仍可选
+- [x] 存读档旗标不丢

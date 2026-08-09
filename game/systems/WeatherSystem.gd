@@ -98,6 +98,26 @@ func period_tint(period: String = "") -> Color:
 			return Color.WHITE
 
 
+## Smooth daylight curve across the 06:00→02:00 window (phase 0…1).
+func period_tint_lerped(phase01: float = -1.0) -> Color:
+	var t: = phase01
+	if t < 0.0:
+		t = WorldClock.day_phase01() if WorldClock else 0.0
+	t = clampf(t, 0.0, 1.0)
+	var morning: = Color(1.06, 1.02, 0.94)
+	var noon: = Color(1.1, 1.06, 0.98)
+	var dusk: = Color(0.78, 0.72, 0.82)
+	var night: = Color(0.48, 0.54, 0.78)
+	var late: = Color(0.38, 0.42, 0.62)
+	if t < 0.25:
+		return morning.lerp(noon, t / 0.25)
+	if t < 0.5:
+		return noon.lerp(dusk, (t - 0.25) / 0.25)
+	if t < 0.75:
+		return dusk.lerp(night, (t - 0.5) / 0.25)
+	return night.lerp(late, (t - 0.75) / 0.25)
+
+
 func weather_tint(weather_id: String = "") -> Color:
 	var w: = weather_id if weather_id != "" else GameState.weather
 	match w:
@@ -112,7 +132,7 @@ func weather_tint(weather_id: String = "") -> Color:
 
 
 func atmosphere_modulate(period: String = "", weather_id: String = "") -> Color:
-	var a: = period_tint(period)
+	var a: = period_tint_lerped() if period == "" else period_tint(period)
 	var b: = weather_tint(weather_id)
 	return Color(a.r * b.r, a.g * b.g, a.b * b.b, 1.0)
 

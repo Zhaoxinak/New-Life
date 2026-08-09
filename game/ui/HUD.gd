@@ -13,17 +13,151 @@ extends Control
 @onready var rank_label: Label = %RankLabel
 @onready var mood_label: Label = %MoodLabel
 
+var _clock_label: Label
+var _speed_row: HBoxContainer
+var _speed_btns: Dictionary = {} ## float speed -> Button
+
+## Display order: rates first, pause last (matches player request).
+const SPEED_BUTTONS: Array[float] = [0.5, 1.0, 2.0, 4.0, 0.0]
+
+const NOVICE_UNTIL_DAY: = 3
+
 
 func _ready() -> void :
 	if not GameState.state_changed.is_connected(_refresh):
 		GameState.state_changed.connect(_refresh)
 	if not L10n.locale_changed.is_connected(_on_locale):
 		L10n.locale_changed.connect(_on_locale)
-
+	if WorldClock:
+		if not WorldClock.speed_changed.is_connected(_on_speed):
+			WorldClock.speed_changed.connect(_on_speed)
+		if not WorldClock.clock_ticked.is_connected(_on_clock_tick):
+			WorldClock.clock_ticked.connect(_on_clock_tick)
+	if not GameFlow.block_changed.is_connected(_on_block):
+		GameFlow.block_changed.connect(_on_block)
+	_ensure_clock_controls()
 	network_label.visible = false
 	for lab in [trust_label, suspicion_label, intel_label, money_label, rank_label, mood_label]:
 		lab.mouse_filter = Control.MOUSE_FILTER_STOP
 	_refresh()
+
+
+func _ensure_clock_controls() -> void :
+	var row: = day_label.get_parent() as HBoxContainer
+	if row == null:
+		return
+	if _clock_label == null:
+		_clock_label = Label.new()
+		_clock_label.name = "ClockLabel"
+		_clock_label.add_theme_color_override("font_color", Color(0.95, 0.9, 0.78, 1))
+		_clock_label.add_theme_font_size_override("font_size", 15)
+		row.add_child(_clock_label)
+		row.move_child(_clock_label, period_label.get_index() + 1)
+	if _speed_row == null:
+		_speed_row = HBoxContainer.new()
+		_speed_row.name = "SpeedRow"
+		_speed_row.add_theme_constant_override("separation", 3)
+		row.add_child(_speed_row)
+		row.move_child(_speed_row, _clock_label.get_index() + 1)
+		for spd in SPEED_BUTTONS:
+			var btn: = Button.new()
+			btn.name = "Speed_%s" % _speed_key(spd)
+			btn.focus_mode = Control.FOCUS_NONE
+			btn.custom_minimum_size = Vector2(52 if spd <= 0.0 else 40, 26)
+			btn.add_theme_font_size_override("font_size", 13)
+			btn.text = _speed_label(spd)
+			btn.pressed.connect(_on_speed_picked.bind(spd))
+			_speed_row.add_child(btn)
+			_speed_btns[spd] = btn
+
+
+func _speed_key(spd: float) -> String:
+	if spd <= 0.0:
+		return "pause"
+	if is_equal_approx(spd, floorf(spd)):
+		return str(int(spd))
+	return str(spd).replace(".", "_")
+
+
+func _speed_label(spd: float) -> String:
+	if spd <= 0.0:
+		return L10n.t("ui.hud.speed_paused", "暂停")
+	if is_equal_approx(spd, floorf(spd)):
+		return "%dx" % int(spd)
+	return "%.1fx" % spd
+
+
+func _on_speed(_s: float) -> void :
+	_refresh_speed_btns()
+
+
+func _on_block(_blocked: bool) -> void :
+	_refresh_speed_btns()
+
+
+func _on_clock_tick() -> void :
+	if _clock_label:
+		_clock_label.text = WorldClock.clock_hhmm()
+
+
+func _on_speed_picked(spd: float) -> void :
+	SfxPlayer.play_click()
+	if WorldClock:
+		WorldClock.set_speed(spd)
+
+
+func _refresh_speed_btns() -> void :
+	if _speed_btns.is_empty() or WorldClock == null:
+		return
+	var cur: = WorldClock.time_speed
+	var soft_pause: = WorldClock.effective_speed() <= 0.0 and cur > 0.0
+	var tip_base: = L10n.t("ui.hud.speed_tip", "点选时间倍速；小键盘 +/- 也可调")
+	for spd in SPEED_BUTTONS:
+		var btn: Button = _speed_btns.get(spd)
+		if btn == null:
+			continue
+		btn.text = _speed_label(spd)
+		var selected: = is_equal_approx(spd, cur)
+		_apply_speed_btn_style(btn, selected)
+		if spd <= 0.0:
+			btn.tooltip_text = L10n.t("ui.hud.speed_pause_pick_tip", "暂停世界时间")
+		elif soft_pause and selected:
+			btn.tooltip_text = L10n.t("ui.hud.speed_paused_tip", "对话/事件中，时间暂停。")
+		else:
+			btn.tooltip_text = tip_base
+
+
+func _apply_speed_btn_style(btn: Button, selected: bool) -> void :
+	var normal: = UiStyle.make_button_style(true)
+	var hover: = UiStyle.make_button_style(false)
+	for s in [normal, hover]:
+		s.content_margin_left = 6
+		s.content_margin_right = 6
+		s.content_margin_top = 3
+		s.content_margin_bottom = 3
+		s.set_corner_radius_all(4)
+		s.set_border_width_all(2)
+	if selected:
+		normal.bg_color = Color("8a5a32")
+		normal.border_color = UiStyle.BRASS
+		hover.bg_color = Color("9a6a3c")
+		hover.border_color = Color("ffe08a")
+		btn.add_theme_color_override("font_color", Color("fff4d0"))
+	else:
+		normal.bg_color = Color("3d2a1c")
+		normal.border_color = Color("6a5638")
+		hover.bg_color = Color("5a3a28")
+		hover.border_color = Color("9a8060")
+		btn.add_theme_color_override("font_color", UiStyle.TEXT_DIM)
+	btn.add_theme_stylebox_override("normal", normal)
+	btn.add_theme_stylebox_override("hover", hover)
+	btn.add_theme_stylebox_override("pressed", hover)
+	btn.add_theme_color_override("font_hover_color", Color("fff4d0"))
+	btn.add_theme_color_override("font_pressed_color", UiStyle.BRASS)
+
+
+func _is_novice_hud() -> bool:
+	return GameState.day <= NOVICE_UNTIL_DAY
 
 
 func _on_locale(_locale: String) -> void :
@@ -31,12 +165,20 @@ func _on_locale(_locale: String) -> void :
 
 
 func _refresh() -> void :
+	var novice: = _is_novice_hud()
 	day_label.text = L10n.tf("ui.hud.day", {"day": GameState.day}, "第 %d 天" % GameState.day)
 	var period_key: = "ui.hud.period_%s" % GameState.period
 	period_label.text = "%s：%s" % [
 		L10n.t("ui.hud.period", "时段"), 
 		L10n.t(period_key, L10n.t("periods.%s.name" % GameState.period, GameState.period)), 
 	]
+	if _clock_label:
+		_clock_label.text = WorldClock.clock_hhmm() if WorldClock else "--:--"
+		if WorldClock and WorldClock.day_phase01() >= 0.92:
+			_clock_label.add_theme_color_override("font_color", UiStyle.DANGER)
+		else:
+			_clock_label.add_theme_color_override("font_color", Color(0.95, 0.9, 0.78, 1))
+	_refresh_speed_btns()
 	var wid: = str(GameState.weather)
 	if wid == "":
 		wid = "clear"
@@ -60,6 +202,15 @@ func _refresh() -> void :
 	_refresh_heat_standing()
 	_refresh_next_step()
 	_refresh_mood()
+
+	# First days: only clock + money + today's goal.
+	rank_label.visible = not novice
+	trust_label.visible = not novice
+	suspicion_label.visible = not novice
+	mood_label.visible = not novice
+	network_label.visible = false
+	intel_label.visible = true
+	money_label.visible = true
 
 
 func _refresh_rank() -> void :
@@ -166,7 +317,7 @@ func _refresh_next_step() -> void :
 	intel_label.text = L10n.tf(
 		"ui.hud.next_line", 
 		{"text": str(goal.get("text", ""))}, 
-		"下一步：%s" % str(goal.get("text", ""))
+		"今日目标：%s" % str(goal.get("text", ""))
 	)
 	intel_label.tooltip_text = str(goal.get("tip", ""))
 	intel_label.add_theme_color_override("font_color", UiStyle.BRASS)

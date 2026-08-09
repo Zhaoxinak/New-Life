@@ -44,9 +44,8 @@ func _on_block(blocked: bool) -> void :
 func _on_tip(tip_id: String, text: String) -> void :
 	label.text = text
 	_refresh_chrome()
-	var row: = PackDB.get_row("tips", tip_id)
-	var is_tutorial: = str(row.get("category", "")) == "tutorial"
-	skip_btn.visible = is_tutorial
+	## Always allow dismissing the whole opening tip bundle.
+	skip_btn.visible = true
 	if GameFlow.is_blocked():
 		_held_visible = true
 		visible = false
@@ -82,8 +81,7 @@ func _on_close() -> void :
 
 func _on_skip() -> void :
 	SfxPlayer.play_click()
-	TipSystem.skip_tutorial()
+	TipSystem.skip_all_pending()
 	visible = false
 	_held_visible = false
-	TipSystem.notify_closed()
 	TipSystem.pulse_when_free()

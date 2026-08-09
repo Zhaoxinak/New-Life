@@ -64,3 +64,11 @@ chatter_vehicle_rickshaw,plaza,,any,all,6,1,1,座驾≥2
 chatter_divorce_rumor,tea_house,,afternoon|evening,all,12,2,1,邻里传宏远亲事散了
 chatter_divorce_weapon,tea_house,tea_stage,any,B|all,10,2,1,故意散伙闲话
 chatter_su_used_tool,tea_house,,afternoon|evening,B|all,11,2,1,他拿女人推裂缝
+chatter_dock_foreman_01,dock,dock_loading,morning|afternoon,all,9,1,1,老郑催号子
+chatter_dock_foreman_02,dock,,evening,all,8,1,1,工头清点夜班
+chatter_plaza_aunt_01,plaza,plaza_stalls,morning|afternoon,all,9,1,1,阿婶摊前
+chatter_plaza_aunt_02,plaza,,any,all,7,1,1,糖糕香里闲话
+chatter_tea_waiter_01,tea_house,,morning|afternoon,all,9,1,1,小福擦盏
+chatter_tea_waiter_02,tea_house,tea_stage,afternoon|evening,all,8,1,1,后座谁来
+chatter_garage_hand_01,garage,,morning|afternoon,all,9,1,1,阿强拧螺丝
+chatter_garage_hand_02,garage,garage_counter,any,all,8,1,1,车行柜台气派价

@@ -86,12 +86,17 @@ func _apply_to(npc: Node, snap: bool) -> void :
 	var dest: = resolve_destination(nid)
 	if dest.is_empty():
 		push_warning("NpcScheduler: no destination for %s" % nid)
+		NpcWalkDebug.trace(nid, "scheduler NO_DEST period=%s" % GameState.period)
 		return
 	var pos: Vector2 = dest.get("pos", Vector2.ZERO)
 	var indoors: bool = bool(dest.get("indoors", false))
 	var building_id: = str(dest.get("building_id", ""))
+	NpcWalkDebug.trace(nid, "scheduler dest kind=%s indoors=%s building=%s pos=%s snap=%s period=%s" % [
+		dest.get("kind", ""), indoors, building_id, pos, snap, GameState.period
+	])
 	if npc.has_method("set_schedule_target"):
 		npc.set_schedule_target(pos, indoors, snap, building_id)
+
 
 
 func resolve_destination(npc_id: String) -> Dictionary:

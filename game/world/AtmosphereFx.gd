@@ -45,8 +45,16 @@ func _ready() -> void :
 		GameState.state_changed.connect(refresh)
 	if not GameState.weather_changed.is_connected(_on_weather):
 		GameState.weather_changed.connect(_on_weather)
+	if WorldClock and not WorldClock.clock_ticked.is_connected(_on_clock):
+		WorldClock.clock_ticked.connect(_on_clock)
 	set_process(true)
 	refresh()
+
+
+func _on_clock() -> void :
+	## Soft refresh every few game-minutes; avoid tween spam.
+	if int(WorldClock.window_minute) % 8 == 0:
+		refresh()
 
 
 func _on_viewport() -> void :
@@ -105,8 +113,9 @@ func refresh() -> void :
 			veil_a = 0.42 if _outdoor else 0.22
 		_:
 			veil_a = 0.0
-	if GameState.period == "evening":
-		veil_a += 0.08 if _outdoor else 0.04
+	var phase: = WorldClock.day_phase01() if WorldClock else 0.0
+	if phase >= 0.55:
+		veil_a += lerpf(0.06, 0.16, (phase - 0.55) / 0.45) if _outdoor else 0.04
 	var tw2: = create_tween()
 	tw2.tween_property(_veil, "color:a", veil_a, 0.35)
 	if _rain_view:

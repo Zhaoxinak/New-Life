@@ -1,18 +1,17 @@
-extends CharacterBody2D
+﻿extends CharacterBody2D
 
 
-const FRAME_W: = 64
-const FRAME_H: = 122
-const SHEET_COLS: = 6
 const DIR_NAMES: = ["s", "se", "e", "ne", "n", "nw", "w", "sw"]
-const WALK_FPS: = 8.0
 const ARRIVE_DIST: = 28.0
 
 const ENTER_DIST: = 72.0
 const WAYPOINT_ARRIVE: = 30.0
-const STUCK_SKIP_SEC: = 1.2
-const STUCK_TELEPORT_SEC: = 3.8
+const STUCK_SKIP_SEC: = 0.85
+const STUCK_TELEPORT_SEC: = 2.2
 const NEAR_GOAL_DIST: = 96.0
+const MOVE_EPS: = 4.0
+const STEP_EPS: = 0.2
+const FACING_CONFIRM_SEC: = 0.08
 
 var npc_id: String = ""
 var street_dialogue_id: String = ""
@@ -29,14 +28,19 @@ var _speed: float = 128.0
 var _wait: float = 0.0
 var _stuck: float = 0.0
 var _last_pos: Vector2 = Vector2.ZERO
+var _anim_pos: Vector2 = Vector2.ZERO
 var _facing_dir: String = "s"
-var _anim_key: String = ""
+var _facing_candidate: String = ""
+var _facing_hold: float = 0.0
+var _walking: bool = false
+var _walk_phase: float = 0.0
+var _walk_still_sec: float = 0.0
 var _home_door: Vector2 = Vector2.ZERO
 var _entry_door: Vector2 = Vector2.ZERO
 var _inside_building_id: String = ""
 var _agent: NavigationAgent2D
 
-@onready var sprite: AnimatedSprite2D = %Sprite
+@onready var sprite: Sprite2D = %Sprite
 @onready var name_label: Label = %NameLabel
 @onready var accent: ColorRect = %Accent
 
@@ -49,11 +53,15 @@ func setup(id: String, tint: Color, dialogue_id: String, home_door: Vector2 = Ve
 		_home_door = home_door
 		_entry_door = home_door
 	modulate = Color.WHITE
-	if sprite:
-		sprite.modulate = tint
+	_setup_sprite()
 	if accent:
 		accent.color = tint.lightened(0.35)
 	_refresh_nameplate()
+	NpcWalkDebug.trace(npc_id, "setup home=%s loadout=%s tex=%s" % [
+		home_door,
+		WalkSheets.loadout_for(npc_id),
+		sprite.texture != null if sprite else false,
+	])
 
 
 func _ready() -> void :
@@ -63,13 +71,12 @@ func _ready() -> void :
 	motion_mode = MOTION_MODE_FLOATING
 	_setup_agent()
 	_setup_sprite()
-	if sprite:
-		sprite.modulate = _tint
 	if accent:
 		accent.color = _tint.lightened(0.35)
 	_refresh_nameplate()
-	_play("idle")
+	_show_pose(false)
 	_last_pos = global_position
+	_anim_pos = global_position
 
 
 func _setup_agent() -> void :
@@ -82,12 +89,10 @@ func _setup_agent() -> void :
 	_agent.max_neighbors = 5
 	_agent.time_horizon_agents = 0.55
 	_agent.max_speed = _speed
-	_agent.avoidance_enabled = true
-	_agent.avoidance_layers = 1
-	_agent.avoidance_mask = 1
+	## Avoidance RVO was moving bodies while anim saw wish≈0 and kept
+	## resetting walk phase → slide with frozen idle pose. Use nav path only.
+	_agent.avoidance_enabled = false
 	add_child(_agent)
-	if not _agent.velocity_computed.is_connected(_on_safe_velocity):
-		_agent.velocity_computed.connect(_on_safe_velocity)
 
 
 func _refresh_nameplate() -> void :
@@ -100,6 +105,10 @@ func _refresh_nameplate() -> void :
 
 
 func set_schedule_target(world_pos: Vector2, indoors_goal: bool, snap: bool = false, building_id: String = "") -> void :
+	NpcWalkDebug.trace(npc_id, "set_schedule_target pos=%s indoors=%s snap=%s building=%s from=%s" % [
+		world_pos, indoors_goal, snap, building_id, global_position
+	])
+	NpcWalkDebug.count("schedule_target")
 	_final_target = world_pos
 	_want_indoors = indoors_goal
 	_stuck = 0.0
@@ -130,6 +139,8 @@ func set_schedule_target(world_pos: Vector2, indoors_goal: bool, snap: bool = fa
 		_has_target = false
 		_last_pos = global_position
 		_entry_door = world_pos
+		NpcWalkDebug.count("snap")
+		NpcWalkDebug.trace(npc_id, "SNAP indoors=%s at=%s" % [indoors_goal, global_position])
 		if indoors_goal:
 			_set_indoors(true)
 		else:
@@ -171,6 +182,8 @@ func _harbor() -> Node:
 
 func _snap_goal(world_pos: Vector2) -> Vector2:
 	var outdoor: = _harbor()
+	if outdoor != null and outdoor.has_method("clear_walk_point"):
+		return outdoor.clear_walk_point(world_pos)
 	if outdoor != null and outdoor.has_method("nearest_walk_point"):
 		return outdoor.nearest_walk_point(world_pos)
 	return world_pos
@@ -235,54 +248,65 @@ func _set_indoors(v: bool) -> void :
 
 
 func _setup_sprite() -> void :
-	var tex: Texture2D = preload("res://art/player/player_walk_8dir.png")
-	var frames: = SpriteFrames.new()
-	for row in DIR_NAMES.size():
-		var d: String = DIR_NAMES[row]
-		var idle_name: = "idle_%s" % d
-		var walk_name: = "walk_%s" % d
-		frames.add_animation(idle_name)
-		frames.set_animation_speed(idle_name, 1.0)
-		frames.set_animation_loop(idle_name, true)
-		frames.add_animation(walk_name)
-		frames.set_animation_speed(walk_name, WALK_FPS)
-		frames.set_animation_loop(walk_name, true)
-		for col in SHEET_COLS:
-			var atlas: = AtlasTexture.new()
-			atlas.atlas = tex
-			atlas.region = Rect2(col * FRAME_W, row * FRAME_H, FRAME_W, FRAME_H)
-			atlas.filter_clip = true
-			if col == 0:
-				frames.add_frame(idle_name, atlas)
-			frames.add_frame(walk_name, atlas)
-	sprite.sprite_frames = frames
-	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	sprite.scale = Vector2(0.64, 0.64)
-	sprite.offset = Vector2(0, -52)
+	if sprite == null:
+		return
+	var loadout: = WalkSheets.loadout_for(npc_id if npc_id != "" else "player")
+	if not WalkSheets.apply_to_sprite(sprite, loadout):
+		# Fallback: keep scene defaults if atlas missing.
+		sprite.modulate = _tint if _tint != Color.WHITE else Color.WHITE
+		NpcWalkDebug.trace(npc_id if npc_id != "" else "npc", "setup_sprite FAIL loadout=%s" % loadout)
+		NpcWalkDebug.count("sprite_fail")
+		return
+	# Demo classic sets carry their own palette 鈥?do not recolor.
+	sprite.modulate = Color.WHITE
+	if accent:
+		accent.offset_top = -168.0
+		accent.offset_bottom = -160.0
+	if name_label:
+		name_label.offset_top = -190.0
+		name_label.offset_bottom = -170.0
+	_walk_phase = 0.0
+	_walking = false
+	_show_pose(false)
+	NpcWalkDebug.trace(npc_id if npc_id != "" else "npc", "setup_sprite OK loadout=%s region=%s scale=%s" % [
+		loadout, sprite.region_rect, sprite.scale
+	])
+	NpcWalkDebug.count("sprite_ok")
 
 
 func _physics_process(delta: float) -> void :
 	if _indoors or not visible:
 		velocity = Vector2.ZERO
+		NpcWalkDebug.count("tick_indoors_or_hidden")
+		NpcWalkDebug.sample_npc(self, "tick")
 		return
-	if GameFlow.dialogue_open or GameFlow.event_open or GameFlow.ending_open:
+	var motion: = WorldClock.motion_scale() if WorldClock else 1.0
+	if motion <= 0.0 or GameFlow.dialogue_open or GameFlow.event_open or GameFlow.ending_open:
 		velocity = Vector2.ZERO
 		_play("idle")
 		move_and_slide()
+		NpcWalkDebug.count("tick_blocked_ui")
 		return
+	var dt: = delta * motion
 	if _wait > 0.0:
-		_wait -= delta
+		_wait -= dt
 		velocity = Vector2.ZERO
 		_play("idle")
 		move_and_slide()
 		if _wait <= 0.0 and _want_indoors and not _has_target and not _indoors:
 			_set_indoors(true)
+		NpcWalkDebug.count("tick_wait")
+		NpcWalkDebug.sample_npc(self, "tick")
 		return
 	if not _has_target:
 		velocity = Vector2.ZERO
 		_play("idle")
 		move_and_slide()
+		NpcWalkDebug.count("tick_no_target")
+		NpcWalkDebug.sample_npc(self, "tick")
 		return
+	NpcWalkDebug.count("tick_moving")
+	NpcWalkDebug.sample_npc(self, "tick")
 
 	var dist_goal: = global_position.distance_to(_final_target)
 	var arrive_r: = ENTER_DIST if _want_indoors else ARRIVE_DIST
@@ -291,15 +315,13 @@ func _physics_process(delta: float) -> void :
 		return
 
 	if global_position.distance_to(_last_pos) < 0.7:
-		_stuck += delta
+		_stuck += dt
 	else:
 		_stuck = 0.0
 	_last_pos = global_position
 
 
 	var near_goal: = dist_goal < NEAR_GOAL_DIST
-	if _agent != null:
-		_agent.avoidance_enabled = not near_goal
 
 	if _want_indoors and near_goal and _stuck >= 0.7:
 		_stuck = 0.0
@@ -345,27 +367,72 @@ func _physics_process(delta: float) -> void :
 		move_and_slide()
 		return
 
-	_facing_dir = _dir8(wish)
-	_play("walk")
-	var desired: = wish * _speed
-	if _use_nav and _agent != null and _agent.avoidance_enabled:
-		_agent.set_velocity(desired)
-
-	else:
-		velocity = desired
-		move_and_slide()
-
-
-func _on_safe_velocity(safe: Vector2) -> void :
-	if not _has_target or _indoors or not visible:
-		return
-	if GameFlow.dialogue_open or GameFlow.event_open or GameFlow.ending_open:
-		return
-	velocity = safe
-	if safe.length_squared() > 4.0:
-		_facing_dir = _dir8(safe.normalized())
-		_play("walk")
+	var desired: = wish * (_speed * motion)
+	velocity = desired
 	move_and_slide()
+	_sync_walk_from_motion(wish, dt)
+
+
+func _sync_walk_from_motion(wish: Vector2, delta: float) -> void :
+	if delta <= 0.0:
+		delta = 1.0 / 60.0
+	var prev: = _anim_pos
+	var step: = global_position.distance_to(prev)
+	_anim_pos = global_position
+	var moved: = get_real_velocity()
+	var speed: = moved.length()
+	if step < STEP_EPS and speed >= MOVE_EPS:
+		step = speed * delta
+	if step >= STEP_EPS:
+		var face_v: = global_position - prev
+		if face_v.length_squared() < 0.0001:
+			face_v = moved if speed >= MOVE_EPS else wish
+		if face_v.length_squared() > 0.0001:
+			_set_facing_stable(face_v.normalized(), delta)
+		_walk_phase = fmod(
+			_walk_phase + step / WalkSheets.WALK_CYCLE_DISTANCE * TAU,
+			TAU
+		)
+		_walk_still_sec = 0.0
+		_show_pose(true)
+		NpcWalkDebug.count("anim_walk")
+		return
+	if wish.length_squared() > 0.01:
+		_set_facing_stable(wish.normalized(), delta)
+		_walk_still_sec += delta
+		_stuck += delta
+		NpcWalkDebug.count("anim_blocked_idle")
+	else:
+		_walk_still_sec += delta
+		NpcWalkDebug.count("anim_idle")
+	## Keep last stride pose briefly; only settle to idle after truly still.
+	if _walk_still_sec >= 0.12:
+		_walk_phase = 0.0
+		_show_pose(false)
+
+
+func _set_facing_stable(v: Vector2, delta: float) -> void :
+	var next: = _dir8(v)
+	if next == _facing_dir:
+		_facing_candidate = ""
+		_facing_hold = 0.0
+		return
+	if next != _facing_candidate:
+		_facing_candidate = next
+		_facing_hold = 0.0
+	_facing_hold += delta
+	if _facing_hold >= FACING_CONFIRM_SEC:
+		_facing_dir = next
+		_facing_candidate = ""
+		_facing_hold = 0.0
+
+
+func _show_pose(walking: bool) -> void :
+	_walking = walking
+	var frame_i: = WalkSheets.walk_frame_from_phase(_walk_phase)
+	WalkSheets.set_pose(sprite, _facing_dir, walking, frame_i)
+	if walking:
+		NpcWalkDebug.count("pose_walk_%d" % frame_i)
 
 
 func _advance_waypoint() -> void :
@@ -378,6 +445,8 @@ func _advance_waypoint() -> void :
 
 
 func _arrive() -> void :
+	NpcWalkDebug.count("arrive")
+	NpcWalkDebug.trace(npc_id, "ARRIVE want_indoors=%s pos=%s" % [_want_indoors, global_position])
 	velocity = Vector2.ZERO
 	_has_target = false
 	_stuck = 0.0
@@ -385,8 +454,10 @@ func _arrive() -> void :
 	_play("idle")
 	_final_target = _snap_goal(_final_target)
 	_entry_door = _final_target
+	# Never settle inside a solid 鈥?clear_walk_point already preferred.
 	global_position = _final_target
 	if _agent:
+		_agent.target_position = global_position
 		_agent.set_velocity(Vector2.ZERO)
 	if _want_indoors:
 		_wait = 0.28
@@ -427,10 +498,8 @@ func _dir8(v: Vector2) -> String:
 
 
 func _play(state: String) -> void :
-	var key: = "%s_%s" % [state, _facing_dir]
-	if key == _anim_key or sprite == null or sprite.sprite_frames == null:
-		return
-	if not sprite.sprite_frames.has_animation(key):
-		return
-	_anim_key = key
-	sprite.play(key)
+	if state != "walk":
+		_walk_phase = 0.0
+		_show_pose(false)
+	else:
+		_show_pose(true)

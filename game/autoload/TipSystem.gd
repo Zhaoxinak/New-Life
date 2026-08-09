@@ -5,10 +5,28 @@ signal tip_shown(tip_id: String, text: String)
 signal coach_changed(text: String)
 
 
+## Opening / convenience tips that "跳过提示" should silence for the run.
+const SKIP_BUNDLE: PackedStringArray = [
+	"tip_minimap",
+	"tip_transit",
+	"tip_street_npc",
+	"tip_dossier",
+	"tip_npc_world",
+	"tip_home_upgrade",
+	"tip_variety",
+	"tip_after_action",
+	"tip_save_hint",
+]
+
 var coach_step: String = "move"
 var _queue: Array[String] = []
 var _showing: bool = false
 var _current_tip_id: String = ""
+
+
+func _ready() -> void :
+	if not GameState.state_changed.is_connected(_on_state):
+		GameState.state_changed.connect(_on_state)
 
 
 func queue_tip(tip_id: String) -> void :
@@ -39,15 +57,24 @@ func queue_category(category: String) -> void :
 
 
 func skip_tutorial() -> void :
+	skip_all_pending()
+
+
+## Clear the queue and silence the common opening tip bundle.
+func skip_all_pending() -> void :
+	if _current_tip_id != "":
+		GameState.seen_tips[_current_tip_id] = true
+	for tid in _queue:
+		GameState.seen_tips[tid] = true
+	_queue.clear()
+	for tid in SKIP_BUNDLE:
+		GameState.seen_tips[tid] = true
 	for row in PackDB.get_table("tips"):
 		if str(row.get("category", "")) != "tutorial":
 			continue
-		var tid: = str(row.get("id", ""))
-		GameState.seen_tips[tid] = true
-		_queue.erase(tid)
-	if coach_step in ["move", "enter"]:
-
-		pass
+		GameState.seen_tips[str(row.get("id", ""))] = true
+	_showing = false
+	_current_tip_id = ""
 	_emit_coach()
 
 
@@ -69,26 +96,14 @@ func on_flags_changed() -> void :
 
 
 func on_unlock_pulse() -> void :
-	if GameState.is_location_unlocked("rival"):
+	## Only tip places that unlock mid-run — start locations tip on enter.
+	if GameState.is_location_unlocked("rival") and not UnlockScheduler.is_start_unlocked("location", "rival"):
 		queue_tip("tip_first_rival")
-	if GameState.is_location_unlocked("exchange"):
+	if GameState.is_location_unlocked("exchange") and not UnlockScheduler.is_start_unlocked("location", "exchange"):
 		queue_tip("tip_first_exchange")
-	if GameState.is_hotspot_unlocked("dock_office"):
+	if GameState.is_hotspot_unlocked("dock_office") and not UnlockScheduler.is_start_unlocked("hotspot", "dock_office"):
 		queue_tip("tip_dock_office")
-	if GameState.is_location_unlocked("plaza"):
-		queue_tip("tip_plaza")
-	if GameState.is_location_unlocked("tea_house"):
-		queue_tip("tip_tea_house")
-	if GameState.is_location_unlocked("plaza"):
-		queue_tip("tip_arcade")
-	if GameState.is_location_unlocked("garage"):
-		queue_tip("tip_garage")
-	queue_tip("tip_transit")
-	queue_tip("tip_home_upgrade")
-	queue_tip("tip_minimap")
-	queue_tip("tip_street_npc")
-	queue_tip("tip_dossier")
-	queue_tip("tip_npc_world")
+	_maybe_queue_dossier()
 
 
 func on_first_check() -> void :
@@ -96,7 +111,6 @@ func on_first_check() -> void :
 
 
 func on_boot_tutorial() -> void :
-
 	pass
 
 
@@ -111,8 +125,10 @@ func on_enter_location(location_id: String = "") -> void :
 	if location_id == "plaza":
 		queue_tip("tip_plaza")
 		queue_tip("tip_arcade")
+		queue_tip("tip_variety")
 	if location_id == "tea_house":
 		queue_tip("tip_tea_house")
+		queue_tip("tip_variety")
 	if location_id == "garage":
 		queue_tip("tip_garage")
 	if location_id == "home":
@@ -130,16 +146,22 @@ func on_open_actions(_hotspot_id: String = "") -> void :
 func on_action_done() -> void :
 	queue_tip("tip_after_action")
 	queue_tip("tip_save_hint")
-	queue_tip("tip_variety")
+	## 钱→场面：攒到能升宅基时串「赚钱→撑门面」
+	if float(GameState.get_stat("money")) >= 120.0 and int(GameState.get_stat("home_tier")) < 3:
+		queue_tip("tip_money_ways")
+		queue_tip("tip_home_upgrade")
 	set_coach("free")
 
 
 func set_coach(step: String) -> void :
-	if coach_step == step:
+	var changed: = coach_step != step
+	if not changed:
 		_emit_coach()
 		return
 	coach_step = step
 	_emit_coach()
+	if step == "free":
+		queue_tip("tip_minimap")
 
 
 func get_coach_text() -> String:
@@ -168,6 +190,15 @@ func notify_closed() -> void :
 	_showing = false
 	_current_tip_id = ""
 	_try_show()
+
+
+func _on_state() -> void :
+	_maybe_queue_dossier()
+
+
+func _maybe_queue_dossier() -> void :
+	if GameState.day >= 2:
+		queue_tip("tip_dossier")
 
 
 func _emit_coach() -> void :

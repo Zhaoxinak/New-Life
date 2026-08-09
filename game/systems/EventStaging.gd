@@ -2,8 +2,8 @@ extends Node
 
 
 const SEGMENT_SEP: = "|||"
-const MIN_SEGMENT_SEC: = 0.35
-const CHOICE_DELAY_SEC: = 0.4
+const MIN_SEGMENT_SEC: = 0.15
+const CHOICE_DELAY_SEC: = 0.45
 const CHOICE_STAGGER_SEC: = 0.12
 
 const BACKDROP_WARM: = Color(0.08, 0.06, 0.04, 0.55)
@@ -59,7 +59,8 @@ func preset_for(event_id: String) -> Dictionary:
 		"ev_day1_intro":
 			return _base(["", "laugh", ""], 1, false, CHOICE_DELAY_SEC, true, {
 				"duck_ambience": 0.4, 
-				"post_choice_pause": 0.55, 
+				"post_choice_pause": 0.7, 
+				"min_segment_sec": 1.35, 
 			})
 		"ev_day6_su_distance":
 			return _base(["", "hush"], 1, false, CHOICE_DELAY_SEC, true, {
@@ -79,6 +80,45 @@ func preset_for(event_id: String) -> Dictionary:
 		"ev_day3_son_notice":
 			return _base(["", "laugh"], 1, false, CHOICE_DELAY_SEC, true, {
 				"accent_speaker": "zhou_shaoting", 
+			})
+		"ev_d4_salary":
+			return _base(["paper", ""], 0, false, CHOICE_DELAY_SEC, true, {
+				"duck_ambience": 0.35, 
+			})
+		"ev_flag_su_gifts":
+			return _base(["hush", ""], 0, false, CHOICE_DELAY_SEC, true, {
+				"choice_stingers": {
+					"ch_ev_flag_su_gifts_confront": "thud", 
+					"ch_ev_flag_su_gifts_use": "hush", 
+				}, 
+			})
+		"ev_b_d8_corridor":
+			return _base(["", "hush"], 1, false, CHOICE_DELAY_SEC, true, {
+				"accent_speaker": "zhou_shaoting", 
+			})
+		"ev_b_d19_su_afraid":
+			return _base(["hush", ""], 0, false, CHOICE_DELAY_SEC, true, {
+				"accent_speaker": "su_qing", 
+				"duck_ambience": 0.45, 
+			})
+		"ev_power_flex":
+			return _base(["paper", "", "hush"], 0, true, CHOICE_DELAY_SEC, true, {
+				"duck_ambience": 0.4, 
+				"choice_stingers": {
+					"ch_power_flex_accept": "paper", 
+					"ch_power_flex_press": "thud", 
+				}, 
+			})
+		"ev_su_reconcile":
+			return _base(["", "hush", ""], 1, false, CHOICE_DELAY_SEC, true, {
+				"accent_speaker": "su_qing", 
+				"duck_ambience": 0.35, 
+			})
+		"ev_su_let_go":
+			return _base(["hush", ""], 0, false, CHOICE_DELAY_SEC, true, {
+				"accent_speaker": "su_qing", 
+				"duck_ambience": 0.5, 
+				"post_choice_pause": 0.55, 
 			})
 		"ev_a_first_strike":
 			return _base(["paper", ""], 0, false, CHOICE_DELAY_SEC, true)

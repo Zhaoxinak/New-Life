@@ -5,9 +5,31 @@ signal action_resolved(result: Dictionary)
 signal dialogue_requested(dialogue_id: String, action_id: String)
 signal minigame_requested(minigame_id: String, action_id: String)
 
+## Observation / chat / browse — do not burn a period.
+const LIGHT_TIME_ACTIONS: = {
+	"dock_chat": true, 
+	"dock_watch_manifest": true, 
+	"dock_check_board": true, 
+	"dock_shelter_talk": true, 
+	"dock_board_rumor": true, 
+	"co_eavesdrop": true, 
+	"co_memo_run": true, 
+	"home_organize": true, 
+	"home_plan": true, 
+	"home_window_watch": true, 
+	"plaza_buy_tip": true, 
+	"plaza_storyteller": true, 
+	"tea_listen": true, 
+	"tea_gossip": true, 
+}
+
+const ACTION_COOLDOWN_MS: = 750
+
 var last_result: Dictionary = {}
 var _pending_action_id: String = ""
 var _result_note: String = ""
+var _last_action_ms: int = 0
+var suppress_period_feed: bool = false
 
 
 func set_result_note(note: String) -> void :
@@ -19,10 +41,14 @@ func can_run(action: Dictionary) -> Dictionary:
 		return {"ok": false, "reason": L10n.t("ui.ending.continue_hook", "已结束")}
 	if GameFlow.is_blocked():
 		return {"ok": false, "reason": "…"}
+	if GameState.get_flag("intro_lock") != 0:
+		return {"ok": false, "reason": L10n.t("ui.intro.wait", "先看完眼前的事")}
 	if action.is_empty():
 		return {"ok": false, "reason": "empty"}
 	if str(action.get("enabled", "1")) == "0":
 		return {"ok": false, "reason": "disabled"}
+	if Time.get_ticks_msec() - _last_action_ms < ACTION_COOLDOWN_MS:
+		return {"ok": false, "reason": L10n.t("ui.action.cooldown", "稍等片刻…")}
 	var hid: = str(action.get("hotspot_id", ""))
 	if hid != "" and not GameState.is_hotspot_unlocked(hid):
 		return {"ok": false, "reason": L10n.t("ui.action.locked", "尚未解锁")}
@@ -153,9 +179,10 @@ func _minigame_for(action: Dictionary) -> String:
 
 
 func finish_after_dialogue(action_id: String, choice_id: String) -> Dictionary:
+	var applied_choice: Array[Dictionary] = []
 	if choice_id != "":
-		EffectApplier.apply_owner("dialogue_choice", choice_id)
-	return finish_action(action_id, choice_id)
+		applied_choice = EffectApplier.apply_owner("dialogue_choice", choice_id)
+	return finish_action(action_id, choice_id, applied_choice)
 
 
 func cancel_pending(message: String = "") -> void :
@@ -168,14 +195,13 @@ func cancel_pending(message: String = "") -> void :
 	action_resolved.emit(last_result)
 
 
-func finish_action(action_id: String, choice_id: String = "") -> Dictionary:
+func finish_action(action_id: String, choice_id: String = "", prior_applied: Array = []) -> Dictionary:
 	var action: = PackDB.get_row("actions", action_id)
 	if action.is_empty():
 		return {"ok": false, "message": "missing action"}
 
-
+	_last_action_ms = Time.get_ticks_msec()
 	GameState.mark_action_used(action_id)
-
 
 	var applied_action: = EffectApplier.apply_owner("action", action_id)
 
@@ -185,7 +211,6 @@ func finish_action(action_id: String, choice_id: String = "") -> Dictionary:
 			GameState.add_stat("suspicion", -2.0 if ht < 4 else -4.0)
 		if ht >= 3:
 			GameState.add_stat("intel", 1.0)
-
 
 	var check_id: = str(action.get("check_id", "")).strip_edges()
 	var applied_check: Array[Dictionary] = []
@@ -199,21 +224,24 @@ func finish_action(action_id: String, choice_id: String = "") -> Dictionary:
 		else:
 			applied_check = EffectApplier.apply_owner("check_fail", check_id)
 
-
 	var stock_ran: Array[String] = StockEngine.on_action(action_id, check_passed)
-
 
 	var suspicion_delta: = _calc_suspicion(action)
 	if not is_zero_approx(suspicion_delta):
 		GameState.add_stat("suspicion", suspicion_delta)
 
+	var merged_fx: Array = []
+	merged_fx.append_array(prior_applied)
+	merged_fx.append_array(applied_action)
+	merged_fx.append_array(applied_check)
+	var consequence: Dictionary = ConsequenceText.summarize(merged_fx, suspicion_delta, action_id)
 
 	var result_key: = "actions.%s.result" % action_id
 	var message: = L10n.t(result_key, L10n.t("actions.%s.name" % action_id, action_id))
 	if _result_note != "":
 		message = "%s\n%s" % [_result_note, message]
 		_result_note = ""
-	var situation: = _situation_beat(applied_action, applied_check, suspicion_delta)
+	var situation: = str(consequence.get("situation", ""))
 	if situation != "":
 		message = "%s\n%s" % [message, L10n.tf("ui.situation.line", {"text": situation}, "局势：%s" % situation)]
 	if check_id != "":
@@ -222,17 +250,46 @@ func finish_action(action_id: String, choice_id: String = "") -> Dictionary:
 		var chance_line: = L10n.tf("ui.check.chance", {"pct": pct}, "成功率约 %d%%" % pct)
 		message = "%s\n%s（%s）" % [message, check_line, chance_line]
 	var chatter: = IdleChatter.pick_for_current(str(action.get("hotspot_id", "")))
-	if chatter != "":
-		message = "%s\n[%s] %s" % [message, L10n.t("ui.chatter.title", "耳边闲话"), chatter]
 
-
+	var prev_day: = GameState.day
+	var prev_period: = str(GameState.period)
 	var prev_weather: = str(GameState.weather)
-	var time_cost: = int(action.get("time_cost", 1))
-	for _i in time_cost:
-		GameState.advance_period()
-	SfxPlayer.play_period()
+	var prev_hhmm: = WorldClock.clock_hhmm()
+	var time_cost: = _effective_time_cost(action)
+	var jump_info: Dictionary = {}
+	var curfew_hit: = false
+	suppress_period_feed = true
+	if action_id == "home_rest":
+		WorldClock.sleep_to_morning(false)
+		jump_info = {"day_changed": true, "period_changed": true, "curfew": false}
+		## Wake dialog (1× already restored inside sleep_to_morning).
+		WorldClock.present_morning_wake(false)
+	elif time_cost > 0:
+		jump_info = WorldClock.jump_action_minutes(time_cost)
+		curfew_hit = bool(jump_info.get("curfew", false))
+		## Do not pulse_time_skip_lock here — BeatFeed already gates on
+		## transition_open for result/period beats; a parallel lock races and
+		## can hide the location menu while leaving the player frozen.
+	suppress_period_feed = false
+	if time_cost > 0 or action_id == "home_rest":
+		SfxPlayer.play_period()
+	var period_changed: = GameState.day != prev_day or str(GameState.period) != prev_period
 	var period_line: = L10n.t("ui.period.to_%s" % GameState.period, "")
-	if period_line != "":
+	if action_id == "home_rest":
+		message = "%s\n%s" % [
+			message, 
+			L10n.t("ui.period.rest_ok", "你回家睡了一觉。天光重新亮起。"), 
+		]
+	elif time_cost > 0 and not curfew_hit:
+		message = "%s\n%s" % [
+			message, 
+			L10n.tf(
+				"ui.period.time_skip", 
+				{"from": prev_hhmm, "to": WorldClock.clock_hhmm()}, 
+				"时间飞逝（%s → %s）" % [prev_hhmm, WorldClock.clock_hhmm()]
+			), 
+		]
+	elif period_changed and period_line != "":
 		message = "%s\n%s" % [message, period_line]
 	if str(GameState.weather) != prev_weather and str(GameState.weather) != "":
 		var wname: = L10n.t("weather.%s.name" % GameState.weather, GameState.weather)
@@ -256,12 +313,35 @@ func finish_action(action_id: String, choice_id: String = "") -> Dictionary:
 		"stock_ran": stock_ran, 
 		"suspicion_delta": suspicion_delta, 
 		"message": message, 
+		"chatter": chatter, 
+		"consequence": consequence, 
+		"period_changed": period_changed, 
+		"prev_day": prev_day, 
+		"prev_period": prev_period, 
+		"time_cost": time_cost, 
+		"evening_hold": false, 
+		"time_skip": time_cost > 0 and action_id != "home_rest", 
+		"curfew": curfew_hit, 
+		"jump": jump_info, 
 	}
 	GameState.last_result_text = message
 	_pending_action_id = ""
 	GameState.state_changed.emit()
 	action_resolved.emit(last_result)
 	return last_result
+
+
+func _effective_time_cost(action: Dictionary) -> int:
+	var cost: = int(action.get("time_cost", 1))
+	if cost <= 0:
+		return 0
+	var aid: = str(action.get("id", ""))
+	if LIGHT_TIME_ACTIONS.get(aid, false):
+		return 0
+	## home_rest handled as sleep_to_morning, not a minute jump.
+	if aid == "home_rest":
+		return 0
+	return cost
 
 
 func _calc_suspicion(action: Dictionary) -> float:
@@ -273,54 +353,3 @@ func _calc_suspicion(action: Dictionary) -> float:
 	var mult: = float(hotspot.get("suspicion_mult", 1)) if not hotspot.is_empty() else 1.0
 	return base * mult
 
-
-func _situation_beat(applied_action: Array, applied_check: Array, suspicion_delta: float) -> String:
-
-	if suspicion_delta > 0.05:
-		return L10n.t("ui.situation.suspicion_up", "有人多盯了你一眼")
-	if suspicion_delta < -0.05:
-		return L10n.t("ui.situation.suspicion_down", "风声暂时松了")
-	var favor_delta: = 0.0
-	var tension_delta: = 0.0
-	var intel_delta: = 0.0
-	var money_delta: = 0.0
-	var trust_delta: = 0.0
-	var network_delta: = 0.0
-	for row in applied_action + applied_check:
-		var et: = str(row.get("effect_type", ""))
-		var key: = str(row.get("key", ""))
-		var op: = str(row.get("op", "add"))
-		var value: = float(row.get("value", 0))
-		if op != "add":
-			continue
-		if et == "relation" and key.ends_with(":favor"):
-			favor_delta += value
-		elif et == "stat" and key == "father_son_tension":
-			tension_delta += value
-		elif et == "stat" and key == "intel":
-			intel_delta += value
-		elif et == "stat" and key == "money":
-			money_delta += value
-		elif et == "stat" and (key == "trust" or key == "tongyang_trust"):
-			trust_delta += value
-		elif et == "stat" and key == "network_elite":
-			network_delta += value
-	if favor_delta <= -2.0:
-		return L10n.t("ui.situation.favor_down", "身边的人更冷了")
-	if favor_delta >= 2.0:
-		return L10n.t("ui.situation.favor_up", "有人把你往里拉了半步")
-	if tension_delta >= 2.0:
-		return L10n.t("ui.situation.tension_up", "楼里的裂缝又深了一寸")
-	if trust_delta >= 3.0:
-		return L10n.t("ui.situation.trust_up", "楼里又有人把你往名册里记了一笔")
-	if trust_delta <= -8.0:
-		return L10n.t("ui.situation.trust_down", "公司这边的信任裂开了一截")
-	if intel_delta >= 3.0:
-		return L10n.t("ui.situation.intel_up", "你多攥住了一句能用的话")
-	if network_delta >= 2.0:
-		return L10n.t("ui.situation.network_up", "上层圈子多听见了你的名字")
-	if money_delta >= 8.0:
-		return L10n.t("ui.situation.money_up", "口袋沉了，也更容易被人盯")
-	if not applied_action.is_empty() or not applied_check.is_empty():
-		return L10n.t("ui.situation.generic", "这一步留下了痕迹")
-	return ""

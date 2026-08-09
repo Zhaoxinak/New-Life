@@ -91,7 +91,8 @@ func _play_segments(token: int) -> void :
 			await _reveal_choices(token)
 			return
 		_awaiting_advance = true
-		_segment_ready_at_ms = Time.get_ticks_msec() + int(EventStaging.MIN_SEGMENT_SEC * 1000.0)
+		var min_sec: = float(_preset.get("min_segment_sec", EventStaging.MIN_SEGMENT_SEC))
+		_segment_ready_at_ms = Time.get_ticks_msec() + int(min_sec * 1000.0)
 		if continue_label:
 			continue_label.text = L10n.t("ui.event.continue_hint", "点击继续…")
 			continue_label.visible = true
@@ -263,21 +264,21 @@ func _clear_choices() -> void :
 func _resolve_event_body(event_id: String) -> String:
 	var body: = L10n.t("events.%s.body" % event_id, "")
 	if GameState.get_flag("divorced_su") != 0:
-		var add: = L10n.t("events.%s.body_divorced" % event_id, "")
+		var add: = L10n.t_if("events.%s.body_divorced" % event_id)
 		if add != "":
 			body = "%s|||%s" % [body, add]
 	if GameState.get_flag("divorce_as_weapon") != 0:
-		var add_w: = L10n.t("events.%s.body_divorce_weapon" % event_id, "")
+		var add_w: = L10n.t_if("events.%s.body_divorce_weapon" % event_id)
 		if add_w != "":
 			body = "%s|||%s" % [body, add_w]
 
 	if GameState.get_flag("su_reconcile_path") != 0 and GameState.get_flag("divorce_as_weapon") == 0\
 	and GameState.get_flag("su_used_as_tool") == 0:
-		var add_r: = L10n.t("events.%s.body_reconcile" % event_id, "")
+		var add_r: = L10n.t_if("events.%s.body_reconcile" % event_id)
 		if add_r != "":
 			body = "%s|||%s" % [body, add_r]
 	if GameState.get_flag("su_let_go") != 0:
-		var add_lg: = L10n.t("events.%s.body_let_go" % event_id, "")
+		var add_lg: = L10n.t_if("events.%s.body_let_go" % event_id)
 		if add_lg != "":
 			body = "%s|||%s" % [body, add_lg]
 	return body

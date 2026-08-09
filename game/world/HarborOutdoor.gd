@@ -81,7 +81,8 @@ const LAYOUT: = {
 const HOME_BODIES: = {
 
 	"tea_waiter": Rect2(0.255, 0.425, 0.09, 0.065), 
-	"stall_aunt": Rect2(0.31, 0.605, 0.095, 0.07), 
+	# Keep solid on the cottage mass; leave the south porch clear for NPCs.
+	"stall_aunt": Rect2(0.31, 0.60, 0.09, 0.055), 
 	"garage_hand": Rect2(0.21, 0.695, 0.095, 0.07), 
 	"dock_foreman": Rect2(0.405, 0.61, 0.095, 0.075), 
 	"zhou_shaoting": Rect2(0.56, 0.38, 0.09, 0.065), 
@@ -341,9 +342,10 @@ func _rebuild_walk_graph() -> void :
 		if nid == "":
 			continue
 		var home: = get_npc_home_pos(nid)
-		var porch: = home + Vector2(0, 22)
-		var hi: = _walk_attach_to_ring(home)
+		var porch: = home + Vector2(0, 56)
+		# Prefer porch on the road; home node often sits in the cottage solid.
 		var pi: = _walk_attach_to_ring(porch)
+		var hi: = _walk_attach_to_ring(home)
 		_walk_link(hi, pi)
 
 	call_deferred("_walk_soft_link_nearby")
@@ -510,11 +512,37 @@ func nearest_walk_point(world_pos: Vector2) -> Vector2:
 	return _walk_nodes[best_i] if best_i >= 0 else world_pos
 
 
-func snap_walk_goal(world_pos: Vector2, npc_id: String = "") -> Vector2:
+func is_walk_blocked(world_pos: Vector2) -> bool:
+	if not is_inside_tree() or get_world_2d() == null:
+		return false
+	var space: = get_world_2d().direct_space_state
+	var q: = PhysicsPointQueryParameters2D.new()
+	q.position = world_pos
+	q.collision_mask = 1
+	q.collide_with_areas = false
+	q.collide_with_bodies = true
+	return not space.intersect_point(q, 4).is_empty()
 
-	if npc_id.is_empty():
-		pass
-	return nearest_walk_point(world_pos)
+
+## Prefer a walkable point that is not inside cottage / building solids.
+func clear_walk_point(world_pos: Vector2) -> Vector2:
+	var p: = nearest_walk_point(world_pos)
+	if not is_walk_blocked(p):
+		return p
+	var offsets: Array[Vector2] = [
+		Vector2(0, 36), Vector2(0, 64), Vector2(28, 40), Vector2(-28, 40), 
+		Vector2(48, 24), Vector2(-48, 24), Vector2(0, 96), Vector2(64, 64), 
+	]
+	for off in offsets:
+		var cand: = nearest_walk_point(world_pos + off)
+		if not is_walk_blocked(cand):
+			return cand
+	return p
+
+
+func snap_walk_goal(world_pos: Vector2, npc_id: String = "") -> Vector2:
+	var _unused: = npc_id
+	return clear_walk_point(world_pos)
 
 
 func find_walk_path(from: Vector2, to: Vector2) -> PackedVector2Array:
@@ -700,8 +728,8 @@ func _spawn_cottages_and_npcs() -> void :
 		if npc.has_method("setup"):
 			npc.setup(nid, tint, dlg, home)
 
-		var porch: = home + Vector2(0, 22)
-		npc.global_position = nearest_walk_point(porch)
+		var porch: = home + Vector2(0, 56)
+		npc.global_position = clear_walk_point(porch)
 	NpcScheduler.bind_outdoor(self)
 
 

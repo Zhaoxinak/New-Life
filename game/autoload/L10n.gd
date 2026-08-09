@@ -40,12 +40,23 @@ func _reload() -> void :
 	print("L10n: %s (%d keys) from %s" % [locale, _strings.size(), path])
 
 
+func has_key(key: String) -> bool:
+	return _strings.has(key)
+
+
 func t(key: String, fallback: String = "") -> String:
 	if _strings.has(key):
 		return str(_strings[key])
 	if fallback != "":
 		return fallback
 	return key
+
+
+## Returns translation only when the key exists; otherwise "".
+func t_if(key: String) -> String:
+	if _strings.has(key):
+		return str(_strings[key])
+	return ""
 
 
 func tf(key: String, fields: Dictionary, fallback: String = "") -> String:

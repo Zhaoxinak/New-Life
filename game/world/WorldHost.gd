@@ -376,6 +376,26 @@ func _teleport_to_stop_async(stop_id: String) -> void :
 	_apply_player_input()
 
 
+## Curfew / forced rest: snap into home whether outdoors or in another interior.
+func force_home_for_curfew() -> void :
+	if _entering:
+		return
+	if mode == "interior" and str(GameState.location_id) == "home":
+		return
+	var ret: = player.global_position if player else Vector2.ZERO
+	if mode == "interior":
+		## Tear down current room without the usual exit-to-street path.
+		_clear_interior()
+		mode = "outdoor"
+		if outdoor:
+			outdoor.visible = true
+		if _atmosphere and _atmosphere.has_method("set_outdoor"):
+			_atmosphere.set_outdoor(true)
+	if outdoor != null and outdoor.has_method("get_spawn_for"):
+		ret = outdoor.get_spawn_for("home")
+	await enter_interior("home", ret)
+
+
 func enter_interior(location_id: String, return_spawn: Vector2) -> void :
 	if _entering or mode == "interior":
 		return

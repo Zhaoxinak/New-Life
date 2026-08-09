@@ -98,6 +98,7 @@ func _apply_beat(row: Dictionary) -> void :
 	var body: = L10n.t(text_key, text_key)
 	if body != "":
 		GameState.last_chatter_text = body
+		call_deferred("_toast_world_beat", body)
 	GameState.append_relation_log({
 		"day": GameState.day, 
 		"period": GameState.period, 
@@ -107,4 +108,16 @@ func _apply_beat(row: Dictionary) -> void :
 		"text_key": text_key, 
 		"params": {}, 
 	})
-	TipSystem.queue_tip("tip_npc_world")
+	TipSystem.queue_tip("tip_street_npc")
+
+
+func _toast_world_beat(body: String) -> void :
+	if body.strip_edges() == "":
+		return
+	var tree: = get_tree()
+	if tree == null:
+		return
+	for n in tree.get_nodes_in_group("beat_feed"):
+		if n.has_method("push_notice"):
+			n.push_notice(L10n.t("ui.chatter.title", "耳边闲话"), body)
+			return

@@ -10,7 +10,7 @@ actions.co_bribe_accountant.name,收买会计
 actions.co_bribe_accountant.result,会计的眼镜片后，闪过一丝价码。
 actions.co_eavesdrop.description,贴在屏风后，收集能咬人的闲话
 actions.co_eavesdrop.name,偷听同事谈话
-actions.co_eavesdrop.result,屏风后的闲话像刀背——擦过耳边，就能割破谁的前途。
+actions.co_eavesdrop.result,屏风后两个人压低声音。你听清了船期和人名——够回去慢慢嚼。
 actions.co_flatter_boss.description,对老板表忠，换一寸信任
 actions.co_flatter_boss.name,讨好老板
 actions.co_flatter_boss.result,老板茶盖轻叩桌面。算你过关——也算他多看你一眼。
@@ -19,14 +19,14 @@ actions.co_frame_finance.name,栽赃财务漏洞
 actions.co_frame_finance.result,锅甩出去。有人开始互相咬。
 actions.co_meet_son.description,与副理周旋，把嘲讽听成情报
 actions.co_meet_son.name,对接副理
-actions.co_meet_son.result,少霆的嘲讽挂在廊柱上。他每笑一声，楼里的空气就紧一分。
+actions.co_meet_son.result,少霆靠着廊柱笑你。文员们低头走过，没人敢接他的话。
 actions.co_meet_su.description,在副理处撞见晚晴——看她站在谁那边
 actions.co_meet_su.name,偶遇未婚妻
-actions.co_meet_su.result,走廊目光一碰就拆开。她袖口的香，不像是家里的。
+actions.co_meet_su.result,走廊里目光一碰，她先躲开。袖口那点香，不是家里常用的那种。
 actions.co_memo_run.description,把卷宗送到别层。稳妥涨信任；偷看一眼涨情报也涨嫌疑。
 actions.co_memo_run.name,跑楼送公文
 actions.co_memo_run.result,楼梯转角的脚步声还在耳边。
-actions.co_pass_rumor.description,借副理之口，把假话钉进真耳朵
+actions.co_pass_rumor.description,借少霆的嘴，把半真半假的船期递出去
 actions.co_pass_rumor.name,传递假消息
 actions.co_pass_rumor.result,假话进了真耳朵。父子之间，空气紧了一线。
 actions.co_peek_books.description,窥探财务异常
@@ -43,7 +43,7 @@ actions.co_take_blame.name,主动背锅
 actions.co_take_blame.result,黑锅扣上。你换来片刻的「自己人」。
 actions.co_work.description,把公文写成「可靠」，好在楼里站稳
 actions.co_work.name,日常办公
-actions.co_work.result,毛笔写到发僵。茶盖轻叩：今天，你还像个听话的笔杆。
+actions.co_work.result,毛笔写到手指发僵。茶盖轻叩——今天又安稳过了一格。
 actions.dock_black_market.description,短线赚钱风险高
 actions.dock_black_market.name,倒卖私货
 actions.dock_black_market.result,私货换成银元。背后好像有人盯着秤。
@@ -82,10 +82,10 @@ actions.dock_steal_list.name,偷取进货清单
 actions.dock_steal_list.result,纸边进袖口，心跳却乱。仓门一响，成败只剩半息。
 actions.dock_watch_manifest.description,默记船期与货量异常
 actions.dock_watch_manifest.name,观察进出货单
-actions.dock_watch_manifest.result,你把船名和吨位默在心里，像藏一把钥匙。
+actions.dock_watch_manifest.result,你把船名和吨位记牢。这数字，回头也许用得上。
 actions.dock_work.description,扛货换工钱，汗里听号子
 actions.dock_work.name,搬货打工
-actions.dock_work.result,号子砸在肩上。工钱到手，汗没干——远处有人低声笑：组长也有今天。
+actions.dock_work.result,号子砸在肩上。工钱到手，汗还没干。工头远远哼了一声，没再多话。
 actions.ex_buy.description,按持仓公式开多（扣股价×手数+手续费）
 actions.ex_buy.name,买入宏远股票
 actions.ex_buy.result,你押上涨。街谈开始往你耳朵里钻。
@@ -133,7 +133,7 @@ actions.home_organize.name,整理情报
 actions.home_organize.result,纸边对齐。这屋里的安静，比办公室的茶盖更让人清醒。
 actions.home_plan.description,对着灯芯，把下一步钉死
 actions.home_plan.name,分析局势
-actions.home_plan.result,你把复仇写成三步，又划掉两步——只留给明天能迈出的那一脚。
+actions.home_plan.result,纸上写了又划。明天能做的，其实只有一件：先去码头或公司露个面。
 actions.home_rest.description,关上门睡一觉，把嫌疑冲淡一点
 actions.home_rest.name,休息恢复
 actions.home_rest.result,潮声贴着窗。门外的目光暂时够不着你——嫌疑淡了一寸。
@@ -310,6 +310,22 @@ beat.son_su_gift_echo,少爷又往晚晴那边递了东西；她收下时笑得�
 beat.su_boss_tea,晚晴在茶馆外遇到老板，礼数周到；鸿业把她又往准儿媳的尺子上量了量。
 beat.su_son_distance,晚晴与少霆走得更近了些；手帕上的线头，像港风里扯不开的结。
 beat.waiter_sees_son_su,小福看见少霆与晚晴同桌落座，茶盖一碰，闲话已经热了。
+beat.foreman_morning_call,老郑把号子喊得更紧：「舱口别堵！阿海那一班，眼睛放亮。」
+beat.foreman_night_count,夜班灯一亮，老郑掐着舱单数人——少一个就骂，多一个更疑。
+beat.foreman_garage_tire,老郑把瘪胎板车推到车行门口，阿强蹲下拧气门，两人骂了一路潮气。
+beat.foreman_rain_shelter,雨棚下老郑买了阿婶的热糕，嘴上说潮，眼里仍盯着船期牌。
+beat.aunt_morning_stall,阿婶掀开蒸笼：糖糕香先到，闲话随后——谁家夜班多领了两趟。
+beat.aunt_plaza_price,广场上阿婶把栗子价抬半分：「消息比栗子贵，你要哪样？」
+beat.aunt_tea_drop,傍晚阿婶把一盒糕送到茶馆后座，小福接过，眼神往里厅瞟了一眼。
+beat.aunt_foreman_debt,阿婶冲老郑笑：「赊的茶钱记着——码头风顺了再还。」
+beat.waiter_sweep,小福清晨扫堂，扫帚扫过门槛，像在扫掉昨夜没散尽的闲话。
+beat.waiter_vip_seat,小福把后座茶盏擦了又擦——有人点名要安静，他不敢问是谁。
+beat.waiter_garage_chat,茶馆打烊前，小福跟阿强在灯下咬耳朵：谁新买了车，谁还在骑板车。
+beat.waiter_aunt_sugar,小福跑去阿婶摊兑糖，回来时袖口沾着糕屑，像刚听完半句密讯。
+beat.garage_open,阿强推开铁门抹灰：今天先修脚踏，黄包车的客下午才来。
+beat.garage_rickshaw,车行里阿强让人试坐黄包车：「气派是一档一价，坐上去才知道。」
+beat.garage_dock_errand,阿强夹着一盒螺丝往码头跑，老郑接过就骂：晚了半个号子。
+beat.garage_tea_break,歇脚时阿强蹲在茶馆外喝大碗茶，小福路过，两人点头像交换过天气。
 checks.chk_co_bribe_acc.fail,他收下银元，却把册子推远：「这个月风紧。」
 checks.chk_co_bribe_acc.name,收买会计
 checks.chk_co_bribe_acc.success,眼镜片后价码兑现。漏洞与证据到手。
@@ -587,7 +603,7 @@ dialogue_lines.dlg_co_bribe_acc_l02.text,漏洞可以卖。证据也可以。
 dialogue_lines.dlg_co_bribe_acc_l03.text,纸页轻响，像交易落槌。
 dialogue_lines.dlg_co_eavesdrop_l01.text,屏风后茶盖轻叩。闲话比公文值钱。
 dialogue_lines.dlg_co_eavesdrop_l02.text,……父子？账？还是升迁？
-dialogue_lines.dlg_co_eavesdrop_l03.text,你把碎片拼成刀背。
+dialogue_lines.dlg_co_eavesdrop_l03.text,你把听来的人名和船期对上号。先不声张，留着有用。
 dialogue_lines.dlg_co_elder_l01.text,老职员接过酒，眼神松了一寸。
 dialogue_lines.dlg_co_elder_l02.text,宏远养人，也耗人。你我心里都清楚。
 dialogue_lines.dlg_co_elder_l03.text,他叹了口气，像把旧账翻了一页。
@@ -604,8 +620,8 @@ dialogue_lines.dlg_co_resign_l01.text,办公区的笔帽一声轻扣。辞呈就
 dialogue_lines.dlg_co_resign_l02.text,宏远的饭不好吃了——我要离开。
 dialogue_lines.dlg_co_resign_l03.text,走廊有人假装没看见。你还能回头，也可以真的走。
 dialogue_lines.dlg_co_work_l01.text,毛笔写到发僵。窗外是别人的笑。
-dialogue_lines.dlg_co_work_l02.text,先把自己写成「可靠」。
-dialogue_lines.dlg_co_work_l03.text,墨迹干了，野心还潮着。
+dialogue_lines.dlg_co_work_l02.text,字迹端正。至少今天没人挑你的错。
+dialogue_lines.dlg_co_work_l03.text,墨迹干了。你把公文叠好，起身倒茶。
 dialogue_lines.dlg_contact_corner_l01.text,潮腥味里，有人把烟头按灭在木箱上。
 dialogue_lines.dlg_contact_corner_l02.text,（來人）掌柜说：有单子就递。没有就别浪费夜色。
 dialogue_lines.dlg_contact_corner_l03.text,告诉他——我在听。
@@ -629,7 +645,7 @@ dialogue_lines.dlg_dock_errand_l02.text,给我。腿比嘴快。
 dialogue_lines.dlg_dock_errand_l03.text,门一敲，银元一响。回来时你把听到的船号悄悄记下。
 dialogue_lines.dlg_dock_manifest_l01.text,进出货单被潮风掀起一角。
 dialogue_lines.dlg_dock_manifest_l02.text,吨位对不上……船名也不干净。
-dialogue_lines.dlg_dock_manifest_l03.text,你把数字默进舌根，像藏一把钥匙。
+dialogue_lines.dlg_dock_manifest_l03.text,你把吨位和船名默记两遍，才抬脚走开。
 dialogue_lines.dlg_dock_overtime_l01.text,汽灯把甲板照成白刃。晚班的人少，工钱写在黑板上——比白天厚一截。
 dialogue_lines.dlg_dock_overtime_l02.text,加一班。今晚不回去早睡。
 dialogue_lines.dlg_dock_overtime_l03.text,号子砸到后半夜。银元沉，脊背更沉；远处有人盯着你数箱子。
@@ -644,7 +660,7 @@ dialogue_lines.dlg_dock_steal_l02.text,只要一页……够换一句话。
 dialogue_lines.dlg_dock_steal_l03.text,心跳不整齐。脚步声在走廊拐弯。
 dialogue_lines.dlg_dock_work_l01.text,号子一声接一声。盐潮味钻进领口。
 dialogue_lines.dlg_dock_work_l02.text,再扛两趟……工钱总算是自己的。
-dialogue_lines.dlg_dock_work_l03.text,肩头火辣。远处有人喊你的旧外号。
+dialogue_lines.dlg_dock_work_l03.text,肩头火辣。工友递过一碗凉茶，喊你：「阿海，歇口气。」
 dialogue_lines.dlg_ex_buy_l01.text,大厅牌价一格一格跳。多单像把潮水按进口袋。
 dialogue_lines.dlg_ex_buy_l02.text,买涨。押宏远还能再撑一阵——或押别人比我更慌。
 dialogue_lines.dlg_ex_buy_l03.text,柜台盖章。潮声忽然远了半寸。
@@ -676,12 +692,12 @@ dialogue_lines.dlg_garage_buy_4_l01.text,黑壳轿车泊在棚下，像会呼吸
 dialogue_lines.dlg_garage_buy_4_l02.text,开回家。
 dialogue_lines.dlg_garage_buy_4_l03.text,轮子一转，港城都侧目。
 dialogue_lines.dlg_home_organize_l01.text,旧信、单据、袖口潮腥。这张桌只对你诚实。
-dialogue_lines.dlg_home_organize_l02.text,先把线理直。乱的时候才有刀——可别让人进门看见。
+dialogue_lines.dlg_home_organize_l02.text,先把桌上的纸理齐。乱成一团时，别人进门一眼就能看出你慌。
 dialogue_lines.dlg_home_organize_l03.text,桌面干净了，心里未必。窗外号子远了，像另一个世界。
-dialogue_lines.dlg_home_plan_l01.text,灯芯噼啪。纸上三条路拧成死结。
-dialogue_lines.dlg_home_plan_l02.text,隐忍、反戈、还是下注？
-dialogue_lines.dlg_home_plan_l03.text,你把明天的第一脚落点钉死。
-dialogue_lines.dlg_home_rest_l01.text,床板吱呀。潮声把一天的硬壳一点点冲开。
+dialogue_lines.dlg_home_plan_l01.text,灯芯噼啪。纸上写着：码头、公司、家里。
+dialogue_lines.dlg_home_plan_l02.text,先忍着？还是找人打听？还是去交易所碰运气？
+dialogue_lines.dlg_home_plan_l03.text,你划掉两行，只留下明天早上要去的地方。
+dialogue_lines.dlg_home_rest_l01.text,床板吱呀。潮声一下一下，把肩上的酸意慢慢冲淡。
 dialogue_lines.dlg_home_rest_l02.text,明天还得到外面装成没事人。今晚，先只做阿海。
 dialogue_lines.dlg_home_rest_l03.text,梦里有人拍桌，也有人摔门——醒时只剩灯芯的余温。
 dialogue_lines.dlg_home_up_2_l01.text,包工掐着烟：粉刷加门闩，潮气能压住。
@@ -750,7 +766,7 @@ dialogue_lines.dlg_rival_work_l03.text,掌柜点头，像在记你的用处。
 dialogue_lines.dlg_son_meet_l01.text,装卸的也配进楼？说，找我什么事。
 dialogue_lines.dlg_son_meet_l02.text,货期报表，按您吩咐送来。
 dialogue_lines.dlg_son_meet_l03.text,放下。别盯着我办公室看——脏兮兮的。
-dialogue_lines.dlg_son_rumor_l01.text,你压低声音，把半真半假的船期塞进少霆耳朵——像塞一把未开刃的刀。
+dialogue_lines.dlg_son_rumor_l01.text,你压低声音，把半真半假的船期说给少霆听。他眉毛一挑，没立刻回你。
 dialogue_lines.dlg_son_rumor_l02.text,谁？是不是我父亲安的眼线？
 dialogue_lines.dlg_son_rumor_l03.text,我不敢妄断。只是觉得您该知道。
 dialogue_lines.dlg_son_rumor_l04.text,好。你很会说话。
@@ -778,7 +794,7 @@ dialogue_lines.dlg_street_su_l03.text,嗯。灯替你留着。
 dialogue_lines.dlg_street_waiter_l01.text,嘘——后座有人把少爷和晚晴的名字搁一桌说。茶盖一碰，话就断了。
 dialogue_lines.dlg_street_waiter_l02.text,……你看清楚是谁？
 dialogue_lines.dlg_street_waiter_l03.text,看不清楚。但我耳朵不坏。
-dialogue_lines.dlg_su_guide_l01.text,灯芯噼啪。你压低声音：若她「无意」再提账目，裂缝会自己长。
+dialogue_lines.dlg_su_guide_l01.text,灯芯噼啪。你压低声音：要是她再随口提账目，你就顺着问一句。
 dialogue_lines.dlg_su_guide_l02.text,那不是害人吗？阿海，你变了。
 dialogue_lines.dlg_su_guide_l03.text,变的是这码头。我想让我们过上不用看人脸色的日子。
 dialogue_lines.dlg_su_guide_l04.text,……我试试。但你不许把我推到火上。这话，只在这屋里说。
@@ -829,7 +845,7 @@ event_choices.ch_d6_ask.label,当众质问：那帕子谁给的
 event_choices.ch_d6_hold.label,装作没看见，把恨意吞下
 event_choices.ch_d7_defect.label,投向通洋，准备反戈一击
 event_choices.ch_d7_endure.label,隐忍留在宏远，慢慢离间
-event_choices.ch_d7_finance.label,进证券行，用行情当刀
+event_choices.ch_d7_finance.label,去证券行，靠行情翻本
 event_choices.ch_d7_wait.label,还不到时候，先过日子
 event_choices.ch_ev_a_d10_list_delay.label,说再看看
 event_choices.ch_ev_a_d10_list_take.label,收下名单
@@ -928,7 +944,7 @@ event_choices.ch_ev_low_money_debuff_ok.label,勒紧腰带
 event_choices.ch_ev_rank_foreman_remind_ok.label,继续扛住
 event_choices.ch_fail_broke_ok.label,结束
 event_choices.ch_fail_fired_ok.label,走出宏远的门，另谋生路
-event_choices.ch_intro_ok.label,我已被卷进局里了
+event_choices.ch_intro_ok.label,先把今天看清楚
 events.ev_a_d10_list.body,陈掌柜把一张折叠名单推过来：「宏远的手，也可以是通洋的手。」
 events.ev_a_d10_list.title,可挖的名单
 events.ev_a_d12_probe.body,纸条换成口头：陈掌柜要「能让宏远疼一下」的货期。
@@ -975,7 +991,7 @@ events.ev_b_d16_fake_ledger.body,办公楼传言财务有一页对不上。你�
 events.ev_b_d16_fake_ledger.title,账页风波
 events.ev_b_d17_ledger_echo.body,你栽过的那页账，今天又被人提起。有人说是少霆的锅，有人说是鸿业故意装聋。
 events.ev_b_d17_ledger_echo.title,账页回声
-events.ev_b_d19_su_afraid.body,她抓住你的袖口：「他们父子要是撕破脸，我会不会被卷进去？」
+events.ev_b_d19_su_afraid.body,灯下她抓住你的袖口，指节发白。|||「他们父子要是撕破脸，我会不会被卷进去？」|||这一问不像求安慰——更像在问你还把她当人，还是当棋。
 events.ev_b_d19_su_afraid.title,晚晴害怕了
 events.ev_b_d21_watchman.body,你回头三次，同一个人都在。老板的疑心开始长脚。
 events.ev_b_d21_watchman.title,盯梢
@@ -993,7 +1009,7 @@ events.ev_b_d29_whisper.body,茶水房、走廊、货仓门口，都在传：父
 events.ev_b_d29_whisper.title,全楼的耳语
 events.ev_b_d30_hook.body,潮汛换月。宏远的牌子还挂着，但屋里的人已经不像一家人。后续的风，才刚起。
 events.ev_b_d30_hook.title,三十日将尽
-events.ev_b_d8_corridor.body,你与少霆在走廊交错。他看你一眼，像看一块挡路的货。晚晴在远处停住，又假装整理发髻。
+events.ev_b_d8_corridor.body,你与少霆在走廊交错。他看你一眼，像看一块挡路的货。|||晚晴在远处停住，又假装整理发髻。|||三人之间空出半步——谁先让，谁就先输。
 events.ev_b_d8_corridor.title,走廊里的停顿
 events.ev_b_d9_night_shift.body,夜潮拍岸。你盯着别人的升职名额，把货扛进黑暗里。有人笑你：组长也有今天。
 events.ev_b_d9_night_shift.title,夜班屈辱
@@ -1043,9 +1059,9 @@ events.ev_d16_festival.body,码头人去潮神庙上香。晚晴说想去；少�
 events.ev_d16_festival.title,潮神庙的香
 events.ev_d20_storm.body,风把公告栏撕斜。船期全乱。|||宏远、通洋、证券行——人人都说「机会」，人人都在躲浪。
 events.ev_d20_storm.title,台风眼外
-events.ev_d4_salary.body,工钱比预想薄。有人骂主管，有人骂行情。你把银元握热，发现热度不够暖野心。
+events.ev_d4_salary.body,工钱比预想薄。有人骂主管，有人骂行情。|||你把银元握热，心里仍空了一截——这点钱，撑不起场面，也堵不住闲话。
 events.ev_d4_salary.title,发薪日的薄
-events.ev_day1_intro.body,今天风顺。你路过副理办公室，本想顺路问一句升职的事——|||门缝里传来少霆的笑声，还有她压低的应声。像早就约好了似的。|||茶杯盖一合。你突然明白：有人已经在替你安排「接下来该怎么走」。
+events.ev_day1_intro.body,今天风顺。你路过副理办公室，本想顺路问一句升职的事——|||门缝里传来少霆的笑声，还有晚晴压低的应声。像早就约好了似的。|||茶杯盖一合。升职的话堵在喉头：里面这两个人，已经把你要问的事谈完了。
 events.ev_day1_intro.title,顺风里的异响
 events.ev_day3_son_notice.body,周少霆巡查码头时多看了晚晴两眼。|||他笑得很轻，像在打量一件可以随手拿走的东西。
 events.ev_day3_son_notice.title,少霆盯上了晚晴
@@ -1053,7 +1069,7 @@ events.ev_day5_promotion_stolen.body,公示栏上的名字不是你。老板亲�
 events.ev_day5_promotion_stolen.title,升职名额被顶替
 events.ev_day6_su_distance.body,晚晴从副理办公室出来，袖口多了块洋布手帕——绣着「霆」字。|||她看见你，先把帕子藏进掌心，又挤出一句「没什么」。你一直以为她站在你这边。这一秒，裂缝终于露出了边。
 events.ev_day6_su_distance.title,手帕不是给我的
-events.ev_day7_choice.body,夜潮又问同一句：你要忍到何时？|||三条路仍在——隐忍离间、投向通洋、证券做刀。也可以先不选，回去挣钱、升职、把日子过稳。
+events.ev_day7_choice.body,夜里睡不着。你反复问自己：还要再忍多久？|||三条路仍在——在宏远隐忍周旋、投向通洋另起炉灶、去证券行搏一把。也可以先不选，回去挣钱、升职、把日子过稳。
 events.ev_day7_choice.title,要不要站队
 events.ev_fail_broke.body,钱空了，债还在。码头不认你的野心，只认口袋里的银元。号子照旧响，只是不再有你的份。
 events.ev_fail_broke.title,破产清算
@@ -1063,7 +1079,7 @@ events.ev_flag_son_hostile.body,副理在例会上忽然点你的名：「有些
 events.ev_flag_son_hostile.title,少霆点名
 events.ev_flag_su_betray_risk.body,晚晴说话时不再看你。茶凉了也不续。你突然明白：裂缝若不够深，她可能先把自己挪到安全的一边。
 events.ev_flag_su_betray_risk.title,她的眼神在躲
-events.ev_flag_su_gifts.body,你看见洋纱盒不再放门口，而进了柜子。晚晴说「退不掉」。少霆的影子，已经进了你家的门缝。
+events.ev_flag_su_gifts.body,你看见洋纱盒不再放门口，而进了柜子。晚晴说「退不掉」。|||少霆的影子，已经进了你家的门缝。|||这一秒你得选：冷着问清楚，还是先记作把柄。
 events.ev_flag_su_gifts.title,礼物收进柜
 events.ev_flag_su_leak.body,她夜里忽然说起鸿业抽屉里的旧账钥匙——语气太熟，像刚听谁念过。你意识到：她开始替你打听周家了。
 events.ev_flag_su_leak.title,晚晴漏话
@@ -1227,7 +1243,7 @@ idle_chatter.chatter_ex_09.text,假消息和真消息在同一壶里泡着。
 idle_chatter.chatter_ex_10.text,有人说杠杆是梯子，也有人说是绞索。
 idle_chatter.chatter_garage_01.text,轮胎味混着机油。有人在问：黄包车包月还是先骑脚踏？
 idle_chatter.chatter_garage_02.text,柜上算盘一响：上牌、交钱、钥匙——气派是一档一价。
-idle_chatter.chatter_home_01.text,窗外潮声一下一下，像在数你的野心。
+idle_chatter.chatter_home_01.text,窗外潮声一下一下，数着你还没睡稳的夜。
 idle_chatter.chatter_home_02.text,桌上多了一枚发亮的扣子——不是你的。
 idle_chatter.chatter_home_03.text,桌上的剪报写着「股价」二字，墨迹未干。
 idle_chatter.chatter_home_04.text,隔壁传来女人的笑，又戛然而止。
@@ -1633,7 +1649,7 @@ tip.route_plan,在家书桌「分析局势」可强化路线倾向，不取代�
 tip.save_hint,右上角可随时保存。关键抉择前建议先存档。
 tip.stock,买卖与做空走持仓公式：手数、开仓价、杠杆会参与结算。
 tip.stock_close,金融线：交易大厅「买入/做空」开仓，再用「买卖宏远股票」平仓；累计盈利≥80 推进做空线高潮。
-tip.street_npc,港区有固定作息的人：上班、串门、回家。走近按 E 街访，当天每位通常一次。
+tip.street_npc,港区有固定作息的人：上班、串门、回家。走近按 E 街访，当天每位通常一次。人物档案里也能看他们的关系与街巷传闻。
 tip.suspicion,嫌疑过高会被打压甚至开除。回家休息可降低嫌疑。
 tip.tea_house,西市井「港湾茶馆」：打听、敬酒、听说书；晚上后间可问掮客。
 tip.transit,港区很大。电动车停在家门口（或你下车处）：按 E 上车，骑着跑会快一截；再按 E 下车。进门会自动停车。没车时蓝圈是港湾环线，票价2银元瞬移。
@@ -1867,7 +1883,7 @@ ui.hud.next.trust_inner,下一目标：核心档（信任 85）
 ui.hud.next.trust_jobless,下一目标：码头谋生，或攒通洋入职资格
 ui.hud.next.trust_manager,下一目标：经理档 / 可申请名分（信任 65）
 ui.hud.next.trust_promo,下一目标：晋升{rank}（需 {need}）
-ui.hud.next_line,下一步：{text}
+ui.hud.next_line,今日目标：{text}
 ui.hud.next_rank,下一档：{rank}（{stat} {cur} / {need}）
 ui.hud.period,时段
 ui.hud.period_afternoon,中午
@@ -1927,9 +1943,27 @@ ui.period.advance,时间流逝……
 ui.period.to_afternoon,日头正中。码头声更响，影子更短。
 ui.period.to_evening,夜色上岸。适合秘密，也适合翻车。
 ui.period.to_morning,天光亮起。新的一天，白天的账又要重算。
-ui.prologue.body,潮起潮落，这座港靠力与算计吃饭。货轮靠岸、账房拨算盘，谁先站稳，谁就能往上爬。|||你是林阿海——周记洋行装卸组长。码头上喊一声「阿海」，半个货仓都听得见。|||苦干这些年，升职几乎板上钉钉，未婚妻苏晚晴也开始跟你谈婚事。你以为，日子终于往上走了。
+ui.period.evening_hold,夜深了。你可以继续活动，但凌晨两点会强制回家休息。
+ui.period.night_title,夜色
+ui.prologue.body,潮起潮落，这座港靠力与算计吃饭。货轮靠岸、账房拨算盘，谁先站稳，谁就能往上爬。|||你是林阿海——周记洋行装卸组长。码头上喊一声「阿海」，半个货仓都听得见。|||苦干这些年，升职几乎板上钉钉，未婚妻苏晚晴也开始跟你谈婚事。你以为，日子终于往上走了。|||今早你顺路去副理办公室，想问一句升职——门还没敲，里面先传来少霆的笑声，还有她压低的应声。
 ui.prologue.chapter,序 · 港城
 ui.prologue.enter_hint,踏入港区…
+ui.intro.wait,先看完眼前的事
+ui.action.cooldown,稍等片刻…
+ui.beat.result_title,这一步之后
+ui.beat.day_title,第 {day} 天
+ui.beat.period_title,第 {day} 天 · {period}
+ui.beat.gain,得：
+ui.beat.loss,失：
+ui.beat.favor,人情
+ui.beat.trust,信任
+ui.beat.intel,情报
+ui.beat.money,金钱
+ui.beat.network,声望
+ui.beat.tension_up,楼内张力↑
+ui.beat.tension_down,楼内张力↓
+ui.beat.suspicion_up,嫌疑↑
+ui.beat.suspicion_down,嫌疑↓
 ui.promo.already_claimed,本档名分已兑现
 ui.promo.any_flags.promo_ty_core,售卖宏远情报 或 商议挖人
 ui.promo.bar_label,{stat}  {cur} / {need}
@@ -2082,7 +2116,7 @@ dialogue_line_variants.var_chen_lobby_l02_divorced.text,陈掌柜笑得更淡：
 dialogue_line_variants.var_home_rest_l02_divorced.text,空屋里算账：数字很清楚，人却少了一半。灯花爆开，像嘲你还在算。
 idle_chatter.chatter_divorce_rumor.text,茶博士压低嗓子：「宏远那单亲事散了。码头仔管不住女人——周家少爷倒笑得轻松。」
 idle_chatter.chatter_divorce_weapon.text,有人咬耳朵：「他是故意散的。家里都散了，还装在宏远尽忠？」
-events.ev_day7_choice.body_divorced,家先散了，局还在——站不站队，仍是你自己的刀。
+events.ev_day7_choice.body_divorced,家先散了，局还在——站不站队，仍得你自己选。
 events.ev_b_public_clash.body_divorced,走廊里有人嘀咕：家里都散了，还在这装什么忠。
 events.ev_b_public_clash.body_divorce_weapon,有人故意抬高嗓门：「家里都散了还装——裂缝可不只在茶杯上。」
 events.ev_a_first_strike.body_divorced,你少了一份后顾。这一刀落下去，只听见自己的呼吸。
@@ -2110,6 +2144,45 @@ dialogue_line_variants.var_su_talk_l01_reconcile.text,她给你留了灯。声�
 dialogue_line_variants.var_su_talk_l03_reconcile.text,少霆那边我少回了。你若真想把家稳住，我就少站在裂缝边上。
 dialogue_line_variants.var_su_talk_l01_let_go.text,屋里很静。她点头如客：「你放手了。也好。别再叫我替你递刀。」
 idle_chatter.chatter_su_used_tool.text,茶博士咬耳朵：「那码头仔拿女人推周家裂缝——亲事是棋，人也是棋。」
+idle_chatter.chatter_dock_foreman_01.text,老郑把号子砸在舱口：「别磨！银元不等人。」
+idle_chatter.chatter_dock_foreman_02.text,工头掐着名单清点夜班。少一个，他嗓门能盖过潮声。
+idle_chatter.chatter_plaza_aunt_01.text,阿婶掀笼屉：「热的先走。闲话？闲话也热。」
+idle_chatter.chatter_plaza_aunt_02.text,糖糕香里有人问船期，阿婶只笑不答——价码在眼神里。
+idle_chatter.chatter_tea_waiter_01.text,小福擦盏擦到反光：后座的茶盖，比前堂更怕出声。
+idle_chatter.chatter_tea_waiter_02.text,有人说小福记性好——谁进后座、谁多坐半炷香，他都数得清。
+idle_chatter.chatter_garage_hand_01.text,阿强拧螺丝拧出一嘴机油味：「车行不讲面子，讲能跑。」
+idle_chatter.chatter_garage_hand_02.text,柜上算盘响：脚踏、黄包车、包月——气派是一档一价。
+dialogue_line_variants.var_su_talk_l03_let_go.text,少霆那边我不再回。你既放手，我就把自己从裂缝边上挪开——别再叫我。
+ui.situation.action.dock_work,肩头发烫。号子还在，工钱进袋——像把今天又钉牢一寸。
+ui.situation.action.dock_chat,烟头摁灭的一瞬，半句夜班手脚落进你耳朵。
+ui.situation.action.dock_watch_manifest,船名与吨位在脑子里排好队——回头用得上。
+ui.situation.action.co_work,毛笔字干了。走廊茶盖声远了一点，像暂时没人盯你。
+ui.situation.action.co_eavesdrop,屏风后的人名船期进了袖口。你装作只是路过倒茶。
+ui.situation.action.home_organize,纸边对齐。屋里的安静替你压住半寸慌。
+ui.situation.action.home_plan,纸上只留下明天要露脸的地方——别处先划掉。
+ui.situation.action.home_rest,潮声把肩上的酸冲淡。明天的局，至少还能撑着见。
+ui.situation.action.home_talk_su,客厅的空气变了一味——她看你的眼神，比话更先落地。
+ui.situation.action.home_upgrade_2,门楣一白，巷口多了半眼打量——场面开始值钱。
+ui.situation.action.home_upgrade_3,客厅像样了。街坊话音轻了，人脉跟着门面走。
+ui.situation.action.home_upgrade_4,洋房门响。上层圈子也听见：这人肯花钱撑脸。
+ui.situation.action.co_meet_son,少霆的笑还挂着。你走开时，后背像被笔尖点了一下。
+ui.situation.action.co_meet_su,目光一碰又分开。袖口那点香，提醒你裂缝还在。
 events.ev_b_public_clash.body_reconcile,有人却说：家里还没散尽——他仍护着那盏灯。
-events.ev_day7_choice.body_let_go,人已放，局还在——站不站队，只剩你自己的刀。
+events.ev_day7_choice.body_let_go,人已放，局还在——站不站队，只剩你自己拿主意。
 events.ev_power_flex.body_divorced,侧廊空着。亲事散了，让路的目光却更干净——少了一份后顾。
+ui.period.curfew_forced,夜深了，倦意把你拽回出租屋。一觉到天光。
+ui.period.rest_ok,你回家睡了一觉。天光重新亮起。
+ui.period.curfew_ask_title,夜深了
+ui.period.curfew_ask_body,已近凌晨两点。现在回家休息？若先不回去，今晚不会再强制送你回家——累了可自行回出租屋睡觉。
+ui.period.curfew_go_home,回家休息
+ui.period.curfew_linger,先不回去
+ui.period.wake_title,天亮了
+ui.period.curfew_wake,昨晚熬到深夜，倦意把你拽回出租屋。一觉醒来，天光已经亮了。
+ui.period.wake_speed_tip,新的一天开始了。时间倍速已恢复为 1×，可在顶栏再调。
+ui.period.time_skip_title,时间飞逝
+ui.period.time_skip_hint,做事花掉了一段时间。
+ui.hud.speed_tip,点选时间倍速；小键盘 +/- 也可调
+ui.hud.speed_paused,暂停
+ui.hud.speed_paused_tip,对话/事件中，时间暂停。
+ui.hud.speed_pause_pick_tip,暂停世界时间
+ui.period.time_skip,时间飞逝（{from} → {to}）

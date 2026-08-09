@@ -20,6 +20,9 @@ func set_speaker(id: String) -> void :
 	speaker_id = id
 	var key: = UiStyle.portrait_key_for_speaker(id)
 	_tex = UiStyle.portrait_texture(key)
+	# Street NPCs without painted portraits: crop bust from classic walk sheet.
+	if _tex == null and id.strip_edges() != "" and id != "narrator":
+		_tex = WalkSheets.bust_texture(id)
 	queue_redraw()
 
 
@@ -43,7 +46,21 @@ func _draw() -> void :
 	draw_rect(inner, UiStyle.PARCHMENT)
 	var art: = inner.grow(-4)
 	if _tex != null:
-		draw_texture_rect(_tex, art, false)
+		# demo_ai_town resident fronts / paper-doll busts: keep aspect, sit in frame.
+		var tex_size: = _tex.get_size()
+		if tex_size.x > 1.0 and tex_size.y > 1.0:
+			var pad: = art.grow(-4.0)
+			var s: = minf(pad.size.x / tex_size.x, pad.size.y / tex_size.y)
+			var dest_size: = tex_size * s
+			var dest: = Rect2(
+				pad.position.x + (pad.size.x - dest_size.x) * 0.5, 
+				pad.position.y + (pad.size.y - dest_size.y) * 0.2, 
+				dest_size.x, 
+				dest_size.y
+			)
+			draw_texture_rect(_tex, dest, false)
+		else:
+			draw_texture_rect(_tex, art, false)
 	else:
 		var base: = UiStyle.portrait_color(speaker_id)
 		draw_rect(art, Color(base.r * 0.55, base.g * 0.55, base.b * 0.55, 1))

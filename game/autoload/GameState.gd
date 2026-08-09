@@ -102,6 +102,8 @@ func new_game(seed_value: int = 0) -> void :
 	UnlockScheduler.apply_for_new_game()
 	if NpcScheduler.has_method("clear_runtime"):
 		NpcScheduler.clear_runtime()
+	if WorldClock:
+		WorldClock.reset_for_new_day_start()
 	_emit_changed()
 	print("GameState: new game day=%d seed=%d" % [day, rng_seed])
 
@@ -137,6 +139,8 @@ func to_snapshot() -> Dictionary:
 		"rng_seed": rng_seed, 
 		"rng_state": rng.state, 
 		"playtime_sec": playtime_sec, 
+		"world_window_minute": WorldClock.window_minute if WorldClock else 0.0, 
+		"time_speed": WorldClock.time_speed if WorldClock else 1.0, 
 	}
 
 
@@ -149,6 +153,19 @@ func apply_snapshot(data: Dictionary) -> void :
 	last_result_text = str(data.get("last_result_text", ""))
 	rng_seed = int(data.get("rng_seed", rng_seed))
 	rng.seed = rng_seed as int
+	if WorldClock:
+		var win: = float(data.get("world_window_minute", 0.0))
+		var spd: = float(data.get("time_speed", 1.0))
+		## Legacy saves: map period bucket onto window start.
+		if not data.has("world_window_minute"):
+			match period:
+				"afternoon":
+					win = float(6 * 60)
+				"evening":
+					win = float(12 * 60)
+				_:
+					win = 0.0
+		WorldClock.load_state(win, spd)
 	if data.has("rng_state"):
 		rng.state = int(data.get("rng_state"))
 	stats = {}
@@ -529,6 +546,11 @@ func set_location(id: String) -> bool:
 
 
 func advance_period() -> void :
+	## Legacy/debug: snap to next period (or sleep at end of evening window).
+	if WorldClock:
+		WorldClock.advance_to_next_period()
+		_emit_changed()
+		return
 	var idx: = PERIODS.find(period)
 	if idx < 0:
 		idx = 0

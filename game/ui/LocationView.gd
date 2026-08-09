@@ -62,7 +62,7 @@ func _on_block_changed(blocked: bool) -> void :
 			(child as Button).disabled = blocked or not bool(child.get_meta("runnable", true))
 
 
-func _on_event_resolved(_event_id: String, _choice_id: String) -> void :
+func _on_event_resolved(_event_id: String, _choice_id: String, _applied: Array = []) -> void :
 	_rebuild_locations(false)
 	_rebuild_hotspots(GameState.location_id)
 	TipSystem.on_flags_changed()

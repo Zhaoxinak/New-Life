@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" path="res://ui/EndingScreen.tscn" id="13"]
 [ext_resource type="PackedScene" path="res://ui/TipBanner.tscn" id="14"]
 [ext_resource type="PackedScene" path="res://ui/DebugPanel.tscn" id="15"]
+[ext_resource type="Script" path="res://ui/BeatFeed.gd" id="16"]
 
 [node name="Main" type="Node" unique_id=1566169524]
 script = ExtResource("1")
@@ -50,5 +51,9 @@ unique_name_in_owner = true
 [node name="EndingScreen" parent="." unique_id=2088112526 instance=ExtResource("13")]
 
 [node name="TipBanner" parent="." unique_id=1298871338 instance=ExtResource("14")]
+
+[node name="BeatFeed" type="CanvasLayer" parent="."]
+layer = 22
+script = ExtResource("16")
 
 [node name="DebugPanel" parent="." unique_id=118836772 instance=ExtResource("15")]

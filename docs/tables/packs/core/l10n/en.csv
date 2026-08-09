@@ -284,7 +284,7 @@ dialogue_lines.dlg_co_bribe_acc_l02.text,Holes can be sold. So can evidence.
 dialogue_lines.dlg_co_bribe_acc_l03.text,Paper rustles like a gavel.
 dialogue_lines.dlg_co_eavesdrop_l01.text,Teacups tap behind the screen. Gossip beats memos.
 dialogue_lines.dlg_co_eavesdrop_l02.text,Father and son? Ledgers? Or promotions?
-dialogue_lines.dlg_co_eavesdrop_l03.text,You assemble shards into a blade spine.
+dialogue_lines.dlg_co_eavesdrop_l03.text,You fit the overheard shards into a blade spine—good for blocking talk, better for stabbing back.
 dialogue_lines.dlg_co_elder_l01.text,The elder takes the wine; his eyes loosen an inch.
 dialogue_lines.dlg_co_elder_l02.text,Hongyuan feeds people—and wears them down. We both know.
 dialogue_lines.dlg_co_elder_l03.text,He sighs like turning an old ledger page.
@@ -548,7 +548,7 @@ events.ev_b_d16_fake_ledger.body,Rumor: a finance page won't balance. True or fa
 events.ev_b_d16_fake_ledger.title,Ledger Rumor
 events.ev_b_d17_ledger_echo.body,The page you framed is mentioned again. Some blame Shaoting; some say Hongye plays deaf on purpose.
 events.ev_b_d17_ledger_echo.title,Ledger Echo
-events.ev_b_d19_su_afraid.body,"She grips your sleeve: ""If father and son tear apart, will I be pulled in?"""
+events.ev_b_d19_su_afraid.body,"Under the lamp she grips your sleeve, knuckles white.|||""If father and son tear apart, will I be pulled in?""|||The question isn't only comfort—it's whether you still count her as a person, or a piece."
 events.ev_b_d19_su_afraid.title,Wanqing Afraid
 events.ev_b_d21_watchman.body,You look back thrice; the same man is there. The boss's suspicion grows legs.
 events.ev_b_d21_watchman.title,A Tail
@@ -566,7 +566,7 @@ events.ev_b_d29_whisper.body,"Pantry, hall, warehouse door—all whisper of a sh
 events.ev_b_d29_whisper.title,The Building Whispers
 events.ev_b_d30_hook.body,"The tide changes month. Hongyuan's sign still hangs, but the house no longer feels like family. The real wind is only rising."
 events.ev_b_d30_hook.title,Day Thirty Closing
-events.ev_b_d8_corridor.body,"You cross Shaoting in the corridor. He looks at you like cargo in the way. Wanqing freezes afar, then pretends to fix her hair."
+events.ev_b_d8_corridor.body,"You cross Shaoting in the corridor. He looks at you like cargo in the way.|||Wanqing freezes afar, then pretends to fix her hair.|||Half a step of empty air between three people—whoever yields first loses face."
 events.ev_b_d8_corridor.title,A Pause in the Corridor
 events.ev_b_d9_night_shift.body,Night tide hits. You haul into the dark while another's promotion hangs on the board. Someone laughs: even a foreman falls.
 events.ev_b_d9_night_shift.title,Night-Shift Sting
@@ -616,7 +616,7 @@ events.ev_d16_festival.body,Dockfolk burn incense at the tide temple. Wanqing wa
 events.ev_d16_festival.title,Incense at the Tide Temple
 events.ev_d20_storm.body,"Wind skews the notice board. Schedules shatter. Hongyuan, Tongyang, the exchange—everyone says 'opportunity' while dodging waves."
 events.ev_d20_storm.title,Outside the Eye
-events.ev_d4_salary.body,"Pay is thinner than hoped. Some curse the supervisor, some the market. You warm the silver in your fist—not enough for ambition."
+events.ev_d4_salary.body,"Pay is thinner than hoped. Some curse the supervisor, some the market.|||You warm the silver in your fist—still empty: too little for face, too little to stop the talk."
 events.ev_d4_salary.title,Thin Payday
 events.ev_day1_intro.body,"The dock wind feels kinder today. You are about to rise from loading foreman to warehouse chief, and Wanqing talks of marriage. For once, the future seems within reach."
 events.ev_day1_intro.title,Promotion in Sight
@@ -636,7 +636,7 @@ events.ev_flag_son_hostile.body,In the briefing Shaoting names you: 'Some foreme
 events.ev_flag_son_hostile.title,Shaoting Names You
 events.ev_flag_su_betray_risk.body,"Wanqing won't meet your eyes. Tea goes cold, unfilled. If the crack isn't deep enough, she may move to the safer side first."
 events.ev_flag_su_betray_risk.title,Her Eyes Dodge
-events.ev_flag_su_gifts.body,The yarn box is no longer at the door—it's in the cabinet. She says it 'won't go back.' Shaoting's shadow is already in your door crack.
+events.ev_flag_su_gifts.body,"The yarn box is no longer at the door—it's in the cabinet. She says it won't go back.|||Shaoting's shadow is already in your door crack.|||Choose now: ask cold, or file it as leverage."
 events.ev_flag_su_gifts.title,Gifts in the Cabinet
 events.ev_flag_su_leak.body,"At night she mentions the old ledger key in Hongye's drawer—too familiar, as if she'd just heard it recited. She's started digging the Zhou house for you."
 events.ev_flag_su_leak.title,Wanqing Lets Slip
@@ -916,6 +916,12 @@ tip.save_hint,Save anytime from the top-right. Save before key choices.
 tip.stock,"Buys/shorts use position formulas: lots, entry, leverage."
 tip.stock_close,Open with buy/short; close on the trading floor to bank the first pot.
 tip.suspicion,High suspicion brings crackdowns or firing. Rest at home to cool it.
+tip.street_npc,"Harbor folk keep routines: work, visit, go home. Walk up and press E to chat (usually once per person per day). Their ties and street rumors also show in the dossier."
+tip.minimap,Press M for the harbor minimap: blue is you, yellow are buildings. Press M again to close.
+tip.transit,"The harbor is large. E-bike at home (or where you dismounted): E to mount, ride faster, E to dismount. Entering a building parks you. Without a bike, blue rings are the harbor loop (2 silver)."
+tip.dossier,Press C for the character dossier: stats, favor, and contact log.
+tip.npc_world,The harbor lives on its own. Dossier shows attributes, ties, and street rumors.
+tip.variety,"Fun is spread around: tea-house stories, plaza dice/fist/scratchers, dock fishing and awning gossip, office errands. Jobs have daily limits."
 tip.trust_sync,Company trust drives rank; the boss's relational trust syncs on key actions.
 quest.panel.header,Current Quest
 quest.panel.progress,{i} / {n}
@@ -1011,6 +1017,25 @@ ui.period.advance,Time passes…
 ui.period.to_afternoon,The sun leans. The dock changes its sound.
 ui.period.to_evening,Night comes ashore. Good for secrets—and falls.
 ui.period.to_morning,Dawn. A new day.
+ui.period.evening_hold,Night deepens. At 2 AM you will be sent home to rest.
+ui.period.night_title,Night
+ui.intro.wait,Finish what is in front of you first
+ui.action.cooldown,One moment…
+ui.beat.result_title,After this step
+ui.beat.day_title,Day {day}
+ui.beat.period_title,Day {day} · {period}
+ui.beat.gain,Gain:
+ui.beat.loss,Cost:
+ui.beat.favor,Favor
+ui.beat.trust,Trust
+ui.beat.intel,Intel
+ui.beat.money,Money
+ui.beat.network,Standing
+ui.beat.tension_up,Tension↑
+ui.beat.tension_down,Tension↓
+ui.beat.suspicion_up,Heat↑
+ui.beat.suspicion_down,Heat↓
+ui.prologue.body,Tide in; tide out. This harbor eats strength and calculation.|||You are Lin Ah-Hai—loading crew lead at Zhou's firm. One shout of your name, half the warehouse hears it.|||Years of hard work; promotion almost inked; fiancée Su Wanqing already talking marriage. You thought the climb had begun.|||This morning you stopped by the deputy's office about the promotion—before you knocked, Shaoting's laugh came through the door, and her lowered reply.
 ui.save.failed,Save failed
 ui.save.load,Load
 ui.save.load_failed,Load failed
@@ -1161,7 +1186,7 @@ ui.hud.goal.ty_accept,Tongyang lobby: accept the job and start work
 ui.hud.goal.ty_accept_tip,Qualified. Enter Tongyang → lobby → Accept Tongyang job. Then Tongyang office work unlocks.
 ui.hud.goal.ty_apply,See Manager Chen in the Tongyang lobby
 ui.hud.goal.ty_apply_tip,Resign/fire opens Tongyang early. Lobby Ask about hiring → qualify → Accept job → office work.
-ui.hud.next_line,Next: %s
+ui.hud.next_line,Today: {text}
 ui.hud.firm_line,Firm: %s
 ui.hud.heat_line,Heat: %s
 ui.hud.unemployed,Unemployed
@@ -1214,3 +1239,58 @@ idle_chatter.chatter_su_used_tool.text,"Tea doctor whispers: ""That dock boy use
 events.ev_b_public_clash.body_reconcile,Someone mutters: home hasn't fully broken—he still guards that lamp.
 events.ev_day7_choice.body_let_go,Person released; board remains—picking a side is only your blade now.
 events.ev_power_flex.body_divorced,Side hall empty. Match off; the yielding looks cleaner—one less tie behind you.
+ui.period.curfew_forced,Exhaustion drags you home. You sleep until dawn.
+ui.period.rest_ok,You sleep at home. Morning light returns.
+ui.period.curfew_ask_title,Late night
+ui.period.curfew_ask_body,It's nearly 2 AM. Go home to rest? If you stay out, you won't be forced home tonight — sleep at your place when you're ready.
+ui.period.curfew_go_home,Go home
+ui.period.curfew_linger,Stay out
+ui.period.wake_title,Morning
+ui.period.curfew_wake,You pushed into the deep night. Exhaustion dragged you home. You wake to daylight.
+ui.period.wake_speed_tip,A new day. Time speed is back to 1× — change it again on the top bar.
+ui.period.time_skip_title,Time skips
+ui.period.time_skip_hint,That took a while.
+ui.hud.speed_tip,Pick a time speed; numpad +/- also works
+ui.hud.speed_paused,Pause
+ui.hud.speed_paused_tip,Time pauses during dialogue/events.
+ui.hud.speed_pause_pick_tip,Pause world time
+ui.period.time_skip,Time skips ({from} → {to})
+beat.foreman_morning_call,"Foreman Zheng tightens the chant: ""Don't jam the hatch! A-Hai's crew—eyes open."""
+beat.foreman_night_count,Night lamps up; Zheng counts the manifest—missing one earns a yell, an extra one worse.
+beat.foreman_garage_tire,Zheng pushes a flat cart to the garage. A-Qiang kneels at the valve; they curse the damp the whole way.
+beat.foreman_rain_shelter,Under the rain shed Zheng buys Auntie's hot cake—talks tide, watches the schedule board.
+beat.aunt_morning_stall,Auntie lifts the steamer: sugar-cake scent first, gossip second—who took two extra night hauls.
+beat.aunt_plaza_price,"On the plaza Auntie bumps chestnut prices a half: ""News costs more—which do you want?"""
+beat.aunt_tea_drop,At dusk Auntie drops a cake box at the tea-house back seat. Xiao-Fu takes it and glances inward.
+beat.aunt_foreman_debt,"Auntie grins at Zheng: ""Tea on credit stays written—pay when the dock wind turns fair."""
+beat.waiter_sweep,Xiao-Fu sweeps the hall at dawn—brushing yesterday's leftover whispers off the threshold.
+beat.waiter_vip_seat,He polishes the back-seat cups again—someone asked for quiet; he doesn't dare ask who.
+beat.waiter_garage_chat,Before close Xiao-Fu and A-Qiang trade whispers under the lamp: who bought a ride, who still pedals a cart.
+beat.waiter_aunt_sugar,Xiao-Fu runs to Auntie's stall for sugar; returns with crumbs on his sleeve like half a secret.
+beat.garage_open,A-Qiang shoves the iron door and dusts: bikes first; rickshaw customers come after noon.
+beat.garage_rickshaw,"In the garage he offers a rickshaw sit: ""Face has tiers—you feel it when you sit."""
+beat.garage_dock_errand,A-Qiang jogs screws to the dock; Zheng takes them and snarls—half a chant late.
+beat.garage_tea_break,Break time: A-Qiang squats outside the tea house with a big bowl; Xiao-Fu nods past like weather traded.
+idle_chatter.chatter_dock_foreman_01.text,"Zheng smashes the chant at the hatch: ""Move! Silver won't wait."""
+idle_chatter.chatter_dock_foreman_02.text,The foreman counts the night roster. One short and his voice out-roars the tide.
+idle_chatter.chatter_plaza_aunt_01.text,"Auntie lifts the steamer: ""Hot first. Gossip? Gossip's hot too."""
+idle_chatter.chatter_plaza_aunt_02.text,In sugar-cake scent someone asks ship times; Auntie only smiles—the price sits in her eyes.
+idle_chatter.chatter_tea_waiter_01.text,Xiao-Fu polishes cups to a shine: back-seat lids fear noise more than the front hall.
+idle_chatter.chatter_tea_waiter_02.text,They say his memory is sharp—who enters the back seat, who stays half an incense stick.
+idle_chatter.chatter_garage_hand_01.text,"A-Qiang twists screws smelling of oil: ""Garages don't sell face—they sell go."""
+idle_chatter.chatter_garage_hand_02.text,"Abacus clicks: bike, rickshaw, monthly hire—face is priced by tier."
+dialogue_line_variants.var_su_talk_l03_let_go.text,"I stop answering Shao-ting. You let go—so I step off the crack. Don't call me back."
+ui.situation.action.dock_work,Shoulders burn. Chant still going; pay hits the pocket—another inch of today nailed down.
+ui.situation.action.dock_chat,The butt dies; half a sentence about night-shift tricks lands in your ear.
+ui.situation.action.dock_watch_manifest,Ship names and tonnage line up in your head—usable later.
+ui.situation.action.co_work,Ink dries. Corridor tea-lid clicks fade—as if fewer eyes are on you.
+ui.situation.action.co_eavesdrop,Names and sailings from behind the screen slip into your sleeve. You pretend you only poured tea.
+ui.situation.action.home_organize,Paper edges align. Quiet in the room presses down half an inch of panic.
+ui.situation.action.home_plan,Only tomorrow's place to show face stays on the page—the rest crossed out.
+ui.situation.action.home_rest,Tide washes the ache from your shoulders. Tomorrow's board—you can still stand to meet it.
+ui.situation.action.home_talk_su,The parlor air changes taste—her look lands before her words.
+ui.situation.action.home_upgrade_2,Whitened lintel; the alley looks twice—face starts to cost standing.
+ui.situation.action.home_upgrade_3,Parlor looks real. Neighborhood voices soften; standing follows the facade.
+ui.situation.action.home_upgrade_4,Villa door sounds. Elite circles hear it: this one spends for face.
+ui.situation.action.co_meet_son,Shaoting's smile still hangs. Walking away, your back feels a pen tip tap.
+ui.situation.action.co_meet_su,Eyes meet and part. That scent on her cuff reminds you the crack remains.

@@ -3,7 +3,7 @@ extends Node
 
 
 signal event_available(event_id: String)
-signal event_resolved(event_id: String, choice_id: String)
+signal event_resolved(event_id: String, choice_id: String, applied: Array)
 
 var active_event_id: String = ""
 var _event_effects_applied: bool = false
@@ -29,6 +29,9 @@ func _on_day_ended(_completed: int) -> void :
 func pulse() -> void :
 	if GameState.game_over:
 		return
+	## Title / settings must not start events — EventPanel only exists in Main.
+	if not SaveSystem.session_active:
+		return
 	if active_event_id != "":
 		return
 	if GameFlow.is_blocked():
@@ -47,6 +50,13 @@ func start_event(event_id: String) -> void :
 	event_available.emit(event_id)
 
 
+## Re-emit so EventPanel can open if start_event fired before Main was ready.
+func present_active_event() -> void :
+	if active_event_id.is_empty():
+		return
+	event_available.emit(active_event_id)
+
+
 func ensure_event_effects() -> void :
 	if active_event_id.is_empty() or _event_effects_applied:
 		return
@@ -59,15 +69,19 @@ func resolve_choice(choice_id: String) -> void :
 		return
 	ensure_event_effects()
 
-	EffectApplier.apply_owner("choice", choice_id)
+	var applied: Array = []
+	if choice_id != "":
+		applied = EffectApplier.apply_owner("choice", choice_id)
 	var eid: = active_event_id
 	var count: = int(GameState.event_triggers.get(eid, 0)) + 1
 	GameState.event_triggers[eid] = count
+	if eid == "ev_day1_intro":
+		GameState.set_flag("intro_lock", 0)
 	active_event_id = ""
 	_event_effects_applied = false
 	ThresholdWatcher.evaluate_all()
 	EndingChecker.check_now()
-	event_resolved.emit(eid, choice_id)
+	event_resolved.emit(eid, choice_id, applied)
 
 	call_deferred("pulse")
 
