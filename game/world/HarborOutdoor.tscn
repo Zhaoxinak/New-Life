@@ -1,28 +1,28 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3]
 
-[ext_resource type="Script" path="res://world/HarborOutdoor.gd" id="1"]
-[ext_resource type="Script" path="res://world/PathHighlight.gd" id="2"]
+[ext_resource type="Script" uid="uid://ck84lm0wihdbd" path="res://world/HarborOutdoor.gd" id="1"]
+[ext_resource type="Script" uid="uid://rs3u6x6oi47t" path="res://world/PathHighlight.gd" id="2"]
 
-[node name="HarborOutdoor" type="Node2D"]
+[node name="HarborOutdoor" type="Node2D" unique_id=887515196]
 script = ExtResource("1")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=2109697987]
 unique_name_in_owner = true
 centered = false
 
-[node name="PathFx" type="Node2D" parent="."]
+[node name="PathFx" type="Node2D" parent="." unique_id=508061758]
 unique_name_in_owner = true
 z_index = 1
 script = ExtResource("2")
 
-[node name="Buildings" type="Node2D" parent="."]
+[node name="Buildings" type="Node2D" parent="." unique_id=1684721260]
 unique_name_in_owner = true
 z_index = 2
 
-[node name="Signs" type="Node2D" parent="."]
+[node name="Signs" type="Node2D" parent="." unique_id=11005195]
 unique_name_in_owner = true
 z_index = 5
 
-[node name="Doors" type="Node2D" parent="."]
+[node name="Doors" type="Node2D" parent="." unique_id=110224307]
 unique_name_in_owner = true
 z_index = 6

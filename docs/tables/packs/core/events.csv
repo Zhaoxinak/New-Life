@@ -1,15 +1,15 @@
-id,priority,max_triggers,weight,tags,period,enabled,notes
+﻿id,priority,max_triggers,weight,tags,period,enabled,notes
 ev_day1_intro,100,1,100,all,morning,1,开场
 ev_day3_son_notice,90,1,100,B,afternoon,1,转折铺垫
 ev_day5_promotion_stolen,95,1,100,all,morning,1,打压
-ev_day6_su_distance,90,1,100,B,evening,1,关系下滑事件入口
-ev_day7_choice,100,1,100,all,evening,1,玩家选发展方向
+ev_day6_su_distance,95,1,100,all,evening,1,中段背叛：手帕翻面（展示可提前到D4）
+ev_day7_choice,100,0,100,all,evening,1,Soft main fork; repeats until route chosen
 ev_b_pillow_talk,70,0,100,B,any,1,可重复或限次；条件表控制
 ev_b_public_clash,100,1,100,B,afternoon,1,路线B Demo终点钩子
 ev_a_offer,80,1,100,A,any,1,条件：intel/人脉；限一次
 ev_a_first_strike,100,1,100,A,afternoon,1,A线终点
 ev_c_first_short,100,1,100,C,afternoon,1,C线终点
-ev_fail_fired,100,1,100,all,any,1,失败结局之一
+ev_fail_fired,100,1,100,all,any,1,Fired -> unemployed (not game over)
 ev_fail_broke,100,1,100,C|all,any,1,金钱归零类失败
 ev_low_money_debuff,40,0,100,all,morning,1,可每日检测
 ev_boss_watching,60,0,100,all,any,1,flag:boss_watching
@@ -70,3 +70,8 @@ ev_c_d21_spike,78,1,100,C,morning,1,v0.8
 ev_c_d24_broker,78,1,100,C,afternoon,1,v0.8
 ev_c_d28_ready,78,1,100,C,evening,1,v0.8
 ev_c_d30_hook,78,1,100,C,afternoon,1,v0.8
+ev_divorce_ultimatum,96,0,100,all|B,evening,1,退婚摊牌夜；可推迟
+ev_divorce_aftermath,90,1,100,all,any,1,退婚余波闲话/空屋
+ev_power_flex,92,1,100,all,afternoon,1,晋升后走廊场面碾压
+ev_su_reconcile,88,1,100,B|all,evening,1,求合轻节拍
+ev_su_let_go,87,1,100,B|all,evening,1,放手余波

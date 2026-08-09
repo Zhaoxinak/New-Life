@@ -1,6 +1,6 @@
-id,type,priority,win,enabled,tags
+﻿id,type,priority,win,enabled,tags
 ending_b,stage,100,1,1,core
 ending_a,stage,100,1,1,core
 ending_c,stage,100,1,1,core
-ending_fail_fired,fail,200,0,1,core
+ending_fail_fired,fail,200,0,0,core
 ending_fail_broke,fail,200,0,1,core

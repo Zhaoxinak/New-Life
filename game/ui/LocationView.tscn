@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene format=3]
 
-[ext_resource type="Script" path="res://ui/LocationView.gd" id="1_loc"]
-[ext_resource type="Script" path="res://ui/SceneStage.gd" id="2_stage"]
+[ext_resource type="Script" uid="uid://4xdg1o888y13" path="res://ui/LocationView.gd" id="1"]
+[ext_resource type="Script" uid="uid://c1svy12mvq2r5" path="res://ui/SceneStage.gd" id="2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_action"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0.95, 0.9, 0.78, 0.97)
 border_width_left = 3
 border_width_top = 3
@@ -14,37 +18,32 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-content_margin_left = 8
-content_margin_top = 8
-content_margin_right = 8
-content_margin_bottom = 8
 shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bottom"]
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
 bg_color = Color(0.42, 0.27, 0.16, 0.95)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
-border_width_bottom = 0
 border_color = Color(0.91, 0.77, 0.42, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
-content_margin_left = 8
-content_margin_top = 6
-content_margin_right = 8
-content_margin_bottom = 6
 
-[node name="LocationView" type="Control"]
+[node name="LocationView" type="Control" unique_id=321418281]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_loc")
+script = ExtResource("1")
 
-[node name="SceneStage" type="Control" parent="."]
+[node name="SceneStage" type="Control" parent="." unique_id=862336209]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -53,9 +52,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("2_stage")
+script = ExtResource("2")
 
-[node name="HotspotLayer" type="Control" parent="."]
+[node name="HotspotLayer" type="Control" parent="." unique_id=990683906]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -65,7 +64,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TopChrome" type="MarginContainer" parent="."]
+[node name="TopChrome" type="MarginContainer" parent="." unique_id=1645066364]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -76,15 +75,15 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 16
 
-[node name="TopRow" type="HBoxContainer" parent="TopChrome"]
+[node name="TopRow" type="HBoxContainer" parent="TopChrome" unique_id=2119350328]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="BannerCol" type="VBoxContainer" parent="TopChrome/TopRow"]
+[node name="BannerCol" type="VBoxContainer" parent="TopChrome/TopRow" unique_id=2015436364]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BannerTitle" type="Label" parent="TopChrome/TopRow/BannerCol"]
+[node name="BannerTitle" type="Label" parent="TopChrome/TopRow/BannerCol" unique_id=984809232]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.92, 0.55, 1)
@@ -93,41 +92,41 @@ theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 28
 text = "Dock"
 
-[node name="BannerDesc" type="Label" parent="TopChrome/TopRow/BannerCol"]
+[node name="BannerDesc" type="Label" parent="TopChrome/TopRow/BannerCol" unique_id=1394984574]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.9, 0.8, 1)
 theme_override_colors/font_outline_color = Color(0.15, 0.1, 0.05, 1)
 theme_override_constants/outline_size = 3
-autowrap_mode = 3
 text = "Description"
+autowrap_mode = 3
 
-[node name="Toolbar" type="HBoxContainer" parent="TopChrome/TopRow"]
+[node name="Toolbar" type="HBoxContainer" parent="TopChrome/TopRow" unique_id=983942693]
 layout_mode = 2
-alignment = 2
 theme_override_constants/separation = 8
+alignment = 2
 
-[node name="LangButton" type="Button" parent="TopChrome/TopRow/Toolbar"]
+[node name="LangButton" type="Button" parent="TopChrome/TopRow/Toolbar" unique_id=2114362929]
 unique_name_in_owner = true
 layout_mode = 2
 text = "zh_CN"
 
-[node name="SaveButton" type="Button" parent="TopChrome/TopRow/Toolbar"]
+[node name="SaveButton" type="Button" parent="TopChrome/TopRow/Toolbar" unique_id=1320829778]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Save"
 
-[node name="LoadButton" type="Button" parent="TopChrome/TopRow/Toolbar"]
+[node name="LoadButton" type="Button" parent="TopChrome/TopRow/Toolbar" unique_id=2114205761]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Load"
 
-[node name="MenuButton" type="Button" parent="TopChrome/TopRow/Toolbar"]
+[node name="MenuButton" type="Button" parent="TopChrome/TopRow/Toolbar" unique_id=877052039]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Menu"
 
-[node name="LocNav" type="HBoxContainer" parent="."]
+[node name="LocNav" type="HBoxContainer" parent="." unique_id=1711320857]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
@@ -140,7 +139,7 @@ offset_bottom = -100.0
 grow_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="ActionPanel" type="PanelContainer" parent="."]
+[node name="ActionPanel" type="PanelContainer" parent="." unique_id=259271907]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -157,31 +156,31 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_action")
 
-[node name="ActionMargin" type="MarginContainer" parent="ActionPanel"]
+[node name="ActionMargin" type="MarginContainer" parent="ActionPanel" unique_id=455612112]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 10
 
-[node name="ActionCol" type="VBoxContainer" parent="ActionPanel/ActionMargin"]
+[node name="ActionCol" type="VBoxContainer" parent="ActionPanel/ActionMargin" unique_id=1886636550]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="ActionTitle" type="Label" parent="ActionPanel/ActionMargin/ActionCol"]
+[node name="ActionTitle" type="Label" parent="ActionPanel/ActionMargin/ActionCol" unique_id=2026125008]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.42, 0.26, 0.15, 1)
 theme_override_font_sizes/font_size = 18
 text = "Actions"
 
-[node name="ActionList" type="VBoxContainer" parent="ActionPanel/ActionMargin/ActionCol"]
+[node name="ActionList" type="VBoxContainer" parent="ActionPanel/ActionMargin/ActionCol" unique_id=140972805]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 6
 
-[node name="BottomBar" type="PanelContainer" parent="."]
+[node name="BottomBar" type="PanelContainer" parent="." unique_id=2033864044]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -194,18 +193,16 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_bottom")
 
-[node name="BottomMargin" type="MarginContainer" parent="BottomBar"]
+[node name="BottomMargin" type="MarginContainer" parent="BottomBar" unique_id=974518353]
 layout_mode = 2
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 10
 
-[node name="ResultLabel" type="RichTextLabel" parent="BottomBar/BottomMargin"]
+[node name="ResultLabel" type="RichTextLabel" parent="BottomBar/BottomMargin" unique_id=1267033768]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/default_color = Color(0.95, 0.9, 0.78, 1)
 bbcode_enabled = true
-fit_content = false
-scroll_active = true
 text = "…"

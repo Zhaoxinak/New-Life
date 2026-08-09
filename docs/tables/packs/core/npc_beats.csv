@@ -1,0 +1,17 @@
+﻿id,period,weight,min_day,max_day,require_flag,block_flag,require_route,actor_a,actor_b,text_key,source_id,target_id,relation_key,relation_delta,trait_npc,trait_key,trait_delta,once,enabled,notes
+beat_foreman_aunt_dock,morning,18,1,30,,,,dock_foreman,stall_aunt,beat.foreman_aunt_dock,dock_foreman,stall_aunt,favor,2,,,,0,1,
+beat_aunt_waiter_swap,afternoon,16,1,30,,,,stall_aunt,tea_waiter,beat.aunt_waiter_swap,stall_aunt,tea_waiter,favor,2,stall_aunt,gossip,1,0,1,
+beat_garage_foreman_wheel,afternoon,12,1,30,,,,garage_hand,dock_foreman,beat.garage_foreman_wheel,garage_hand,dock_foreman,favor,2,,,,0,1,
+beat_waiter_sees_son_su,afternoon,22,3,30,,,,tea_waiter,zhou_shaoting,beat.waiter_sees_son_su,su_qing,zhou_shaoting,intimacy,2,tea_waiter,gossip,2,0,1,
+beat_son_su_gift_echo,evening,20,4,30,,,,zhou_shaoting,su_qing,beat.son_su_gift_echo,zhou_shaoting,su_qing,favor,3,,,,0,1,
+beat_foreman_boss_manifest,morning,24,5,30,,,,dock_foreman,zhou_hongye,beat.foreman_boss_manifest,dock_foreman,zhou_hongye,suspicion,4,dock_foreman,temper,3,0,1,
+beat_boss_son_office,afternoon,18,5,30,,,,zhou_hongye,zhou_shaoting,beat.boss_son_office,zhou_hongye,zhou_shaoting,father_son_trust,-3,,,,0,1,
+beat_su_son_distance,evening,26,4,30,,,,su_qing,zhou_shaoting,beat.su_son_distance,su_qing,zhou_shaoting,intimacy,4,su_qing,nerve,-2,0,1,
+beat_aunt_whispers_su,afternoon,15,6,30,,,,stall_aunt,tea_waiter,beat.aunt_whispers_su,stall_aunt,tea_waiter,favor,1,stall_aunt,gossip,2,0,1,
+beat_b_pillow_echo,evening,28,8,30,,,route_focus_b,zhou_shaoting,su_qing,beat.b_pillow_echo,su_qing,zhou_shaoting,intimacy,3,,,,0,1,
+beat_b_waiter_corridor,afternoon,22,8,30,,,route_focus_b,tea_waiter,zhou_shaoting,beat.b_waiter_corridor,tea_waiter,zhou_shaoting,suspicion,3,,,,0,1,
+beat_a_chen_probe,afternoon,24,7,30,,,route_focus_a,chen_manager,dock_foreman,beat.a_chen_probe,chen_manager,dock_foreman,favor,3,chen_manager,influence,1,0,1,
+beat_c_exchange_whisper,morning,22,7,30,,,route_focus_c,chen_manager,stall_aunt,beat.c_exchange_whisper,chen_manager,stall_aunt,favor,2,stall_aunt,gossip,2,0,1,
+beat_son_flex_company,morning,10,2,30,,,,zhou_shaoting,zhou_hongye,beat.son_flex_company,zhou_hongye,zhou_shaoting,father_son_trust,-1,zhou_shaoting,temper,1,0,1,
+beat_boss_watch_dock,morning,14,6,30,boss_watching,,,zhou_hongye,dock_foreman,beat.boss_watch_dock,dock_foreman,zhou_hongye,suspicion,2,,,,0,1,
+beat_su_boss_tea,afternoon,12,3,30,,,,su_qing,zhou_hongye,beat.su_boss_tea,zhou_hongye,su_qing,trust,1,,,,0,1,准儿媳露面

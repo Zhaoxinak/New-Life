@@ -1,4 +1,4 @@
-id,category,sort_order,text_key,once,enabled,notes
+﻿id,category,sort_order,text_key,once,enabled,notes
 tip_intro_1,tutorial,1,tip.intro_1,1,0,replaced by quests
 tip_intro_2,tutorial,2,tip.intro_2,1,0,replaced by quests
 tip_intro_3,tutorial,3,tip.intro_3,1,0,replaced by quests
@@ -15,6 +15,7 @@ tip_boss_watching,status,22,tip.boss_watching,1,1,
 tip_first_rival,unlock,30,tip.first_rival,1,1,
 tip_first_exchange,unlock,31,tip.first_exchange,1,1,
 tip_dock_office,unlock,32,tip.dock_office,1,1,
+tip_plaza,unlock,33,tip.plaza,1,1,
 tip_trust_sync,system,40,tip.trust_sync,1,1,
 tip_clash,story,41,tip.clash,1,1,
 tip_stock_close,system,42,tip.stock_close,1,1,
@@ -28,3 +29,15 @@ tip_flag_su,story,49,tip.flag_su,1,1,
 tip_ending_show,system,50,tip.ending_show,1,1,
 tip_choice_lock,system,51,tip.choice_lock,1,1,
 tip_checks,system,52,tip.checks,1,1,
+tip_money_ways,status,23,tip.money_ways,1,1,
+tip_plaza_scratch,unlock,34,tip.plaza_scratch,1,1,
+tip_variety,system,24,tip.variety,1,1,
+tip_tea_house,unlock,35,tip.tea_house,1,1,
+tip_arcade,unlock,36,tip.arcade,1,1,
+tip_transit,unlock,40,tip.transit,1,1,
+tip_garage,unlock,41,tip.garage,1,1,
+tip_home_upgrade,unlock,42,tip.home_upgrade,1,1,
+tip_minimap,unlock,43,tip.minimap,1,1,
+tip_street_npc,unlock,44,tip.street_npc,1,1,
+tip_dossier,unlock,45,tip.dossier,1,1,
+tip_npc_world,unlock,46,tip.npc_world,1,1,

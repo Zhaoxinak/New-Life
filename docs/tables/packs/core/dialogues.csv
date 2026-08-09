@@ -1,4 +1,4 @@
-id,tags,priority,once,enabled,notes
+﻿id,tags,priority,once,enabled,notes
 dlg_su_talk,B,50,0,1,客厅闲谈
 dlg_su_guide,B,50,0,1,引导枕边风
 dlg_su_office,B,50,0,1,副理处偶遇
@@ -38,3 +38,54 @@ dlg_ex_leverage,C,50,0,1,杠杆
 dlg_ex_buy,C,50,0,1,开多
 dlg_ex_short,C,50,0,1,开空
 dlg_ex_trade,C,50,0,1,平仓
+dlg_plaza_practice,all,50,0,1,休闲练球
+dlg_plaza_snack,all,50,0,1,路边小吃
+dlg_plaza_sell_goods,all,50,0,1,摊上卖物
+dlg_plaza_buy_tip,all,50,0,1,买小道消息
+dlg_plaza_sell_intel,all,50,0,1,路边卖情报
+dlg_dock_overtime,all,50,0,1,晚班加班
+dlg_dock_errand,all,50,0,1,跑腿
+dlg_plaza_help_stall,all,50,0,1,帮摊
+dlg_plaza_ball_wager,all,50,0,1,半场小赌
+dlg_dock_shelter,all,50,0,1,雨棚闲聊
+dlg_dock_board_rumor,all|C,50,0,1,船期牌放风
+dlg_plaza_dice,all,50,0,1,掷骰
+dlg_plaza_storyteller,all,50,0,1,听说书
+dlg_home_window,all,50,0,1,窗边观街
+dlg_co_memo,B,50,0,1,跑楼送公文
+dlg_tea_gossip,all,50,0,1,茶馆闲聊
+dlg_tea_toast,all,50,0,1,敬酒
+dlg_tea_broker,all,50,0,1,后间掮客
+dlg_tea_listen,all,50,0,1,听书
+dlg_garage_buy_1,all,50,0,1,买脚踏车
+dlg_garage_buy_2,all,50,0,1,买黄包车
+dlg_garage_buy_3,all,50,0,1,买摩托
+dlg_garage_buy_4,all,50,0,1,买轿车
+dlg_home_up_2,all,50,0,1,升房2
+dlg_home_up_3,all,50,0,1,升房3
+dlg_home_up_4,all,50,0,1,升房4
+dlg_street_foreman,street,40,0,1,街访
+dlg_street_aunt,street,40,0,1,街访
+dlg_street_waiter,street,40,0,1,街访
+dlg_street_garage,street,40,0,1,街访
+dlg_street_su,street,40,0,1,街访
+dlg_street_son,street,40,0,1,街访
+dlg_street_boss,street,40,0,1,街访
+dlg_street_chen,street,40,0,1,街访
+dlg_nh_tea_waiter_search,npc_home,40,0,1,tea_waiter
+dlg_nh_tea_waiter_rummage,npc_home,40,0,1,tea_waiter
+dlg_nh_stall_aunt_search,npc_home,40,0,1,stall_aunt
+dlg_nh_stall_aunt_rummage,npc_home,40,0,1,stall_aunt
+dlg_nh_garage_hand_search,npc_home,40,0,1,garage_hand
+dlg_nh_garage_hand_rummage,npc_home,40,0,1,garage_hand
+dlg_nh_dock_foreman_search,npc_home,40,0,1,dock_foreman
+dlg_nh_dock_foreman_rummage,npc_home,40,0,1,dock_foreman
+dlg_nh_zhou_shaoting_search,npc_home,40,0,1,zhou_shaoting
+dlg_nh_zhou_shaoting_rummage,npc_home,40,0,1,zhou_shaoting
+dlg_nh_chen_manager_search,npc_home,40,0,1,chen_manager
+dlg_nh_chen_manager_rummage,npc_home,40,0,1,chen_manager
+dlg_co_resign,all,50,0,1,resign
+dlg_co_ask_promo,B,50,0,1,ask promo
+dlg_rival_work,A|all,50,0,1,tongyang work
+dlg_rival_ask_promo,A|all,50,0,1,tongyang promo
+dlg_home_divorce,B|all,60,0,1,home divorce talk

@@ -1,0 +1,41 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://pnpg7wsvau52" path="res://world/OutdoorNpc.gd" id="1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npc"]
+
+[node name="OutdoorNpc" type="CharacterBody2D" unique_id=1456632701]
+collision_layer = 0
+motion_mode = 1
+script = ExtResource("1")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2088850884]
+unique_name_in_owner = true
+z_index = 9
+texture_filter = 1
+scale = Vector2(0.64, 0.64)
+offset = Vector2(0, -52)
+
+[node name="Accent" type="ColorRect" parent="." unique_id=751776837]
+unique_name_in_owner = true
+z_index = 10
+offset_left = -6.0
+offset_top = -78.0
+offset_right = 6.0
+offset_bottom = -70.0
+color = Color(0.9, 0.75, 0.4, 1)
+
+[node name="NameLabel" type="Label" parent="." unique_id=944473290]
+unique_name_in_owner = true
+z_index = 11
+offset_left = -48.0
+offset_top = -98.0
+offset_right = 48.0
+offset_bottom = -78.0
+theme_override_font_sizes/font_size = 12
+text = "NPC"
+horizontal_alignment = 1
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=979327995]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_npc")

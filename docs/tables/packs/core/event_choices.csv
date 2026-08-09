@@ -1,4 +1,4 @@
-id,event_id,sort,enabled,notes
+﻿id,event_id,sort,enabled,notes
 ch_d7_endure,ev_day7_choice,1,1,路线B倾向
 ch_d7_defect,ev_day7_choice,2,1,路线A倾向
 ch_d7_finance,ev_day7_choice,3,1,路线C倾向
@@ -109,3 +109,12 @@ ch_ev_c_d24_broker_go,ev_c_d24_broker,1,1,
 ch_ev_c_d24_broker_skip,ev_c_d24_broker,2,1,
 ch_ev_c_d28_ready_ok,ev_c_d28_ready,1,1,
 ch_ev_c_d30_hook_ok,ev_c_d30_hook,1,1,
+ch_d7_wait,ev_day7_choice,4,1,postpone fork
+ch_div_cold,ev_divorce_ultimatum,1,1,冷退
+ch_div_wait,ev_divorce_ultimatum,2,1,再忍
+ch_div_weapon,ev_divorce_ultimatum,3,1,当刀
+ch_div_after_ok,ev_divorce_aftermath,1,1,余波确认
+ch_power_flex_accept,ev_power_flex,1,1,收下场面
+ch_power_flex_press,ev_power_flex,2,1,拿去压人
+ch_su_reconcile_ok,ev_su_reconcile,1,1,求合确认
+ch_su_let_go_ok,ev_su_let_go,1,1,放手确认

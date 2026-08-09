@@ -1,5 +1,5 @@
 extends Area2D
-## Indoor hotspot interactable. Press E when overlapping.
+
 
 signal hotspot_activated(hotspot_id: String)
 
@@ -12,11 +12,11 @@ var tooltip_text: String = ""
 @onready var marker: Sprite2D = %Marker
 
 
-func _ready() -> void:
+func _ready() -> void :
 	add_to_group("hotspot_zone")
 
 
-func setup(id: String, title: String, is_gated: bool, reason: String = "") -> void:
+func setup(id: String, title: String, is_gated: bool, reason: String = "") -> void :
 	hotspot_id = id
 	gated = is_gated
 	gate_reason = reason

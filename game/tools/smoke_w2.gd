@@ -1,22 +1,22 @@
 extends SceneTree
-## Headless smoke: load pack, run dock_work ×3, assert money/period move.
-## Usage: godot --headless --path game -s res://tools/smoke_w2.gd
 
 
-func _initialize() -> void:
+
+
+func _initialize() -> void :
 	call_deferred("_run")
 
 
-func _run() -> void:
+func _run() -> void :
 	await process_frame
 	await process_frame
-	var ok := true
+	var ok: = true
 	if not PackDB.loaded:
 		push_error("SMOKE FAIL: PackDB not loaded")
 		ok = false
-	var money0 := GameState.get_stat("money")
-	var day0 := GameState.day
-	var period0 := GameState.period
+	var money0: = GameState.get_stat("money")
+	var day0: = GameState.day
+	var period0: = GameState.period
 	print("SMOKE: start money=%s day=%s period=%s" % [money0, day0, period0])
 	for i in 3:
 		var r: Dictionary = ActionPipeline.run("dock_work")
@@ -27,7 +27,7 @@ func _run() -> void:
 		print("SMOKE: run %d -> day=%s period=%s money=%s msg=%s" % [
 			i + 1, GameState.day, GameState.period, GameState.get_stat("money"), r.get("message", "")
 		])
-	var money1 := GameState.get_stat("money")
+	var money1: = GameState.get_stat("money")
 	if money1 <= money0:
 		push_error("SMOKE FAIL: money did not increase (%s -> %s)" % [money0, money1])
 		ok = false

@@ -8,3 +8,4 @@ rule_leverage,ex_leverage,on_action,set_leverage,mult:leverage_default,flag:flag
 rule_white_knight,ex_white_knight,on_action,flag_only,flag:flag_white_knight,money_cost:40,network_elite:5,,1,收购铺垫，不直接改仓
 rule_day_end,,on_day_end,price_drift,min:day_drift_min,max:day_drift_max,apply_pnl_mark:1,bust_check:bust_price_floor,1,每日漂移并标记盈亏；杠杆可爆仓
 rule_event_price,,on_effect_stock_price,clamp_price,min:min_price,max:max_price,,,1,任何股价变更后钳制
+rule_dock_board_rumor,dock_board_rumor,on_action,price_shock,price_delta:-4,intel_cost:3,money_cost:0,suspicion:3,1,船期牌放风：轻砸盘

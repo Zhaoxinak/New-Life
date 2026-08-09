@@ -1,0 +1,27 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://bbmoucywvvfbu" path="res://world/TransitStop.gd" id="1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_stop"]
+radius = 42.0
+
+[node name="TransitStop" type="Area2D" unique_id=803200979]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=942296991]
+shape = SubResource("CircleShape2D_stop")
+
+[node name="Label" type="Label" parent="." unique_id=681991417]
+unique_name_in_owner = true
+offset_left = -48.0
+offset_top = -42.0
+offset_right = 48.0
+offset_bottom = -18.0
+theme_override_colors/font_color = Color(0.95, 0.92, 0.8, 1)
+theme_override_colors/font_outline_color = Color(0.12, 0.18, 0.28, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 13
+text = "站"
+horizontal_alignment = 1

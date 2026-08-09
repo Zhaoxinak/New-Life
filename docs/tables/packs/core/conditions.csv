@@ -1,9 +1,8 @@
-id,owner_type,owner_id,cond_group,cond_type,key,op,value,notes
+﻿id,owner_type,owner_id,cond_group,cond_type,key,op,value,notes
 c_hs_dock_office_rank,hotspot,dock_office,1,rank_min,foreman,gte,,from hotspot unlock
 c_hs_company_boss_stat,hotspot,company_boss,1,stat,trust,gte,55,
 c_hs_company_finance_rank,hotspot,company_finance,1,rank_min,warehouse_chief,gte,,from hotspot unlock
 c_hs_rival_meet_stat,hotspot,rival_meet,1,stat,network_elite,gte,20,
-c_hs_rival_office_flag,hotspot,rival_office,1,flag,joined_tongyang,eq,1,
 c_hs_exchange_vip_stat,hotspot,exchange_vip,1,stat,money,gte,300,
 c_act_dock_report_rank,action,dock_report,1,rank_min,foreman,gte,,
 c_act_dock_steal_list_rank,action,dock_steal_list,1,rank_min,foreman,gte,,
@@ -31,8 +30,7 @@ c_act_ex_white_knight_stat,action,ex_white_knight,1,stat,network_elite,gte,40,
 c_ev_ev_day1_intro_day_day_1,event,ev_day1_intro,1,day,day,eq,1,第1天
 c_ev_ev_day3_son_notice_day_day_3,event,ev_day3_son_notice,1,day,day,eq,3,
 c_ev_ev_day5_promotion_stolen_day_day_5,event,ev_day5_promotion_stolen,1,day,day,eq,5,
-c_ev_ev_day6_su_distance_day_day_6,event,ev_day6_su_distance,1,day,day,eq,6,
-c_ev_ev_day7_choice_day_day_7,event,ev_day7_choice,1,day,day,eq,7,
+c_ev_ev_day6_su_distance_day_day_6,event,ev_day6_su_distance,1,day,day,gte,4,中段背叛：第4晚起可触发
 c_ev_ev_b_pillow_talk_flag_ending_route_b_ready_0,event,ev_b_pillow_talk,1,flag,ending_route_b_ready,eq,0,未结束
 c_ev_ev_b_pillow_talk_stat_father_son_tension_35,event,ev_b_pillow_talk,1,stat,father_son_tension,gte,35,
 c_ev_ev_b_pillow_talk_relation_su_qing_player_favor_40,event,ev_b_pillow_talk,1,relation,su_qing:player:favor,gte,40,格式 source:target:relation_key
@@ -60,7 +58,7 @@ c_th_su_betray,threshold,th_su_betray,1,relation,su_qing:player:favor,lte,25,好
 c_th_father_conflict,threshold,th_father_conflict,1,relation,zhou_hongye:zhou_shaoting:father_son_trust,lte,30,父子信任崩 → 矛盾激化（可叠加事件）
 c_th_boss_watch,threshold,th_boss_watch,1,relation,zhou_hongye:player:suspicion,gte,70,派人监视；阴谋成功率下降
 c_th_son_hostile,threshold,th_son_hostile,1,relation,zhou_shaoting:player:suspicion,gte,60,少霆开始针对打压
-c_th_chen_ally,threshold,th_chen_ally,1,relation,chen_manager:player:favor,gte,50,具备跳槽谈判资格
+c_th_chen_ally,threshold,th_chen_ally,1,relation,chen_manager:player:favor,gte,35,具备跳槽谈判资格（降到35便于自由层）
 c_st_low_money,threshold,st_low_money,1,stat,money,lte,20,金钱警戒
 c_st_clear_low_money,threshold,st_clear_low_money,1,stat,money,gt,20,离开警戒
 c_st_suspicion_light,threshold,st_suspicion_light,1,stat,suspicion,gte,40,轻度：被敲打/降薪（事件用）
@@ -209,6 +207,7 @@ c_event_ev_c_d30_hook_flag_route_focus_c_eq_1,event,ev_c_d30_hook,1,flag,route_f
 c_line_variant_var_su_talk_l01_leak_flag_su_leaks_zhou_info_eq_1,line_variant,var_su_talk_l01_leak,1,flag,su_leaks_zhou_info,eq,1,
 c_line_variant_var_su_talk_l01_gift_flag_su_accepts_son_gifts_eq_1,line_variant,var_su_talk_l01_gift,1,flag,su_accepts_son_gifts,eq,1,
 c_line_variant_var_su_talk_l03_betray_flag_su_may_betray_eq_1,line_variant,var_su_talk_l03_betray,1,flag,su_may_betray,eq,1,
+c_line_variant_var_su_talk_l04_betray_flag_su_accepts_son_gifts_eq_1,line_variant,var_su_talk_l04_betray,1,flag,su_accepts_son_gifts,eq,1,
 c_line_variant_var_son_meet_l01_hostile_flag_flag_son_hostile_eq_1,line_variant,var_son_meet_l01_hostile_flag,1,flag,son_hostile,eq,1,
 c_line_variant_var_boss_flatter_l02_watch_flag_boss_watching_eq_1,line_variant,var_boss_flatter_l02_watch,1,flag,boss_watching,eq,1,
 c_line_variant_var_chen_sell_l01_ally_flag_can_join_tongyang_eq_1,line_variant,var_chen_sell_l01_ally,1,flag,can_join_tongyang,eq,1,
@@ -229,3 +228,198 @@ c_dialogue_choice_dch_dlg_co_eaves_linger_flag_suspicion_light_eq_0,dialogue_cho
 c_dialogue_choice_dch_dlg_ex_buy_ok_flag_flag_holding_short_eq_0,dialogue_choice,dch_dlg_ex_buy_ok,1,flag,flag_holding_short,eq,0,持空时别用开多确认糊弄——引擎还应查仓
 c_dialogue_choice_dch_dlg_ex_short_ok_flag_flag_holding_long_eq_0,dialogue_choice,dch_dlg_ex_short_ok,1,flag,flag_holding_long,eq,0,持多时不开空确认
 c_action_ex_white_knight_flag_flag_white_knight_eq_0,action,ex_white_knight,1,flag,flag_white_knight,eq,0,已联系则勿重复白衣骑士行动
+c_action_dock_work_weather_storm_eq_0,action,dock_work,1,weather,storm,eq,0,暴雨停工
+c_action_dock_watch_manifest_weather_storm_eq_0,action,dock_watch_manifest,1,weather,storm,eq,0,暴雨单子糊了
+c_action_dock_black_market_weather_storm_eq_0,action,dock_black_market,1,weather,storm,eq,0,暴雨私货太暴露
+c_line_variant_var_dock_work_l01_rain_weather_rain,line_variant,var_dock_work_l01_rain,1,weather,rain,eq,1,
+c_line_variant_var_dock_work_l01_cloudy_weather_cloudy,line_variant,var_dock_work_l01_cloudy,1,weather,cloudy,eq,1,
+c_line_variant_var_dock_chat_l01_rain_weather_rain,line_variant,var_dock_chat_l01_rain,1,weather,rain,eq,1,
+c_line_variant_var_dock_chat_l01_storm_weather_storm,line_variant,var_dock_chat_l01_storm,1,weather,storm,eq,1,
+c_line_variant_var_dock_manifest_l01_rain_weather_rain,line_variant,var_dock_manifest_l01_rain,1,weather,rain,eq,1,
+c_line_variant_var_dock_board_l01_rain_weather_rain,line_variant,var_dock_board_l01_rain,1,weather,rain,eq,1,
+c_line_variant_var_dock_board_l01_storm_weather_storm,line_variant,var_dock_board_l01_storm,1,weather,storm,eq,1,
+c_line_variant_var_contact_corner_l01_rain_weather_rain,line_variant,var_contact_corner_l01_rain,1,weather,rain,eq,1,
+c_line_variant_var_contact_corner_l01_storm_weather_storm,line_variant,var_contact_corner_l01_storm,1,weather,storm,eq,1,
+c_line_variant_var_dock_black_l01_rain_weather_rain,line_variant,var_dock_black_l01_rain,1,weather,rain,eq,1,
+c_line_variant_var_co_eaves_l01_rain_weather_rain,line_variant,var_co_eaves_l01_rain,1,weather,rain,eq,1,
+c_line_variant_var_home_rest_l01_rain_weather_rain,line_variant,var_home_rest_l01_rain,1,weather,rain,eq,1,
+c_line_variant_var_home_rest_l01_storm_weather_storm,line_variant,var_home_rest_l01_storm,1,weather,storm,eq,1,
+c_line_variant_var_su_talk_l01_rain_weather_rain,line_variant,var_su_talk_l01_rain,1,weather,rain,eq,1,
+c_idle_chatter_chatter_all_rain_weather_rain,idle_chatter,chatter_all_rain,1,weather,rain,eq,1,
+c_idle_chatter_chatter_all_rain_weather_storm,idle_chatter,chatter_all_rain,2,weather,storm,eq,1,
+c_idle_chatter_chatter_dock_storm_weather_storm,idle_chatter,chatter_dock_storm,1,weather,storm,eq,1,
+c_idle_chatter_chatter_home_rain_weather_rain,idle_chatter,chatter_home_rain,1,weather,rain,eq,1,
+c_idle_chatter_chatter_home_rain_weather_storm,idle_chatter,chatter_home_rain,2,weather,storm,eq,1,
+c_idle_chatter_chatter_co_rain_weather_rain,idle_chatter,chatter_co_rain,1,weather,rain,eq,1,
+c_act_plaza_snack_money,action,plaza_snack,1,stat,money,gte,8,
+c_act_plaza_buy_tip_money,action,plaza_buy_tip,1,stat,money,gte,12,
+c_act_plaza_sell_intel_stat,action,plaza_sell_intel,1,stat,intel,gte,6,
+c_act_plaza_ball_wager_money,action,plaza_ball_wager,1,stat,money,gte,8,
+c_act_plaza_scratch_money,action,plaza_scratch,1,stat,money,gte,10,
+c_act_dock_shelter_rain,action,dock_shelter_talk,1,weather,rain,eq,1,
+c_act_dock_shelter_storm,action,dock_shelter_talk,2,weather,storm,eq,1,
+c_act_plaza_ball_no_rain,action,plaza_ball_wager,1,weather,rain,eq,0,
+c_act_plaza_ball_no_storm,action,plaza_ball_wager,1,weather,storm,eq,0,
+c_act_plaza_practice_no_storm,action,plaza_practice,1,weather,storm,eq,0,
+c_act_dock_overtime_no_storm,action,dock_overtime,1,weather,storm,eq,0,
+c_act_plaza_dice_money,action,plaza_dice,1,stat,money,gte,8,
+c_act_plaza_morra_money,action,plaza_morra,1,stat,money,gte,6,
+c_act_plaza_storyteller_money,action,plaza_storyteller,1,stat,money,gte,5,
+c_act_dock_board_rumor_intel,action,dock_board_rumor,1,stat,intel,gte,3,
+c_idle_chatter_dock_shelter_rain,idle_chatter,chatter_dock_shelter,1,weather,rain,eq,1,
+c_idle_chatter_dock_shelter_storm,idle_chatter,chatter_dock_shelter,2,weather,storm,eq,1,
+c_act_tea_gossip_money,action,tea_gossip,1,stat,money,gte,5,
+c_act_tea_toast_money,action,tea_toast,1,stat,money,gte,8,
+c_act_tea_broker_money,action,tea_broker,1,stat,money,gte,20,
+c_garage_buy_1_money,action,garage_buy_1,1,stat,money,gte,60,
+c_garage_buy_1_day,action,garage_buy_1,1,day,day,gte,3,
+c_garage_buy_1_tier,action,garage_buy_1,1,stat,vehicle_tier,eq,0,
+c_garage_buy_2_money,action,garage_buy_2,1,stat,money,gte,150,
+c_garage_buy_2_day,action,garage_buy_2,1,day,day,gte,7,
+c_garage_buy_2_net,action,garage_buy_2,1,stat,network_base,gte,35,
+c_garage_buy_2_tier,action,garage_buy_2,1,stat,vehicle_tier,eq,1,
+c_garage_buy_3_money,action,garage_buy_3,1,stat,money,gte,320,
+c_garage_buy_3_day,action,garage_buy_3,1,day,day,gte,12,
+c_garage_buy_3_tier,action,garage_buy_3,1,stat,vehicle_tier,eq,2,
+c_garage_buy_3_elite,action,garage_buy_3,1,stat,network_elite,gte,8,
+c_garage_buy_3_money_g2,action,garage_buy_3,2,stat,money,gte,320,
+c_garage_buy_3_day_g2,action,garage_buy_3,2,day,day,gte,12,
+c_garage_buy_3_tier_g2,action,garage_buy_3,2,stat,vehicle_tier,eq,2,
+c_garage_buy_3_net_alt,action,garage_buy_3,2,stat,network_base,gte,55,
+c_garage_buy_4_money,action,garage_buy_4,1,stat,money,gte,700,
+c_garage_buy_4_day,action,garage_buy_4,1,day,day,gte,18,
+c_garage_buy_4_tier,action,garage_buy_4,1,stat,vehicle_tier,eq,3,
+c_garage_buy_4_elite,action,garage_buy_4,1,stat,network_elite,gte,25,
+c_home_up_2_money,action,home_upgrade_2,1,stat,money,gte,120,
+c_home_up_2_day,action,home_upgrade_2,1,day,day,gte,5,
+c_home_up_2_tier,action,home_upgrade_2,1,stat,home_tier,eq,1,
+c_home_up_3_money,action,home_upgrade_3,1,stat,money,gte,300,
+c_home_up_3_day,action,home_upgrade_3,1,day,day,gte,10,
+c_home_up_3_tier,action,home_upgrade_3,1,stat,home_tier,eq,2,
+c_home_up_3_bike,action,home_upgrade_3,1,stat,vehicle_tier,gte,1,
+c_home_up_3_money_g2,action,home_upgrade_3,2,stat,money,gte,300,
+c_home_up_3_day_g2,action,home_upgrade_3,2,day,day,gte,10,
+c_home_up_3_tier_g2,action,home_upgrade_3,2,stat,home_tier,eq,2,
+c_home_up_3_net_g2,action,home_upgrade_3,2,stat,network_base,gte,40,
+c_home_up_4_money,action,home_upgrade_4,1,stat,money,gte,650,
+c_home_up_4_day,action,home_upgrade_4,1,day,day,gte,16,
+c_home_up_4_tier,action,home_upgrade_4,1,stat,home_tier,eq,3,
+c_home_up_4_elite,action,home_upgrade_4,1,stat,network_elite,gte,20,
+c_home_drive_car,action,home_drive,1,stat,vehicle_tier,gte,1,
+c_chatter_home_tier2,idle_chatter,chatter_home_tier2,1,stat,home_tier,gte,2,
+c_chatter_vehicle_rickshaw,idle_chatter,chatter_vehicle_rickshaw,1,stat,vehicle_tier,gte,2,
+c_act_co_work_employer_hy,action,co_work,1,employer,hongyuan,eq,1,must be Hongyuan employee
+c_act_co_recruit_elder_employer_hy,action,co_recruit_elder,1,employer,hongyuan,eq,1,must be Hongyuan employee
+c_act_co_flatter_boss_employer_hy,action,co_flatter_boss,1,employer,hongyuan,eq,1,must be Hongyuan employee
+c_act_co_take_blame_employer_hy,action,co_take_blame,1,employer,hongyuan,eq,1,must be Hongyuan employee
+c_act_co_boss_task_employer_hy,action,co_boss_task,1,employer,hongyuan,eq,1,must be Hongyuan employee
+c_act_co_peek_books_employer_hy,action,co_peek_books,1,employer,hongyuan,eq,1,must be Hongyuan employee
+c_act_co_bribe_accountant_employer_hy,action,co_bribe_accountant,1,employer,hongyuan,eq,1,must be Hongyuan employee
+c_act_co_frame_finance_employer_hy,action,co_frame_finance,1,employer,hongyuan,eq,1,must be Hongyuan employee
+c_act_co_memo_run_employer_hy,action,co_memo_run,1,employer,hongyuan,eq,1,must be Hongyuan employee
+c_act_co_resign_employer_hy,action,co_resign,1,employer,hongyuan,eq,1,must be Hongyuan employee
+c_act_co_ask_promotion_employer_hy,action,co_ask_promotion,1,employer,hongyuan,eq,1,must be Hongyuan employee
+c_act_rival_work_employer_ty,action,rival_work,1,employer,tongyang,eq,1,
+c_ev_fail_fired_employer_hy,event,ev_fail_fired,1,employer,hongyuan,eq,1,
+c_ev_fail_fired_not_yet,event,ev_fail_fired,1,flag,hongyuan_fired,eq,0,
+c_ev_day7_g1_day,event,ev_day7_choice,1,day,day,gte,7,calendar soft gate
+c_ev_day7_g1_ra,event,ev_day7_choice,1,flag,route_focus_a,eq,0,
+c_ev_day7_g1_rb,event,ev_day7_choice,1,flag,route_focus_b,eq,0,
+c_ev_day7_g1_rc,event,ev_day7_choice,1,flag,route_focus_c,eq,0,
+c_ev_day7_g2_day,event,ev_day7_choice,2,day,day,gte,5,clue early
+c_ev_day7_g2_flag,event,ev_day7_choice,2,flag,su_accepts_son_gifts,eq,1,
+c_ev_day7_g2_ra,event,ev_day7_choice,2,flag,route_focus_a,eq,0,
+c_ev_day7_g2_rb,event,ev_day7_choice,2,flag,route_focus_b,eq,0,
+c_ev_day7_g2_rc,event,ev_day7_choice,2,flag,route_focus_c,eq,0,
+c_ev_day7_g3_day,event,ev_day7_choice,3,day,day,gte,5,
+c_ev_day7_g3_flag,event,ev_day7_choice,3,flag,forced_night_shift,eq,1,
+c_ev_day7_g3_ra,event,ev_day7_choice,3,flag,route_focus_a,eq,0,
+c_ev_day7_g3_rb,event,ev_day7_choice,3,flag,route_focus_b,eq,0,
+c_ev_day7_g3_rc,event,ev_day7_choice,3,flag,route_focus_c,eq,0,
+c_act_rival_accept_not_ty,action,rival_accept_job,1,employer,tongyang,neq,1,not already Tongyang
+c_var_dock_work_l01_resigned_g1,line_variant,var_dock_work_l01_resigned,1,flag,resigned_hongyuan,eq,1,freedom
+c_var_dock_work_l01_resigned_g2,line_variant,var_dock_work_l01_resigned,2,flag,hongyuan_fired,eq,1,freedom
+c_var_dock_chat_l03_resigned_g1,line_variant,var_dock_chat_l03_resigned,1,flag,resigned_hongyuan,eq,1,freedom
+c_var_dock_chat_l03_resigned_g2,line_variant,var_dock_chat_l03_resigned,2,flag,hongyuan_fired,eq,1,freedom
+c_var_dock_work_l01_tongyang,line_variant,var_dock_work_l01_tongyang,1,employer,tongyang,eq,1,freedom
+c_var_chen_hire_l01_career,line_variant,var_chen_hire_l01_career,1,flag,route_focus_a,eq,0,freedom
+c_act_rival_ask_promotion_employer,action,rival_ask_promotion,1,employer,tongyang,eq,1,must be Tongyang employee
+c_hs_rival_office_joined,hotspot,rival_office,1,flag,joined_tongyang,eq,1,office: employed OR eligible to hire
+c_hs_rival_office_can_join,hotspot,rival_office,2,flag,can_join_tongyang,eq,1,office: employed OR eligible to hire
+c_hs_rival_meet_can_join,hotspot,rival_meet,2,flag,can_join_tongyang,eq,1,eligible hire can enter meet
+c_ev_div_u_g1_day,event,ev_divorce_ultimatum,1,day,day,gte,6,handkerchief/gifts
+c_ev_div_u_g1_div,event,ev_divorce_ultimatum,1,flag,divorced_su,eq,0,
+c_ev_div_u_g1_sn,event,ev_divorce_ultimatum,1,flag,divorce_snooze,eq,0,
+c_ev_div_u_g1_trig,event,ev_divorce_ultimatum,1,flag,su_accepts_son_gifts,eq,1,handkerchief/gifts
+c_ev_div_u_g2_day,event,ev_divorce_ultimatum,2,day,day,gte,6,favor crack
+c_ev_div_u_g2_div,event,ev_divorce_ultimatum,2,flag,divorced_su,eq,0,
+c_ev_div_u_g2_sn,event,ev_divorce_ultimatum,2,flag,divorce_snooze,eq,0,
+c_ev_div_u_g2_trig,event,ev_divorce_ultimatum,2,relation,su_qing:player:favor,lte,40,favor crack
+c_ev_div_u_g3_day,event,ev_divorce_ultimatum,3,day,day,gte,6,resigned
+c_ev_div_u_g3_div,event,ev_divorce_ultimatum,3,flag,divorced_su,eq,0,
+c_ev_div_u_g3_sn,event,ev_divorce_ultimatum,3,flag,divorce_snooze,eq,0,
+c_ev_div_u_g3_trig,event,ev_divorce_ultimatum,3,flag,resigned_hongyuan,eq,1,resigned
+c_ev_div_u_g4_day,event,ev_divorce_ultimatum,4,day,day,gte,6,tongyang
+c_ev_div_u_g4_div,event,ev_divorce_ultimatum,4,flag,divorced_su,eq,0,
+c_ev_div_u_g4_sn,event,ev_divorce_ultimatum,4,flag,divorce_snooze,eq,0,
+c_ev_div_u_g4_trig,event,ev_divorce_ultimatum,4,flag,joined_tongyang,eq,1,tongyang
+c_ev_div_u_g5_day,event,ev_divorce_ultimatum,5,day,day,gte,6,may betray
+c_ev_div_u_g5_div,event,ev_divorce_ultimatum,5,flag,divorced_su,eq,0,
+c_ev_div_u_g5_sn,event,ev_divorce_ultimatum,5,flag,divorce_snooze,eq,0,
+c_ev_div_u_g5_trig,event,ev_divorce_ultimatum,5,flag,su_may_betray,eq,1,may betray
+c_ev_div_after_divorced,event,ev_divorce_aftermath,1,flag,divorced_su,eq,1,
+c_ev_div_after_not_done,event,ev_divorce_aftermath,1,flag,divorce_aftermath_done,eq,0,
+c_ev_div_after_day,event,ev_divorce_aftermath,1,day,day,gte,6,
+c_act_home_guide_not_div,action,home_guide_su,1,flag,divorced_su,eq,0,lock pillow talk after divorce
+c_act_home_div_g1_day,action,home_propose_divorce,1,day,day,gte,6,handkerchief/gifts
+c_act_home_div_g1_div,action,home_propose_divorce,1,flag,divorced_su,eq,0,
+c_act_home_div_g1_trig,action,home_propose_divorce,1,flag,su_accepts_son_gifts,eq,1,handkerchief/gifts
+c_act_home_div_g2_day,action,home_propose_divorce,2,day,day,gte,6,favor crack
+c_act_home_div_g2_div,action,home_propose_divorce,2,flag,divorced_su,eq,0,
+c_act_home_div_g2_trig,action,home_propose_divorce,2,relation,su_qing:player:favor,lte,40,favor crack
+c_act_home_div_g3_day,action,home_propose_divorce,3,day,day,gte,6,resigned
+c_act_home_div_g3_div,action,home_propose_divorce,3,flag,divorced_su,eq,0,
+c_act_home_div_g3_trig,action,home_propose_divorce,3,flag,resigned_hongyuan,eq,1,resigned
+c_act_home_div_g4_day,action,home_propose_divorce,4,day,day,gte,6,tongyang
+c_act_home_div_g4_div,action,home_propose_divorce,4,flag,divorced_su,eq,0,
+c_act_home_div_g4_trig,action,home_propose_divorce,4,flag,joined_tongyang,eq,1,tongyang
+c_act_home_div_g5_day,action,home_propose_divorce,5,day,day,gte,6,may betray
+c_act_home_div_g5_div,action,home_propose_divorce,5,flag,divorced_su,eq,0,
+c_act_home_div_g5_trig,action,home_propose_divorce,5,flag,su_may_betray,eq,1,may betray
+c_var_su_talk_l01_div,line_variant,var_su_talk_l01_divorced,1,flag,divorced_su,eq,1,
+c_var_su_talk_l01_div_not_wpn,line_variant,var_su_talk_l01_divorced,1,flag,divorce_as_weapon,eq,0,
+c_var_su_talk_l03_div,line_variant,var_su_talk_l03_divorced,1,flag,divorced_su,eq,1,
+c_var_su_talk_l03_div_not_wpn,line_variant,var_su_talk_l03_divorced,1,flag,divorce_as_weapon,eq,0,
+c_var_su_talk_l01_wpn,line_variant,var_su_talk_l01_weapon,1,flag,divorce_as_weapon,eq,1,
+c_var_su_talk_l03_wpn,line_variant,var_su_talk_l03_weapon,1,flag,divorce_as_weapon,eq,1,
+c_var_chen_lobby_div,line_variant,var_chen_lobby_l02_divorced,1,flag,divorced_su,eq,1,
+c_var_home_rest_div,line_variant,var_home_rest_l02_divorced,1,flag,divorced_su,eq,1,
+c_chatter_divorce_rumor,idle_chatter,chatter_divorce_rumor,1,flag,divorced_su,eq,1,
+c_chatter_divorce_weapon,idle_chatter,chatter_divorce_weapon,1,flag,divorce_as_weapon,eq,1,
+c_ev_power_flex_g1_day,event,ev_power_flex,1,day,day,gte,10,power flex
+c_ev_power_flex_g1_done,event,ev_power_flex,1,flag,power_flex_done,eq,0,
+c_ev_power_flex_g1_flag,event,ev_power_flex,1,flag,claimed_promo_manager,eq,1,claimed_promo_manager
+c_ev_power_flex_g2_day,event,ev_power_flex,2,day,day,gte,10,power flex
+c_ev_power_flex_g2_done,event,ev_power_flex,2,flag,power_flex_done,eq,0,
+c_ev_power_flex_g2_flag,event,ev_power_flex,2,flag,claimed_promo_ty_supervisor,eq,1,claimed_promo_ty_supervisor
+c_ev_su_rec_path,event,ev_su_reconcile,1,flag,su_reconcile_path,eq,1,
+c_ev_su_rec_done,event,ev_su_reconcile,1,flag,su_reconcile_done,eq,0,
+c_ev_su_rec_day,event,ev_su_reconcile,1,day,day,gte,6,
+c_ev_su_rec_not_tool,event,ev_su_reconcile,1,flag,su_used_as_tool,eq,0,利用优先不抢求合演出
+c_ev_su_lg_flag,event,ev_su_let_go,1,flag,su_let_go,eq,1,
+c_ev_su_lg_done,event,ev_su_let_go,1,flag,su_let_go_done,eq,0,
+c_ev_su_lg_day,event,ev_su_let_go,1,day,day,gte,6,
+c_var_su_office_promo,line_variant,var_su_office_l01_promo,1,flag,claimed_promo_manager,eq,1,
+c_var_su_office_promo_nd,line_variant,var_su_office_l01_promo,1,flag,divorced_su,eq,0,
+c_var_su_talk_tool_l01,line_variant,var_su_talk_l01_tool,1,flag,su_used_as_tool,eq,1,
+c_var_su_talk_tool_l03,line_variant,var_su_talk_l03_tool,1,flag,su_used_as_tool,eq,1,
+c_var_su_talk_rec_l01,line_variant,var_su_talk_l01_reconcile,1,flag,su_reconcile_path,eq,1,
+c_var_su_talk_rec_l01_nt,line_variant,var_su_talk_l01_reconcile,1,flag,su_used_as_tool,eq,0,
+c_var_su_talk_rec_l03,line_variant,var_su_talk_l03_reconcile,1,flag,su_reconcile_path,eq,1,
+c_var_su_talk_rec_l03_nt,line_variant,var_su_talk_l03_reconcile,1,flag,su_used_as_tool,eq,0,
+c_var_su_talk_lg_l01,line_variant,var_su_talk_l01_let_go,1,flag,su_let_go,eq,1,
+c_var_su_talk_lg_l01_nt,line_variant,var_su_talk_l01_let_go,1,flag,su_used_as_tool,eq,0,
+c_chatter_su_tool,idle_chatter,chatter_su_used_tool,1,flag,su_used_as_tool,eq,1,
+c_dch_su_let_go_favor,dialogue_choice,dch_dlg_su_talk_let_go,1,relation,su_qing:player:favor,lte,45,
+c_dch_su_let_go_weapon,dialogue_choice,dch_dlg_su_talk_let_go,1,flag,divorce_as_weapon,eq,0,
+c_dch_su_let_go_once,dialogue_choice,dch_dlg_su_talk_let_go,1,flag,su_let_go,eq,0,

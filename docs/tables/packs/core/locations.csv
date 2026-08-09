@@ -1,6 +1,15 @@
 id,default_periods,tags,sort_order,enabled,start_unlocked,notes
 dock,any,all,1,1,1,宏远所属货场
-company,morning|afternoon,B|A,2,1,1,白天为主
-home,afternoon|evening,B|all,3,1,1,傍晚夜晚客厅解锁
-rival,any,A,4,1,0,频繁前往抬升宏远疑心
-exchange,morning|afternoon,C,5,1,0,大户室需资金/声望
+company,morning|afternoon,B|A,2,1,1,白天/中午为主
+home,afternoon|evening,B|all,3,1,1,中午晚上客厅解锁
+rival,any,A,4,1,0,第7天开放；频繁前往抬升宏远疑心
+exchange,morning|afternoon,C,5,1,0,第7天开放；大户室需资金/声望
+plaza,any,all,6,1,1,港区休闲广场：球场与路边摊
+tea_house,afternoon|evening,all,7,1,1,港湾茶馆：听书、掮客、敬酒
+garage,any,all,8,1,1,西市井车行：买交通工具
+nh_tea_waiter,any,npc_home|all,40,1,1,tea_waiter residence
+nh_stall_aunt,any,npc_home|all,41,1,1,stall_aunt residence
+nh_garage_hand,any,npc_home|all,42,1,1,garage_hand residence
+nh_dock_foreman,any,npc_home|all,43,1,1,dock_foreman residence
+nh_zhou_shaoting,any,npc_home|all,44,1,1,zhou_shaoting residence
+nh_chen_manager,any,npc_home|all,45,1,1,chen_manager residence

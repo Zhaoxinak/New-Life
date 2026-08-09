@@ -1,4 +1,4 @@
-key,text
+﻿key,text
 actions.co_boss_task.description,Errands for pay and trust
 actions.co_boss_task.name,Take Boss's Task
 actions.co_boss_task.result,Errand done. Your pocket clicks a little fuller.
@@ -903,14 +903,14 @@ tip.first_rival,Tongyang's door is open. Frequent visits raise Hongyuan suspicio
 tip.flag_su,"Wanqing's favor, gifts, and betrayal risk become flags that lock actions and rewrite lines."
 tip.idle_listen,Idle lines rotate. Linger—the docks talk on their own.
 tip.intro_1,"Welcome to the harbor. Each day has morning, afternoon, and night—one action per period."
-tip.intro_2,"Move with WASD (or arrows). Follow the cobble path and yellow glow; walk up to a door to enter."
-tip.intro_3,"Inside: facility list → actions. Exit returns you to the harbor map."
+tip.intro_2,Move with WASD (or arrows). Follow the cobble path and yellow glow; walk up to a door to enter.
+tip.intro_3,Inside: facility list → actions. Exit returns you to the harbor map.
 tip.intro_4,"Top bar shows day, period, money, trust, and suspicion. High suspicion hurts—rest at home to cool it."
 tip.intro_5,"Mix routes: stay and divide at Hongyuan, defect to Tongyang, or play the exchange."
 tip.low_money,Low money slows you. Work the docks or take errands first.
 tip.near_door,Walk a little closer to enter. The name plate marks an enterable building.
 tip.after_action,"Acting advances the period. Stay and choose again, or Exit to go elsewhere."
-tip.pick_action,"Percentages are check odds. Grey options need unmet conditions—try another first."
+tip.pick_action,Percentages are check odds. Grey options need unmet conditions—try another first.
 tip.route_plan,Home 'planning' reinforces route lean—doesn't replace Day 7.
 tip.save_hint,Save anytime from the top-right. Save before key choices.
 tip.stock,"Buys/shorts use position formulas: lots, entry, leverage."
@@ -1020,6 +1020,19 @@ ui.save.save,Save
 ui.save.slot_empty,Empty Slot
 ui.save.slot_info,Day {day} · {period}
 ui.save.success,Saved
+ui.save.autosave,Autosave
+ui.save.slot_n,Slot {n}
+ui.save.place_outdoor,Harbor streets
+ui.save.time_unknown,Unknown time
+ui.save.autosave_hint,Autosaves about every 20 seconds; manual slots available.
+ui.save.write_autosave,Write
+ui.save.overwrite_again,Click again to confirm.
+ui.save.delete,Delete
+ui.save.delete_confirm,Delete this save?
+ui.save.deleted,Deleted
+ui.save.delete_failed,Delete failed
+ui.save.save_game,Save Game
+ui.save.load_game,Load Game
 ui.settings.back,Back
 ui.settings.fullscreen,Fullscreen
 ui.settings.language,Language
@@ -1044,3 +1057,160 @@ ui.game.subtitle,Path of Revenge
 ui.game.tagline,A port city of schemes and choices
 ui.menu.title,Title
 ui.nav.locations,Locations
+events.ev_divorce_ultimatum.title,Lamp Oil Running Out
+events.ev_divorce_ultimatum.body,"The lamp cracks. Only the two of you left—night tide pressed to the window paper like an ear.|||Su Qing starts, then yields half a breath: ""This match… can it still count?"" Her nails dig the table edge. ""I've walked the mill road. If you drag me into the Zhou game—""|||The name ""Ting"" rolls in her throat and dies unfinished. Handkerchief warmth still hangs in the air.|||Tonight the match chooses: endure, break, or become a blade."
+events.ev_divorce_aftermath.title,The Match Is Off
+events.ev_divorce_aftermath.body,"Before the tea-house clapper, gossip lands: ""Hongyuan's engagement—called off."" Sighs and smirks.|||You open your door. A corner of the room is emptier: her sewing box gone, the lamp still remembering where you sat."
+events.ev_divorce_aftermath.body_divorce_weapon,"A lower voice on the corner: ""He meant it. Break it to push the crack."""
+event_choices.ch_div_cold.label,Cold break: this match ends here
+event_choices.ch_div_wait.label,Endure one more night: swallow the words
+event_choices.ch_div_weapon.label,Wield the break: let the Zhous hear the crack
+event_choices.ch_div_after_ok.label,"Hear the gossip out, shut the door"
+actions.home_propose_divorce.name,Talk break-off
+actions.home_propose_divorce.description,Close the door. Put the match on the table.
+actions.home_propose_divorce.result,"Before the lamp dies, some words can't be unsaid."
+dialogue_lines.dlg_home_divorce_l01.text,One lamp left in the parlor. The table is empty—space for a hard sentence.
+dialogue_lines.dlg_home_divorce_l02.text,A-Hai… the way you look at me tonight isn't for rest.
+dialogue_lines.dlg_home_divorce_l03.text,Qing. The handkerchief. Shao-ting. The mill. Stop pretending we don't hear.
+dialogue_lines.dlg_home_divorce_l04.text,…You want out? Or should I keep standing at Zhou's door like a shield?
+dialogue_lines.dlg_home_divorce_l05.text,"Tide hits the quay. Three doors: cold break, endure, or write the break as a revenge blade."
+dialogue_choices.dch_dlg_home_divorce_cold.label,Cold break-off
+dialogue_choices.dch_dlg_home_divorce_wait.label,Endure one more night
+dialogue_choices.dch_dlg_home_divorce_weapon.label,Use the break as a blade
+dialogue_line_variants.var_su_talk_l01_divorced.text,"The door opens. She still says ""A-Hai,"" like courtesy—cold politeness fills the house."
+dialogue_line_variants.var_su_talk_l03_divorced.text,"Shao-ting? …The match is off; he has more reason to ""take over with dignity."" Why ask."
+dialogue_line_variants.var_su_talk_l01_weapon.text,"She flinches: ""You came back. To see if I'm afraid?"""
+dialogue_line_variants.var_su_talk_l03_weapon.text,I know you broke it for the Zhous to see. Pieces on a board still shake.
+dialogue_line_variants.var_chen_lobby_l02_divorced.text,"Manager Chen's smile thins: ""Alone cuts cleaner. Fewer ties, sharper schedules."""
+dialogue_line_variants.var_home_rest_l02_divorced.text,"Empty-house arithmetic: numbers clear, people halved. The lamp pops like a mockery."
+idle_chatter.chatter_divorce_rumor.text,"The tea doctor lowers his voice: ""Hongyuan's match is off. Dock boy couldn't hold her—Young Master Zhou laughs easy."""
+idle_chatter.chatter_divorce_weapon.text,"Someone whispers: ""He meant to break it. Home already cracked—still playing loyal at Hongyuan?"""
+events.ev_day7_choice.body_divorced,Home broke first; the game remains—whether you pick a side is still your blade.
+events.ev_b_public_clash.body_divorced,In the corridor someone mutters: home already broken—what's left to pretend.
+events.ev_b_public_clash.body_divorce_weapon,"A voice rises on purpose: ""Home already broken and still pretending—the crack isn't only in the teacup."""
+events.ev_a_first_strike.body_divorced,One less tie behind you. The cut lands with only your breath for witness.
+events.ev_c_first_short.body_divorced,"Closing the position, you think of the empty room: lonelier books, obedient numbers."
+ui.hud.goal.divorce_talk,Tonight you may need to talk it out at home
+ui.hud.goal.divorce_talk_tip,"After the handkerchief crack, favor collapse, resign/job-hop—parlor can open break-off talk; or wait for the ultimatum night."
+actions.co_ask_promotion.name,Ask for promotion
+actions.co_ask_promotion.description,"When ready, ask for a title you can say aloud. Check the dossier promotion bar."
+actions.co_ask_promotion.result,You put the request on the desk. Whether it sticks depends on the ledger.
+actions.co_resign.name,Resign from Hongyuan
+actions.co_resign.description,Walk away from Hongyuan. Work and docks stay open; the Zhou game does not force you.
+actions.co_resign.result,The badge is gone. The harbor still needs hands.
+actions.rival_ask_promotion.name,Ask Tongyang for promotion
+actions.rival_ask_promotion.description,Ask Manager Chen for a louder title inside Tongyang.
+actions.rival_ask_promotion.result,Chen weighs you like a schedule sheet.
+actions.rival_work.name,Tongyang office work
+actions.rival_work.description,Do the day job at Tongyang—trust and schedule muscle.
+actions.rival_work.result,"Ink, stamps, and another notch on Tongyang's trust."
+actions.co_memo_run.name,Run the memo
+actions.co_memo_run.description,Carry papers across floors. Safe trust work.
+actions.co_memo_run.result,The memo lands. Someone notes you were useful.
+dialogue_choices.dch_dlg_co_resign_ok.label,Hand in the badge. Leave Hongyuan.
+dialogue_choices.dch_dlg_co_resign_cancel.label,Not today. Keep the badge.
+dialogue_lines.dlg_co_resign_l01.text,The corridor smells of tea and coal. Your Hongyuan badge feels heavier than usual.
+dialogue_lines.dlg_co_resign_l02.text,"Leave, and the Zhous stop being your employers—not your enemies, not your fate."
+dialogue_lines.dlg_co_resign_l03.text,The clerk waits with a brush. One word ends the wage; the harbor does not.
+stats.tongyang_trust.name,Tongyang trust
+stats.tongyang_trust.description,How far Tongyang will let you into real work.
+rank_tracks.tongyang_career.name,Tongyang career
+rank_tracks.tongyang_career.description,Clerk → supervisor → core.
+ranks.ty_clerk.name,Tongyang clerk
+ranks.ty_clerk.can_access_note,Front desk and routine papers.
+ranks.ty_supervisor.name,Tongyang supervisor
+ranks.ty_supervisor.can_access_note,Can push schedules and junior clerks.
+ranks.ty_core.name,Tongyang core
+ranks.ty_core.can_access_note,Inside the real board.
+flags.resigned_hongyuan.description,Voluntarily left Hongyuan.
+flags.hongyuan_fired.description,"Fired from Hongyuan (unemployed, not an ending)."
+flags.did_tongyang_poach.description,Ran a Tongyang poach plot once.
+flags.claimed_promo_manager.description,Claimed Hongyuan manager title.
+flags.claimed_promo_inner.description,Claimed Hongyuan inner-circle title.
+flags.claimed_promo_ty_supervisor.description,Claimed Tongyang supervisor title.
+flags.claimed_promo_ty_core.description,Claimed Tongyang core title.
+ui.employer.hongyuan,Hongyuan
+ui.employer.none,Unemployed
+ui.employer.tongyang,Tongyang
+ui.dossier.faction_tongyang,Tongyang
+ui.dossier.faction_hongyuan,Hongyuan
+ui.dossier.section_promo,Promotion
+ui.dossier.next_rank,Next rank
+ui.hud.goal.ask_hy,Ask for promotion in the boss's office
+ui.hud.goal.ask_ty,Ask for promotion in the Tongyang office
+ui.hud.goal.ask_tip,Dossier promotion checks are green. Use Ask for promotion in the matching office.
+ui.hud.goal.boss_door,Earn a bit more trust to enter the boss's office
+ui.hud.goal.boss_door_tip,Company office work and boss tasks raise trust. Open the dossier for promotion progress.
+ui.hud.goal.cool,Heat is high—go home and cool off
+ui.hud.goal.cool_tip,"When suspicion is high, skip eavesdropping/theft. Rest at home."
+ui.hud.goal.fame,For Tongyang: build standing first
+ui.hud.goal.fame_tip,Tongyang contact wants standing ~20. Details in the dossier.
+ui.hud.goal.fame_ty,To join Tongyang: build elite standing
+ui.hud.goal.fame_ty_tip,"Tongyang contact wants standing ~20. Tea house, intel sales, network events help."
+ui.hud.goal.free,"Free play: work, meet people, or push the crack"
+ui.hud.goal.free_tip,"No urgent gate. Promote, earn, or follow the optional main quest."
+ui.hud.goal.intel,Thin intel—eavesdrop or chat at the dock
+ui.hud.goal.intel_tip,"Intel fuels rumors, poaching, plots. Office eavesdrop, dock chat, plaza tips."
+ui.hud.goal.jobless,"Dock work to survive, or wait for Tongyang"
+ui.hud.goal.jobless_tip,Unemployed: no Hongyuan office actions. Dock labor keeps you alive; Tongyang opens day 7 (earlier if you resign).
+ui.hud.goal.money,Earn at the dock or plaza first
+ui.hud.goal.money_tip,"Low cash tightens the day. Haul, overtime, help the stall."
+ui.hud.goal.promo,Do more office work toward “{rank}”
+ui.hud.goal.promo_tip,Open the dossier for checkboxes. Hongyuan: office/boss tasks; Tongyang: Tongyang office/intel.
+ui.hud.goal.ty_accept,Tongyang lobby: accept the job and start work
+ui.hud.goal.ty_accept_tip,Qualified. Enter Tongyang → lobby → Accept Tongyang job. Then Tongyang office work unlocks.
+ui.hud.goal.ty_apply,See Manager Chen in the Tongyang lobby
+ui.hud.goal.ty_apply_tip,Resign/fire opens Tongyang early. Lobby Ask about hiring → qualify → Accept job → office work.
+ui.hud.next_line,Next: %s
+ui.hud.firm_line,Firm: %s
+ui.hud.heat_line,Heat: %s
+ui.hud.unemployed,Unemployed
+ui.hud.firm_jobless,No badge
+ui.hud.firm_jobless_tip,No employer. Dock or Tongyang.
+ui.hud.firm_hy_low,Just standing
+ui.hud.firm_hy_fore,Voice in the crew
+ui.hud.firm_hy_chief,Useful enough
+ui.hud.firm_hy_mgr,Near manager
+ui.hud.firm_hy_inner,Near the inner ring
+ui.hud.firm_ty_new,Still new
+ui.hud.firm_ty_mid,Being used
+ui.hud.firm_ty_core,Near the core
+ui.hud.heat_safe,Quiet
+ui.hud.heat_watch,Watched
+ui.hud.heat_hot,Hot
+ui.hud.heat_fire,At the door
+ui.promo.title,Promotion
+ui.promo.ready_line,Ready to ask
+ui.promo.not_ready,Not yet
+ui.promo.hint_ready,Go to the matching office and ask.
+ui.promo.unemployed_hint,Need an employer first.
+ui.promo.wrong_ask,Wrong office for this track.
+actions.home_upgrade_2.result,Walls whitened. A neighbor looks twice—the doorway starts to cost standing.
+actions.home_upgrade_3.result,The parlor looks real. Voices soften; standing follows the facade.
+actions.home_upgrade_4.result,"New lintel, quieter talk. Even elite circles hear this door."
+tip.home_upgrade,Home contractor upgrades: rental → painted flat → street suite → harbor villa. Not just looks—raises street/elite standing. Spend cash for face.
+tip.money_ways,"Earn: dock haul/overtime/errands; plaza stall work. With cash, upgrade home, buy a ride, toast at the tea house—face can be bought. Exchange and Tongyang come later."
+ui.hud.goal.face,Cash in hand—upgrade home for face
+ui.hud.goal.face_tip,"Money≥120 and home can still rise: Home → contractor. Upgrades buy standing, not just walls."
+events.ev_power_flex.title,Corridor Clears
+events.ev_power_flex.body,"Afternoon corridor brighter. Someone sidesteps; someone hugs papers to the chest—as if your title just arrived.|||At the turn, Shao-ting's eyes hitch half a beat, then slide away.|||A soft intake from the side hall. Su Qing—or you hearing her into it."
+event_choices.ch_power_flex_accept.label,Take the face: nod and pass
+event_choices.ch_power_flex_press.label,Press it: make them remember who yielded
+events.ev_su_reconcile.title,Loosen Under the Lamp
+events.ev_su_reconcile.body,"At night she moves the sewing box back to the table corner. Not a vow—just less strain.|||""A-Hai… if you still count me as home, I'll listen less to the street.""|||Lamp oil quiet. Reconcile isn't registry—it's pulling your hand back first."
+events.ev_su_reconcile.body_divorced,The match is already off. She only says: courtesy coexistence is fine—don't use me as a blade.
+event_choices.ch_su_reconcile_ok.label,Nod: steady the person first
+events.ev_su_let_go.title,Closing the Sewing Box
+events.ev_su_let_go.body,"Empty room, lamp spark. Her sewing box shuts like a finished sentence.|||Letting go isn't the end of hate—it's stopping the push into the game. Person released; board remains—that is yours alone."
+event_choices.ch_su_let_go_ok.label,Shut the door. Ask no more.
+dialogue_choices.dch_dlg_su_talk_let_go.label,Let go: keep you out of the game
+dialogue_line_variants.var_su_office_l01_promo.text,"VP office door ajar. Su Qing with files; her eyes rest on your title a breath: ""…Manager."" First time she means it."
+dialogue_line_variants.var_su_talk_l01_tool.text,Door opens. She checks the hall before looking at you—a piece verifying it's her cue.
+dialogue_line_variants.var_su_talk_l03_tool.text,Father-son crack? I passed word. Satisfied—or pushing me one inch more?
+dialogue_line_variants.var_su_talk_l01_reconcile.text,"She left the lamp on. Softer: ""Good you're back. We can… talk slow."""
+dialogue_line_variants.var_su_talk_l03_reconcile.text,"I answer Shao-ting less. If you want the house steady, I'll stand farther from the crack."
+dialogue_line_variants.var_su_talk_l01_let_go.text,"Quiet room. A guest's nod: ""You let go. Good. Don't ask me to pass blades."""
+idle_chatter.chatter_su_used_tool.text,"Tea doctor whispers: ""That dock boy uses a woman to push Zhou cracks—match and person both pieces."""
+events.ev_b_public_clash.body_reconcile,Someone mutters: home hasn't fully broken—he still guards that lamp.
+events.ev_day7_choice.body_let_go,Person released; board remains—picking a side is only your blade now.
+events.ev_power_flex.body_divorced,Side hall empty. Match off; the yielding looks cleaner—one less tie behind you.

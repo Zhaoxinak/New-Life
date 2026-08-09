@@ -1,0 +1,4 @@
+frame_w=66
+frame_h=122
+cols=6
+rows=8

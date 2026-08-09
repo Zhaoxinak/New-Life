@@ -1,6 +1,9 @@
-id,track_id,sort_order,stat_min,stat_max
+﻿id,track_id,sort_order,stat_min,stat_max
 worker,hongyuan_career,1,0,24
 foreman,hongyuan_career,2,25,44
 warehouse_chief,hongyuan_career,3,45,64
 manager,hongyuan_career,4,65,84
 inner_circle,hongyuan_career,5,85,100
+ty_clerk,tongyang_career,1,0,29
+ty_supervisor,tongyang_career,2,30,59
+ty_core,tongyang_career,3,60,100

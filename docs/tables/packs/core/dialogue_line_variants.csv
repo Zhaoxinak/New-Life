@@ -1,4 +1,4 @@
-id,base_line_id,priority,enabled,notes
+﻿id,base_line_id,priority,enabled,notes
 var_su_talk_l02_high,dlg_su_talk_l02,10,1,
 var_su_talk_l02_low,dlg_su_talk_l02,10,1,
 var_su_talk_l03_high,dlg_su_talk_l03,10,1,
@@ -29,6 +29,7 @@ var_rival_hijack_l02_a,dlg_rival_hijack_l02,10,1,v0.7
 var_su_talk_l01_leak,dlg_su_talk_l01,12,1,v0.8 flag-driven
 var_su_talk_l01_gift,dlg_su_talk_l01,12,1,v0.8 flag-driven
 var_su_talk_l03_betray,dlg_su_talk_l03,12,1,v0.8 flag-driven
+var_su_talk_l04_betray,dlg_su_talk_l04,12,1,P1 home: cold after gifts/betray
 var_son_meet_l01_hostile_flag,dlg_son_meet_l01,12,1,v0.8 flag-driven
 var_boss_flatter_l02_watch,dlg_boss_flatter_l02,12,1,v0.8 flag-driven
 var_chen_sell_l01_ally,dlg_chen_sell_l01,12,1,v0.8 flag-driven
@@ -36,3 +37,33 @@ var_ex_buy_l02_low,dlg_ex_buy_l02,12,1,v0.8 flag-driven
 var_ex_short_l02_lev,dlg_ex_short_l02,12,1,v0.8 flag-driven
 var_home_guide_l04_leak,dlg_su_guide_l04,12,1,v0.8 flag-driven
 var_dock_chat_l03_hostile,dlg_dock_chat_l03,12,1,v0.8 flag-driven
+var_dock_work_l01_rain,dlg_dock_work_l01,11,1,雨天搬货
+var_dock_work_l01_cloudy,dlg_dock_work_l01,10,1,阴天搬货
+var_dock_chat_l01_rain,dlg_dock_chat_l01,11,1,雨天闲聊
+var_dock_chat_l01_storm,dlg_dock_chat_l01,11,1,暴雨闲聊
+var_dock_manifest_l01_rain,dlg_dock_manifest_l01,11,1,雨天货单
+var_dock_board_l01_rain,dlg_dock_board_l01,11,1,雨天船期板
+var_dock_board_l01_storm,dlg_dock_board_l01,11,1,暴雨船期板
+var_contact_corner_l01_rain,dlg_contact_corner_l01,11,1,雨天接头
+var_contact_corner_l01_storm,dlg_contact_corner_l01,11,1,暴雨接头
+var_dock_black_l01_rain,dlg_dock_black_l01,11,1,雨幕私货
+var_co_eaves_l01_rain,dlg_co_eavesdrop_l01,11,1,雨天偷听
+var_home_rest_l01_rain,dlg_home_rest_l01,11,1,雨夜休息
+var_home_rest_l01_storm,dlg_home_rest_l01,11,1,暴雨休息
+var_su_talk_l01_rain,dlg_su_talk_l01,11,1,雨夜谈晚晴·低于flag变体12
+var_dock_work_l01_resigned,dlg_dock_work_l01,14,1,left Hongyuan
+var_dock_chat_l03_resigned,dlg_dock_chat_l03,14,1,left Hongyuan
+var_dock_work_l01_tongyang,dlg_dock_work_l01,13,1,works at Tongyang
+var_chen_hire_l01_career,dlg_chen_hire_l01,11,1,career hop
+var_su_talk_l01_divorced,dlg_su_talk_l01,20,1,退婚后冷礼
+var_su_talk_l03_divorced,dlg_su_talk_l03,20,1,退婚后冷
+var_su_talk_l01_weapon,dlg_su_talk_l01,25,1,武器化惧意
+var_su_talk_l03_weapon,dlg_su_talk_l03,25,1,武器化惧意
+var_chen_lobby_l02_divorced,dlg_chen_lobby_l02,20,1,A线讽一人更好下刀
+var_home_rest_l02_divorced,dlg_home_rest_l02,20,1,C/日常空屋
+var_su_office_l01_promo,dlg_su_office_l01,20,1,经理名分碾压
+var_su_talk_l01_tool,dlg_su_talk_l01,30,1,利用
+var_su_talk_l03_tool,dlg_su_talk_l03,30,1,利用
+var_su_talk_l01_reconcile,dlg_su_talk_l01,22,1,求合
+var_su_talk_l03_reconcile,dlg_su_talk_l03,22,1,求合
+var_su_talk_l01_let_go,dlg_su_talk_l01,21,1,放手

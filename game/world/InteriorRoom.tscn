@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3]
 
-[ext_resource type="Script" path="res://world/InteriorRoom.gd" id="1"]
+[ext_resource type="Script" uid="uid://dy00sl0tl6g8p" path="res://world/InteriorRoom.gd" id="1"]
 [ext_resource type="PackedScene" path="res://world/DoorZone.tscn" id="2"]
 
-[node name="InteriorRoom" type="Node2D"]
+[node name="InteriorRoom" type="Node2D" unique_id=1491169266]
 script = ExtResource("1")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=1858578354]
 unique_name_in_owner = true
 centered = false
 
-[node name="Props" type="Node2D" parent="."]
+[node name="Props" type="Node2D" parent="." unique_id=271534351]
 unique_name_in_owner = true
 
-[node name="ExitDoor" parent="Props" instance=ExtResource("2")]
+[node name="ExitDoor" parent="Props" unique_id=264288951 instance=ExtResource("2")]
 unique_name_in_owner = true

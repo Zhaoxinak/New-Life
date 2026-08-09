@@ -1,4 +1,4 @@
-id,day,unlock_type,unlock_id,enabled,notes
+﻿id,day,unlock_type,unlock_id,enabled,notes
 ul_001,1,location,dock,1,开局
 ul_002,1,location,company,1,开局
 ul_003,1,location,home,1,开局
@@ -10,16 +10,16 @@ ul_008,1,hotspot,home_desk,1,
 ul_009,1,hotspot,home_bed,1,
 ul_010,3,flag,son_notices_su,1,剧情：少霆注意晚晴（事件同步）
 ul_011,5,flag,forced_night_shift,1,夜班打压；可限制部分白天行动
-ul_012,7,location,rival,1,复仇抉择后开放通洋入口（也可更早但限制行动）
-ul_013,7,location,exchange,1,金融入口开放
+ul_012,7,location,rival,1,第7天开放通洋；门口显示条件
+ul_013,7,location,exchange,1,第7天开放交易所；门口显示条件
 ul_014,7,hotspot,home_living,1,客厅未婚妻线强化
 ul_015,8,hotspot,dock_corner,1,敏感接头
-ul_016,10,hotspot,rival_lobby,1,
-ul_017,12,hotspot,exchange_hall,1,
-ul_018,12,hotspot,exchange_tea,1,
+ul_016,7,hotspot,rival_lobby,1,P2：A线第7天即可进通洋大堂
+ul_017,8,hotspot,exchange_hall,1,P2：C线更早进交易大厅
+ul_018,8,hotspot,exchange_tea,1,P2：茶馆同步提前
 ul_019,14,hotspot,company_boss,1,信任路线玩家可能更早；此为保底日程
-ul_020,18,hotspot,rival_meet,1,需同时满足人脉；日程仅表示「可能出现」
+ul_020,8,hotspot,rival_meet,1,通洋接头提前到D8
 ul_021,22,hotspot,company_finance,1,主管档位后；日程保底提示
-ul_022,25,hotspot,exchange_vip,1,资金/声望达标后
-ul_023,28,hotspot,rival_office,1,跳槽flag后
+ul_022,16,hotspot,exchange_vip,1,P2：VIP室提前；仍受资金条件约束
+ul_023,20,hotspot,rival_office,1,P2：通洋办公室提前；仍受跳槽flag约束
 ul_dock_office,2,hotspot,dock_office,1,v0.8 修复：办公室热区此前未排期

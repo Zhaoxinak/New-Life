@@ -39,3 +39,22 @@ venv/
 .tools/
 Godot_v*/
 *.tpz
+
+# Local experiments (keep out of main game commits)
+demo_ai_town/
+
+# PCK / GDRE recovery scratch
+_pck_extract/
+_gdre_recover/
+_gdre_recover_verbose/
+_restore_*.json
+_smoke_*.log
+_gdre_verbose_full.log
+
+# Accidental Godot sidecars under docs tables
+docs/tables/**/*.import
+docs/tables/**/*.uid
+
+# Local Godot conversion cache / orphan stubs
+game/.autoconverted/
+game/art/town/

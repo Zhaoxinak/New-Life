@@ -1,4 +1,4 @@
-id,default,tags,notes
+﻿id,default,tags,notes
 forced_night_shift,0,core,Day5事件
 son_notices_su,0,core,
 route_focus_a,0,core,可与其它focus并存
@@ -28,3 +28,27 @@ low_money,0,core,可由系统按stats自动维护
 suspicion_light,0,core,stat threshold
 suspicion_mid,0,core,stat threshold
 tension_high,0,core,父子矛盾达阈值，等待公开对立事件
+heard_foreman_rumor,0,street,工头改单传闻
+heard_waiter_gossip,0,street,跑堂闲话晚晴少霆
+met_street_aunt,0,street,
+met_garage_hand,0,street,
+resigned_hongyuan,0,core,Voluntary resign from Hongyuan
+hongyuan_fired,0,core,"Fired from Hongyuan (unemployed, not ending)"
+claimed_hongyuan_promo,0,core,Stay-path promotion claimed once
+suspicion_critical,0,core,Heavy suspicion band; fire event may follow
+did_boss_service,0,core,Did boss task/blame/flatter once
+did_tongyang_poach,0,core,Did Tongyang poach plot once
+claimed_promo_manager,0,core,Formal manager claim
+claimed_promo_inner,0,core,Formal inner circle claim
+claimed_promo_ty_core,0,core,Formal Tongyang core claim
+claimed_promo_ty_supervisor,0,core,Tongyang supervisor title claimed
+divorced_su,0,core,退婚/散伙已成
+divorce_as_weapon,0,core,把退婚当离间刀
+divorce_snooze,0,core,退婚摊牌推迟一晚
+divorce_aftermath_done,0,core,退婚余波已播
+power_flex_done,0,core,power corridor flex played
+su_reconcile_path,0,core,求合 path lit
+su_used_as_tool,0,core,利用 path lit
+su_let_go,0,core,放手 path lit
+su_reconcile_done,0,core,ev_su_reconcile played
+su_let_go_done,0,core,ev_su_let_go played

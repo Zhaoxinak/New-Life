@@ -1,22 +1,22 @@
 extends Node
-## Tip queue + coach objective strip for onboarding.
+
 
 signal tip_shown(tip_id: String, text: String)
 signal coach_changed(text: String)
 
-## move → enter → menu → act → free
+
 var coach_step: String = "move"
 var _queue: Array[String] = []
 var _showing: bool = false
 var _current_tip_id: String = ""
 
 
-func queue_tip(tip_id: String) -> void:
+func queue_tip(tip_id: String) -> void :
 	if tip_id.is_empty():
 		return
 	if GameState.seen_tips.get(tip_id, false):
 		return
-	var row := PackDB.get_row("tips", tip_id)
+	var row: = PackDB.get_row("tips", tip_id)
 	if row.is_empty() or str(row.get("enabled", "1")) == "0":
 		return
 	if tip_id in _queue:
@@ -25,7 +25,7 @@ func queue_tip(tip_id: String) -> void:
 	_try_show()
 
 
-func queue_category(category: String) -> void:
+func queue_category(category: String) -> void :
 	var rows: Array = []
 	for row in PackDB.get_table("tips"):
 		if str(row.get("category", "")) != category:
@@ -33,32 +33,33 @@ func queue_category(category: String) -> void:
 		if str(row.get("enabled", "1")) == "0":
 			continue
 		rows.append(row)
-	rows.sort_custom(func(a, b): return int(a.get("sort_order", 0)) < int(b.get("sort_order", 0)))
+	rows.sort_custom( func(a, b): return int(a.get("sort_order", 0)) < int(b.get("sort_order", 0)))
 	for row in rows:
 		queue_tip(str(row.get("id", "")))
 
 
-func skip_tutorial() -> void:
+func skip_tutorial() -> void :
 	for row in PackDB.get_table("tips"):
 		if str(row.get("category", "")) != "tutorial":
 			continue
-		var tid := str(row.get("id", ""))
+		var tid: = str(row.get("id", ""))
 		GameState.seen_tips[tid] = true
 		_queue.erase(tid)
 	if coach_step in ["move", "enter"]:
-		# Keep coach until they actually act once, unless fully free preferred
+
 		pass
 	_emit_coach()
 
 
-func mark_seen(tip_id: String) -> void:
+func mark_seen(tip_id: String) -> void :
 	if tip_id != "":
 		GameState.seen_tips[tip_id] = true
 
 
-func on_flags_changed() -> void:
+func on_flags_changed() -> void :
 	if GameState.get_flag("low_money") == 1:
 		queue_tip("tip_low_money")
+		queue_tip("tip_money_ways")
 	if GameState.get_flag("suspicion_light") == 1:
 		queue_tip("tip_suspicion")
 	if GameState.get_flag("boss_watching") == 1:
@@ -67,49 +68,73 @@ func on_flags_changed() -> void:
 		queue_tip("tip_clash")
 
 
-func on_unlock_pulse() -> void:
+func on_unlock_pulse() -> void :
 	if GameState.is_location_unlocked("rival"):
 		queue_tip("tip_first_rival")
 	if GameState.is_location_unlocked("exchange"):
 		queue_tip("tip_first_exchange")
 	if GameState.is_hotspot_unlocked("dock_office"):
 		queue_tip("tip_dock_office")
+	if GameState.is_location_unlocked("plaza"):
+		queue_tip("tip_plaza")
+	if GameState.is_location_unlocked("tea_house"):
+		queue_tip("tip_tea_house")
+	if GameState.is_location_unlocked("plaza"):
+		queue_tip("tip_arcade")
+	if GameState.is_location_unlocked("garage"):
+		queue_tip("tip_garage")
+	queue_tip("tip_transit")
+	queue_tip("tip_home_upgrade")
+	queue_tip("tip_minimap")
+	queue_tip("tip_street_npc")
+	queue_tip("tip_dossier")
+	queue_tip("tip_npc_world")
 
 
-func on_first_check() -> void:
+func on_first_check() -> void :
 	queue_tip("tip_checks")
 
 
-func on_boot_tutorial() -> void:
-	# Tip-banner tutorial disabled — use QuestGuide instead.
+func on_boot_tutorial() -> void :
+
 	pass
 
 
-func on_near_door() -> void:
+func on_near_door() -> void :
 	queue_tip("tip_near_door")
 	if coach_step == "move":
 		set_coach("enter")
 
 
-func on_enter_location(_location_id: String = "") -> void:
+func on_enter_location(location_id: String = "") -> void :
 	queue_tip("tip_enter_menu")
+	if location_id == "plaza":
+		queue_tip("tip_plaza")
+		queue_tip("tip_arcade")
+	if location_id == "tea_house":
+		queue_tip("tip_tea_house")
+	if location_id == "garage":
+		queue_tip("tip_garage")
+	if location_id == "home":
+		queue_tip("tip_home_upgrade")
 	if coach_step in ["move", "enter"]:
 		set_coach("menu")
 
 
-func on_open_actions(_hotspot_id: String = "") -> void:
+func on_open_actions(_hotspot_id: String = "") -> void :
 	queue_tip("tip_pick_action")
 	if coach_step == "menu":
 		set_coach("act")
 
 
-func on_action_done() -> void:
+func on_action_done() -> void :
 	queue_tip("tip_after_action")
 	queue_tip("tip_save_hint")
+	queue_tip("tip_variety")
 	set_coach("free")
 
 
-func set_coach(step: String) -> void:
+func set_coach(step: String) -> void :
 	if coach_step == step:
 		_emit_coach()
 		return
@@ -139,17 +164,17 @@ func current_tip_id() -> String:
 	return _current_tip_id
 
 
-func notify_closed() -> void:
+func notify_closed() -> void :
 	_showing = false
 	_current_tip_id = ""
 	_try_show()
 
 
-func _emit_coach() -> void:
+func _emit_coach() -> void :
 	coach_changed.emit(get_coach_text())
 
 
-func _try_show() -> void:
+func _try_show() -> void :
 	if _showing or _queue.is_empty():
 		return
 	if GameFlow.dialogue_open or GameFlow.event_open:
@@ -157,9 +182,9 @@ func _try_show() -> void:
 	if EventScheduler.active_event_id != "":
 		return
 	var tip_id: String = _queue.pop_front()
-	var row := PackDB.get_row("tips", tip_id)
-	var key := str(row.get("text_key", ""))
-	var text := L10n.t(key, key)
+	var row: = PackDB.get_row("tips", tip_id)
+	var key: = str(row.get("text_key", ""))
+	var text: = L10n.t(key, key)
 	if str(row.get("once", "1")) == "1":
 		GameState.seen_tips[tip_id] = true
 	_showing = true
@@ -167,6 +192,6 @@ func _try_show() -> void:
 	tip_shown.emit(tip_id, text)
 
 
-func pulse_when_free() -> void:
+func pulse_when_free() -> void :
 	if not _showing:
 		_try_show()

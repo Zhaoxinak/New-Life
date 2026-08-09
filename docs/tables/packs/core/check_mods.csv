@@ -78,3 +78,15 @@ mod_chk_co_pass_rumor_relation_scale_zhou_hongye_zhou_shaoting_father_son_trust_
 mod_chk_co_pass_rumor_stat_scale_father_son_tension_0.0025,chk_co_pass_rumor,stat_scale,father_son_tension,0.0025,25,-0.06,0.12,1,矛盾已高更好灌
 mod_chk_co_pass_rumor_flag_flat_son_hostile_m0.14,chk_co_pass_rumor,flag_flat,son_hostile,-0.14,,,,1,已被点名
 mod_chk_co_pass_rumor_flag_flat_boss_watching_m0.08,chk_co_pass_rumor,flag_flat,boss_watching,-0.08,,,,1,监视
+mod_chk_dock_chat_weather_flat_rain_0.08,chk_dock_chat,weather_flat,rain,0.08,,,,1,雨里挤棚下更爱聊
+mod_chk_dock_chat_weather_flat_storm_m0.06,chk_dock_chat,weather_flat,storm,-0.06,,,,1,暴雨只顾躲
+mod_chk_dock_steal_weather_flat_rain_0.06,chk_dock_steal,weather_flat,rain,0.06,,,,1,雨声盖脚步
+mod_chk_dock_steal_weather_flat_storm_m0.12,chk_dock_steal,weather_flat,storm,-0.12,,,,1,暴雨乱局难下手
+mod_chk_dock_black_weather_flat_rain_0.10,chk_dock_black,weather_flat,rain,0.10,,,,1,雨幕掩护私货
+mod_chk_dock_bribe_weather_flat_storm_m0.05,chk_dock_bribe,weather_flat,storm,-0.05,,,,1,暴雨仓管心不宁
+mod_chk_co_eavesdrop_weather_flat_rain_0.04,chk_co_eavesdrop,weather_flat,rain,0.04,,,,1,躲雨走廊闲话多
+mod_chk_co_pass_rumor_weather_flat_rain_0.03,chk_co_pass_rumor,weather_flat,rain,0.03,,,,1,雨天人更愿咬耳朵
+mod_chk_plaza_ball_net,chk_plaza_ball,stat_scale,network_base,0.004,25,-0.08,0.18,1,球场熟人
+mod_chk_plaza_ball_sus,chk_plaza_ball,stat_scale,suspicion,-0.002,20,-0.10,0.04,1,太烫手气差
+mod_chk_plaza_dice_net,chk_plaza_dice,stat_scale,network_base,0.003,25,-0.08,0.14,1,
+mod_chk_plaza_dice_sus,chk_plaza_dice,stat_scale,suspicion,-0.002,25,-0.10,0.04,1,

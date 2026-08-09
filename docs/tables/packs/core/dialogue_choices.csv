@@ -1,4 +1,4 @@
-id,dialogue_id,after_line_id,sort,enabled,notes
+﻿id,dialogue_id,after_line_id,sort,enabled,notes
 dch_dlg_su_talk_soft,dlg_su_talk,dlg_su_talk_l04,1,1,
 dch_dlg_su_talk_press,dlg_su_talk,dlg_su_talk_l04,2,1,
 dch_dlg_su_talk_scheme,dlg_su_talk,dlg_su_talk_l04,3,1,
@@ -75,3 +75,59 @@ dch_dlg_home_rest_think,dlg_home_rest,dlg_home_rest_l03,2,1,v0.8
 dch_dlg_ex_rumor_true_quiet,dlg_ex_rumor_true,dlg_ex_rumor_true_l03,2,1,v0.8
 dch_dlg_co_peek_copy,dlg_co_peek,dlg_co_peek_l03,2,1,v0.8
 dch_dlg_home_organize_burn,dlg_home_organize,dlg_home_organize_l03,2,1,v0.8
+dch_dlg_plaza_practice_ok,dlg_plaza_practice,dlg_plaza_practice_l03,1,1,
+dch_dlg_plaza_snack_ok,dlg_plaza_snack,dlg_plaza_snack_l03,1,1,
+dch_dlg_plaza_sell_goods_ok,dlg_plaza_sell_goods,dlg_plaza_sell_goods_l03,1,1,
+dch_dlg_plaza_sell_goods_key,dlg_plaza_sell_goods,dlg_plaza_sell_goods_l03,2,1,卖关键物多赚一点嫌疑
+dch_dlg_plaza_buy_tip_ok,dlg_plaza_buy_tip,dlg_plaza_buy_tip_l03,1,1,
+dch_dlg_plaza_sell_intel_ok,dlg_plaza_sell_intel,dlg_plaza_sell_intel_l03,1,1,
+dch_dlg_plaza_sell_intel_hold,dlg_plaza_sell_intel,dlg_plaza_sell_intel_l03,2,1,少卖一点
+dch_dlg_dock_overtime_ok,dlg_dock_overtime,dlg_dock_overtime_l03,1,1,
+dch_dlg_dock_errand_ok,dlg_dock_errand,dlg_dock_errand_l03,1,1,
+dch_dlg_plaza_help_stall_ok,dlg_plaza_help_stall,dlg_plaza_help_stall_l03,1,1,
+dch_dlg_plaza_ball_wager_ok,dlg_plaza_ball_wager,dlg_plaza_ball_wager_l03,1,1,
+dch_plaza_scratch_none,dlg_plaza_scratch_virtual,,1,1,minigame prize
+dch_plaza_scratch_small,dlg_plaza_scratch_virtual,,2,1,minigame prize
+dch_plaza_scratch_mid,dlg_plaza_scratch_virtual,,3,1,minigame prize
+dch_plaza_scratch_big,dlg_plaza_scratch_virtual,,4,1,minigame prize
+dch_plaza_scratch_jackpot,dlg_plaza_scratch_virtual,,5,1,minigame prize
+dch_dlg_dock_shelter_ok,dlg_dock_shelter,dlg_dock_shelter_l03,1,1,
+dch_dlg_dock_board_rumor_ok,dlg_dock_board_rumor,dlg_dock_board_rumor_l03,1,1,
+dch_dlg_plaza_dice_ok,dlg_plaza_dice,dlg_plaza_dice_l03,1,1,
+dch_dlg_plaza_storyteller_dock,dlg_plaza_storyteller,dlg_plaza_storyteller_l03,1,1,听码头段子
+dch_dlg_plaza_storyteller_love,dlg_plaza_storyteller,dlg_plaza_storyteller_l03,2,1,听巷弄人情
+dch_dlg_plaza_storyteller_coin,dlg_plaza_storyteller,dlg_plaza_storyteller_l03,3,1,听银钱门道
+dch_dlg_home_window_ok,dlg_home_window,dlg_home_window_l03,1,1,
+dch_dlg_co_memo_careful,dlg_co_memo,dlg_co_memo_l03,1,1,稳妥送达
+dch_dlg_co_memo_peek,dlg_co_memo,dlg_co_memo_l03,2,1,路上偷看一眼
+dch_dlg_tea_gossip_ok,dlg_tea_gossip,dlg_tea_gossip_l03,1,1,
+dch_dlg_tea_toast_ok,dlg_tea_toast,dlg_tea_toast_l03,1,1,
+dch_dlg_tea_broker_ok,dlg_tea_broker,dlg_tea_broker_l03,1,1,
+dch_dlg_tea_broker_pass,dlg_tea_broker,dlg_tea_broker_l03,2,1,少付少听
+dch_dlg_tea_listen_ok,dlg_tea_listen,dlg_tea_listen_l03,1,1,
+dch_dlg_garage_buy_1_ok,dlg_garage_buy_1,dlg_garage_buy_1_l03,1,1,
+dch_dlg_garage_buy_2_ok,dlg_garage_buy_2,dlg_garage_buy_2_l03,1,1,
+dch_dlg_garage_buy_3_ok,dlg_garage_buy_3,dlg_garage_buy_3_l03,1,1,
+dch_dlg_garage_buy_4_ok,dlg_garage_buy_4,dlg_garage_buy_4_l03,1,1,
+dch_dlg_home_up_2_ok,dlg_home_up_2,dlg_home_up_2_l03,1,1,
+dch_dlg_home_up_3_ok,dlg_home_up_3,dlg_home_up_3_l03,1,1,
+dch_dlg_home_up_4_ok,dlg_home_up_4,dlg_home_up_4_l03,1,1,
+dch_dlg_street_foreman_ok,dlg_street_foreman,dlg_street_foreman_l03,1,1,
+dch_dlg_street_aunt_ok,dlg_street_aunt,dlg_street_aunt_l03,1,1,
+dch_dlg_street_waiter_ok,dlg_street_waiter,dlg_street_waiter_l03,1,1,
+dch_dlg_street_garage_ok,dlg_street_garage,dlg_street_garage_l03,1,1,
+dch_dlg_street_su_ok,dlg_street_su,dlg_street_su_l03,1,1,
+dch_dlg_street_son_ok,dlg_street_son,dlg_street_son_l03,1,1,
+dch_dlg_street_boss_ok,dlg_street_boss,dlg_street_boss_l03,1,1,
+dch_dlg_street_chen_ok,dlg_street_chen,dlg_street_chen_l03,1,1,
+dch_dlg_co_resign_ok,dlg_co_resign,dlg_co_resign_l03,1,1,freedom
+dch_dlg_co_resign_cancel,dlg_co_resign,dlg_co_resign_l03,2,1,freedom
+dch_dlg_co_ask_promo_ok,dlg_co_ask_promo,dlg_co_ask_promo_l03,1,1,freedom
+dch_dlg_co_ask_promo_wait,dlg_co_ask_promo,dlg_co_ask_promo_l03,2,1,freedom
+dch_dlg_rival_work_ok,dlg_rival_work,dlg_rival_work_l03,1,1,freedom
+dch_dlg_rival_ask_promo_ok,dlg_rival_ask_promo,dlg_rival_ask_promo_l03,1,1,promo
+dch_dlg_rival_ask_promo_wait,dlg_rival_ask_promo,dlg_rival_ask_promo_l03,2,1,promo
+dch_dlg_home_divorce_cold,dlg_home_divorce,dlg_home_divorce_l05,1,1,冷退
+dch_dlg_home_divorce_wait,dlg_home_divorce,dlg_home_divorce_l05,2,1,再忍
+dch_dlg_home_divorce_weapon,dlg_home_divorce,dlg_home_divorce_l05,3,1,当刀
+dch_dlg_su_talk_let_go,dlg_su_talk,dlg_su_talk_l04,4,1,放手
