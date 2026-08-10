@@ -1821,23 +1821,23 @@ ui.hud.firm_ty_new,还是新人
 ui.hud.goal.ask_hy,去老板办公室申请晋升
 ui.hud.goal.ask_tip,档案里晋升条件已齐。去对应办公室点「申请晋升」。
 ui.hud.goal.ask_ty,去通洋办公室申请晋升
-ui.hud.goal.boss_door,再攒点信任就能进老板办公室
+ui.hud.goal.boss_door,再攒信任，进老板办公室
 ui.hud.goal.boss_door_tip,公司「日常办公」、替老板办事/顶锅最涨信任。打开档案看晋升进度。
-ui.hud.goal.cool,袖口有风——先回出租屋装成没事人
+ui.hud.goal.cool,风声紧，先回家降温
 ui.hud.goal.cool_tip,嫌疑偏高时少碰偷听/偷单。回家休息，别给少霆抓把柄。
 ui.hud.goal.fame,想走通洋线：先把声望做起来
 ui.hud.goal.fame_tip,通洋接头大约要声望 20。细节在档案「公司与身家」。
 ui.hud.goal.fame_ty,想进通洋：先把上层声望做起来
 ui.hud.goal.fame_ty_tip,通洋接头大约要声望 20。茶馆、卖情报、人脉事件会涨。
-ui.hud.goal.free,日子还空着：打工露脸，或把忍、跳、赌三条路想清楚
+ui.hud.goal.free,打工露脸，或想清三条路
 ui.hud.goal.free_tip,没有紧急门槛。码头扛肩、公司听风、回家算账都行；主线任务可收起。
-ui.hud.goal.intel,手里没牌：去听壁脚、码头闲聊，或广场买半句
+ui.hud.goal.intel,去听壁脚或码头闲聊
 ui.hud.goal.intel_tip,情报用来传谣、挖人、布局。公司听壁脚、码头闲聊、广场买消息都能涨。
 ui.hud.goal.jobless,码头打工维生，或等通洋开门
 ui.hud.goal.jobless_tip,无业时宏远公事做不了。码头搬货保命；通洋默认第7天开门（辞职会提前）。
-ui.hud.goal.money,口袋轻了：先去码头或广场把银元扛回来
+ui.hud.goal.money,先去码头或广场赚钱
 ui.hud.goal.money_tip,钱太少时日子发紧。搬货、加班、帮摊都能回血。
-ui.hud.goal.promo,名分还差一截：再办点公事，冲「{rank}」
+ui.hud.goal.promo,再办点公事，冲「{rank}」
 ui.hud.goal.promo_tip,打开档案看勾选条件。宏远：办公/老板任务；通洋：通洋办公/情报。
 ui.hud.goal.ty_accept,通洋大堂：接受通洋职位，开始上班
 ui.hud.goal.ty_accept_tip,资格已有。进通洋商行 → 接待大堂 →「接受通洋职位」。入职后才能「通洋办公」。
@@ -2121,9 +2121,9 @@ events.ev_b_public_clash.body_divorced,走廊里有人嘀咕：家里都散了�
 events.ev_b_public_clash.body_divorce_weapon,有人故意抬高嗓门：「家里都散了还装——裂缝可不只在茶杯上。」
 events.ev_a_first_strike.body_divorced,你少了一份后顾。这一刀落下去，只听见自己的呼吸。
 events.ev_c_first_short.body_divorced,平仓时你想起空屋：账上更孤，数字却更听话。
-ui.hud.goal.divorce_talk,灯油将尽：今晚或许该回家谈清楚
+ui.hud.goal.divorce_talk,今晚或许该回家谈清楚
 ui.hud.goal.divorce_talk_tip,手帕裂痕、好感崩、辞职跳槽之后，客厅可谈散伙／退婚；也可等摊牌夜。
-ui.hud.goal.face,有钱了——回家宅基撑场面，比干囤钱有脸
+ui.hud.goal.face,有钱了，去宅基撑场面
 ui.hud.goal.face_tip,钱≥120 且房子还能升时：回家→宅基包工。升级涨声望，比干囤钱更有脸。
 events.ev_power_flex.title,走廊让路
 events.ev_power_flex.body,下午的走廊比往常亮。有人侧身，有人把文件挪到胸前——像忽然认出你胸前的名分。|||转角处，少霆的目光顿了半拍，又若无其事地移开。|||侧廊里有一声极轻的吸气。是晚晴，或只是你听成了她。

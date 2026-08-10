@@ -1115,7 +1115,7 @@ events.ev_b_public_clash.body_divorced,In the corridor someone mutters: home alr
 events.ev_b_public_clash.body_divorce_weapon,"A voice rises on purpose: ""Home already broken and still pretending—the crack isn't only in the teacup."""
 events.ev_a_first_strike.body_divorced,One less tie behind you. The cut lands with only your breath for witness.
 events.ev_c_first_short.body_divorced,"Closing the position, you think of the empty room: lonelier books, obedient numbers."
-ui.hud.goal.divorce_talk,Lamp oil low: maybe talk it home tonight
+ui.hud.goal.divorce_talk,Tonight: maybe talk it out at home
 ui.hud.goal.divorce_talk_tip,"After the handkerchief crack, favor collapse, resign/job-hop—parlor can open break-off talk; or wait for the ultimatum night."
 actions.co_ask_promotion.name,Ask for promotion
 actions.co_ask_promotion.description,Ask for a title you can say aloud. Hongye's lid tap decides.
@@ -1164,23 +1164,23 @@ ui.dossier.next_rank,Next rank
 ui.hud.goal.ask_hy,Ask for promotion in the boss's office
 ui.hud.goal.ask_ty,Ask for promotion in the Tongyang office
 ui.hud.goal.ask_tip,Dossier promotion checks are green. Use Ask for promotion in the matching office.
-ui.hud.goal.boss_door,Earn a bit more trust to enter the boss's office
+ui.hud.goal.boss_door,Build trust for the boss office
 ui.hud.goal.boss_door_tip,Company office work and boss tasks raise trust. Open the dossier for promotion progress.
-ui.hud.goal.cool,Wind on the cuff—home first; play the harmless man
+ui.hud.goal.cool,Heat high—rest home first
 ui.hud.goal.cool_tip,High suspicion: skip eavesdrop/steal. Rest home; give Shaoting no handle.
 ui.hud.goal.fame,For Tongyang: build standing first
 ui.hud.goal.fame_tip,Tongyang contact wants standing ~20. Details in the dossier.
 ui.hud.goal.fame_ty,To join Tongyang: build elite standing
 ui.hud.goal.fame_ty_tip,"Tongyang contact wants standing ~20. Tea house, intel sales, network events help."
-ui.hud.goal.free,"Day still open: work, show face, or settle endure / jump / gamble"
+ui.hud.goal.free,"Work, show face, or pick a path"
 ui.hud.goal.free_tip,"No hard gate. Dock, company wind, home books—all fine. Main quest can fold away."
-ui.hud.goal.intel,"No cards yet: eavesdrop, dock chat, or buy a plaza whisper"
+ui.hud.goal.intel,Eavesdrop or dock chat for intel
 ui.hud.goal.intel_tip,"Intel fuels rumors, poaching, plots. Office eavesdrop, dock chat, plaza tips."
 ui.hud.goal.jobless,"Dock work to survive, or wait for Tongyang"
 ui.hud.goal.jobless_tip,Unemployed: no Hongyuan office actions. Dock labor keeps you alive; Tongyang opens day 7 (earlier if you resign).
-ui.hud.goal.money,Pockets light: haul silver at dock or plaza
+ui.hud.goal.money,Earn at dock or square first
 ui.hud.goal.money_tip,"Low cash tightens the day. Haul, overtime, help the stall."
-ui.hud.goal.promo,Title still short: more desk work toward 「{rank}」
+ui.hud.goal.promo,More desk work toward 「{rank}」
 ui.hud.goal.promo_tip,Open the dossier for checkboxes. Hongyuan: office/boss tasks; Tongyang: Tongyang office/intel.
 ui.hud.goal.ty_accept,Tongyang lobby: accept the job and start work
 ui.hud.goal.ty_accept_tip,Qualified. Enter Tongyang → lobby → Accept Tongyang job. Then Tongyang office work unlocks.
@@ -1215,7 +1215,7 @@ actions.home_upgrade_3.result,The parlor looks real. Voices soften; standing fol
 actions.home_upgrade_4.result,"New lintel, quieter talk. Even elite circles hear this door."
 tip.home_upgrade,Home contractor upgrades: rental → painted flat → street suite → harbor villa. Not just looks—raises street/elite standing. Spend cash for face.
 tip.money_ways,"Earn: dock haul/overtime/errands; plaza stall work. With cash, upgrade home, buy a ride, toast at the tea house—face can be bought. Exchange and Tongyang come later."
-ui.hud.goal.face,Money enough—upgrade home; face beats hoarding
+ui.hud.goal.face,Flush—upgrade the house for face
 ui.hud.goal.face_tip,"Money≥120 and home can still rise: Home → contractor. Upgrades buy standing, not just walls."
 events.ev_power_flex.title,Corridor Clears
 events.ev_power_flex.body,"Afternoon corridor brighter. Someone sidesteps; someone hugs papers to the chest—as if your title just arrived.|||At the turn, Shao-ting's eyes hitch half a beat, then slide away.|||A soft intake from the side hall. Su Qing—or you hearing her into it."

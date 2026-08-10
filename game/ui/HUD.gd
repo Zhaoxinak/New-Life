@@ -43,7 +43,9 @@ func _ready() -> void :
 
 
 func _ensure_clock_controls() -> void :
-	var row: = day_label.get_parent() as HBoxContainer
+	var row: = get_node_or_null("%RowTop") as HBoxContainer
+	if row == null:
+		row = day_label.get_parent() as HBoxContainer
 	if row == null:
 		return
 	if _clock_label == null:
@@ -235,6 +237,8 @@ func _refresh_rank() -> void :
 			tip_lines.append(str(promo.get("hint", "")))
 			tip_lines.append(L10n.t("ui.hud.rank_tip_dossier", "打开档案可看晋升进度条与条件。"))
 		rank_label.tooltip_text = "\n".join(tip_lines)
+	rank_label.clip_text = true
+	rank_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	rank_label.add_theme_color_override("font_color", UiStyle.BRASS)
 
 
@@ -314,12 +318,17 @@ func _refresh_heat_standing() -> void :
 func _refresh_next_step() -> void :
 
 	var goal: = _pick_next_step()
+	var goal_text: = str(goal.get("text", ""))
 	intel_label.text = L10n.tf(
 		"ui.hud.next_line", 
-		{"text": str(goal.get("text", ""))}, 
-		"今日目标：%s" % str(goal.get("text", ""))
+		{"text": goal_text}, 
+		"今日目标：%s" % goal_text
 	)
-	intel_label.tooltip_text = str(goal.get("tip", ""))
+	# Full goal + tip on hover when the bar ellipsizes.
+	var tip: = str(goal.get("tip", ""))
+	intel_label.tooltip_text = goal_text if tip == "" else "%s\n%s" % [goal_text, tip]
+	intel_label.clip_text = true
+	intel_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	intel_label.add_theme_color_override("font_color", UiStyle.BRASS)
 
 

@@ -3,7 +3,7 @@ extends CanvasLayer
 
 const MIN_SIZE: = Vector2(200, 96)
 const MAX_SIZE: = Vector2(560, 520)
-const DEFAULT_SHELL: = Rect2(12, 64, 280, 182)
+const DEFAULT_SHELL: = Rect2(12, 104, 280, 182)
 
 @onready var shell: VBoxContainer = %Shell
 @onready var frame: Control = %Frame
