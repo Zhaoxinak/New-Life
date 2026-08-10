@@ -38,6 +38,8 @@ venv/
 # Local engine downloads
 .tools/
 Godot_v*/
+Godot.app/
+Godot.app
 *.tpz
 
 # Local experiments (keep out of main game commits)
