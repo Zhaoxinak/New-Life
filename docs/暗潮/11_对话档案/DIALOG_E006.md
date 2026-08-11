@@ -67,5 +67,6 @@ text_zh: |
 effects:
   - { op: add, key: stat_trust_firm, value: -10 }
   - { op: add, edge: {from: char_lin_ruisheng, to: char_qian_demao}, key: score, value: -10 }
+  - { op: unlock_grudge, id: grudge_demao_defer }
 next: null
 ```

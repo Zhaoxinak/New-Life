@@ -3,7 +3,7 @@
 > 规范：[`../00_总纲/对话规范.md`](../00_总纲/对话规范.md)  
 > **已迁出的事件以本目录为准**；总源 V3 仅作对照。
 
-## 主线 E001–E018
+## 主线 E001–E022
 
 | 文件 | 入口 | 事件 |
 |---|---|---|
@@ -26,6 +26,16 @@
 | [DIALOG_E016.md](DIALOG_E016.md) | `dialog_e016_start` | 挑拨父子 |
 | [DIALOG_E017.md](DIALOG_E017.md) | `dialog_e017_start` | 向洋人递刀 |
 | [DIALOG_E018.md](DIALOG_E018.md) | `dialog_e018_start` | 阶段性结局 |
+| [DIALOG_E019.md](DIALOG_E019.md) | `dialog_e019_start` | 密账一用 |
+| [DIALOG_E020.md](DIALOG_E020.md) | `dialog_e020_start` | 升任外场 |
+| [DIALOG_E020B.md](DIALOG_E020B.md) | `dialog_e020b_start` | 聚丰报价 |
+| [DIALOG_E020C.md](DIALOG_E020C.md) | `dialog_e020c_start` | 洋行门路 |
+| [DIALOG_E021.md](DIALOG_E021.md) | `dialog_e021_start` | 轻清算 |
+| [DIALOG_E021B.md](DIALOG_E021B.md) | `dialog_e021b_start` | 轻清算（街市） |
+| [DIALOG_E021C.md](DIALOG_E021C.md) | `dialog_e021c_start` | 轻清算（借势） |
+| [DIALOG_E022.md](DIALOG_E022.md) | `dialog_e022_start` | 清算子安 |
+| [DIALOG_E022B.md](DIALOG_E022B.md) | `dialog_e022b_start` | 清算子安（截胡） |
+| [DIALOG_E022C.md](DIALOG_E022C.md) | `dialog_e022c_start` | 清算子安（借势） |
 
 ## 随机 R001–R009
 
@@ -40,6 +50,7 @@
 | [DIALOG_R007.md](DIALOG_R007.md) | `dialog_r007_start` | 被监视 |
 | [DIALOG_R008.md](DIALOG_R008.md) | `dialog_r008_start` | 伙计私语 |
 | [DIALOG_R009.md](DIALOG_R009.md) | `dialog_r009_start` | 洋行邀约 |
+| [DIALOG_R010.md](DIALOG_R010.md) | `dialog_r010_start` | 看客起哄 |
 
 ## 失败 F001–F005
 

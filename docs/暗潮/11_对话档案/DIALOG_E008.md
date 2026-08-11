@@ -93,7 +93,9 @@ choices:
       - { op: add, key: stat_suspicion, value: 10 }
       - { op: add, edge: {from: char_qian_demao, to: char_lin_ruisheng}, key: score, value: -15 }
       - { op: add, edge: {from: char_qian_demao, to: char_lin_ruisheng}, key: suspicion, value: 1 }
+      - { op: set_flag, key: flag_need_marriage_fund, value: true }
       - { op: set_flag, key: flag_marked_restless, value: true }
+      - { op: unlock_grudge, id: grudge_zian_fiancee }
     next: dialog_e008_outro_a
   - id: B
     loc_key: dialog.e008.choice.b
@@ -101,7 +103,9 @@ choices:
     effects:
       - { op: add, key: stat_intel, value: 5 }
       - { op: add, edge: {from: char_liu_ruyan, to: char_lin_ruisheng}, key: score, value: 5 }
+      - { op: set_flag, key: flag_need_marriage_fund, value: true }
       - { op: set_flag, key: flag_endure_preview, value: true }
+      - { op: unlock_grudge, id: grudge_zian_fiancee }
     next: dialog_e008_outro_b
   - id: C
     loc_key: dialog.e008.choice.c
@@ -109,7 +113,10 @@ choices:
     effects:
       - { op: add, key: stat_network, value: 5 }
       - { op: add, key: stat_intel, value: 10 }
+      - { op: add, key: stat_credit_market, value: 5 }
+      - { op: set_flag, key: flag_need_marriage_fund, value: true }
       - { op: add, edge: {from: char_zhao_hongyun, to: char_lin_ruisheng}, key: score, value: 5 }
+      - { op: unlock_grudge, id: grudge_zian_fiancee }
     next: dialog_e008_outro_c
 ```
 

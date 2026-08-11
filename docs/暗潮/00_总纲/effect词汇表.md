@@ -126,7 +126,24 @@
 - 私下借账
 - 洋行预支（若后续扩）
 
-### 2.7 流程控制（慎用）
+### 2.7 职级 / 恩怨
+
+| op | 必填 | 语义 |
+|---|---|---|
+| `set_rank` | `value`∈{apprentice,waichang,paojie,houtang} | 写 `run_meta.player_rank`；触发升职演出 |
+| `unlock_grudge` | `id`=`grudge_*` | 埋债入 `run_grudge`；已存在则保持 open 并可加深 |
+| `resolve_grudge` | `id`, `mode`∈{punish,forgive} | 兑现；改 status |
+| `expire_grudge` | `id` | 过期未兑 |
+
+```yaml
+- { op: set_rank, value: waichang }
+- { op: unlock_grudge, id: grudge_zian_fiancee }
+- { op: resolve_grudge, id: grudge_onlooker, mode: punish }
+```
+
+合法 `grudge_*` 见 [`../05_关系档案/恩怨账与清算.md`](../05_关系档案/恩怨账与清算.md)。
+
+### 2.8 流程控制（慎用）
 
 | op | 必填 | 语义 |
 |---|---|---|
@@ -182,6 +199,8 @@
 | 信物 | `{ item: item_qing_letter, owned: true }` |
 | 地点 | `{ loc: loc_03 }` |
 | 时段 | `{ slot: evening }` 或 `{ slot_in: [noon, afternoon, evening] }` |
+| 职级 | `{ rank: waichang }` 或 `{ rank_in: [waichang, paojie] }` |
+| 恩怨 | `{ grudge: grudge_zian_fiancee, status: open }`；`status: absent` 表示未埋 |
 | 复合 | 数组内 AND；`goto_dialog_by_condition` 按序首匹配 |
 
 合法比较：`>=` `<=` `>` `<` `==` `!=`。
@@ -218,3 +237,4 @@ goto_dialog_by_condition:
 | **v0.2** | 增加 `menu`；行动口风 `goto_dialog_by_condition`；金钱旗标样例 |
 | **v0.3** | require 补 `slot` / `slot_in`；随机事件 loc 前置 |
 | **v0.4** | 增加 `credit_*`、`open_debt/repay_debt/set_debt_status`；说明 edge.debt/leverage 的金融用法 |
+| **v1.0** | 增加 `set_rank` / `unlock_grudge` / `resolve_grudge` / `expire_grudge`；require 补 rank / grudge |

@@ -34,8 +34,10 @@ dialog_id: dialog_e004_outro
 speaker: narrator
 loc_key: dialog.e004.outro
 text_zh: |
-  钱子安的目光扫过商行，在你脸上停了半息，又滑开，很快失去兴趣。午饭时分，他独自去了街上的茶楼。
+  子安的目光扫过商行，在你脸上停了半息，又滑开，很快失去兴趣。午饭时分，他独自去了街上的茶楼。
+  那半息的轻慢，像一块小石子——当时不疼，日后却会一直硌着。
 effects:
   - { op: set_flag, key: flag_zian_arrived, value: true }
+  - { op: unlock_grudge, id: grudge_zian_slight }
 next: null
 ```

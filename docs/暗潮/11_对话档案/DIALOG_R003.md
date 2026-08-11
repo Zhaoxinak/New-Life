@@ -35,5 +35,7 @@ effects:
   - { op: add, key: stat_suspicion, value: 10 }
   - { op: add, key: stat_trust_firm, value: -5 }
   - { op: add, edge: {from: char_qian_zian, to: char_lin_ruisheng}, key: score, value: -5 }
+  - { op: unlock_grudge, id: grudge_zian_slight }
+  - { op: set_flag, key: flag_zian_slight_worsened, value: true }
 next: null
 ```

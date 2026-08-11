@@ -3,6 +3,7 @@
 > 入口：`dialog_e018_start` · 事件 [`../07_事件档案/主线/E018_阶段性结局.md`](../07_事件档案/主线/E018_阶段性结局.md)  
 > 判定见 [`../10_路线与结局/阶段性结局.md`](../10_路线与结局/阶段性结局.md)。  
 > **引擎**：失败优先（含中途开除/清除/反水旗）→ 再匹配 A/B/C。
+> **结算口径**：主结算以事件文件为准；本文件只保留分支路由、恩怨选择与演出文本。
 
 ---
 
@@ -97,13 +98,43 @@ speaker: char_qian_demao
 loc_key: dialog.e018.a.qian
 text_zh: |
   瑞生啊，子安不争气。跑街的位置，明天就给你。后堂的事你也多看着。月例提上去，外头的应酬账也归你经手。
+next: dialog_e018_a_demao_grudge
+
+dialog_id: dialog_e018_a_demao_grudge
+speaker: narrator
+loc_key: dialog.e018.a.demao_grudge
+text_zh: |
+  （闪回）也是这前堂——他说「跑街暂缓」，让你去伺候少爷。
+  今日他把位子递回来。这账，你是当众撕开，还是接住、记下？
+tags: [choice]
+choices:
+  - id: A
+    loc_key: dialog.e018.a.demao.punish
+    text_zh: 惩罚——请东家把「迟早」说成当着众人的话
+    require: [{ grudge: grudge_demao_defer, status: open }]
+    next: dialog_e018_a_title
+  - id: B
+    loc_key: dialog.e018.a.demao.forgive
+    text_zh: 宽恕——接权，不撕破脸
+    require: [{ grudge: grudge_demao_defer, status: open }]
+    next: dialog_e018_a_title
+  - id: C
+    loc_key: dialog.e018.a.demao.skip
+    text_zh: （债已了结或不提）
+    next: dialog_e018_a_title
+
+dialog_id: dialog_e018_a_title
+speaker: narrator
+loc_key: dialog.e018.a.title
+text_zh: |
+  第一次，有人在你背后叫出完整的三个字：「林跑街。」
 next: dialog_e018_a_close
 
 dialog_id: dialog_e018_a_close
 speaker: narrator
 loc_key: dialog.e018.a.close
 text_zh: |
-  林瑞生低着头应了。他能进后堂了——更多账目、更多秘密。
+  林瑞生低着头应了。他能进后堂了——更多账目、更多秘密。后堂的门只开了一道缝。
   这不只是个位置。月例更厚，街面上的体面更足，婚事也终于像能往前挪一挪。
 
   光绪十六年的秋天，林瑞生当上了钱记商行的跑街。他走进了后堂，看到了那些他不该看到的东西。
@@ -111,9 +142,6 @@ text_zh: |
   可他还没想到：从天津到京城的那条线，不会让一个跑街的小子轻易翻身。
 
   暗潮，才刚刚涌动。
-# 若持有 item_opium_sample，表现层可追加一句「口袋里那块膏状物发烫」；无样品则不提。
-effects:
-  - { op: set_flag, key: flag_ending_a, value: true }
 next: null
 ```
 
@@ -134,6 +162,22 @@ speaker: char_zhao_hongyun
 loc_key: dialog.e018.b.zhao
 text_zh: |
   好。从今天起，你是聚丰的跑街，月薪五两。先办一件事——把钱记那批南洋木材的单子，截过来。你先前被报价的那份资格，今天算是兑现了第一笔钱。
+next: dialog_e018_b_title
+
+dialog_id: dialog_e018_b_title
+speaker: narrator
+loc_key: dialog.e018.b.title
+text_zh: |
+  赵鸿运说「你是聚丰的跑街」时，没有压嗓子。门边的伙计、柜上的账房、端茶的跑堂，全都听见了。
+  这一回，称呼不是从钱记前堂里抠出来的，是在另一家门脸底下，明明白白给出来的。
+next: dialog_e018_b_crowd
+
+dialog_id: dialog_e018_b_crowd
+speaker: narrator
+loc_key: dialog.e018.b.crowd
+text_zh: |
+  有人朝你拱手，半是试探，半是改口。街市里的风声会很快传回钱记：那个被你们当学徒使唤的小子，如今有人拿月薪五两请了。
+  钱德茂听见，只会怒；旁人听见，却会重新掂量你值多少。
 next: dialog_e018_b_close
 
 dialog_id: dialog_e018_b_close
@@ -143,10 +187,9 @@ text_zh: |
   第一步做成了。钱德茂勃然大怒，却查不到是谁走漏的消息。
 
   月薪五两，比在钱记当学徒像样得多；可这五两不是抬举，是价码。赵鸿运笑眯眯看着你，那眼神像在称一块肉——有用，但随时可换。
+  你拿到的，不只是第一笔更像样的活钱，也是第一张真正属于自己的位子。以后再有人想拿「学徒」压你，就得先想想你背后站的是哪家门脸。
 
   暗潮换了岸，水一样深。
-effects:
-  - { op: set_flag, key: flag_ending_b, value: true }
 next: null
 ```
 
@@ -185,6 +228,22 @@ speaker: char_bradley
 loc_key: dialog.e018.c.price
 text_zh: |
   那你开个价。第一笔分成从这里起（层 4），后续才谈抽头与佣金（层 5）。
+next: dialog_e018_c_title
+
+dialog_id: dialog_e018_c_title
+speaker: narrator
+loc_key: dialog.e018.c.title
+text_zh: |
+  白瑞德没有叫人记账房，也没有叫人请买办。他亲自把话递给你——这本身，就是一张门票。
+  从这一刻起，你不再只是被观察的本地门路，而是被放进长期生意里试用的人。
+next: dialog_e018_c_crowd
+
+dialog_id: dialog_e018_c_crowd
+speaker: narrator
+loc_key: dialog.e018.c.crowd
+text_zh: |
+  洋行里的人看你的眼神变了：不是看一个送信的，而是看一个能替他们找路、认货、通人的代理。
+  这眼神比银子更值钱，也比银子更脏。
 next: dialog_e018_c_close
 
 dialog_id: dialog_e018_c_close
@@ -197,8 +256,6 @@ text_zh: |
   代价是日后替他们辨青铜、找字画、通门路；还有南方一路运来的货。
 
   暗潮之下，没有干净的手。
-effects:
-  - { op: set_flag, key: flag_ending_c, value: true }
 next: null
 ```
 
@@ -214,8 +271,6 @@ text_zh: |
   钱记的朱红大门早已对你关上。你在华界租间破屋熬到秋末，手里的散碎银子一天薄过一天，打听消息的人越来越少。
 
   光绪十六年的天津，多了一个没人记得名字的流浪汉。
-effects:
-  - { op: set_flag, key: flag_ending_fail, value: true }
 next: null
 
 dialog_id: dialog_e018_fail_purged
@@ -225,8 +280,6 @@ text_zh: |
   栽赃、送客、离津。码头的汽笛响着，你上了南下的船，怀里那点盘缠薄得可怜，连回头看一眼的资格都没有。
 
   天津卫的雨，洗不掉一个被清除的人。
-effects:
-  - { op: set_flag, key: flag_ending_fail, value: true }
 next: null
 
 dialog_id: dialog_e018_fail_liu
@@ -236,8 +289,6 @@ text_zh: |
   枕边风翻了面。钱子安拿到了你的把柄，如烟进了钱家侧门。
 
   你站在纺纱厂门口，厂里的女工低头走过，没有人叫你的名字。办不起的婚事，到头来连个空日子都没剩下。
-effects:
-  - { op: set_flag, key: flag_ending_fail, value: true }
 next: null
 
 dialog_id: dialog_e018_fail_stats
@@ -247,7 +298,5 @@ text_zh: |
   嫌疑压垮了信任，或信任被你自己磨穿。钱德茂不必再找借口——你在商行已无立足之地，手里的银子也不够再撑几回体面。
 
   光绪十六年的秋天，暗潮没有托起你，只把你拍在岸上。
-effects:
-  - { op: set_flag, key: flag_ending_fail, value: true }
 next: null
 ```
