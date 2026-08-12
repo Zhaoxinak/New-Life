@@ -44,6 +44,7 @@ func try_player_action(act_id: String) -> bool:
 
 	var effects: Array = row.get("effects", [])
 	EffectApplier.apply_all(effects, "act:%s" % act_id)
+	MeetingSystem.on_player_action(act_id)
 	RunState.meta["last_act_id"] = act_id
 	action_resolved.emit(act_id)
 
@@ -77,6 +78,8 @@ func begin_queued_event() -> bool:
 func finish_event_playback(event_id: String) -> void:
 	var erow: Dictionary = PackDB.get_row_by_id("def_event", "event_id", event_id)
 	RunState.append_history("event", event_id, String(erow.get("loc_key", event_id)), {})
+	if event_id == "M000":
+		RunState.set_flag("seen_event_M000_%d" % RunState.day(), true)
 	DomainBus.emit_domain("event_finished", {"event_id": event_id})
 	if RunState.ended:
 		DomainBus.emit_domain("run_over", {"reason": RunState.end_reason, "last_event": event_id})
@@ -137,6 +140,7 @@ func _on_day_end_hooks() -> void:
 		var requires: Array = row.get("require", [])
 		if ConditionEval.eval_all(requires):
 			EffectApplier.apply_all(row.get("effects", []), "tick:%s" % row.get("tick_id", "?"))
+	MeetingSystem.on_day_end()
 	FinanceService.on_day_end()
 
 
@@ -153,6 +157,32 @@ func _queue_calendar_events() -> void:
 		var eid := String(eid_v)
 		RunState.enqueue_event(eid)
 		event_queued.emit(eid)
+	_maybe_queue_routine_meeting(ids)
+
+
+func _maybe_queue_routine_meeting(already: Array) -> void:
+	## 朝账日早上：若日历未排 M*，自动入队例行朝账 M000。
+	if RunState.slot() != "morning":
+		return
+	if not MeetingSystem.is_meeting_day():
+		return
+	for eid_v in already:
+		var eid := String(eid_v)
+		if eid.begins_with("M"):
+			return
+	if RunState.queue.has("M000") or bool(RunState.get_flag("seen_event_M000_%d" % RunState.day(), false)):
+		return
+	# 同日已有任意 M* 在队列也不重复
+	for q in RunState.queue:
+		if String(q).begins_with("M"):
+			return
+	var ev: Dictionary = PackDB.get_row_by_id("def_event", "event_id", "M000")
+	if ev.is_empty():
+		return
+	if not ConditionEval.eval_all(ev.get("require", [])):
+		return
+	RunState.enqueue_event("M000")
+	event_queued.emit("M000")
 
 
 func _location_open(loc_id: String) -> bool:

@@ -144,12 +144,51 @@
 
 合法 `grudge_*` 见 [`../05_关系档案/恩怨账与清算.md`](../05_关系档案/恩怨账与清算.md)。
 
-### 2.8 流程控制（慎用）
+### 2.8 朝账
+
+| op | 必填 | 语义 |
+|---|---|---|
+| `assign_weekly_tasks` | `ids: [task_*]` | 写入 `run_meeting.weekly_tasks` |
+| `add_meeting_report` | `value` | 加本周 `report_score`（封顶 100） |
+| `set_meeting_tier` | `value`∈{listen,report,decide} | 写 `run_meeting.attendance_tier` |
+| `init_council_queue` | `ids: [char_*]` | 生成本局 ④ 段发言顺序 |
+| `record_council_speech` | `char`, `spoke`, `topic_key?`, `stance?`, `mode?` | 记发言/沉默/附议入 `council_log` |
+| `add_policy_draft` | `key`, `value` | 累加 `policy_draft`，供 ⑤ 定调 |
+
+```yaml
+- { op: assign_weekly_tasks, ids: [task_tidy_manifest, task_front_duty] }
+- { op: add_meeting_report, value: 8 }
+- { op: set_meeting_tier, value: report }
+- { op: init_council_queue, ids: [char_zhou_guanshi, char_wang_pangzi] }
+- { op: record_council_speech, char: char_lin_ruisheng, spoke: true, stance: bright_steady, mode: speak }
+- { op: add_policy_draft, key: bright_steady, value: 2 }
+```
+
+规则：[`../17_朝账系统/朝账系统规则.md`](../17_朝账系统/朝账系统规则.md) · 建言：[`../17_朝账系统/诸人建言.md`](../17_朝账系统/诸人建言.md)。
+
+### 2.8b 序位战
+
+| op | 必填 | 语义 |
+|---|---|---|
+| `init_ladder_pool` | `pool_id` | 换池并生成竞争者 `entries` |
+| `add_ladder_score` | `char`, `value` | 池内加分 |
+| `set_ladder_slots` | `value` | 本朝账可升名额 |
+| `bias_ladder_npc` | `char`, `value` | 剧情周 NPC 偏置（如子安/孙六） |
+
+```yaml
+- { op: init_ladder_pool, pool_id: pool_apprentice }
+- { op: add_ladder_score, char: char_lin_ruisheng, value: 8 }
+- { op: bias_ladder_npc, char: char_qian_zian, value: 12 }
+```
+
+规则：[`../13_职级档案/职级竞争与排名.md`](../13_职级档案/职级竞争与排名.md)。
+
+### 2.9 流程控制（慎用）
 
 | op | 必填 | 语义 |
 |---|---|---|
 | `set_temp` | key, value | 仅当前时段有效，不进长期存档 |
-| `queue_event` | id=`E*|R*|F*` | 插入事件队列 |
+| `queue_event` | id=`E*|M*|R*|F*` | 插入事件队列 |
 | `goto_dialog` | id=`dialog_*` | 跳转对话节点 |
 | `mod_success` | value | 临时修正成功率（如 −0.30） |
 | `end_run` | reason（可选） | **立即结束本局**（F003/F005 等）；可先播对白再结算 |

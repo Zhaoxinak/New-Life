@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://ui/PlayChrome.gd" id="1_chrome"]
 [ext_resource type="PackedScene" path="res://ui/LocationStage.tscn" id="2_stage"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" path="res://ui/LedgerOverlay.tscn" id="5_ledger"]
 [ext_resource type="PackedScene" path="res://ui/SettingsOverlay.tscn" id="6_settings"]
 [ext_resource type="PackedScene" path="res://ui/TutorialOverlay.tscn" id="7_tut"]
+[ext_resource type="PackedScene" path="res://ui/LadderOverlay.tscn" id="8_ladder"]
 
 [node name="PlayChrome" type="Control"]
 layout_mode = 3
@@ -193,6 +194,9 @@ layout_mode = 2
 text = "合上"
 
 [node name="LedgerOverlay" parent="." instance=ExtResource("5_ledger")]
+unique_name_in_owner = true
+
+[node name="LadderOverlay" parent="." instance=ExtResource("8_ladder")]
 unique_name_in_owner = true
 
 [node name="SettingsOverlay" parent="." instance=ExtResource("6_settings")]

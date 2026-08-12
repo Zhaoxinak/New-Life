@@ -7,6 +7,7 @@ signal return_to_title
 @onready var dialogue: Control = %DialogueBox
 @onready var act_sheet: PanelContainer = %ActSheet
 @onready var ledger: CanvasLayer = %LedgerOverlay
+@onready var ladder_board: CanvasLayer = %LadderOverlay
 @onready var settings: CanvasLayer = %SettingsOverlay
 @onready var tutorial: CanvasLayer = %TutorialOverlay
 @onready var help_layer: Control = %HelpLayer
@@ -181,6 +182,8 @@ func _on_return_title() -> void:
 	act_sheet.visible = false
 	dialogue.visible = false
 	ledger.hide_ledger()
+	if ladder_board:
+		ladder_board.hide_board()
 	return_to_title.emit()
 
 
@@ -190,6 +193,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if tutorial != null and tutorial.visible:
 		return
 	if settings.visible:
+		return
+	if ladder_board != null and ladder_board.visible:
+		if event is InputEventKey and event.pressed and not event.echo \
+			and event.keycode == KEY_ESCAPE:
+			ladder_board.hide_board()
+			get_viewport().set_input_as_handled()
 		return
 	if ledger.visible:
 		if event is InputEventKey and event.pressed and not event.echo \
@@ -210,6 +219,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		if event.keycode == KEY_H:
 			_toggle_help()
+			get_viewport().set_input_as_handled()
+			return
+		if event.keycode == KEY_L:
+			if ladder_board:
+				ladder_board.toggle()
 			get_viewport().set_input_as_handled()
 			return
 		if event.keycode == KEY_J:
@@ -236,6 +250,14 @@ func _on_domain(event_name: String, payload: Dictionary) -> void:
 			_refresh_loc_nav()
 		"grudge_resolved":
 			_refresh_hud()
+		"ladder_rank_changed", "meeting_changed", "meeting_tasks_changed", "meeting_report_finalized":
+			_refresh_hud()
+			if event_name == "ladder_rank_changed":
+				var delta := int(payload.get("last_delta", 0))
+				if delta > 0:
+					_on_tip(L10n.t("ui.ladder_up", "序位上升"))
+				elif delta < 0:
+					_on_tip(L10n.t("ui.ladder_down", "序位下滑"))
 		"run_over":
 			_on_tip(L10n.t("ui.run_ended", "本局结束：%s") % String(payload.get("reason", "")))
 			_set_interactive(false)
@@ -461,7 +483,7 @@ func _build_hud_chips() -> void:
 	for c in hud_stats.get_children():
 		c.queue_free()
 	_hud_chips.clear()
-	var ids: PackedStringArray = ["money", "rank", "heat", "sus"]
+	var ids: PackedStringArray = ["money", "rank", "ladder", "meeting", "heat", "sus"]
 	for i in range(ids.size()):
 		if i > 0:
 			var sep := Label.new()
@@ -476,8 +498,18 @@ func _build_hud_chips() -> void:
 		lb.add_theme_color_override("font_color", KairoStyle.SOFT_INK)
 		lb.mouse_entered.connect(_on_hud_chip_hover.bind(id, true))
 		lb.mouse_exited.connect(_on_hud_chip_hover.bind(id, false))
+		if id == "ladder":
+			lb.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+			lb.gui_input.connect(_on_ladder_chip_input)
 		hud_stats.add_child(lb)
 		_hud_chips[id] = lb
+
+
+func _on_ladder_chip_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if ladder_board:
+			ladder_board.toggle()
+		get_viewport().set_input_as_handled()
 
 
 func _on_hud_chip_hover(id: String, on: bool) -> void:
@@ -503,10 +535,62 @@ func _refresh_hud() -> void:
 
 	_set_chip("money", "%s %s两" % [L10n.t("stat.money"), _fmt_num(money)], _tip_money(money, monthly, credit))
 	_set_chip("rank", "%s【%s】" % [L10n.t("ui.rank", "职级"), rank], _tip_rank(rank_id, rank, monthly))
+	var ladder_txt := MeetingSystem.hud_ladder_text()
+	if ladder_txt.is_empty():
+		ladder_txt = L10n.t("ui.ladder_pending", "序位 —")
+	_set_chip("ladder", ladder_txt, _tip_ladder())
+	_set_chip("meeting", MeetingSystem.hud_meeting_text(), _tip_meeting())
 	_set_chip("heat", "%s %s" % [L10n.t("ui.org_heat", "热度"), _fmt_num(heat)], _tip_heat(heat, liq))
 	_set_chip("sus", "%s %s" % [L10n.t("stat.suspicion"), _fmt_num(sus)], _tip_sus(sus, trust, intel))
 	if RunState.ended:
 		day_label.tooltip_text = L10n.t("ui.run_ended", "本局结束：%s") % RunState.end_reason
+
+
+func _tip_ladder() -> String:
+	MeetingSystem.ensure_state()
+	var pool := String(RunState.ladder.get("pool_id", ""))
+	var rank := int(RunState.ladder.get("player_rank", 0))
+	var total := int(RunState.ladder.get("player_total", 0))
+	var lines: PackedStringArray = [
+		L10n.t("hud.tip.ladder.title", "【序位】同池明面排名，朝账③段按序升降"),
+		L10n.t("hud.tip.ladder.rank", "当前：%d / %d") % [rank, total],
+	]
+	if not pool.is_empty():
+		lines.append(L10n.t("hud.tip.ladder.pool", "池：%s") % L10n.t("ladder.%s.name" % pool, pool))
+	var entries: Array = RunState.ladder.get("entries", [])
+	var sorted: Array = entries.duplicate()
+	sorted.sort_custom(func(a, b): return float(a.get("score", 0)) > float(b.get("score", 0)))
+	for i in range(mini(5, sorted.size())):
+		var e: Dictionary = sorted[i]
+		var cid := String(e.get("char_id", ""))
+		var name := L10n.t(cid, cid)
+		var mark := "★" if bool(e.get("is_player", false)) else " "
+		lines.append("%s%d. %s  %.0f" % [mark, i + 1, name, float(e.get("score", 0))])
+	return "\n".join(lines)
+
+
+func _tip_meeting() -> String:
+	MeetingSystem.ensure_state()
+	var tier := String(RunState.meeting.get("attendance_tier", "listen"))
+	var tier_label := L10n.t("meeting.tier.%s" % tier, tier)
+	var days := int(RunState.meeting.get("days_until_next", 0))
+	var score := int(RunState.meeting.get("report_score", 0))
+	var lines: PackedStringArray = [
+		L10n.t("hud.tip.meeting.title", "【朝账】每周晨会：汇报·赏罚·建言·摊派"),
+		L10n.t("hud.tip.meeting.tier", "参与：%s") % tier_label,
+		L10n.t("hud.tip.meeting.days", "距下次：%d 日") % days,
+		L10n.t("hud.tip.meeting.score", "本周汇报分：%d") % score,
+	]
+	var tasks: Array = RunState.meeting.get("weekly_tasks", [])
+	if tasks.is_empty():
+		lines.append(L10n.t("hud.tip.meeting.no_tasks", "本周差事：无"))
+	else:
+		for t in tasks:
+			if typeof(t) != TYPE_DICTIONARY:
+				continue
+			var label := L10n.t(String(t.get("label_key", "")), String(t.get("id", "")))
+			lines.append("%s %d/%d" % [label, int(t.get("progress", 0)), int(t.get("target", 1))])
+	return "\n".join(lines)
 
 
 func _set_chip(id: String, text: String, tip: String) -> void:

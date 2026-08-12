@@ -9,11 +9,13 @@
 | 文件 | 入口 | 事件 |
 |---|---|---|
 | [DIALOG_E001.md](DIALOG_E001.md) | `dialog_e001_start` | 开场与老板考校 |
+| [DIALOG_M001.md](DIALOG_M001.md) | `dialog_m001_start` | 首次旁听朝账 |
 | [DIALOG_E002.md](DIALOG_E002.md) | `dialog_e002_start` | 未婚妻来访 |
 | [DIALOG_E003.md](DIALOG_E003.md) | `dialog_e003_start` | 货单异常 |
 | [DIALOG_E004.md](DIALOG_E004.md) | `dialog_e004_start` | 少爷驾到 |
 | [DIALOG_E005.md](DIALOG_E005.md) | `dialog_e005_start` | 暮色初见 |
 | [DIALOG_E006.md](DIALOG_E006.md) | `dialog_e006_start` | 升职搁置 |
+| [DIALOG_M002.md](DIALOG_M002.md) | `dialog_m002_start` | 满师朝账 |
 | [DIALOG_E007.md](DIALOG_E007.md) | `dialog_e007_start` | 第一次考察 |
 | [DIALOG_E008.md](DIALOG_E008.md) | `dialog_e008_start` | 纳妾风波 |
 | [DIALOG_E009.md](DIALOG_E009.md) | `dialog_e009_start` | 抉择时刻 |
@@ -31,6 +33,7 @@
 | [DIALOG_E020.md](DIALOG_E020.md) | `dialog_e020_start` | 升任外场 |
 | [DIALOG_E020B.md](DIALOG_E020B.md) | `dialog_e020b_start` | 聚丰报价 |
 | [DIALOG_E020C.md](DIALOG_E020C.md) | `dialog_e020c_start` | 洋行门路 |
+| [DIALOG_M003.md](DIALOG_M003.md) | `dialog_m003_start` | 升外场朝账 |
 | [DIALOG_E021.md](DIALOG_E021.md) | `dialog_e021_start` | 轻清算 |
 | [DIALOG_E021B.md](DIALOG_E021B.md) | `dialog_e021b_start` | 轻清算（街市） |
 | [DIALOG_E021C.md](DIALOG_E021C.md) | `dialog_e021c_start` | 轻清算（借势） |
@@ -52,6 +55,12 @@
 | [DIALOG_R008.md](DIALOG_R008.md) | `dialog_r008_start` | 伙计私语 |
 | [DIALOG_R009.md](DIALOG_R009.md) | `dialog_r009_start` | 洋行邀约 |
 | [DIALOG_R010.md](DIALOG_R010.md) | `dialog_r010_start` | 看客起哄 |
+
+## 朝账建言池
+
+| 文件 | 入口 | 说明 |
+|---|---|---|
+| [DIALOG_MEETING_COUNCIL.md](DIALOG_MEETING_COUNCIL.md) | `dialog_meeting_council_*` | ④ 段诸人建言：NPC 发言/沉默 + 玩家建言选项 |
 
 ## 失败 F001–F005
 

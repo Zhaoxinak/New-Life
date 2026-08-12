@@ -1073,6 +1073,64 @@
       ],
       "effects": [],
       "effects_when": "dialog"
+    },
+    {
+      "event_id": "M001",
+      "loc_key": "event.m001.name",
+      "dialog_entry": "dialog_m001_start",
+      "effects_when": "dialog",
+      "require": [],
+      "effects": []
+    },
+    {
+      "event_id": "M002",
+      "loc_key": "event.m002.name",
+      "dialog_entry": "dialog_m002_start",
+      "effects_when": "dialog",
+      "require": [
+        {
+          "flag": "flag_meeting_witness",
+          "value": true
+        }
+      ],
+      "effects": []
+    },
+    {
+      "event_id": "M003",
+      "loc_key": "event.m003.name",
+      "dialog_entry": "dialog_m003_start",
+      "effects_when": "dialog",
+      "mutex_group": "chapter2.rankup",
+      "require": [
+        {
+          "rank": "apprentice"
+        },
+        {
+          "key": "stat_trust_firm",
+          "op": ">=",
+          "value": 45
+        },
+        {
+          "key": "stat_intel",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "effects": []
+    },
+    {
+      "event_id": "M000",
+      "loc_key": "event.m000.name",
+      "dialog_entry": "dialog_m000_start",
+      "effects_when": "dialog",
+      "require": [
+        {
+          "flag": "flag_meeting_witness",
+          "value": true
+        }
+      ],
+      "effects": [],
+      "event_type": "meeting"
     }
   ]
 }

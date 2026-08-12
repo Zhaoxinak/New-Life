@@ -86,6 +86,21 @@ func eval_one(req: Dictionary) -> bool:
 	if req.has("day"):
 		return _compare(RunState.day(), String(req.get("op", ">=")), int(req["day"]))
 
+	if req.has("next_day_meeting"):
+		var want := bool(req["next_day_meeting"])
+		return MeetingSystem.next_day_is_meeting() == want
+
+	if req.has("meeting_day"):
+		var want_m := bool(req["meeting_day"])
+		return MeetingSystem.is_meeting_day() == want_m
+
+	if req.has("policy_leading"):
+		return MeetingSystem.leading_policy_key() == String(req["policy_leading"])
+
+	if req.has("meeting_tier"):
+		MeetingSystem.ensure_state()
+		return String(RunState.meeting.get("attendance_tier", "listen")) == String(req["meeting_tier"])
+
 	if req.has("edge"):
 		return _eval_edge(req)
 

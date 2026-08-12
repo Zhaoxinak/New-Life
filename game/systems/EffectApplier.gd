@@ -126,6 +126,54 @@ func apply_one(fx: Dictionary, reason: String = "") -> bool:
 			# 设计期形状；运行时由对话/UI 展平。此处跳过并提示。
 			_skip("menu must be flattened to dialog choices", reason)
 			return false
+		"assign_weekly_tasks":
+			MeetingSystem.assign_weekly_tasks(fx.get("ids", []))
+			return true
+		"add_meeting_report":
+			MeetingSystem.add_meeting_report(int(fx.get("value", 0)))
+			return true
+		"set_meeting_tier":
+			MeetingSystem.set_meeting_tier(String(fx.get("value", "")))
+			return true
+		"init_council_queue":
+			MeetingSystem.init_council_queue(fx.get("ids", []))
+			return true
+		"record_council_speech":
+			MeetingSystem.record_council_speech(fx)
+			return true
+		"add_policy_draft":
+			MeetingSystem.add_policy_draft(String(fx.get("key", "")), float(fx.get("value", 0)))
+			return true
+		"finalize_meeting_report":
+			MeetingSystem.finalize_meeting_report()
+			return true
+		"complete_meeting_cycle":
+			MeetingSystem.complete_meeting_cycle(String(fx.get("summary_key", fx.get("value", ""))))
+			return true
+		"resolve_meeting_policy":
+			MeetingSystem.resolve_meeting_policy()
+			return true
+		"init_default_council":
+			MeetingSystem.init_council_queue(MeetingSystem.build_default_council_queue())
+			return true
+		"assign_rank_tasks":
+			MeetingSystem.assign_weekly_tasks(MeetingSystem.default_tasks_for_rank())
+			return true
+		"apply_route_policy_bias":
+			MeetingSystem.apply_route_policy_bias()
+			return true
+		"init_ladder_pool":
+			MeetingSystem.init_ladder_pool(String(fx.get("pool_id", fx.get("value", ""))))
+			return true
+		"add_ladder_score":
+			MeetingSystem.add_ladder_score(String(fx.get("char", fx.get("char_id", ""))), float(fx.get("value", 0)))
+			return true
+		"bias_ladder_npc":
+			MeetingSystem.bias_ladder_npc(String(fx.get("char", fx.get("char_id", ""))), float(fx.get("value", 0)))
+			return true
+		"set_ladder_slots":
+			MeetingSystem.set_ladder_slots(int(fx.get("value", 1)))
+			return true
 		_:
 			_skip("unknown op %s" % op, reason)
 			return false

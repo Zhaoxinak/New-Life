@@ -29,7 +29,10 @@ on_day_end:
     if: { flag: flag_bank_loan_active }
     then: { op: add, key: stat_money, value: -1, reason: "票号息" }
     note: "ACT_11 短借还款；还清后清 flag"
-  - id: neglect_liu
+  - id: meeting_report_weekly
+    if: { next_day_meeting: true }
+    then: { op: finalize_meeting_report }
+    note: "朝账日前夜结算 report_score；见 17_朝账系统/汇报分与周差事.md"
     if: { not_acted: act_06, days: 1 }  # 当日未陪伴
     then: { op: add_edge, from: char_liu_ruyan, to: char_lin_ruisheng, key: score, value: -8 }
     note: "冷落→如烟对你交情分下降；可调为仅连续冷落才触发"

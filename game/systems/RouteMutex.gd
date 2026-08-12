@@ -12,7 +12,11 @@ func pick_calendar_candidates(rows: Array) -> Array:
 		var eid := String(r.get("event_id", ""))
 		if eid.is_empty():
 			continue
-		if RunState.get_flag("seen_event_%s" % eid, false):
+		if eid == "M000":
+			# 例行朝账可每周重播；按日去重
+			if RunState.get_flag("seen_event_M000_%d" % RunState.day(), false):
+				continue
+		elif RunState.get_flag("seen_event_%s" % eid, false):
 			continue
 		if RunState.queue.has(eid):
 			continue

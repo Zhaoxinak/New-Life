@@ -2,7 +2,7 @@
   "pack_id": "anchao",
   "display_name": "暗潮",
   "schema_version": "0.1",
-  "content_version": "1.10.3-kairo",
+  "content_version": "1.11.1-kairo",
   "depends_on": [],
   "tables": [
     {

@@ -15,7 +15,10 @@
       "dark_know": "不知",
       "wealth": "拮据",
       "money_soft": "婚事、体面、家用",
-      "tags": ["玩家", "钱家"]
+      "tags": [
+        "玩家",
+        "钱家"
+      ]
     },
     {
       "char_id": "char_qian_demao",
@@ -32,9 +35,18 @@
       "dark_know": "深知",
       "wealth": "豪阔",
       "money_soft": "京中月奉、独子、暗账",
-      "tags": ["钱家", "老板"],
-      "related_meters": ["father_son"],
-      "relate_chars": ["char_qian_zian", "char_lin_ruisheng", "char_zhou_guanshi"]
+      "tags": [
+        "钱家",
+        "老板"
+      ],
+      "related_meters": [
+        "father_son"
+      ],
+      "relate_chars": [
+        "char_qian_zian",
+        "char_lin_ruisheng",
+        "char_zhou_guanshi"
+      ]
     },
     {
       "char_id": "char_qian_zian",
@@ -51,9 +63,19 @@
       "dark_know": "半知",
       "wealth": "殷实",
       "money_soft": "面子、纳妾、压人",
-      "tags": ["钱家", "可埋债"],
-      "related_meters": ["father_son", "pursuit"],
-      "relate_chars": ["char_qian_demao", "char_liu_ruyan", "char_lin_ruisheng"]
+      "tags": [
+        "钱家",
+        "可埋债"
+      ],
+      "related_meters": [
+        "father_son",
+        "pursuit"
+      ],
+      "relate_chars": [
+        "char_qian_demao",
+        "char_liu_ruyan",
+        "char_lin_ruisheng"
+      ]
     },
     {
       "char_id": "char_liu_ruyan",
@@ -70,9 +92,17 @@
       "dark_know": "半知",
       "wealth": "小康",
       "money_soft": "婚期、体面、娘家",
-      "tags": ["婚约", "暗渠"],
-      "related_meters": ["pursuit"],
-      "relate_chars": ["char_lin_ruisheng", "char_qian_zian"]
+      "tags": [
+        "婚约",
+        "暗渠"
+      ],
+      "related_meters": [
+        "pursuit"
+      ],
+      "relate_chars": [
+        "char_lin_ruisheng",
+        "char_qian_zian"
+      ]
     },
     {
       "char_id": "char_zhou_guanshi",
@@ -89,8 +119,14 @@
       "dark_know": "半知",
       "wealth": "小康",
       "money_soft": "位子、东家眼色",
-      "tags": ["钱家", "规矩"],
-      "relate_chars": ["char_qian_demao", "char_lin_ruisheng"]
+      "tags": [
+        "钱家",
+        "规矩"
+      ],
+      "relate_chars": [
+        "char_qian_demao",
+        "char_lin_ruisheng"
+      ]
     },
     {
       "char_id": "char_wang_pangzi",
@@ -107,8 +143,14 @@
       "dark_know": "不知",
       "wealth": "拮据",
       "money_soft": "酒钱、义气",
-      "tags": ["钱家", "消息"],
-      "relate_chars": ["char_lin_ruisheng", "char_firm_hand"]
+      "tags": [
+        "钱家",
+        "消息"
+      ],
+      "relate_chars": [
+        "char_lin_ruisheng",
+        "char_firm_hand"
+      ]
     },
     {
       "char_id": "char_bradley",
@@ -125,9 +167,16 @@
       "dark_know": "半知",
       "wealth": "殷实",
       "money_soft": "佣金、评估",
-      "tags": ["洋行"],
-      "related_meters": ["impression_bradley", "eval"],
-      "relate_chars": ["char_lin_ruisheng"]
+      "tags": [
+        "洋行"
+      ],
+      "related_meters": [
+        "impression_bradley",
+        "eval"
+      ],
+      "relate_chars": [
+        "char_lin_ruisheng"
+      ]
     },
     {
       "char_id": "char_zhao_hongyun",
@@ -144,8 +193,13 @@
       "dark_know": "不知",
       "wealth": "殷实",
       "money_soft": "挖角、报价",
-      "tags": ["竞品", "跳槽"],
-      "relate_chars": ["char_lin_ruisheng"]
+      "tags": [
+        "竞品",
+        "跳槽"
+      ],
+      "relate_chars": [
+        "char_lin_ruisheng"
+      ]
     },
     {
       "char_id": "char_qing_daren",
@@ -162,9 +216,15 @@
       "dark_know": "深知",
       "wealth": "看不透",
       "money_soft": "上供、体面",
-      "tags": ["官面"],
-      "related_meters": ["impression_qing"],
-      "relate_chars": ["char_qian_demao"]
+      "tags": [
+        "官面"
+      ],
+      "related_meters": [
+        "impression_qing"
+      ],
+      "relate_chars": [
+        "char_qian_demao"
+      ]
     },
     {
       "char_id": "char_msg_broker",
@@ -181,8 +241,12 @@
       "dark_know": "半知",
       "wealth": "小康",
       "money_soft": "五两一筛",
-      "tags": ["街市"],
-      "relate_chars": ["char_lin_ruisheng"]
+      "tags": [
+        "街市"
+      ],
+      "relate_chars": [
+        "char_lin_ruisheng"
+      ]
     },
     {
       "char_id": "char_bank_clerk",
@@ -199,8 +263,12 @@
       "dark_know": "不知",
       "wealth": "小康",
       "money_soft": "信用、利息",
-      "tags": ["票号"],
-      "relate_chars": ["char_lin_ruisheng"]
+      "tags": [
+        "票号"
+      ],
+      "relate_chars": [
+        "char_lin_ruisheng"
+      ]
     },
     {
       "char_id": "char_firm_hand",
@@ -217,8 +285,103 @@
       "dark_know": "不知",
       "wealth": "拮据",
       "money_soft": "工钱",
-      "tags": ["钱家"],
-      "relate_chars": ["char_wang_pangzi", "char_lin_ruisheng"]
+      "tags": [
+        "钱家"
+      ],
+      "relate_chars": [
+        "char_wang_pangzi",
+        "char_lin_ruisheng"
+      ]
+    },
+    {
+      "char_id": "char_apprentice_xiao_chen",
+      "loc_key": "char_apprentice_xiao_chen",
+      "blurb_key": "char.xiao_chen.blurb",
+      "title_key": "char.xiao_chen.title",
+      "org_id": "org_qianji",
+      "is_player": false,
+      "demo": true,
+      "rank_label": "学徒",
+      "home_loc": "loc_01",
+      "tags": [
+        "竞争者",
+        "学徒池"
+      ]
+    },
+    {
+      "char_id": "char_apprentice_xiao_liu",
+      "loc_key": "char_apprentice_xiao_liu",
+      "blurb_key": "char.xiao_liu.blurb",
+      "title_key": "char.xiao_liu.title",
+      "org_id": "org_qianji",
+      "is_player": false,
+      "demo": true,
+      "rank_label": "学徒",
+      "home_loc": "loc_01",
+      "tags": [
+        "竞争者",
+        "学徒池"
+      ]
+    },
+    {
+      "char_id": "char_apprentice_a_fu",
+      "loc_key": "char_apprentice_a_fu",
+      "blurb_key": "char.a_fu.blurb",
+      "title_key": "char.a_fu.title",
+      "org_id": "org_qianji",
+      "is_player": false,
+      "demo": true,
+      "rank_label": "学徒",
+      "home_loc": "loc_02",
+      "tags": [
+        "竞争者",
+        "学徒池"
+      ]
+    },
+    {
+      "char_id": "char_apprentice_sun_liu",
+      "loc_key": "char_apprentice_sun_liu",
+      "blurb_key": "char.sun_liu.blurb",
+      "title_key": "char.sun_liu.title",
+      "org_id": "org_qianji",
+      "is_player": false,
+      "demo": true,
+      "rank_label": "学徒",
+      "home_loc": "loc_01",
+      "tags": [
+        "竞争者",
+        "学徒池"
+      ]
+    },
+    {
+      "char_id": "char_li_waichang",
+      "loc_key": "char_li_waichang",
+      "blurb_key": "char.li_waichang.blurb",
+      "title_key": "char.li_waichang.title",
+      "org_id": "org_qianji",
+      "is_player": false,
+      "demo": true,
+      "rank_label": "外场",
+      "home_loc": "loc_03",
+      "tags": [
+        "竞争者",
+        "外场池"
+      ]
+    },
+    {
+      "char_id": "char_zhao_waichang",
+      "loc_key": "char_zhao_waichang",
+      "blurb_key": "char.zhao_waichang.blurb",
+      "title_key": "char.zhao_waichang.title",
+      "org_id": "org_qianji",
+      "is_player": false,
+      "demo": true,
+      "rank_label": "外场",
+      "home_loc": "loc_03",
+      "tags": [
+        "竞争者",
+        "外场池"
+      ]
     }
   ]
 }

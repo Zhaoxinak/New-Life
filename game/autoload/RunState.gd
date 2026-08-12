@@ -21,6 +21,8 @@ var dialog_seen: Dictionary = {}
 var queue: Array = [] ## pending event ids
 var history: Array = [] ## 履历 [{day,slot,kind,ref,summary_key,payload}]
 var temps: Dictionary = {} ## 仅当前时段
+var meeting: Dictionary = {} ## run_meeting 朝账
+var ladder: Dictionary = {} ## run_ladder 序位战
 var active: bool = false
 var ended: bool = false
 var end_reason: String = ""
@@ -61,9 +63,14 @@ func new_game() -> void:
 	queue.clear()
 	history.clear()
 	temps.clear()
+	meeting.clear()
+	ladder.clear()
 	ended = false
 	end_reason = ""
 	active = true
+
+	if MeetingSystem:
+		MeetingSystem.bootstrap_new_game()
 
 	for row in PackDB.get_rows("def_stat"):
 		var sid: String = String(row.get("stat_id", ""))
@@ -128,6 +135,8 @@ func snapshot() -> Dictionary:
 		"dialog_seen": dialog_seen.duplicate(true),
 		"queue": queue.duplicate(true),
 		"history": history.duplicate(true),
+		"meeting": meeting.duplicate(true),
+		"ladder": ladder.duplicate(true),
 		"ended": ended,
 		"end_reason": end_reason,
 	}
@@ -147,10 +156,14 @@ func apply_snapshot(data: Dictionary) -> void:
 	dialog_seen = data.get("dialog_seen", {}).duplicate(true)
 	queue = data.get("queue", []).duplicate(true)
 	history = data.get("history", []).duplicate(true)
+	meeting = data.get("meeting", {}).duplicate(true)
+	ladder = data.get("ladder", {}).duplicate(true)
 	ended = bool(data.get("ended", false))
 	end_reason = String(data.get("end_reason", ""))
 	temps.clear()
 	active = true
+	if MeetingSystem:
+		MeetingSystem.ensure_state()
 	if history.is_empty():
 		backfill_history_from_flags()
 	DomainBus.slot_changed.emit(day(), slot())

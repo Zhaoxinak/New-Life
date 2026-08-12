@@ -7,6 +7,12 @@
       "require": []
     },
     {
+      "day": 1,
+      "slot": "morning",
+      "event_id": "M001",
+      "require": []
+    },
+    {
       "day": 2,
       "slot": "evening",
       "event_id": "E002",
@@ -19,112 +25,89 @@
       "require": []
     },
     {
-      "day": 4,
-      "slot": "morning",
-      "event_id": "E004",
-      "require": []
-    },
-    {
-      "day": 4,
+      "day": 8,
       "slot": "evening",
       "event_id": "E005",
       "require": []
     },
     {
-      "day": 5,
+      "day": 8,
       "slot": "morning",
-      "event_id": "E006",
+      "event_id": "M002",
       "require": []
     },
     {
-      "day": 5,
+      "day": 9,
       "slot": "afternoon",
       "event_id": "E007",
       "require": []
     },
     {
-      "day": 6,
+      "day": 10,
       "slot": "evening",
       "event_id": "E008",
       "require": []
     },
     {
-      "day": 7,
+      "day": 11,
       "slot": "late_night",
       "event_id": "E009",
       "require": []
     },
     {
-      "day": 8,
+      "day": 12,
       "slot": "late_night",
       "event_id": "E010",
       "require": [],
       "mutex_group": "chapter2.night_cargo"
     },
     {
-      "day": 9,
+      "day": 13,
       "slot": "afternoon",
       "event_id": "E011",
       "require": []
     },
     {
-      "day": 9,
+      "day": 13,
       "slot": "evening",
       "event_id": "E012",
       "require": []
     },
     {
-      "day": 10,
+      "day": 14,
       "slot": "late_night",
       "event_id": "E010b",
       "require": [],
       "mutex_group": "chapter2.night_cargo"
     },
     {
-      "day": 11,
+      "day": 15,
       "slot": "late_night",
       "event_id": "E013",
       "require": []
     },
     {
-      "day": 12,
+      "day": 15,
+      "slot": "morning",
+      "event_id": "M000",
+      "require": []
+    },
+    {
+      "day": 16,
       "slot": "afternoon",
       "event_id": "E019",
       "require": [],
       "mutex_group": ""
     },
     {
-      "day": 13,
+      "day": 17,
       "slot": "morning",
-      "event_id": "E020",
+      "event_id": "M003",
       "require": [],
-      "mutex_group": "chapter2.rankup",
-      "route_tags": [
-        "route_endure"
-      ]
+      "mutex_group": "chapter2.rankup"
     },
     {
-      "day": 13,
-      "slot": "morning",
-      "event_id": "E020B",
-      "require": [],
-      "mutex_group": "chapter2.rankup",
-      "route_tags": [
-        "route_defect"
-      ]
-    },
-    {
-      "day": 13,
-      "slot": "morning",
-      "event_id": "E020C",
-      "require": [],
-      "mutex_group": "chapter2.rankup",
-      "route_tags": [
-        "route_foreign"
-      ]
-    },
-    {
-      "day": 14,
+      "day": 18,
       "slot": "afternoon",
       "event_id": "E021",
       "require": [],
@@ -134,7 +117,7 @@
       ]
     },
     {
-      "day": 14,
+      "day": 18,
       "slot": "afternoon",
       "event_id": "E021B",
       "require": [],
@@ -144,7 +127,7 @@
       ]
     },
     {
-      "day": 14,
+      "day": 18,
       "slot": "afternoon",
       "event_id": "E021C",
       "require": [],
@@ -154,25 +137,25 @@
       ]
     },
     {
-      "day": 15,
+      "day": 19,
       "slot": "afternoon",
       "event_id": "E014",
       "require": []
     },
     {
-      "day": 16,
+      "day": 20,
       "slot": "late_night",
       "event_id": "E015",
       "require": []
     },
     {
-      "day": 17,
+      "day": 21,
       "slot": "afternoon",
       "event_id": "E016",
       "require": []
     },
     {
-      "day": 17,
+      "day": 21,
       "slot": "evening",
       "event_id": "E017",
       "require": [],
@@ -182,7 +165,7 @@
       "mutex_group": ""
     },
     {
-      "day": 18,
+      "day": 22,
       "slot": "afternoon",
       "event_id": "E022",
       "mutex_group": "chapter3.main_reckoning",
@@ -192,7 +175,7 @@
       "require": []
     },
     {
-      "day": 18,
+      "day": 22,
       "slot": "afternoon",
       "event_id": "E022B",
       "mutex_group": "chapter3.main_reckoning",
@@ -202,7 +185,7 @@
       "require": []
     },
     {
-      "day": 18,
+      "day": 22,
       "slot": "afternoon",
       "event_id": "E022C",
       "mutex_group": "chapter3.main_reckoning",
@@ -212,7 +195,13 @@
       "require": []
     },
     {
-      "day": 19,
+      "day": 22,
+      "slot": "morning",
+      "event_id": "M000",
+      "require": []
+    },
+    {
+      "day": 23,
       "slot": "morning",
       "event_id": "E018",
       "mutex_group": "chapter3.finale",

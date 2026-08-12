@@ -27,7 +27,8 @@
       "chapter": 1,
       "event_type": "mainline",
       "dialog_entry": "dialog_e004_start",
-      "status": "active"
+      "status": "embedded",
+      "embedded_in": "M002"
     },
     {
       "event_id": "E005",
@@ -41,7 +42,8 @@
       "chapter": 1,
       "event_type": "mainline",
       "dialog_entry": "dialog_e006_start",
-      "status": "active"
+      "status": "embedded",
+      "embedded_in": "M002"
     },
     {
       "event_id": "E007",
@@ -82,7 +84,8 @@
       "route_tags": [
         "route_endure"
       ],
-      "status": "active"
+      "status": "embedded",
+      "embedded_in": "M003"
     },
     {
       "event_id": "E020B",
@@ -93,7 +96,8 @@
       "route_tags": [
         "route_defect"
       ],
-      "status": "active"
+      "status": "embedded",
+      "embedded_in": "M003"
     },
     {
       "event_id": "E020C",
@@ -104,7 +108,8 @@
       "route_tags": [
         "route_foreign"
       ],
-      "status": "active"
+      "status": "embedded",
+      "embedded_in": "M003"
     },
     {
       "event_id": "E021",
@@ -406,6 +411,45 @@
       "mutex_group": "",
       "route_tags": [],
       "status": "active"
+    },
+    {
+      "event_id": "M001",
+      "chapter": 1,
+      "event_type": "meeting",
+      "dialog_entry": "dialog_m001_start",
+      "status": "active"
+    },
+    {
+      "event_id": "M002",
+      "chapter": 1,
+      "event_type": "meeting",
+      "dialog_entry": "dialog_m002_start",
+      "status": "active",
+      "embeds": [
+        "E004",
+        "E006"
+      ]
+    },
+    {
+      "event_id": "M003",
+      "chapter": 2,
+      "event_type": "meeting",
+      "dialog_entry": "dialog_m003_start",
+      "status": "active",
+      "embeds": [
+        "E020",
+        "E020B",
+        "E020C"
+      ],
+      "mutex_group": "chapter2.rankup"
+    },
+    {
+      "event_id": "M000",
+      "chapter": 0,
+      "event_type": "meeting",
+      "dialog_entry": "dialog_m000_start",
+      "status": "active",
+      "note": "例行朝账；可每周重播"
     }
   ]
 }

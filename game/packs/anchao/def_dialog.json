@@ -270,9 +270,14 @@
         {
           "op": "unlock_grudge",
           "id": "grudge_zian_slight"
+        },
+        {
+          "op": "set_flag",
+          "key": "seen_event_E004",
+          "value": true
         }
       ],
-      "next": ""
+      "next": "dialog_m002_report_zian"
     },
     {
       "dialog_id": "dialog_e005_start",
@@ -381,7 +386,7 @@
           "id": "grudge_demao_defer"
         }
       ],
-      "next": ""
+      "next": "dialog_m002_ladder_read"
     },
     {
       "dialog_id": "dialog_e007_start",
@@ -1090,9 +1095,14 @@
           "op": "set_flag",
           "key": "flag_grudge_window_light",
           "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "seen_event_E020",
+          "value": true
         }
       ],
-      "next": ""
+      "next": "dialog_council_zhou_order"
     },
     {
       "dialog_id": "dialog_e020b_start",
@@ -1157,9 +1167,14 @@
           "op": "set_flag",
           "key": "flag_grudge_window_light",
           "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "seen_event_E020B",
+          "value": true
         }
       ],
-      "next": ""
+      "next": "dialog_council_zhou_order"
     },
     {
       "dialog_id": "dialog_e020c_start",
@@ -1224,9 +1239,14 @@
           "op": "set_flag",
           "key": "flag_grudge_window_light",
           "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "seen_event_E020C",
+          "value": true
         }
       ],
-      "next": ""
+      "next": "dialog_council_zhou_order"
     },
     {
       "dialog_id": "dialog_e021_start",
@@ -5949,6 +5969,1377 @@
           "loc_key": "dialog.chat.opt.bye",
           "effects": [],
           "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m001_start",
+      "speaker": "narrator",
+      "loc_key": "dialog.m001.start",
+      "next": "dialog_m001_zhou_order",
+      "tags": [
+        "meeting",
+        "m001"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m001_zhou_order",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.m001.zhou_order",
+      "next": "dialog_m001_rollcall",
+      "tags": [
+        "meeting",
+        "m001"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m001_rollcall",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.m001.rollcall",
+      "next": "dialog_m001_report_wang",
+      "tags": [
+        "meeting",
+        "m001"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m001_report_wang",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.m001.report_wang",
+      "next": "dialog_m001_demao_comment",
+      "tags": [
+        "meeting",
+        "ladder",
+        "m001"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m001_demao_comment",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.m001.demao_comment",
+      "next": "dialog_m001_paojie_echo",
+      "tags": [
+        "meeting",
+        "m001"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m001_paojie_echo",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.m001.paojie_echo",
+      "next": "dialog_m001_manshi_hint",
+      "tags": [
+        "meeting",
+        "keyword_highlight",
+        "m001"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m001_manshi_hint",
+      "speaker": "narrator",
+      "loc_key": "dialog.m001.manshi_hint",
+      "next": "dialog_m001_council_zhou",
+      "tags": [
+        "meeting",
+        "m001"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m001_council_zhou",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.m001.council_zhou",
+      "next": "dialog_m001_council_wang_pass",
+      "tags": [
+        "meeting",
+        "council",
+        "m001"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_zhou_guanshi",
+          "spoke": true,
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m001_council_wang_pass",
+      "speaker": "narrator",
+      "loc_key": "dialog.m001.council_wang_pass",
+      "next": "dialog_m001_policy_wood",
+      "tags": [
+        "meeting",
+        "council",
+        "m001"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_wang_pangzi",
+          "spoke": false,
+          "mode": "pass"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m001_policy_wood",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.m001.policy_wood",
+      "next": "dialog_m001_tasks",
+      "tags": [
+        "meeting",
+        "m001"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m001_tasks",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.m001.tasks",
+      "next": "dialog_m001_close",
+      "tags": [
+        "meeting",
+        "m001"
+      ],
+      "effects": [
+        {
+          "op": "init_ladder_pool",
+          "pool_id": "pool_apprentice"
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_meeting_witness",
+          "value": true
+        },
+        {
+          "op": "set_meeting_tier",
+          "value": "listen"
+        },
+        {
+          "op": "init_council_queue",
+          "ids": [
+            "char_zhou_guanshi",
+            "char_wang_pangzi"
+          ]
+        },
+        {
+          "op": "assign_weekly_tasks",
+          "ids": [
+            "task_tidy_manifest",
+            "task_front_duty"
+          ]
+        },
+        {
+          "op": "add_meeting_report",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m001_close",
+      "speaker": "narrator",
+      "loc_key": "dialog.m001.close",
+      "next": "",
+      "tags": [
+        "meeting",
+        "m001"
+      ],
+      "effects": [
+        {
+          "op": "complete_meeting_cycle",
+          "summary_key": "meeting.summary.m001"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m002_start",
+      "speaker": "narrator",
+      "loc_key": "dialog.m002.start",
+      "next": "dialog_m002_zhou_rollcall",
+      "tags": [
+        "meeting",
+        "m002"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m002_zhou_rollcall",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.m002.zhou_rollcall",
+      "next": "dialog_e004_start",
+      "tags": [
+        "meeting",
+        "m002"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m002_report_zian",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.m002.report_zian",
+      "next": "dialog_m002_player_named",
+      "tags": [
+        "meeting",
+        "m002"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m002_player_named",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.m002.player_named",
+      "next": "dialog_e006_start",
+      "tags": [
+        "meeting",
+        "m002"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m002_ladder_read",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.m002.ladder_read",
+      "next": "dialog_m002_council_zian",
+      "tags": [
+        "meeting",
+        "ladder",
+        "m002"
+      ],
+      "effects": [
+        {
+          "op": "bias_ladder_npc",
+          "char": "char_qian_zian",
+          "value": 12
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_lin_ruisheng",
+          "value": -5
+        },
+        {
+          "op": "set_flag",
+          "key": "seen_event_E004",
+          "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "seen_event_E006",
+          "value": true
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m002_council_zian",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.m002.council_zian",
+      "next": "dialog_m002_council_zhou_pass",
+      "tags": [
+        "meeting",
+        "council",
+        "m002"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_qian_zian",
+          "spoke": true,
+          "stance": "son_first",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "son_first",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m002_council_zhou_pass",
+      "speaker": "narrator",
+      "loc_key": "dialog.m002.council_zhou_pass",
+      "next": "dialog_m002_council_wang",
+      "tags": [
+        "meeting",
+        "council",
+        "m002"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_zhou_guanshi",
+          "spoke": false,
+          "mode": "pass"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m002_council_wang",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.m002.council_wang",
+      "next": "dialog_m002_policy_son",
+      "tags": [
+        "meeting",
+        "council",
+        "m002"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_wang_pangzi",
+          "spoke": true,
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m002_policy_son",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.m002.policy_son",
+      "next": "dialog_m002_task_humiliate",
+      "tags": [
+        "meeting",
+        "m002"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m002_task_humiliate",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.m002.task_humiliate",
+      "next": "dialog_m002_close",
+      "tags": [
+        "meeting",
+        "m002"
+      ],
+      "effects": [
+        {
+          "op": "assign_weekly_tasks",
+          "ids": [
+            "task_front_duty",
+            "task_errand"
+          ]
+        },
+        {
+          "op": "set_meeting_tier",
+          "value": "listen"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m002_close",
+      "speaker": "narrator",
+      "loc_key": "dialog.m002.close",
+      "next": "",
+      "tags": [
+        "meeting",
+        "m002"
+      ],
+      "effects": [
+        {
+          "op": "complete_meeting_cycle",
+          "summary_key": "meeting.summary.m002"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_zhou_order",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "council.zhou.order",
+      "next": "dialog_council_wang_front",
+      "tags": [
+        "meeting",
+        "council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_zhou_guanshi",
+          "spoke": true,
+          "topic_key": "council.zhou.order",
+          "stance": "bright_steady"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_zhou_pass",
+      "speaker": "narrator",
+      "loc_key": "council.zhou.pass",
+      "next": "dialog_council_wang_front",
+      "tags": [
+        "meeting",
+        "council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_zhou_guanshi",
+          "spoke": false,
+          "mode": "pass"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_wang_front",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "council.wang.front_busy",
+      "next": "dialog_meeting_council_player_pick",
+      "tags": [
+        "meeting",
+        "council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_wang_pangzi",
+          "spoke": true,
+          "stance": "bright_steady"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_wang_pass",
+      "speaker": "narrator",
+      "loc_key": "council.wang.pass",
+      "next": "dialog_meeting_council_player_pick",
+      "tags": [
+        "meeting",
+        "council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_wang_pangzi",
+          "spoke": false,
+          "mode": "pass"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_zian_show",
+      "speaker": "char_qian_zian",
+      "loc_key": "council.zian.show",
+      "next": "dialog_meeting_council_next",
+      "tags": [
+        "meeting",
+        "council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_qian_zian",
+          "spoke": true,
+          "stance": "son_first"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "son_first",
+          "value": 2
+        },
+        {
+          "op": "add",
+          "meter": "father_son",
+          "value": -5
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_council_player_pick",
+      "speaker": "char_qian_demao",
+      "loc_key": "council.player.pick",
+      "tags": [
+        "meeting",
+        "council"
+      ],
+      "choices": [
+        {
+          "id": "council_speak",
+          "loc_key": "council.choice.speak",
+          "next": "dialog_meeting_council_topic"
+        },
+        {
+          "id": "council_silent",
+          "loc_key": "council.choice.silent",
+          "next": "dialog_meeting_council_player_pass"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_council_topic",
+      "speaker": "narrator",
+      "loc_key": "council.player.topic",
+      "tags": [
+        "meeting",
+        "council"
+      ],
+      "choices": [
+        {
+          "id": "steady",
+          "loc_key": "council.choice.steady",
+          "next": "dialog_council_player_steady"
+        },
+        {
+          "id": "market",
+          "loc_key": "council.choice.market",
+          "next": "dialog_council_player_market"
+        },
+        {
+          "id": "look_away",
+          "loc_key": "council.choice.look_away",
+          "next": "dialog_council_player_look_away"
+        },
+        {
+          "id": "risk",
+          "loc_key": "council.choice.risk",
+          "require": [
+            {
+              "key": "stat_intel",
+              "op": ">=",
+              "value": 15
+            }
+          ],
+          "next": "dialog_council_player_risk"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_player_steady",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "council.player.steady",
+      "next": "dialog_meeting_council_demao_nod",
+      "tags": [
+        "meeting",
+        "council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_lin_ruisheng",
+          "spoke": true,
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 2
+        },
+        {
+          "op": "add",
+          "key": "stat_trust_firm",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_player_market",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "council.player.market",
+      "next": "dialog_meeting_council_demao_nod",
+      "tags": [
+        "meeting",
+        "council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_lin_ruisheng",
+          "spoke": true,
+          "stance": "watch_jufeng",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "watch_jufeng",
+          "value": 2
+        },
+        {
+          "op": "add",
+          "key": "stat_network",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_player_look_away",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "council.player.look_away",
+      "next": "dialog_meeting_council_demao_nod",
+      "tags": [
+        "meeting",
+        "council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_lin_ruisheng",
+          "spoke": true,
+          "stance": "look_away",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "look_away",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_player_risk",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "council.player.risk",
+      "next": "dialog_meeting_council_demao_cut",
+      "tags": [
+        "meeting",
+        "council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_lin_ruisheng",
+          "spoke": true,
+          "stance": "risk_report",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "risk_report",
+          "value": 2
+        },
+        {
+          "op": "add",
+          "key": "stat_intel",
+          "value": 2
+        },
+        {
+          "op": "add",
+          "key": "stat_suspicion",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_council_player_pass",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "council.player.pass",
+      "next": "dialog_meeting_council_next",
+      "tags": [
+        "meeting",
+        "council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_lin_ruisheng",
+          "spoke": false,
+          "mode": "pass"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_council_demao_nod",
+      "speaker": "char_qian_demao",
+      "loc_key": "council.demao.nod",
+      "next": "dialog_meeting_council_next",
+      "tags": [
+        "meeting",
+        "council"
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_council_demao_cut",
+      "speaker": "char_qian_demao",
+      "loc_key": "council.demao.cut",
+      "next": "dialog_meeting_council_next",
+      "tags": [
+        "meeting",
+        "council"
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_council_next",
+      "speaker": "narrator",
+      "loc_key": "council.next",
+      "next": "dialog_meeting_policy_resolve",
+      "tags": [
+        "meeting",
+        "council"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m003_start",
+      "speaker": "narrator",
+      "loc_key": "dialog.m003.start",
+      "next": "dialog_m003_enter_hall",
+      "tags": [
+        "meeting",
+        "m003"
+      ],
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_in_m003",
+          "value": true
+        },
+        {
+          "op": "clear_flag",
+          "key": "flag_in_m000"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m003_enter_hall",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.m003.enter_hall",
+      "next": "dialog_m003_report_choice",
+      "tags": [
+        "meeting",
+        "m003"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m003_report_choice",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.m003.report_choice",
+      "tags": [
+        "meeting",
+        "m003"
+      ],
+      "choices": [
+        {
+          "id": "honest",
+          "loc_key": "dialog.m003.choice.honest",
+          "next": "dialog_m003_report_a"
+        },
+        {
+          "id": "polish",
+          "loc_key": "dialog.m003.choice.polish",
+          "next": "dialog_m003_report_b"
+        },
+        {
+          "id": "hold",
+          "loc_key": "dialog.m003.choice.hold",
+          "next": "dialog_m003_report_c"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m003_report_a",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.m003.report_a",
+      "next": "",
+      "tags": [
+        "meeting",
+        "m003"
+      ],
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_trust_firm",
+          "value": 3
+        }
+      ],
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "flag": "route_defect",
+              "value": true
+            }
+          ],
+          "id": "dialog_e020b_start"
+        },
+        {
+          "require": [
+            {
+              "flag": "route_foreign",
+              "value": true
+            }
+          ],
+          "id": "dialog_e020c_start"
+        },
+        {
+          "default": "dialog_e020_start"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m003_report_b",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.m003.report_b",
+      "next": "",
+      "tags": [
+        "meeting",
+        "m003"
+      ],
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_trust_firm",
+          "value": 1
+        },
+        {
+          "op": "add_meeting_report",
+          "value": 5
+        }
+      ],
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "flag": "route_defect",
+              "value": true
+            }
+          ],
+          "id": "dialog_e020b_start"
+        },
+        {
+          "require": [
+            {
+              "flag": "route_foreign",
+              "value": true
+            }
+          ],
+          "id": "dialog_e020c_start"
+        },
+        {
+          "default": "dialog_e020_start"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m003_report_c",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.m003.report_c",
+      "next": "",
+      "tags": [
+        "meeting",
+        "m003"
+      ],
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_intel",
+          "value": 2
+        }
+      ],
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "flag": "route_defect",
+              "value": true
+            }
+          ],
+          "id": "dialog_e020b_start"
+        },
+        {
+          "require": [
+            {
+              "flag": "route_foreign",
+              "value": true
+            }
+          ],
+          "id": "dialog_e020c_start"
+        },
+        {
+          "default": "dialog_e020_start"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m003_policy",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.m003.policy",
+      "next": "dialog_meeting_policy_resolve",
+      "tags": [
+        "meeting",
+        "m003"
+      ],
+      "effects": []
+    },
+    {
+      "dialog_id": "dialog_m003_tasks",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.m003.tasks",
+      "next": "dialog_m003_close",
+      "tags": [
+        "meeting",
+        "m003"
+      ],
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_meeting_report_eligible",
+          "value": true
+        },
+        {
+          "op": "set_meeting_tier",
+          "value": "report"
+        },
+        {
+          "op": "assign_weekly_tasks",
+          "ids": [
+            "task_street_watch",
+            "task_delivery"
+          ]
+        },
+        {
+          "op": "init_ladder_pool",
+          "pool_id": "pool_waichang"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m003_close",
+      "speaker": "narrator",
+      "loc_key": "dialog.m003.close",
+      "next": "",
+      "tags": [
+        "meeting",
+        "m003"
+      ],
+      "effects": [
+        {
+          "op": "complete_meeting_cycle",
+          "summary_key": "meeting.summary.m003"
+        },
+        {
+          "op": "clear_flag",
+          "key": "flag_in_m003"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_policy_resolve",
+      "speaker": "narrator",
+      "loc_key": "dialog.meeting.policy_resolve",
+      "next": "",
+      "tags": [
+        "meeting",
+        "policy"
+      ],
+      "effects": [
+        {
+          "op": "resolve_meeting_policy"
+        }
+      ],
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "policy_leading": "son_first"
+            }
+          ],
+          "id": "dialog_meeting_policy_son_first"
+        },
+        {
+          "require": [
+            {
+              "policy_leading": "watch_jufeng"
+            }
+          ],
+          "id": "dialog_meeting_policy_watch_jufeng"
+        },
+        {
+          "require": [
+            {
+              "policy_leading": "look_away"
+            }
+          ],
+          "id": "dialog_meeting_policy_look_away"
+        },
+        {
+          "require": [
+            {
+              "policy_leading": "risk_report"
+            }
+          ],
+          "id": "dialog_meeting_policy_risk"
+        },
+        {
+          "require": [
+            {
+              "policy_leading": "foreign_caution"
+            }
+          ],
+          "id": "dialog_meeting_policy_foreign"
+        },
+        {
+          "require": [
+            {
+              "policy_leading": "bright_steady"
+            }
+          ],
+          "id": "dialog_meeting_policy_bright"
+        },
+        {
+          "default": "dialog_meeting_policy_bright"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_policy_bright",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.meeting.policy.bright",
+      "next": "dialog_meeting_policy_to_tasks",
+      "tags": [
+        "meeting",
+        "policy"
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_policy_son_first",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.meeting.policy.son_first",
+      "next": "dialog_meeting_policy_to_tasks",
+      "tags": [
+        "meeting",
+        "policy"
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_policy_watch_jufeng",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.meeting.policy.watch_jufeng",
+      "next": "dialog_meeting_policy_to_tasks",
+      "tags": [
+        "meeting",
+        "policy"
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_policy_look_away",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.meeting.policy.look_away",
+      "next": "dialog_meeting_policy_to_tasks",
+      "tags": [
+        "meeting",
+        "policy"
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_policy_risk",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.meeting.policy.risk",
+      "next": "dialog_meeting_policy_to_tasks",
+      "tags": [
+        "meeting",
+        "policy"
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_policy_foreign",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.meeting.policy.foreign",
+      "next": "dialog_meeting_policy_to_tasks",
+      "tags": [
+        "meeting",
+        "policy"
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_policy_to_tasks",
+      "speaker": "narrator",
+      "loc_key": "dialog.meeting.policy_to_tasks",
+      "next": "",
+      "tags": [
+        "meeting",
+        "policy"
+      ],
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "flag": "flag_in_m000",
+              "value": true
+            }
+          ],
+          "id": "dialog_m000_tasks"
+        },
+        {
+          "require": [
+            {
+              "flag": "flag_in_m003",
+              "value": true
+            }
+          ],
+          "id": "dialog_m003_tasks"
+        },
+        {
+          "default": "dialog_m000_tasks"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_start",
+      "speaker": "narrator",
+      "loc_key": "dialog.m000.start",
+      "next": "dialog_m000_rollcall",
+      "tags": [
+        "meeting",
+        "m000"
+      ],
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_in_m000",
+          "value": true
+        },
+        {
+          "op": "clear_flag",
+          "key": "flag_in_m003"
+        },
+        {
+          "op": "apply_route_policy_bias"
+        },
+        {
+          "op": "init_default_council"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_rollcall",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.m000.rollcall",
+      "next": "dialog_m000_ladder",
+      "tags": [
+        "meeting",
+        "m000"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_ladder",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.m000.ladder",
+      "next": "dialog_m000_report",
+      "tags": [
+        "meeting",
+        "ladder",
+        "m000"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_report",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.m000.report",
+      "next": "dialog_m000_after_report",
+      "tags": [
+        "meeting",
+        "m000"
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_after_report",
+      "speaker": "narrator",
+      "loc_key": "dialog.m000.after_report",
+      "next": "",
+      "tags": [
+        "meeting",
+        "m000"
+      ],
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "or": [
+                {
+                  "meeting_tier": "report"
+                },
+                {
+                  "meeting_tier": "decide"
+                },
+                {
+                  "flag": "flag_meeting_report_eligible",
+                  "value": true
+                }
+              ]
+            }
+          ],
+          "id": "dialog_m000_player_report"
+        },
+        {
+          "default": "dialog_m000_council_gate"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_player_report",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.m000.player_report",
+      "tags": [
+        "meeting",
+        "m000"
+      ],
+      "choices": [
+        {
+          "id": "honest",
+          "loc_key": "dialog.m003.choice.honest",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_trust_firm",
+              "value": 2
+            },
+            {
+              "op": "add_meeting_report",
+              "value": 4
+            }
+          ],
+          "next": "dialog_m000_council_gate"
+        },
+        {
+          "id": "polish",
+          "loc_key": "dialog.m003.choice.polish",
+          "effects": [
+            {
+              "op": "add_meeting_report",
+              "value": 6
+            }
+          ],
+          "next": "dialog_m000_council_gate"
+        },
+        {
+          "id": "hold",
+          "loc_key": "dialog.m003.choice.hold",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 1
+            }
+          ],
+          "next": "dialog_m000_council_gate"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_council_gate",
+      "speaker": "narrator",
+      "loc_key": "dialog.m000.council_gate",
+      "next": "",
+      "tags": [
+        "meeting",
+        "council",
+        "m000"
+      ],
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "or": [
+                {
+                  "meeting_tier": "report"
+                },
+                {
+                  "meeting_tier": "decide"
+                },
+                {
+                  "flag": "flag_meeting_report_eligible",
+                  "value": true
+                }
+              ]
+            }
+          ],
+          "id": "dialog_council_zhou_order"
+        },
+        {
+          "default": "dialog_m000_council_listen"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_council_listen",
+      "speaker": "narrator",
+      "loc_key": "dialog.m000.council_listen",
+      "next": "dialog_m000_council_listen_wang",
+      "tags": [
+        "meeting",
+        "council",
+        "m000"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_zhou_guanshi",
+          "spoke": true,
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_council_listen_wang",
+      "speaker": "narrator",
+      "loc_key": "dialog.m000.council_listen_wang",
+      "next": "dialog_meeting_policy_resolve",
+      "tags": [
+        "meeting",
+        "council",
+        "m000"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_wang_pangzi",
+          "spoke": false,
+          "mode": "pass"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_tasks",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.m000.tasks",
+      "next": "dialog_m000_close",
+      "tags": [
+        "meeting",
+        "m000"
+      ],
+      "effects": [
+        {
+          "op": "assign_rank_tasks"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_close",
+      "speaker": "narrator",
+      "loc_key": "dialog.m000.close",
+      "next": "",
+      "tags": [
+        "meeting",
+        "m000"
+      ],
+      "effects": [
+        {
+          "op": "complete_meeting_cycle",
+          "summary_key": "meeting.summary.m000"
+        },
+        {
+          "op": "clear_flag",
+          "key": "flag_in_m000"
         }
       ]
     }

@@ -26,6 +26,12 @@
 | `char_bradley` | [白瑞德.md](白瑞德.md) | 宝顺代表 · 洋人评估 | P0 |
 | `char_qing_daren` | [庆大人.md](庆大人.md) | 幕后京官 · Demo 不出场 | P0 |
 | `char_zhou_guanshi` | [周管事.md](周管事.md) | 庆系接引人 · 印象通道 | P1 |
+| `char_apprentice_xiao_chen` | [小陈.md](小陈.md) | 学徒池 · 勤快劲敌 | P2 |
+| `char_apprentice_xiao_liu` | [小刘.md](小刘.md) | 学徒池 · 偷懒对手 | P2 |
+| `char_apprentice_a_fu` | [阿福.md](阿福.md) | 学徒池 · 陪跑 | P2 |
+| `char_apprentice_sun_liu` | [孙六.md](孙六.md) | 学徒池 · 拍马蹿升 | P2 |
+| `char_li_waichang` | [李外场.md](李外场.md) | 外场池 · 实干 | P2 |
+| `char_zhao_waichang` | [赵外场.md](赵外场.md) | 外场池 · 媚上 | P2 |
 
 ## 关系字段（运行时 · 全员同一套）
 

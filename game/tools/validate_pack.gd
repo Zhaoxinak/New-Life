@@ -12,6 +12,11 @@ const ALLOWED_OPS: PackedStringArray = [
 	"unlock_grudge", "bury_grudge", "open_grudge", "resolve_grudge", "expire_grudge",
 	"set_temp", "queue_event", "enqueue_event",
 	"goto_dialog", "mod_success", "end_run", "menu",
+	"assign_weekly_tasks", "add_meeting_report", "set_meeting_tier",
+	"init_council_queue", "record_council_speech", "add_policy_draft",
+	"finalize_meeting_report", "complete_meeting_cycle", "resolve_meeting_policy",
+	"init_default_council", "assign_rank_tasks", "apply_route_policy_bias",
+	"init_ladder_pool", "add_ladder_score", "bias_ladder_npc", "set_ladder_slots",
 ]
 
 var _errors: PackedStringArray = []
