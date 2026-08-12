@@ -1,6 +1,0 @@
-id,default_min,default_max,notes
-favor,0,100,
-trust,0,100,NPC对player的trust 与 stats.trust 分轨
-suspicion,0,100,
-intimacy,0,100,苏-少霆
-father_son_trust,0,100,

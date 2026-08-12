@@ -1,217 +1,140 @@
 extends Node
+## require / 条件求值（对齐 effect 词汇表 §3）。
+
+const TIER_NAMES := {
+	"仇隙": 1, "不睦": 2, "泛泛": 3, "相善": 4, "厚交": 5,
+}
 
 
+func eval_all(requires: Array) -> bool:
+	for req in requires:
+		if typeof(req) != TYPE_DICTIONARY:
+			continue
+		if not eval_one(req as Dictionary):
+			return false
+	return true
 
 
+func eval_one(req: Dictionary) -> bool:
+	if req.has("or"):
+		var alts: Array = req["or"]
+		for sub in alts:
+			if typeof(sub) == TYPE_DICTIONARY and eval_one(sub as Dictionary):
+				return true
+		return false
+	if req.has("and"):
+		return eval_all(req["and"])
 
-func eval_owner(owner_type: String, owner_id: String) -> Dictionary:
+	if req.has("flag"):
+		var flag_id := String(req["flag"])
+		var expected: Variant = true
+		if req.has("value"):
+			expected = req["value"]
+		var actual: Variant = RunState.get_flag(flag_id, false)
+		var op := String(req.get("op", "=="))
+		return _compare(actual, op, expected)
 
-	var rows: Array = PackDB.get_conditions(owner_type, owner_id)
-	if rows.is_empty():
-		return {"ok": true, "reason": "", "failed": []}
+	if req.has("clue"):
+		var owned := RunState.clues.has(String(req["clue"]))
+		var want: bool = bool(req.get("owned", true))
+		return owned == want
 
-	var by_group: Dictionary = {}
-	for row in rows:
-		var g: = str(row.get("cond_group", "1"))
-		if not by_group.has(g):
-			by_group[g] = []
-		by_group[g].append(row)
+	if req.has("item"):
+		var owned_i := RunState.items.has(String(req["item"]))
+		var want_i: bool = bool(req.get("owned", true))
+		return owned_i == want_i
 
-	var any_group_ok: = false
-	var last_failed: Array = []
-	for g in by_group.keys():
-		var failed: Array = []
-		var group_ok: = true
-		for row in by_group[g]:
-			var one: = eval_row(row)
-			if not one.get("ok", false):
-				group_ok = false
-				failed.append(one)
-		if group_ok:
-			any_group_ok = true
-			break
-		last_failed = failed
+	if req.has("loc"):
+		return RunState.current_loc() == String(req["loc"])
 
-	if any_group_ok:
-		return {"ok": true, "reason": "", "failed": []}
-	var reason: = L10n.t("ui.action.locked", "尚未解锁")
-	if not last_failed.is_empty():
-		reason = str(last_failed[0].get("reason", reason))
-	return {"ok": false, "reason": reason, "failed": last_failed}
+	if req.has("slot_in"):
+		var slots: Array = req["slot_in"]
+		return slots.has(RunState.slot())
 
+	if req.has("slot"):
+		return _compare(RunState.slot(), String(req.get("op", "==")), String(req["slot"]))
 
-func eval_row(row: Dictionary) -> Dictionary:
-	var cond_type: = str(row.get("cond_type", ""))
-	var key: = str(row.get("key", ""))
-	var op: = str(row.get("op", "eq"))
-	var raw_value: = str(row.get("value", ""))
-	var actual: float = 0.0
-	var expected: float = 0.0 if raw_value.is_empty() else float(raw_value)
-	var label: = key
+	if req.has("rank_in"):
+		var ranks: Array = req["rank_in"]
+		return ranks.has(RunState.player_rank())
 
-	match cond_type:
-		"stat":
-			actual = GameState.get_stat(key)
-			label = L10n.t("stats.%s.name" % key, key)
-		"flag":
-			actual = float(GameState.get_flag(key))
-			label = key
-		"day":
-			actual = float(GameState.day)
-			label = L10n.t("ui.hud.day", "天数").replace("{day}", "").strip_edges()
-			if label.is_empty():
-				label = "day"
-		"relation":
-			var parts: = key.split(":", false)
-			if parts.size() < 3:
-				return {"ok": false, "reason": "bad relation key", "row": row}
-			actual = GameState.get_relation(parts[0], parts[1], parts[2])
-			label = key
-		"rank_min":
+	if req.has("rank"):
+		return _compare(RunState.player_rank(), String(req.get("op", "==")), String(req["rank"]))
 
-			var need: = PackDB.get_row("ranks", key)
-			if need.is_empty():
-				return {"ok": false, "reason": "unknown rank %s" % key, "row": row}
-			var need_track: = str(need.get("track_id", GameState.CAREER_TRACK))
+	if req.has("grudge"):
+		var gid := String(req["grudge"])
+		var want_status := String(req.get("status", "open"))
+		if want_status == "absent":
+			return not RunState.grudges.has(gid) \
+				or String(RunState.grudges[gid].get("status", "")) == "latent"
+		if not RunState.grudges.has(gid):
+			return false
+		return String(RunState.grudges[gid].get("status", "")) == want_status
 
-			if GameState.active_career_track != need_track:
-				actual = 0.0
-				expected = float(int(need.get("sort_order", 999)))
-				op = "gte"
-				label = L10n.t("ranks.%s.name" % key, key)
-			else:
-				var cur_order: = GameState.get_rank_sort_order(need_track)
-				var need_order: = int(need.get("sort_order", 999))
-				actual = float(cur_order)
-				expected = float(need_order)
-				op = "gte"
-				label = L10n.t("ranks.%s.name" % key, key)
-		"weather":
+	if req.has("meter"):
+		var actual_m: Variant = RunState.get_meter(String(req["meter"]))
+		return _compare(actual_m, String(req.get("op", ">=")), req.get("value", 0))
 
-			actual = 1.0 if GameState.weather == key else 0.0
-			expected = 1.0 if raw_value.is_empty() else float(raw_value)
-			label = L10n.t("weather.%s.name" % key, key)
-		"period":
+	if req.has("org"):
+		var org_id := String(req["org"])
+		var key := String(req.get("key", ""))
+		if key.is_empty():
+			return RunState.orgs.has(org_id)
+		var actual_o: Variant = RunState.get_org_field(org_id, key, 0)
+		return _compare(actual_o, String(req.get("op", ">=")), req.get("value", 0))
 
-			actual = 1.0 if GameState.period == key else 0.0
-			expected = 1.0 if raw_value.is_empty() else float(raw_value)
-			label = L10n.t("periods.%s.name" % key, key)
-		"employer":
+	if req.has("day"):
+		return _compare(RunState.day(), String(req.get("op", ">=")), int(req["day"]))
 
-			actual = 1.0 if GameState.employer_id == key else 0.0
-			expected = 1.0 if raw_value.is_empty() else float(raw_value)
-			label = L10n.t("ui.employer.%s" % key, key)
-		"career_track":
+	if req.has("edge"):
+		return _eval_edge(req)
 
-			actual = 1.0 if GameState.active_career_track == key else 0.0
-			expected = 1.0 if raw_value.is_empty() else float(raw_value)
-			label = L10n.t("rank_tracks.%s.name" % key, key)
-		_:
-			push_warning("ConditionEval: unknown cond_type '%s'" % cond_type)
-			return {"ok": false, "reason": "unknown cond", "row": row}
+	if req.has("key") and String(req["key"]).begins_with("stat_"):
+		var actual_s: Variant = RunState.get_stat(String(req["key"]), 0)
+		return _compare(actual_s, String(req.get("op", ">=")), req.get("value", 0))
 
-	var ok: = _compare(actual, op, expected)
-	if ok:
-		return {"ok": true, "reason": "", "row": row}
-	var reason: = _fail_reason(cond_type, key, label, op, expected, actual)
-	return {
-		"ok": false, 
-		"reason": reason, 
-		"row": row, 
-		"actual": actual, 
-		"expected": expected, 
-	}
+	push_warning("ConditionEval: unrecognized require %s" % str(req))
+	return true
 
 
-func _fail_reason(
-	cond_type: String, 
-	key: String, 
-	label: String, 
-	op: String, 
-	expected: float, 
-	actual: float
-) -> String:
-	match cond_type:
-		"weather":
-			var cur: = L10n.t("weather.%s.name" % GameState.weather, GameState.weather)
-			return L10n.tf(
-				"ui.locked.reason_weather", 
-				{"weather": cur}, 
-				"当前天气（%s）不宜此举" % cur
-			)
-		"period":
-			var pname: = L10n.t("periods.%s.name" % GameState.period, GameState.period)
-			return L10n.tf(
-				"ui.locked.reason_period_now", 
-				{"period": pname}, 
-				"当前时段（%s）不可用" % pname
-			)
-		"rank_min":
-			return L10n.tf(
-				"ui.locked.reason_rank", 
-				{"rank": label}, 
-				"职级不足：需%s" % label
-			)
-		"stat":
-			return L10n.tf(
-				"ui.locked.reason_stat", 
-				{"stat": label, "value": int(expected)}, 
-				"需要%s ≥ %d" % [label, int(expected)]
-			)
-		"flag":
-			var custom: = L10n.t("ui.locked.flag.%s" % key, "")
-			if custom != "" and custom != ("ui.locked.flag.%s" % key):
-				return custom
-			if is_equal_approx(expected, 0.0) and op == "eq":
-				return L10n.tf(
-					"ui.locked.reason_flag_clear", 
-					{"flag": label}, 
-					"条件未满足"
-				)
-			var desc: = L10n.t("flags.%s.description" % key, "")
-			if desc != "" and desc != ("flags.%s.description" % key):
-				return desc
-			return L10n.t("ui.locked.reason_flag", "尚未达成所需剧情条件")
-		"day":
-			return L10n.tf("ui.unlock.day", {"day": int(expected)}, "第%d天开放" % int(expected))
-		"employer":
-			var cur_e: = L10n.t("ui.employer.%s" % GameState.employer_id, GameState.employer_id)
-			var need_e: = label
-			if op == "eq" and is_equal_approx(expected, 1.0):
-				return L10n.tf(
-					"ui.locked.reason_employer", 
-					{"employer": need_e, "current": cur_e}, 
-					"须在职于%s（现：%s）" % [need_e, cur_e]
-				)
-			return L10n.tf(
-				"ui.locked.reason_employer_generic", 
-				{"current": cur_e}, 
-				"当前雇主不适用（%s）" % cur_e
-			)
-		"career_track":
-			return L10n.tf(
-				"ui.locked.reason_career", 
-				{"track": label}, 
-				"职涯轨道不符：需%s" % label
-			)
-		_:
-			return "%s %s %s (现 %.0f)" % [label, op, str(expected), actual]
+func score_to_tier(score: float) -> String:
+	if score <= -60.0:
+		return "仇隙"
+	if score <= -20.0:
+		return "不睦"
+	if score <= 19.0:
+		return "泛泛"
+	if score <= 59.0:
+		return "相善"
+	return "厚交"
 
 
-func _compare(actual: float, op: String, expected: float) -> bool:
+func _eval_edge(req: Dictionary) -> bool:
+	var edge: Dictionary = req["edge"] as Dictionary
+	var e: Dictionary = RunState.get_edge(String(edge.get("from", "")), String(edge.get("to", "")))
+	if req.has("tier_in"):
+		var tier := score_to_tier(float(e.get("score", 0)))
+		var allowed: Array = req["tier_in"]
+		return allowed.has(tier)
+	var key := String(req.get("key", "score"))
+	var actual: Variant = e.get(key, 0)
+	return _compare(actual, String(req.get("op", ">=")), req.get("value", 0))
+
+
+func _compare(actual: Variant, op: String, expected: Variant) -> bool:
 	match op:
-		"eq":
-			return is_equal_approx(actual, expected)
-		"gte":
-			return actual >= expected - 0.0001
-		"lte":
-			return actual <= expected + 0.0001
-		"gt":
-			return actual > expected
-		"lt":
-			return actual < expected
-		"neq":
-			return not is_equal_approx(actual, expected)
+		"==":
+			return actual == expected
+		"!=":
+			return actual != expected
+		">=":
+			return float(actual) >= float(expected)
+		"<=":
+			return float(actual) <= float(expected)
+		">":
+			return float(actual) > float(expected)
+		"<":
+			return float(actual) < float(expected)
 		_:
-			push_warning("ConditionEval: unknown op '%s'" % op)
+			push_warning("ConditionEval: bad op %s" % op)
 			return false

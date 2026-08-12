@@ -1,0 +1,36 @@
+{
+  "rows": [
+    {
+      "grudge_id": "grudge_zian_slight",
+      "debtor": "char_qian_zian",
+      "initial_status": "latent",
+      "flashback_key": "dialog.grudge.zian_slight.flash",
+      "loc_key": "grudge.zian_slight",
+      "bury_event": "E004"
+    },
+    {
+      "grudge_id": "grudge_demao_defer",
+      "debtor": "char_qian_demao",
+      "initial_status": "latent",
+      "flashback_key": "fb.demao_defer",
+      "loc_key": "grudge.demao_defer",
+      "bury_event": "E006"
+    },
+    {
+      "grudge_id": "grudge_zian_fiancee",
+      "debtor": "char_qian_zian",
+      "initial_status": "latent",
+      "flashback_key": "dialog.grudge.zian_fiancee.flash",
+      "loc_key": "grudge.zian_fiancee",
+      "bury_event": "E008"
+    },
+    {
+      "grudge_id": "grudge_onlooker",
+      "debtor": "char_zhou_guanshi",
+      "initial_status": "latent",
+      "flashback_key": "dialog.grudge.onlooker.flash",
+      "loc_key": "grudge.onlooker",
+      "bury_event": "R010"
+    }
+  ]
+}

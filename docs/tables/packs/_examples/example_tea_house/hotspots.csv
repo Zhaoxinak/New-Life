@@ -1,3 +1,0 @@
-id,location_id,suspicion_mult,periods,tags,sort_order,enabled,start_unlocked,notes
-tea_corner,tea_house,0.6,afternoon|evening,all,1,1,1,
-tea_backroom,tea_house,1.4,evening,plot|A,2,1,0,需flag

@@ -1,0 +1,38 @@
+{
+  "rows": [
+    {
+      "org_id": "org_qianji",
+      "loc_key": "org.qianji.name",
+      "firm_bright": 55,
+      "firm_dark": 40,
+      "firm_heat": 25,
+      "cash_bright": 60,
+      "cash_dark": 45,
+      "liquidity": 50,
+      "payroll_pressure": 20,
+      "tribute_pressure": 35
+    },
+    {
+      "org_id": "org_jufeng",
+      "loc_key": "org.jufeng.name",
+      "market_appetite": 60,
+      "talent_budget": 40,
+      "liquidity": 55,
+      "poach_pressure": 35
+    },
+    {
+      "org_id": "org_baoshun",
+      "loc_key": "org.baoshun.name",
+      "foreign_margin": 65,
+      "commission_budget": 50,
+      "channel_hunger": 70,
+      "compliance_mask": 60
+    },
+    {
+      "org_id": "org_qing",
+      "loc_key": "org.qing.name",
+      "tribute_intake": 40,
+      "protection_value": 55
+    }
+  ]
+}

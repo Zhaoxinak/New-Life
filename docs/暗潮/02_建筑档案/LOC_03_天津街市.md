@@ -33,12 +33,12 @@
 | `act_04` | `stat_money >= 3` | 三两大酒钱 |
 | `act_07` | `stat_money >= 2` | 一碗茶的人情 |
 | `act_10` | `stat_network >= 10` | 无硬扣钱，但 `<20` 时赵鸿运台词变冷；可铺 `stat_credit_market` |
-| R001 | `stat_money >= 5` | 深买消息，见 [`DIALOG_R001`](../../11_对话档案/DIALOG_R001.md) |
+| R001 | `stat_money >= 5` | 深买消息，见 [`DIALOG_R001`](../11_对话档案/DIALOG_R001.md) |
 | R005 | `stat_network >= 20` | 正式被竞品报价；`stat_credit_market` 明显抬升 |
 | R009 | 无银两硬门 | 茶楼递名片；谈价在 [`LOC_05`](LOC_05_宝顺洋行.md) |
 | E017 | 无银两硬门 | 递刀摊牌；A 亮手书 → `loc_05` 正式会谈 |
 
-口风池：[`DIALOG_ACT_POOL`](../../11_对话档案/DIALOG_ACT_POOL.md) · `dialog.act_03.*` / `act_04.*` / `act_07.*` / `act_10.*`
+口风池：[`DIALOG_ACT_POOL`](../11_对话档案/DIALOG_ACT_POOL.md) · `dialog.act_03.*` / `act_04.*` / `act_07.*` / `act_10.*`
 
 ---
 

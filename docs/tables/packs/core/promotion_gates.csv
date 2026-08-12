@@ -1,5 +1,0 @@
-﻿id,track_id,target_rank_id,enabled,stat_min,stat_min_alt,alt_if_flag,relation_npc,relation_trust_min,relation_favor_min,suspicion_max,tension_max,require_flag,require_flag_eq,require_any_flags,claim_flag,ask_action_id,notes
-promo_hy_manager,hongyuan_career,manager,1,65,75,forced_night_shift,zhou_hongye,40,0,70,,did_boss_service,1,,claimed_promo_manager,co_ask_promotion,宏远经理
-promo_hy_inner,hongyuan_career,inner_circle,1,85,0,,zhou_hongye,60,0,50,80,claimed_promo_manager,1,,claimed_promo_inner,co_ask_promotion,宏远核心
-promo_ty_supervisor,tongyang_career,ty_supervisor,1,30,0,,chen_manager,0,35,,,,,,claimed_promo_ty_supervisor,rival_ask_promotion,通洋主管
-promo_ty_core,tongyang_career,ty_core,1,60,0,,chen_manager,0,55,,,claimed_promo_ty_supervisor,1,flag_sold_intel|did_tongyang_poach,claimed_promo_ty_core,rival_ask_promotion,通洋核心

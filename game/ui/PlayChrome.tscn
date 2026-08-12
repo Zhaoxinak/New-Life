@@ -1,198 +1,202 @@
-[gd_scene format=3]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="Script" uid="uid://depgxc5knavyw" path="res://ui/PlayChrome.gd" id="1"]
+[ext_resource type="Script" path="res://ui/PlayChrome.gd" id="1_chrome"]
+[ext_resource type="PackedScene" path="res://ui/LocationStage.tscn" id="2_stage"]
+[ext_resource type="PackedScene" path="res://ui/DialogueBox.tscn" id="3_box"]
+[ext_resource type="PackedScene" path="res://ui/ActSheet.tscn" id="4_sheet"]
+[ext_resource type="PackedScene" path="res://ui/LedgerOverlay.tscn" id="5_ledger"]
+[ext_resource type="PackedScene" path="res://ui/SettingsOverlay.tscn" id="6_settings"]
+[ext_resource type="PackedScene" path="res://ui/TutorialOverlay.tscn" id="7_tut"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_action"]
-bg_color = Color(0.95, 0.9, 0.78, 0.97)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.42, 0.26, 0.15, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_color = Color(0, 0, 0, 0.35)
-shadow_size = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bottom"]
-bg_color = Color(0.42, 0.27, 0.16, 0.95)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_color = Color(0.91, 0.77, 0.42, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-
-[node name="PlayChrome" type="CanvasLayer" unique_id=691741543]
-layer = 10
-script = ExtResource("1")
-
-[node name="PromptLabel" type="Label" parent="." unique_id=288232524]
-unique_name_in_owner = true
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -180.0
-offset_top = -150.0
-offset_right = 180.0
-offset_bottom = -110.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
-theme_override_colors/font_outline_color = Color(0.2, 0.12, 0.05, 1)
-theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 18
-horizontal_alignment = 1
-
-[node name="Toolbar" type="HBoxContainer" parent="." unique_id=376482343]
-anchors_preset = 1
-anchor_left = 1.0
+[node name="PlayChrome" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -240.0
-offset_top = 100.0
-offset_right = -16.0
-offset_bottom = 144.0
-grow_horizontal = 0
-theme_override_constants/separation = 8
-alignment = 2
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_chrome")
 
-[node name="DossierButton" type="Button" parent="Toolbar" unique_id=1213444403]
+[node name="LocationStage" parent="." instance=ExtResource("2_stage")]
+unique_name_in_owner = true
+
+[node name="TopBar" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 56.0
+grow_horizontal = 2
+
+[node name="Margin" type="MarginContainer" parent="TopBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 6
+
+[node name="HBox" type="HBoxContainer" parent="TopBar/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Brand" type="Label" parent="TopBar/Margin/HBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "暗潮"
+
+[node name="DayLabel" type="Label" parent="TopBar/Margin/HBox"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "人物"
+text = "第 1 日"
 
-[node name="SettingsButton" type="Button" parent="Toolbar" unique_id=952247419]
+[node name="HudStats" type="HBoxContainer" parent="TopBar/Margin/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="BtnRest" type="Button" parent="TopBar/Margin/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "歇一口气"
+
+[node name="BtnSettings" type="Button" parent="TopBar/Margin/HBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "设置"
 
-[node name="ActionPanel" type="PanelContainer" parent="." unique_id=753941405]
+[node name="GoalBar" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 56.0
+offset_bottom = 88.0
+grow_horizontal = 2
+
+[node name="GoalLabel" type="Label" parent="GoalBar"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.82, 0.62, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+text = ""
+
+[node name="TipLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 92.0
+offset_bottom = 118.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.95, 0.88, 0.7, 1)
+horizontal_alignment = 1
+text = ""
+
+[node name="LocNavPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginNav" type="MarginContainer" parent="LocNavPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 6
+
+[node name="LocNav" type="HBoxContainer" parent="LocNavPanel/MarginNav"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 8
+
+[node name="ActSheet" parent="." instance=ExtResource("4_sheet")]
+unique_name_in_owner = true
+
+[node name="DialogueBox" parent="." instance=ExtResource("3_box")]
+unique_name_in_owner = true
+
+[node name="HelpLayer" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
+z_index = 60
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HelpDim" type="ColorRect" parent="HelpLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.04, 0.03, 0.75)
+
+[node name="HelpPanel" type="PanelContainer" parent="HelpLayer"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -200.0
-offset_right = 200.0
-offset_bottom = 160.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_action")
-
-[node name="ActionMargin" type="MarginContainer" parent="ActionPanel" unique_id=1023951273]
-layout_mode = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 10
-
-[node name="ActionCol" type="VBoxContainer" parent="ActionPanel/ActionMargin" unique_id=2141203136]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="ActionTitle" type="Label" parent="ActionPanel/ActionMargin/ActionCol" unique_id=1242039390]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.42, 0.26, 0.15, 1)
-theme_override_font_sizes/font_size = 18
-text = "Actions"
-
-[node name="ActionList" type="VBoxContainer" parent="ActionPanel/ActionMargin/ActionCol" unique_id=847781320]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 6
-
-[node name="CloseActions" type="Button" parent="ActionPanel/ActionMargin/ActionCol" unique_id=1258467003]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Close"
-
-[node name="PeopleStrip" type="PanelContainer" parent="." unique_id=338226574]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = -200.0
-offset_right = -8.0
+offset_left = -360.0
+offset_top = -220.0
+offset_right = 360.0
 offset_bottom = 220.0
-grow_horizontal = 0
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="PeopleMargin" type="MarginContainer" parent="PeopleStrip" unique_id=849685726]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 4
-
-[node name="PeopleCol" type="VBoxContainer" parent="PeopleStrip/PeopleMargin" unique_id=326499557]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 2
-
-[node name="PeopleTitle" type="Label" parent="PeopleStrip/PeopleMargin/PeopleCol" unique_id=1324050367]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.9, 0.78, 1)
-theme_override_colors/font_outline_color = Color(0.12, 0.08, 0.04, 0.9)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 12
-text = "在场人物"
-horizontal_alignment = 2
-
-[node name="PeopleHint" type="Label" parent="PeopleStrip/PeopleMargin/PeopleCol" unique_id=1703181379]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.91, 0.82, 0.62, 0.85)
-theme_override_colors/font_outline_color = Color(0.12, 0.08, 0.04, 0.75)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 10
-text = "点选人物"
-horizontal_alignment = 2
-autowrap_mode = 3
-
-[node name="PeopleRow" type="Control" parent="PeopleStrip/PeopleMargin/PeopleCol" unique_id=500000309]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 320)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 3
-
-[node name="BottomBar" type="PanelContainer" parent="." unique_id=1012746165]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = -96.0
-offset_right = -12.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_bottom")
+grow_vertical = 2
 
-[node name="BottomMargin" type="MarginContainer" parent="BottomBar" unique_id=1324347826]
+[node name="HelpMargin" type="MarginContainer" parent="HelpLayer/HelpPanel"]
 layout_mode = 2
-theme_override_constants/margin_left = 14
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 14
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
 
-[node name="ResultLabel" type="RichTextLabel" parent="BottomBar/BottomMargin" unique_id=108332580]
+[node name="HelpVBox" type="VBoxContainer" parent="HelpLayer/HelpPanel/HelpMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HelpTitle" type="Label" parent="HelpLayer/HelpPanel/HelpMargin/HelpVBox"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/default_color = Color(0.95, 0.9, 0.78, 1)
+theme_override_colors/font_color = Color(0.22, 0.16, 0.12, 1)
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+text = "说明"
+
+[node name="HelpBody" type="RichTextLabel" parent="HelpLayer/HelpPanel/HelpMargin/HelpVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.22, 0.16, 0.12, 1)
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 17
+theme_override_constants/line_separation = 4
 bbcode_enabled = true
+fit_content = false
+scroll_active = true
+text = ""
+
+[node name="BtnHelpClose" type="Button" parent="HelpLayer/HelpPanel/HelpMargin/HelpVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "合上"
+
+[node name="LedgerOverlay" parent="." instance=ExtResource("5_ledger")]
+unique_name_in_owner = true
+
+[node name="SettingsOverlay" parent="." instance=ExtResource("6_settings")]
+unique_name_in_owner = true
+
+[node name="TutorialOverlay" parent="." instance=ExtResource("7_tut")]
+unique_name_in_owner = true

@@ -1,0 +1,222 @@
+{
+  "rows": [
+    {
+      "day": 1,
+      "slot": "morning",
+      "event_id": "E001",
+      "require": []
+    },
+    {
+      "day": 2,
+      "slot": "evening",
+      "event_id": "E002",
+      "require": []
+    },
+    {
+      "day": 3,
+      "slot": "afternoon",
+      "event_id": "E003",
+      "require": []
+    },
+    {
+      "day": 4,
+      "slot": "morning",
+      "event_id": "E004",
+      "require": []
+    },
+    {
+      "day": 4,
+      "slot": "evening",
+      "event_id": "E005",
+      "require": []
+    },
+    {
+      "day": 5,
+      "slot": "morning",
+      "event_id": "E006",
+      "require": []
+    },
+    {
+      "day": 5,
+      "slot": "afternoon",
+      "event_id": "E007",
+      "require": []
+    },
+    {
+      "day": 6,
+      "slot": "evening",
+      "event_id": "E008",
+      "require": []
+    },
+    {
+      "day": 7,
+      "slot": "late_night",
+      "event_id": "E009",
+      "require": []
+    },
+    {
+      "day": 8,
+      "slot": "late_night",
+      "event_id": "E010",
+      "require": [],
+      "mutex_group": "chapter2.night_cargo"
+    },
+    {
+      "day": 9,
+      "slot": "afternoon",
+      "event_id": "E011",
+      "require": []
+    },
+    {
+      "day": 9,
+      "slot": "evening",
+      "event_id": "E012",
+      "require": []
+    },
+    {
+      "day": 10,
+      "slot": "late_night",
+      "event_id": "E010b",
+      "require": [],
+      "mutex_group": "chapter2.night_cargo"
+    },
+    {
+      "day": 11,
+      "slot": "late_night",
+      "event_id": "E013",
+      "require": []
+    },
+    {
+      "day": 12,
+      "slot": "afternoon",
+      "event_id": "E019",
+      "require": [],
+      "mutex_group": ""
+    },
+    {
+      "day": 13,
+      "slot": "morning",
+      "event_id": "E020",
+      "require": [],
+      "mutex_group": "chapter2.rankup",
+      "route_tags": [
+        "route_endure"
+      ]
+    },
+    {
+      "day": 13,
+      "slot": "morning",
+      "event_id": "E020B",
+      "require": [],
+      "mutex_group": "chapter2.rankup",
+      "route_tags": [
+        "route_defect"
+      ]
+    },
+    {
+      "day": 13,
+      "slot": "morning",
+      "event_id": "E020C",
+      "require": [],
+      "mutex_group": "chapter2.rankup",
+      "route_tags": [
+        "route_foreign"
+      ]
+    },
+    {
+      "day": 14,
+      "slot": "afternoon",
+      "event_id": "E021",
+      "require": [],
+      "mutex_group": "chapter2.light_reckoning",
+      "route_tags": [
+        "route_endure"
+      ]
+    },
+    {
+      "day": 14,
+      "slot": "afternoon",
+      "event_id": "E021B",
+      "require": [],
+      "mutex_group": "chapter2.light_reckoning",
+      "route_tags": [
+        "route_defect"
+      ]
+    },
+    {
+      "day": 14,
+      "slot": "afternoon",
+      "event_id": "E021C",
+      "require": [],
+      "mutex_group": "chapter2.light_reckoning",
+      "route_tags": [
+        "route_foreign"
+      ]
+    },
+    {
+      "day": 15,
+      "slot": "afternoon",
+      "event_id": "E014",
+      "require": []
+    },
+    {
+      "day": 16,
+      "slot": "late_night",
+      "event_id": "E015",
+      "require": []
+    },
+    {
+      "day": 17,
+      "slot": "afternoon",
+      "event_id": "E016",
+      "require": []
+    },
+    {
+      "day": 17,
+      "slot": "evening",
+      "event_id": "E017",
+      "require": [],
+      "route_tags": [
+        "route_foreign"
+      ],
+      "mutex_group": ""
+    },
+    {
+      "day": 18,
+      "slot": "afternoon",
+      "event_id": "E022",
+      "mutex_group": "chapter3.main_reckoning",
+      "route_tags": [
+        "route_endure"
+      ],
+      "require": []
+    },
+    {
+      "day": 18,
+      "slot": "afternoon",
+      "event_id": "E022B",
+      "mutex_group": "chapter3.main_reckoning",
+      "route_tags": [
+        "route_defect"
+      ],
+      "require": []
+    },
+    {
+      "day": 18,
+      "slot": "afternoon",
+      "event_id": "E022C",
+      "mutex_group": "chapter3.main_reckoning",
+      "route_tags": [
+        "route_foreign"
+      ],
+      "require": []
+    },
+    {
+      "day": 19,
+      "slot": "morning",
+      "event_id": "E018",
+      "mutex_group": "chapter3.finale",
+      "require": []
+    }
+  ]
+}

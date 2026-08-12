@@ -1,0 +1,701 @@
+{
+  "rows": [
+    {
+      "act_id": "act_01",
+      "loc_id": "loc_01",
+      "loc_key": "act.01.name",
+      "require": [
+        {
+          "slot_in": [
+            "morning",
+            "noon"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "op": "add_range",
+          "key": "stat_money",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "op": "add",
+          "key": "stat_trust_firm",
+          "value": 1
+        }
+      ],
+      "goto_dialog_by_condition": [
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": "<",
+              "value": 20
+            }
+          ],
+          "id": "dialog_act_01_outro_tight"
+        },
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": ">=",
+              "value": 50
+            }
+          ],
+          "id": "dialog_act_01_outro_well"
+        },
+        {
+          "default": "dialog_act_01_outro_default"
+        }
+      ]
+    },
+    {
+      "act_id": "act_02",
+      "loc_id": "loc_02",
+      "loc_key": "act.02.name",
+      "require": [
+        {
+          "slot_in": [
+            "noon",
+            "afternoon"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "op": "add_range",
+          "key": "stat_intel",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "goto_dialog_by_condition": [
+        {
+          "default": "dialog_act_02_outro_default"
+        }
+      ]
+    },
+    {
+      "act_id": "act_03",
+      "loc_id": "loc_03",
+      "loc_key": "act.03.name",
+      "require": [
+        {
+          "slot_in": [
+            "noon",
+            "afternoon",
+            "evening"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": -2
+        },
+        {
+          "op": "add_range",
+          "key": "stat_intel",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "op": "add",
+          "key": "stat_network",
+          "value": 1
+        }
+      ],
+      "goto_dialog_by_condition": [
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": "<",
+              "value": 20
+            }
+          ],
+          "id": "dialog_act_03_outro_tight"
+        },
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": ">=",
+              "value": 50
+            }
+          ],
+          "id": "dialog_act_03_outro_well"
+        },
+        {
+          "default": "dialog_act_03_outro_default"
+        }
+      ]
+    },
+    {
+      "act_id": "act_04",
+      "loc_id": "loc_03",
+      "loc_key": "act.04.name",
+      "require": [
+        {
+          "slot_in": [
+            "evening"
+          ]
+        },
+        {
+          "key": "stat_money",
+          "op": ">=",
+          "value": 3
+        }
+      ],
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": -3
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_wang_pangzi",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "value": 5
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_lin_ruisheng",
+            "to": "char_wang_pangzi"
+          },
+          "key": "score",
+          "value": 3
+        },
+        {
+          "op": "add_range",
+          "key": "stat_intel",
+          "min": 1,
+          "max": 3
+        }
+      ],
+      "goto_dialog_by_condition": [
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": "<",
+              "value": 20
+            }
+          ],
+          "id": "dialog_act_04_outro_tight"
+        },
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": ">=",
+              "value": 50
+            }
+          ],
+          "id": "dialog_act_04_outro_well"
+        },
+        {
+          "default": "dialog_act_04_outro_default"
+        }
+      ]
+    },
+    {
+      "act_id": "act_05",
+      "loc_id": "loc_02",
+      "loc_key": "act.05.name",
+      "require": [
+        {
+          "slot_in": [
+            "noon",
+            "afternoon"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "op": "add_range",
+          "key": "stat_money",
+          "min": -3,
+          "max": -1
+        },
+        {
+          "op": "add",
+          "key": "stat_support_mid",
+          "value": 3
+        },
+        {
+          "op": "add",
+          "key": "stat_support_low",
+          "value": 2
+        }
+      ],
+      "goto_dialog_by_condition": [
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": "<",
+              "value": 20
+            }
+          ],
+          "id": "dialog_act_05_outro_tight"
+        },
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": ">=",
+              "value": 50
+            }
+          ],
+          "id": "dialog_act_05_outro_well"
+        },
+        {
+          "default": "dialog_act_05_outro_default"
+        }
+      ]
+    },
+    {
+      "act_id": "act_06",
+      "loc_id": "loc_06",
+      "loc_key": "act.06.name",
+      "require": [
+        {
+          "slot_in": [
+            "evening"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "op": "add_range",
+          "edge": {
+            "from": "char_liu_ruyan",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "min": 5,
+          "max": 10
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_lin_ruisheng",
+            "to": "char_liu_ruyan"
+          },
+          "key": "score",
+          "value": 3
+        },
+        {
+          "op": "add",
+          "key": "stat_suspicion",
+          "value": -3
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_companied_liu_today",
+          "value": true
+        }
+      ],
+      "goto_dialog_by_condition": [
+        {
+          "require": [
+            {
+              "flag": "flag_need_marriage_fund",
+              "value": true
+            }
+          ],
+          "id": "dialog_act_06_outro_marriage_pressure"
+        },
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": ">=",
+              "value": 30
+            },
+            {
+              "flag": "flag_liu_gift_today",
+              "op": "!=",
+              "value": true
+            }
+          ],
+          "id": "dialog_act_06_outro_gift"
+        },
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": "<",
+              "value": 20
+            }
+          ],
+          "id": "dialog_act_06_outro_tight"
+        },
+        {
+          "default": "dialog_act_06_outro_default"
+        }
+      ]
+    },
+    {
+      "act_id": "act_07",
+      "loc_id": "loc_03",
+      "loc_key": "act.07.name",
+      "require": [
+        {
+          "slot_in": [
+            "noon",
+            "afternoon"
+          ]
+        },
+        {
+          "key": "stat_money",
+          "op": ">=",
+          "value": 2
+        }
+      ],
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": -2
+        },
+        {
+          "op": "add_range",
+          "key": "stat_network",
+          "min": 2,
+          "max": 5
+        }
+      ],
+      "goto_dialog_by_condition": [
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": "<",
+              "value": 20
+            }
+          ],
+          "id": "dialog_act_07_outro_tight"
+        },
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": ">=",
+              "value": 50
+            }
+          ],
+          "id": "dialog_act_07_outro_well"
+        },
+        {
+          "default": "dialog_act_07_outro_default"
+        }
+      ]
+    },
+    {
+      "act_id": "act_08",
+      "loc_id": "loc_06",
+      "loc_key": "act.08.name",
+      "require": [
+        {
+          "slot_in": [
+            "evening",
+            "late_night"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "op": "add_range",
+          "key": "stat_suspicion",
+          "min": -8,
+          "max": -5
+        },
+        {
+          "op": "set_temp",
+          "key": "next_slot_efficiency",
+          "value": 1.1
+        }
+      ],
+      "goto_dialog_by_condition": [
+        {
+          "require": [
+            {
+              "key": "stat_suspicion",
+              "op": ">=",
+              "value": 2
+            }
+          ],
+          "id": "dialog_act_08_outro_suspicion"
+        },
+        {
+          "require": [
+            {
+              "flag": "flag_need_marriage_fund",
+              "value": true
+            }
+          ],
+          "id": "dialog_act_08_outro_marriage_pressure"
+        },
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": "<",
+              "value": 20
+            }
+          ],
+          "id": "dialog_act_08_outro_tight"
+        },
+        {
+          "default": "dialog_act_08_outro_default"
+        }
+      ]
+    },
+    {
+      "act_id": "act_09",
+      "loc_id": "loc_02",
+      "loc_key": "act.09.name",
+      "require": [
+        {
+          "slot_in": [
+            "late_night"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "op": "add_range",
+          "key": "stat_intel",
+          "min": 2,
+          "max": 5
+        },
+        {
+          "op": "add_range",
+          "key": "stat_suspicion",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "goto_dialog_by_condition": [
+        {
+          "default": "dialog_act_09_outro_default"
+        }
+      ]
+    },
+    {
+      "act_id": "act_10",
+      "loc_id": "loc_03",
+      "loc_key": "act.10.name",
+      "require": [
+        {
+          "slot_in": [
+            "afternoon",
+            "evening"
+          ]
+        },
+        {
+          "key": "stat_network",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "effects": [
+        {
+          "op": "add_range",
+          "key": "stat_network",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "op": "add",
+          "key": "stat_credit_market",
+          "value": 5
+        },
+        {
+          "op": "add_range",
+          "edge": {
+            "from": "char_zhao_hongyun",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_lin_ruisheng",
+            "to": "char_zhao_hongyun"
+          },
+          "key": "score",
+          "value": 2
+        }
+      ],
+      "goto_dialog_by_condition": [
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": "<",
+              "value": 20
+            }
+          ],
+          "id": "dialog_act_10_outro_tight"
+        },
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": ">=",
+              "value": 50
+            }
+          ],
+          "id": "dialog_act_10_outro_well"
+        },
+        {
+          "default": "dialog_act_10_outro_default"
+        }
+      ]
+    },
+    {
+      "act_id": "act_11",
+      "loc_id": "loc_04",
+      "loc_key": "act.bank_visit",
+      "require": [
+        {
+          "slot_in": [
+            "morning",
+            "noon"
+          ]
+        },
+        {
+          "key": "stat_money",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "effects": [],
+      "goto_dialog_by_condition": [
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": ">=",
+              "value": 50
+            }
+          ],
+          "id": "dialog_act_11_outro_well"
+        },
+        {
+          "require": [
+            {
+              "key": "stat_money",
+              "op": "<",
+              "value": 20
+            }
+          ],
+          "id": "dialog_act_11_outro_tight"
+        },
+        {
+          "default": "dialog_act_11_outro_mid"
+        }
+      ]
+    },
+    {
+      "act_id": "act_12",
+      "loc_id": "loc_06",
+      "loc_key": "act.12.name",
+      "require": [
+        {
+          "slot_in": [
+            "late_night"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "op": "add_range",
+          "key": "stat_intel",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "goto_dialog_by_condition": [
+        {
+          "default": "dialog_act_12_outro_default"
+        }
+      ]
+    },
+    {
+      "act_id": "act_20",
+      "loc_id": "loc_01",
+      "loc_key": "act.20.name",
+      "require": [
+        {
+          "rank_in": [
+            "waichang",
+            "paojie",
+            "houtang"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "op": "add_range",
+          "key": "stat_money",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "op": "add",
+          "key": "stat_network",
+          "value": 1
+        }
+      ],
+      "goto_dialog_by_condition": [
+        {
+          "default": "dialog_act_20_outro"
+        }
+      ]
+    },
+    {
+      "act_id": "act_foreign_visit",
+      "loc_id": "loc_05",
+      "loc_key": "act.foreign_visit",
+      "require": [
+        {
+          "slot_in": [
+            "morning",
+            "noon",
+            "afternoon"
+          ]
+        }
+      ],
+      "effects": [],
+      "goto_dialog_by_condition": [
+        {
+          "require": [
+            {
+              "flag": "flag_ending_c_ready",
+              "value": true
+            }
+          ],
+          "id": "dialog_act_12f_ready"
+        },
+        {
+          "default": "dialog_act_12f_idle"
+        }
+      ]
+    }
+  ]
+}

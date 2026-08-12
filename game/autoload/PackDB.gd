@@ -1,315 +1,111 @@
 extends Node
-
-
-
+## 定义库加载器。只读 packs；永不写 run_*。
 
 signal pack_loaded(pack_id: String)
 
-const CORE_ID: = "core"
+const DEFAULT_PACK_ID := "anchao"
+const SCHEMA_VERSION := "0.1"
 
-const SKIP_TABLES: PackedStringArray = ["l10n"]
-
+var pack_id: String = ""
 var pack_meta: Dictionary = {}
+## table_name -> Array[Dictionary] 或 Dictionary（l10n / registry）
 var tables: Dictionary = {}
-var indexes: Dictionary = {}
-var effects_by_owner: Dictionary = {}
-var conditions_by_owner: Dictionary = {}
-var check_mods_by_check: Dictionary = {}
-var actions_by_hotspot: Dictionary = {}
-var hotspots_by_location: Dictionary = {}
-var unlocks_by_day: Dictionary = {}
-var lines_by_dialogue: Dictionary = {}
-var choices_by_dialogue: Dictionary = {}
-var variants_by_line: Dictionary = {}
-var event_choices_by_event: Dictionary = {}
-var stock_config: Dictionary = {}
-var stock_rules_by_action: Dictionary = {}
-var stock_rules_by_phase: Dictionary = {}
-var packs_root_abs: String = ""
 var loaded: bool = false
 
 
-func _ready() -> void :
-	load_core()
+func _ready() -> void:
+	load_pack(DEFAULT_PACK_ID)
 
 
-func resolve_packs_root() -> String:
-
-	var game_root: = ProjectSettings.globalize_path("res://")
-	var docs_packs: = game_root.path_join("../docs/tables/packs").simplify_path()
-	if FileAccess.file_exists(docs_packs.path_join("core/pack.json")):
-		return docs_packs
-	var bundled: = ProjectSettings.globalize_path("res://data/packs")
-	if FileAccess.file_exists(bundled.path_join("core/pack.json")):
-		return bundled
-	push_error("PackDB: cannot find packs (tried %s and %s)" % [docs_packs, bundled])
-	return docs_packs
+func packs_root() -> String:
+	return "res://packs"
 
 
-func load_core() -> void :
-	load_pack(CORE_ID)
-
-
-func load_pack(pack_id: String) -> void :
-	packs_root_abs = resolve_packs_root()
-	var pack_dir: = packs_root_abs.path_join(pack_id)
-	var meta_path: = pack_dir.path_join("pack.json")
+func load_pack(id: String) -> bool:
+	var pack_dir := packs_root().path_join(id)
+	var meta_path := pack_dir.path_join("pack.json")
 	if not FileAccess.file_exists(meta_path):
-		push_error("PackDB: pack.json not found at %s" % meta_path)
-		return
-	var meta_file: = FileAccess.open(meta_path, FileAccess.READ)
-	var meta_text: = meta_file.get_as_text()
-	meta_file.close()
-	var parsed: Variant = JSON.parse_string(meta_text)
-	if typeof(parsed) != TYPE_DICTIONARY:
+		push_error("PackDB: missing %s" % meta_path)
+		loaded = false
+		return false
+
+	var meta := _read_json(meta_path)
+	if meta.is_empty():
 		push_error("PackDB: invalid pack.json")
-		return
-	pack_meta = parsed
+		loaded = false
+		return false
+
+	pack_id = id
+	pack_meta = meta
 	tables.clear()
-	indexes.clear()
-	effects_by_owner.clear()
-	conditions_by_owner.clear()
-	check_mods_by_check.clear()
-	actions_by_hotspot.clear()
-	hotspots_by_location.clear()
-	unlocks_by_day.clear()
-	lines_by_dialogue.clear()
-	choices_by_dialogue.clear()
-	variants_by_line.clear()
-	event_choices_by_event.clear()
-	stock_config.clear()
-	stock_rules_by_action.clear()
-	stock_rules_by_phase.clear()
 
-	var table_list: Array = pack_meta.get("tables", [])
-	for table_name_v in table_list:
-		var table_name: = str(table_name_v)
-		if table_name in SKIP_TABLES:
+	var table_files: Array = meta.get("tables", [])
+	for entry in table_files:
+		var table_name: String = String(entry.get("name", ""))
+		var rel: String = String(entry.get("file", ""))
+		if table_name.is_empty() or rel.is_empty():
 			continue
-		var path: = pack_dir.path_join("%s.csv" % table_name)
-		if not FileAccess.file_exists(path):
-			push_warning("PackDB: missing table file %s" % path)
-			tables[table_name] = [] as Array[Dictionary]
-			continue
-		var rows: Array[Dictionary] = CsvUtil.load_table(path)
-		tables[table_name] = rows
-		_index_table(table_name, rows)
-		print("PackDB: loaded %s (%d rows)" % [table_name, rows.size()])
+		var path := pack_dir.path_join(rel)
+		var data: Variant = _read_json_variant(path)
+		tables[table_name] = data
 
-	_build_secondary_indexes()
 	loaded = true
-	_validate_core_tables()
-	pack_loaded.emit(pack_id)
-	print("PackDB: pack '%s' ready (schema %s · v%s) tables=%d root=%s" % [
-		str(pack_meta.get("id", pack_id)), 
-		str(pack_meta.get("schema_version", "?")), 
-		str(pack_meta.get("version", "?")), 
-		tables.size(), 
-		packs_root_abs, 
+	pack_loaded.emit(id)
+	print("PackDB: loaded pack=%s schema=%s tables=%s" % [
+		id, meta.get("schema_version", "?"), ",".join(tables.keys())
 	])
+	return true
 
 
-func _validate_core_tables() -> void :
-
-	var critical: = ["stats", "locations", "flags", "unlock_schedule", "quests", "actions"]
-	var bad: PackedStringArray = []
-	for t in critical:
-		if get_table(t).is_empty():
-			bad.append(t)
-	if bad.is_empty():
-		return
-	push_error(
-		"PackDB: critical tables empty [%s] root=%s — exported pack CSVs must use importer=keep (run tools/copy_packs_for_export.ps1)"
-		%[", ".join(bad), packs_root_abs]
-	)
+func get_rows(table_name: String) -> Array:
+	var data: Variant = tables.get(table_name, [])
+	if typeof(data) == TYPE_ARRAY:
+		return data
+	if typeof(data) == TYPE_DICTIONARY:
+		var rows: Array = data.get("rows", [])
+		if rows is Array:
+			return rows
+	return []
 
 
-func _index_table(table_name: String, rows: Array) -> void :
-	var by_id: Dictionary = {}
-	for row in rows:
-		if row.has("id") and str(row["id"]) != "":
-			by_id[str(row["id"])] = row
-	indexes[table_name] = by_id
-
-
-func _build_secondary_indexes() -> void :
-	for row in tables.get("effects", []):
-		var ek: = "%s|%s" % [str(row.get("owner_type", "")), str(row.get("owner_id", ""))]
-		if not effects_by_owner.has(ek):
-			effects_by_owner[ek] = []
-		effects_by_owner[ek].append(row)
-
-	for row in tables.get("conditions", []):
-		var ck: = "%s|%s" % [str(row.get("owner_type", "")), str(row.get("owner_id", ""))]
-		if not conditions_by_owner.has(ck):
-			conditions_by_owner[ck] = []
-		conditions_by_owner[ck].append(row)
-
-	for row in tables.get("check_mods", []):
-		if str(row.get("enabled", "1")) == "0":
+func get_row_by_id(table_name: String, id_key: String, id_value: String) -> Dictionary:
+	for row in get_rows(table_name):
+		if typeof(row) != TYPE_DICTIONARY:
 			continue
-		var cid: = str(row.get("check_id", ""))
-		if not check_mods_by_check.has(cid):
-			check_mods_by_check[cid] = []
-		check_mods_by_check[cid].append(row)
-
-	for row in tables.get("actions", []):
-		if str(row.get("enabled", "1")) == "0":
-			continue
-		var hid: = str(row.get("hotspot_id", ""))
-		if not actions_by_hotspot.has(hid):
-			actions_by_hotspot[hid] = []
-		actions_by_hotspot[hid].append(row)
-	for hid in actions_by_hotspot.keys():
-		actions_by_hotspot[hid].sort_custom( func(a, b): return int(a.get("sort_order", 0)) < int(b.get("sort_order", 0)))
-
-	for row in tables.get("hotspots", []):
-		if str(row.get("enabled", "1")) == "0":
-			continue
-		var lid: = str(row.get("location_id", ""))
-		if not hotspots_by_location.has(lid):
-			hotspots_by_location[lid] = []
-		hotspots_by_location[lid].append(row)
-	for lid in hotspots_by_location.keys():
-		hotspots_by_location[lid].sort_custom( func(a, b): return int(a.get("sort_order", 0)) < int(b.get("sort_order", 0)))
-
-	for row in tables.get("unlock_schedule", []):
-		if str(row.get("enabled", "1")) == "0":
-			continue
-		var d: = int(row.get("day", 0))
-		if not unlocks_by_day.has(d):
-			unlocks_by_day[d] = []
-		unlocks_by_day[d].append(row)
-
-	for row in tables.get("dialogue_lines", []):
-		if str(row.get("enabled", "1")) == "0":
-			continue
-		var did: = str(row.get("dialogue_id", ""))
-		if not lines_by_dialogue.has(did):
-			lines_by_dialogue[did] = []
-		lines_by_dialogue[did].append(row)
-	for did in lines_by_dialogue.keys():
-		lines_by_dialogue[did].sort_custom( func(a, b): return int(a.get("sort", 0)) < int(b.get("sort", 0)))
-
-	for row in tables.get("dialogue_choices", []):
-		if str(row.get("enabled", "1")) == "0":
-			continue
-		var did2: = str(row.get("dialogue_id", ""))
-		if not choices_by_dialogue.has(did2):
-			choices_by_dialogue[did2] = []
-		choices_by_dialogue[did2].append(row)
-	for did2 in choices_by_dialogue.keys():
-		choices_by_dialogue[did2].sort_custom( func(a, b): return int(a.get("sort", 0)) < int(b.get("sort", 0)))
-
-	for row in tables.get("dialogue_line_variants", []):
-		if str(row.get("enabled", "1")) == "0":
-			continue
-		var lid: = str(row.get("base_line_id", ""))
-		if not variants_by_line.has(lid):
-			variants_by_line[lid] = []
-		variants_by_line[lid].append(row)
-	for lid in variants_by_line.keys():
-		variants_by_line[lid].sort_custom( func(a, b): return int(a.get("priority", 0)) > int(b.get("priority", 0)))
-
-	for row in tables.get("event_choices", []):
-		if str(row.get("enabled", "1")) == "0":
-			continue
-		var eid: = str(row.get("event_id", ""))
-		if not event_choices_by_event.has(eid):
-			event_choices_by_event[eid] = []
-		event_choices_by_event[eid].append(row)
-	for eid in event_choices_by_event.keys():
-		event_choices_by_event[eid].sort_custom( func(a, b): return int(a.get("sort", 0)) < int(b.get("sort", 0)))
-
-	for row in tables.get("stock_config", []):
-		stock_config[str(row.get("key", ""))] = str(row.get("value", ""))
-
-	for row in tables.get("stock_rules", []):
-		if str(row.get("enabled", "1")) == "0":
-			continue
-		var phase: = str(row.get("when_phase", ""))
-		if not stock_rules_by_phase.has(phase):
-			stock_rules_by_phase[phase] = []
-		stock_rules_by_phase[phase].append(row)
-		var aid: = str(row.get("action_id", "")).strip_edges()
-		if aid != "":
-			if not stock_rules_by_action.has(aid):
-				stock_rules_by_action[aid] = []
-			stock_rules_by_action[aid].append(row)
+		if String(row.get(id_key, "")) == id_value:
+			return row
+	return {}
 
 
-func get_dialogue_lines(dialogue_id: String) -> Array:
-	return lines_by_dialogue.get(dialogue_id, [])
+func get_table_dict(table_name: String) -> Dictionary:
+	var data: Variant = tables.get(table_name, {})
+	if typeof(data) == TYPE_DICTIONARY:
+		return data
+	return {}
 
 
-func get_dialogue_choices(dialogue_id: String) -> Array:
-	return choices_by_dialogue.get(dialogue_id, [])
+func content_version() -> String:
+	return String(pack_meta.get("content_version", "0.0.0"))
 
 
-func get_line_variants(base_line_id: String) -> Array:
-	return variants_by_line.get(base_line_id, [])
+func _read_json(path: String) -> Dictionary:
+	var v: Variant = _read_json_variant(path)
+	if typeof(v) == TYPE_DICTIONARY:
+		return v as Dictionary
+	return {}
 
 
-func get_event_choices(event_id: String) -> Array:
-	return event_choices_by_event.get(event_id, [])
-
-
-func get_stock_config(key: String, default_value: float = 0.0) -> float:
-	if not stock_config.has(key):
-		return default_value
-	return float(stock_config[key])
-
-
-func get_stock_rules_for_action(action_id: String) -> Array:
-	return stock_rules_by_action.get(action_id, [])
-
-
-func get_stock_rules_for_phase(phase: String) -> Array:
-	return stock_rules_by_phase.get(phase, [])
-
-
-func get_row(table_name: String, id: String) -> Dictionary:
-	var by_id: Dictionary = indexes.get(table_name, {})
-	return by_id.get(id, {})
-
-
-func get_table(table_name: String) -> Array:
-	return tables.get(table_name, [])
-
-
-func get_effects(owner_type: String, owner_id: String) -> Array:
-	return effects_by_owner.get("%s|%s" % [owner_type, owner_id], [])
-
-
-func get_conditions(owner_type: String, owner_id: String) -> Array:
-	return conditions_by_owner.get("%s|%s" % [owner_type, owner_id], [])
-
-
-func get_check_mods(check_id: String) -> Array:
-	return check_mods_by_check.get(check_id, [])
-
-
-func get_hotspots_for_location(location_id: String) -> Array:
-	return hotspots_by_location.get(location_id, [])
-
-
-func get_actions_for_hotspot(hotspot_id: String) -> Array:
-	return actions_by_hotspot.get(hotspot_id, [])
-
-
-func get_unlocks_for_day(day: int) -> Array:
-	return unlocks_by_day.get(day, [])
-
-
-func get_enabled_locations() -> Array:
-	var out: Array = []
-	for row in tables.get("locations", []):
-		if str(row.get("enabled", "1")) != "0":
-			out.append(row)
-	out.sort_custom( func(a, b): return int(a.get("sort_order", 0)) < int(b.get("sort_order", 0)))
-	return out
-
-
-func l10n_path(locale: String) -> String:
-	var pack_id: = str(pack_meta.get("id", CORE_ID))
-	return packs_root_abs.path_join(pack_id).path_join("l10n").path_join("%s.csv" % locale)
+func _read_json_variant(path: String) -> Variant:
+	if not FileAccess.file_exists(path):
+		push_error("PackDB: file not found %s" % path)
+		return null
+	var f: FileAccess = FileAccess.open(path, FileAccess.READ)
+	if f == null:
+		push_error("PackDB: cannot open %s" % path)
+		return null
+	var text: String = f.get_as_text()
+	f.close()
+	var parsed: Variant = JSON.parse_string(text)
+	if parsed == null:
+		push_error("PackDB: JSON parse failed %s" % path)
+	return parsed

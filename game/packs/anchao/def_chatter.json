@@ -1,0 +1,524 @@
+{
+  "rows": [
+    {
+      "chatter_id": "chatter_lin_ruisheng_fallback",
+      "char_id": "char_lin_ruisheng",
+      "dialog_id": "dialog_chat_lin_ruisheng_fallback",
+      "priority": 0,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_lin_ruisheng_money",
+      "char_id": "char_lin_ruisheng",
+      "dialog_id": "dialog_chat_lin_ruisheng_money",
+      "priority": 40,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "key": "stat_money",
+          "op": "<=",
+          "value": 15
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_lin_ruisheng_heat",
+      "char_id": "char_lin_ruisheng",
+      "dialog_id": "dialog_chat_lin_ruisheng_heat",
+      "priority": 35,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "org": "org_qianji",
+          "key": "firm_heat",
+          "op": ">=",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_lin_ruisheng_dawn",
+      "char_id": "char_lin_ruisheng",
+      "dialog_id": "dialog_chat_lin_ruisheng_dawn",
+      "priority": 5,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_qian_demao_fallback",
+      "char_id": "char_qian_demao",
+      "dialog_id": "dialog_chat_qian_demao_fallback",
+      "priority": 0,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_qian_demao_early",
+      "char_id": "char_qian_demao",
+      "dialog_id": "dialog_chat_qian_demao_early",
+      "priority": 20,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "flag": "seen_event_E001",
+          "value": true
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_qian_demao_warm",
+      "char_id": "char_qian_demao",
+      "dialog_id": "dialog_chat_qian_demao_warm",
+      "priority": 50,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "edge": {
+            "from": "char_qian_demao",
+            "to": "char_lin_ruisheng"
+          },
+          "tier_in": [
+            "相善",
+            "厚交"
+          ]
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_qian_demao_heat",
+      "char_id": "char_qian_demao",
+      "dialog_id": "dialog_chat_qian_demao_heat",
+      "priority": 55,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "org": "org_qianji",
+          "key": "firm_heat",
+          "op": ">=",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_qian_demao_evening",
+      "char_id": "char_qian_demao",
+      "dialog_id": "dialog_chat_qian_demao_evening",
+      "priority": 15,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "slot_in": [
+            "evening",
+            "late_night"
+          ]
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_qian_zian_fallback",
+      "char_id": "char_qian_zian",
+      "dialog_id": "dialog_chat_qian_zian_fallback",
+      "priority": 0,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_qian_zian_mock",
+      "char_id": "char_qian_zian",
+      "dialog_id": "dialog_chat_qian_zian_mock",
+      "priority": 20,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_qian_zian_bad",
+      "char_id": "char_qian_zian",
+      "dialog_id": "dialog_chat_qian_zian_bad",
+      "priority": 60,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "edge": {
+            "from": "char_qian_zian",
+            "to": "char_lin_ruisheng"
+          },
+          "tier_in": [
+            "仇隙",
+            "不睦"
+          ]
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_qian_zian_pursuit",
+      "char_id": "char_qian_zian",
+      "dialog_id": "dialog_chat_qian_zian_pursuit",
+      "priority": 45,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "meter": "pursuit",
+          "op": ">=",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_liu_ruyan_fallback",
+      "char_id": "char_liu_ruyan",
+      "dialog_id": "dialog_chat_liu_ruyan_fallback",
+      "priority": 0,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_liu_ruyan_soft",
+      "char_id": "char_liu_ruyan",
+      "dialog_id": "dialog_chat_liu_ruyan_soft",
+      "priority": 25,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_liu_ruyan_money",
+      "char_id": "char_liu_ruyan",
+      "dialog_id": "dialog_chat_liu_ruyan_money",
+      "priority": 40,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "key": "stat_money",
+          "op": "<=",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_liu_ruyan_good",
+      "char_id": "char_liu_ruyan",
+      "dialog_id": "dialog_chat_liu_ruyan_good",
+      "priority": 50,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "edge": {
+            "from": "char_liu_ruyan",
+            "to": "char_lin_ruisheng"
+          },
+          "tier_in": [
+            "相善",
+            "厚交"
+          ]
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_zhou_guanshi_fallback",
+      "char_id": "char_zhou_guanshi",
+      "dialog_id": "dialog_chat_zhou_guanshi_fallback",
+      "priority": 0,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_zhou_guanshi_rule",
+      "char_id": "char_zhou_guanshi",
+      "dialog_id": "dialog_chat_zhou_guanshi_rule",
+      "priority": 20,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_zhou_guanshi_trust",
+      "char_id": "char_zhou_guanshi",
+      "dialog_id": "dialog_chat_zhou_guanshi_trust",
+      "priority": 45,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "key": "stat_trust_firm",
+          "op": ">=",
+          "value": 40
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_wang_pangzi_fallback",
+      "char_id": "char_wang_pangzi",
+      "dialog_id": "dialog_chat_wang_pangzi_fallback",
+      "priority": 0,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_wang_pangzi_gossip",
+      "char_id": "char_wang_pangzi",
+      "dialog_id": "dialog_chat_wang_pangzi_gossip",
+      "priority": 25,
+      "once": true,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_wang_pangzi_wine",
+      "char_id": "char_wang_pangzi",
+      "dialog_id": "dialog_chat_wang_pangzi_wine",
+      "priority": 35,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "edge": {
+            "from": "char_wang_pangzi",
+            "to": "char_lin_ruisheng"
+          },
+          "tier_in": [
+            "相善",
+            "厚交",
+            "泛泛"
+          ]
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_wang_pangzi_pal",
+      "char_id": "char_wang_pangzi",
+      "dialog_id": "dialog_chat_wang_pangzi_pal",
+      "priority": 50,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "edge": {
+            "from": "char_wang_pangzi",
+            "to": "char_lin_ruisheng"
+          },
+          "tier_in": [
+            "相善",
+            "厚交"
+          ]
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_bradley_fallback",
+      "char_id": "char_bradley",
+      "dialog_id": "dialog_chat_bradley_fallback",
+      "priority": 0,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_bradley_wait",
+      "char_id": "char_bradley",
+      "dialog_id": "dialog_chat_bradley_wait",
+      "priority": 20,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_bradley_impress",
+      "char_id": "char_bradley",
+      "dialog_id": "dialog_chat_bradley_impress",
+      "priority": 50,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "meter": "impression_bradley",
+          "op": ">=",
+          "value": 15
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_zhao_hongyun_fallback",
+      "char_id": "char_zhao_hongyun",
+      "dialog_id": "dialog_chat_zhao_hongyun_fallback",
+      "priority": 0,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_zhao_hongyun_probe",
+      "char_id": "char_zhao_hongyun",
+      "dialog_id": "dialog_chat_zhao_hongyun_probe",
+      "priority": 25,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_zhao_hongyun_route",
+      "char_id": "char_zhao_hongyun",
+      "dialog_id": "dialog_chat_zhao_hongyun_route",
+      "priority": 55,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "flag": "route_defect",
+          "value": true
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_qing_daren_fallback",
+      "char_id": "char_qing_daren",
+      "dialog_id": "dialog_chat_qing_daren_fallback",
+      "priority": 0,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_qing_daren_cold",
+      "char_id": "char_qing_daren",
+      "dialog_id": "dialog_chat_qing_daren_cold",
+      "priority": 20,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_qing_daren_heat",
+      "char_id": "char_qing_daren",
+      "dialog_id": "dialog_chat_qing_daren_heat",
+      "priority": 50,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "org": "org_qianji",
+          "key": "firm_heat",
+          "op": ">=",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_msg_broker_fallback",
+      "char_id": "char_msg_broker",
+      "dialog_id": "dialog_chat_msg_broker_fallback",
+      "priority": 0,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_msg_broker_sell",
+      "char_id": "char_msg_broker",
+      "dialog_id": "dialog_chat_msg_broker_sell",
+      "priority": 20,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_msg_broker_hint",
+      "char_id": "char_msg_broker",
+      "dialog_id": "dialog_chat_msg_broker_hint",
+      "priority": 40,
+      "once": true,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_bank_clerk_fallback",
+      "char_id": "char_bank_clerk",
+      "dialog_id": "dialog_chat_bank_clerk_fallback",
+      "priority": 0,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_bank_clerk_credit",
+      "char_id": "char_bank_clerk",
+      "dialog_id": "dialog_chat_bank_clerk_credit",
+      "priority": 20,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_bank_clerk_good",
+      "char_id": "char_bank_clerk",
+      "dialog_id": "dialog_chat_bank_clerk_good",
+      "priority": 45,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "key": "stat_credit_bank",
+          "op": ">=",
+          "value": 40
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_firm_hand_fallback",
+      "char_id": "char_firm_hand",
+      "dialog_id": "dialog_chat_firm_hand_fallback",
+      "priority": 0,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_firm_hand_work",
+      "char_id": "char_firm_hand",
+      "dialog_id": "dialog_chat_firm_hand_work",
+      "priority": 20,
+      "once": false,
+      "once_per_slot": true,
+      "require": []
+    },
+    {
+      "chatter_id": "chatter_firm_hand_pal",
+      "char_id": "char_firm_hand",
+      "dialog_id": "dialog_chat_firm_hand_pal",
+      "priority": 40,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "edge": {
+            "from": "char_firm_hand",
+            "to": "char_lin_ruisheng"
+          },
+          "tier_in": [
+            "相善",
+            "厚交",
+            "泛泛"
+          ]
+        }
+      ]
+    }
+  ]
+}

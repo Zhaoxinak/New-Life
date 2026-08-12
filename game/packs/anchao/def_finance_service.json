@@ -1,0 +1,206 @@
+{
+  "rows": [
+    {
+      "service_id": "svc_bank_loan_short",
+      "provider": "org_bank",
+      "service_type": "loan",
+      "loc_hint": "loc_04",
+      "loc_key": "svc.bank_loan_short",
+      "require": [
+        {
+          "key": "stat_money",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "effects_on_open": [
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": 15
+        },
+        {
+          "op": "add",
+          "key": "stat_suspicion",
+          "value": 3
+        },
+        {
+          "op": "add",
+          "key": "stat_credit_bank",
+          "value": 2
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_bank_loan_active",
+          "value": true
+        }
+      ],
+      "debt_template": {
+        "principal": 15,
+        "interest_per_day": 1,
+        "due_in_days": 3,
+        "collateral": "none"
+      },
+      "risk": {
+        "overdue_flag": "flag_bank_loan_overdue",
+        "on_overdue": [
+          {
+            "op": "add",
+            "key": "stat_suspicion",
+            "value": 5
+          },
+          {
+            "op": "add",
+            "key": "stat_credit_bank",
+            "value": -10
+          }
+        ]
+      }
+    },
+    {
+      "service_id": "svc_bank_rollover",
+      "provider": "org_bank",
+      "service_type": "rollover",
+      "loc_hint": "loc_04",
+      "loc_key": "svc.bank_rollover",
+      "require": [
+        {
+          "flag": "flag_bank_loan_active",
+          "value": true
+        },
+        {
+          "flag": "flag_bank_tier2",
+          "value": true
+        }
+      ],
+      "effects_on_open": [
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": -2
+        },
+        {
+          "op": "add",
+          "key": "stat_credit_bank",
+          "value": -5
+        }
+      ],
+      "debt_template": {
+        "extend_days": 2,
+        "extra_interest": 1
+      }
+    },
+    {
+      "service_id": "svc_bank_remit_home",
+      "provider": "org_bank",
+      "service_type": "remit",
+      "loc_hint": "loc_04",
+      "loc_key": "svc.bank_remit_home",
+      "require": [
+        {
+          "key": "stat_money",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "effects_on_open": [
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": -5
+        },
+        {
+          "op": "add",
+          "key": "stat_credit_bank",
+          "value": 3
+        },
+        {
+          "op": "add",
+          "meter": "impression_qing",
+          "value": 2
+        },
+        {
+          "op": "clear_flag",
+          "key": "flag_need_marriage_fund"
+        }
+      ]
+    },
+    {
+      "service_id": "svc_bank_market_info",
+      "provider": "org_bank",
+      "service_type": "info",
+      "loc_hint": "loc_04",
+      "loc_key": "svc.bank_market_info",
+      "require": [
+        {
+          "key": "stat_money",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "effects_on_open": [
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": -2
+        },
+        {
+          "op": "add_range",
+          "key": "stat_intel",
+          "min": 1,
+          "max": 3
+        },
+        {
+          "op": "add",
+          "key": "stat_credit_bank",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "service_id": "svc_foreign_commission",
+      "provider": "org_baoshun",
+      "service_type": "commission",
+      "loc_hint": "loc_05",
+      "loc_key": "svc.foreign_commission",
+      "require": [
+        {
+          "flag": "flag_ending_c_ready",
+          "value": true
+        }
+      ],
+      "effects_on_open": [
+        {
+          "op": "add",
+          "key": "stat_credit_foreign",
+          "value": 20
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_ending_c",
+          "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_rank_foreign_agent",
+          "value": true
+        },
+        {
+          "op": "add",
+          "org": "org_baoshun",
+          "key": "compliance_mask",
+          "value": -5
+        }
+      ],
+      "payout_rule": {
+        "upfront_money": 20,
+        "monthly_commission_band": "high",
+        "narrative_tags": [
+          "foreign",
+          "long_term",
+          "dirty"
+        ]
+      }
+    }
+  ]
+}

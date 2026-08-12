@@ -1,0 +1,5956 @@
+{
+  "rows": [
+    {
+      "dialog_id": "dialog_e001_start",
+      "event_id": "E001",
+      "speaker": "narrator",
+      "loc_key": "dialog.e001.start",
+      "next": "dialog_e001_exam_q1"
+    },
+    {
+      "dialog_id": "dialog_e001_exam_q1",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.e001.exam.q1",
+      "next": "dialog_e001_exam_a1"
+    },
+    {
+      "dialog_id": "dialog_e001_exam_a1",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e001.exam.a1",
+      "next": "dialog_e001_exam_q2"
+    },
+    {
+      "dialog_id": "dialog_e001_exam_q2",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.e001.exam.q2",
+      "next": "dialog_e001_exam_a2"
+    },
+    {
+      "dialog_id": "dialog_e001_exam_a2",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e001.exam.a2",
+      "next": "dialog_e001_exam_praise"
+    },
+    {
+      "dialog_id": "dialog_e001_exam_praise",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.e001.exam.praise",
+      "next": "dialog_e001_exam_hedge"
+    },
+    {
+      "dialog_id": "dialog_e001_exam_hedge",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.e001.exam.hedge",
+      "next": "dialog_e001_exam_ack"
+    },
+    {
+      "dialog_id": "dialog_e001_exam_ack",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e001.exam.ack",
+      "next": "dialog_e001_exam_close"
+    },
+    {
+      "dialog_id": "dialog_e001_exam_close",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.e001.exam.close",
+      "effects": [
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_qian_demao",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "value": 8
+        },
+        {
+          "op": "add",
+          "key": "stat_trust_firm",
+          "value": 5
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e002_start",
+      "event_id": "E002",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.e002.start",
+      "next": "dialog_e002_lin_ask"
+    },
+    {
+      "dialog_id": "dialog_e002_lin_ask",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e002.lin_ask",
+      "next": "dialog_e002_liu_busy"
+    },
+    {
+      "dialog_id": "dialog_e002_liu_busy",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.e002.liu_busy",
+      "next": "dialog_e002_lin_say"
+    },
+    {
+      "dialog_id": "dialog_e002_lin_say",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e002.lin_say",
+      "next": "dialog_e002_liu_wedding"
+    },
+    {
+      "dialog_id": "dialog_e002_liu_wedding",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.e002.liu_wedding",
+      "next": "dialog_e002_lin_promise"
+    },
+    {
+      "dialog_id": "dialog_e002_lin_promise",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e002.lin_promise",
+      "next": "dialog_e002_liu_bright"
+    },
+    {
+      "dialog_id": "dialog_e002_liu_bright",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.e002.liu_bright",
+      "next": "dialog_e002_lin_wait"
+    },
+    {
+      "dialog_id": "dialog_e002_lin_wait",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e002.lin_wait",
+      "next": "dialog_e002_liu_ok"
+    },
+    {
+      "dialog_id": "dialog_e002_liu_ok",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.e002.liu_ok",
+      "effects": [
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_liu_ruyan",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "value": 10
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_need_marriage_fund",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e003_start",
+      "event_id": "E003",
+      "speaker": "narrator",
+      "loc_key": "dialog.e003.start",
+      "next": "dialog_e003_notice"
+    },
+    {
+      "dialog_id": "dialog_e003_notice",
+      "speaker": "narrator",
+      "loc_key": "dialog.e003.notice",
+      "next": "dialog_e003_math"
+    },
+    {
+      "dialog_id": "dialog_e003_math",
+      "speaker": "narrator",
+      "loc_key": "dialog.e003.math",
+      "next": "dialog_e003_choice"
+    },
+    {
+      "dialog_id": "dialog_e003_choice",
+      "event_id": "E003",
+      "speaker": "narrator",
+      "loc_key": "dialog.e003.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e003.choice.a",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 5
+            },
+            {
+              "op": "unlock_clue",
+              "id": "clue_suspicious_manifest"
+            }
+          ],
+          "next": "dialog_e003_outro_a"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e003.choice.b",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 3
+            },
+            {
+              "op": "unlock_clue",
+              "id": "clue_suspicious_manifest",
+              "quality": "partial"
+            }
+          ],
+          "next": "dialog_e003_outro_b"
+        },
+        {
+          "id": "C",
+          "loc_key": "dialog.e003.choice.c",
+          "effects": [
+            {
+              "op": "set_flag",
+              "key": "flag_day3_ignored",
+              "value": true
+            }
+          ],
+          "next": "dialog_e003_outro_c"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e003_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e003.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e003_outro_b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e003.outro.b",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e003_outro_c",
+      "speaker": "narrator",
+      "loc_key": "dialog.e003.outro.c",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e004_start",
+      "event_id": "E004",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.e004.start",
+      "next": "dialog_e004_zian"
+    },
+    {
+      "dialog_id": "dialog_e004_zian",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.e004.zian",
+      "next": "dialog_e004_crowd"
+    },
+    {
+      "dialog_id": "dialog_e004_crowd",
+      "speaker": "narrator",
+      "loc_key": "dialog.e004.crowd",
+      "next": "dialog_e004_outro"
+    },
+    {
+      "dialog_id": "dialog_e004_outro",
+      "speaker": "narrator",
+      "loc_key": "dialog.e004.outro",
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_zian_arrived",
+          "value": true
+        },
+        {
+          "op": "unlock_grudge",
+          "id": "grudge_zian_slight"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e005_start",
+      "event_id": "E005",
+      "speaker": "narrator",
+      "loc_key": "dialog.e005.start",
+      "next": "dialog_e005_notice"
+    },
+    {
+      "dialog_id": "dialog_e005_notice",
+      "speaker": "narrator",
+      "loc_key": "dialog.e005.notice",
+      "next": "dialog_e005_zian_ask"
+    },
+    {
+      "dialog_id": "dialog_e005_zian_ask",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.e005.zian_ask",
+      "next": "dialog_e005_retainer"
+    },
+    {
+      "dialog_id": "dialog_e005_retainer",
+      "speaker": "narrator",
+      "loc_key": "dialog.e005.retainer",
+      "next": "dialog_e005_zian_hook"
+    },
+    {
+      "dialog_id": "dialog_e005_zian_hook",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.e005.zian_hook",
+      "effects": [
+        {
+          "op": "add",
+          "meter": "pursuit",
+          "value": 5
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_zian_notices_liu",
+          "value": true
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_qian_zian",
+            "to": "char_liu_ruyan"
+          },
+          "key": "score",
+          "value": 5
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e006_start",
+      "event_id": "E006",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.e006.start",
+      "next": "dialog_e006_narr"
+    },
+    {
+      "dialog_id": "dialog_e006_narr",
+      "speaker": "narrator",
+      "loc_key": "dialog.e006.narr",
+      "next": "dialog_e006_zian"
+    },
+    {
+      "dialog_id": "dialog_e006_zian",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.e006.zian",
+      "next": "dialog_e006_lin"
+    },
+    {
+      "dialog_id": "dialog_e006_lin",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e006.lin",
+      "next": "dialog_e006_aside"
+    },
+    {
+      "dialog_id": "dialog_e006_aside",
+      "speaker": "narrator",
+      "loc_key": "dialog.e006.aside",
+      "next": "dialog_e006_qian_soft"
+    },
+    {
+      "dialog_id": "dialog_e006_qian_soft",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.e006.qian_soft",
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_trust_firm",
+          "value": -10
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_lin_ruisheng",
+            "to": "char_qian_demao"
+          },
+          "key": "score",
+          "value": -10
+        },
+        {
+          "op": "unlock_grudge",
+          "id": "grudge_demao_defer"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e007_start",
+      "event_id": "E007",
+      "speaker": "narrator",
+      "loc_key": "dialog.e007.start",
+      "next": "dialog_e007_bradley_greet"
+    },
+    {
+      "dialog_id": "dialog_e007_bradley_greet",
+      "speaker": "char_bradley",
+      "loc_key": "dialog.e007.bradley_greet",
+      "next": "dialog_e007_qian_reply"
+    },
+    {
+      "dialog_id": "dialog_e007_qian_reply",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.e007.qian_reply",
+      "next": "dialog_e007_observe"
+    },
+    {
+      "dialog_id": "dialog_e007_observe",
+      "speaker": "narrator",
+      "loc_key": "dialog.e007.observe",
+      "next": "dialog_e007_choice"
+    },
+    {
+      "dialog_id": "dialog_e007_choice",
+      "event_id": "E007",
+      "speaker": "narrator",
+      "loc_key": "dialog.e007.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e007.choice.a",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "meter": "impression_bradley",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_bradley",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "stat_trust_firm",
+              "value": -5
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "suspicion",
+              "value": 1
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -5
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_know_bradley_scouting",
+              "value": true
+            }
+          ],
+          "next": "dialog_e007_outro_a"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e007.choice.b",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 3
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_know_bradley_scouting",
+              "value": true
+            }
+          ],
+          "next": "dialog_e007_outro_b"
+        },
+        {
+          "id": "C",
+          "loc_key": "dialog.e007.choice.c",
+          "check": {
+            "require": {
+              "key": "stat_intel",
+              "op": ">=",
+              "value": 10
+            },
+            "on_pass": {
+              "effects": [
+                {
+                  "op": "add",
+                  "key": "stat_intel",
+                  "value": 8
+                },
+                {
+                  "op": "set_flag",
+                  "key": "flag_know_bradley_scouting",
+                  "value": true
+                },
+                {
+                  "op": "set_flag",
+                  "key": "flag_heard_bradley_needs_comprador",
+                  "value": true
+                }
+              ],
+              "next": "dialog_e007_outro_c_ok"
+            },
+            "on_fail": {
+              "effects": [
+                {
+                  "op": "add",
+                  "key": "stat_suspicion",
+                  "value": 10
+                },
+                {
+                  "op": "set_flag",
+                  "key": "flag_know_bradley_scouting",
+                  "value": true
+                }
+              ],
+              "next": "dialog_e007_outro_c_fail"
+            }
+          }
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e007_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e007.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e007_outro_b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e007.outro.b",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e007_outro_c_ok",
+      "speaker": "narrator",
+      "loc_key": "dialog.e007.outro.c_ok",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e007_outro_c_fail",
+      "speaker": "narrator",
+      "loc_key": "dialog.e007.outro.c_fail",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e008_start",
+      "event_id": "E008",
+      "speaker": "narrator",
+      "loc_key": "dialog.e008.start",
+      "next": "dialog_e008_lin_ask"
+    },
+    {
+      "dialog_id": "dialog_e008_lin_ask",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e008.lin_ask",
+      "next": "dialog_e008_liu_show"
+    },
+    {
+      "dialog_id": "dialog_e008_liu_show",
+      "speaker": "narrator",
+      "loc_key": "dialog.e008.liu_show",
+      "next": "dialog_e008_lin_shock"
+    },
+    {
+      "dialog_id": "dialog_e008_lin_shock",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e008.lin_shock",
+      "next": "dialog_e008_liu_explain"
+    },
+    {
+      "dialog_id": "dialog_e008_liu_explain",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.e008.liu_explain",
+      "next": "dialog_e008_lin_rage"
+    },
+    {
+      "dialog_id": "dialog_e008_lin_rage",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e008.lin_rage",
+      "next": "dialog_e008_liu_fear"
+    },
+    {
+      "dialog_id": "dialog_e008_liu_fear",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.e008.liu_fear",
+      "next": "dialog_e008_choice"
+    },
+    {
+      "dialog_id": "dialog_e008_choice",
+      "event_id": "E008",
+      "speaker": "narrator",
+      "loc_key": "dialog.e008.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e008.choice.a",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_trust_firm",
+              "value": -20
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -15
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "suspicion",
+              "value": 1
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_need_marriage_fund",
+              "value": true
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_marked_restless",
+              "value": true
+            },
+            {
+              "op": "unlock_grudge",
+              "id": "grudge_zian_fiancee"
+            }
+          ],
+          "next": "dialog_e008_outro_a"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e008.choice.b",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_liu_ruyan",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 5
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_need_marriage_fund",
+              "value": true
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_endure_preview",
+              "value": true
+            },
+            {
+              "op": "unlock_grudge",
+              "id": "grudge_zian_fiancee"
+            }
+          ],
+          "next": "dialog_e008_outro_b"
+        },
+        {
+          "id": "C",
+          "loc_key": "dialog.e008.choice.c",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_network",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "stat_credit_market",
+              "value": 5
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_need_marriage_fund",
+              "value": true
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_zhao_hongyun",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 5
+            },
+            {
+              "op": "unlock_grudge",
+              "id": "grudge_zian_fiancee"
+            }
+          ],
+          "next": "dialog_e008_outro_c"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e008_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e008.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e008_outro_b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e008.outro.b",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e008_outro_c",
+      "speaker": "narrator",
+      "loc_key": "dialog.e008.outro.c",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e009_start",
+      "event_id": "E009",
+      "speaker": "narrator",
+      "loc_key": "dialog.e009.start",
+      "next": "dialog_e009_monologue"
+    },
+    {
+      "dialog_id": "dialog_e009_monologue",
+      "event_id": "E009",
+      "speaker": "narrator",
+      "loc_key": "dialog.e009.monologue",
+      "next": "dialog_e009_choice"
+    },
+    {
+      "dialog_id": "dialog_e009_choice",
+      "event_id": "E009",
+      "speaker": "narrator",
+      "loc_key": "dialog.e009.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e009.choice.a",
+          "effects": [
+            {
+              "op": "set_flag",
+              "key": "route_endure",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "stat_trust_firm",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 5
+            }
+          ],
+          "next": "dialog_e009_outro_a"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e009.choice.b",
+          "effects": [
+            {
+              "op": "set_flag",
+              "key": "route_defect",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "stat_network",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "stat_trust_firm",
+              "value": -5
+            }
+          ],
+          "next": "dialog_e009_outro_b"
+        },
+        {
+          "id": "C",
+          "loc_key": "dialog.e009.choice.c",
+          "effects": [
+            {
+              "op": "set_flag",
+              "key": "route_foreign",
+              "value": true
+            },
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 10
+            }
+          ],
+          "next": "dialog_e009_outro_c"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e009_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e009.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e009_outro_b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e009.outro.b",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e009_outro_c",
+      "speaker": "narrator",
+      "loc_key": "dialog.e009.outro.c",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_01_outro_default",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_01.outro.default",
+      "tags": [
+        "action",
+        "act_01"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_01_outro_tight",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_01.outro.tight",
+      "tags": [
+        "action",
+        "act_01",
+        "money_tight"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_02_outro_default",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_02.outro.default",
+      "tags": [
+        "action",
+        "act_02"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_03_outro_default",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_03.outro.default",
+      "tags": [
+        "action",
+        "act_03"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_03_outro_tight",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_03.outro.tight",
+      "tags": [
+        "action",
+        "act_03",
+        "money_tight"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_03_outro_well",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_03.outro.well",
+      "tags": [
+        "action",
+        "act_03",
+        "money_well"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e019_start",
+      "event_id": "E019",
+      "speaker": "narrator",
+      "loc_key": "dialog.e019.start",
+      "next": "dialog_e019_choice"
+    },
+    {
+      "dialog_id": "dialog_e019_choice",
+      "event_id": "E019",
+      "speaker": "narrator",
+      "loc_key": "dialog.e019.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e019.choice.a",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 3
+            },
+            {
+              "op": "add",
+              "key": "stat_trust_firm",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 3
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_e019_done",
+              "value": true
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_info_edge_used",
+              "value": true
+            }
+          ],
+          "next": "dialog_e019_outro_a"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e019.choice.b",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_trust_firm",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 8
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_e019_done",
+              "value": true
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_info_edge_used",
+              "value": true
+            }
+          ],
+          "next": "dialog_e019_outro_b"
+        },
+        {
+          "id": "C",
+          "loc_key": "dialog.e019.choice.c",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 2
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_e019_done",
+              "value": true
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_info_edge_saved",
+              "value": true
+            }
+          ],
+          "next": "dialog_e019_outro_c"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e019_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e019.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e019_outro_b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e019.outro.b",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e019_outro_c",
+      "speaker": "narrator",
+      "loc_key": "dialog.e019.outro.c",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e020_start",
+      "event_id": "E020",
+      "speaker": "narrator",
+      "loc_key": "dialog.e020.start",
+      "next": "dialog_e020_announce"
+    },
+    {
+      "dialog_id": "dialog_e020_announce",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.e020.announce",
+      "next": "dialog_e020_title"
+    },
+    {
+      "dialog_id": "dialog_e020_title",
+      "speaker": "narrator",
+      "loc_key": "dialog.e020.title",
+      "next": "dialog_e020_pay"
+    },
+    {
+      "dialog_id": "dialog_e020_pay",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.e020.pay",
+      "next": "dialog_e020_window"
+    },
+    {
+      "dialog_id": "dialog_e020_window",
+      "speaker": "narrator",
+      "loc_key": "dialog.e020.window",
+      "effects": [
+        {
+          "op": "set_rank",
+          "value": "waichang"
+        },
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": 4
+        },
+        {
+          "op": "add",
+          "key": "stat_trust_firm",
+          "value": 5
+        },
+        {
+          "op": "add",
+          "key": "stat_network",
+          "value": 5
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_rank_waichang_ceremony",
+          "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_grudge_window_light",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e020b_start",
+      "event_id": "E020B",
+      "speaker": "narrator",
+      "loc_key": "dialog.e020b.start",
+      "next": "dialog_e020b_quote"
+    },
+    {
+      "dialog_id": "dialog_e020b_quote",
+      "speaker": "char_zhao_hongyun",
+      "loc_key": "dialog.e020b.quote",
+      "next": "dialog_e020b_title"
+    },
+    {
+      "dialog_id": "dialog_e020b_title",
+      "speaker": "narrator",
+      "loc_key": "dialog.e020b.title",
+      "next": "dialog_e020b_money"
+    },
+    {
+      "dialog_id": "dialog_e020b_money",
+      "speaker": "char_zhao_hongyun",
+      "loc_key": "dialog.e020b.money",
+      "next": "dialog_e020b_window"
+    },
+    {
+      "dialog_id": "dialog_e020b_window",
+      "speaker": "narrator",
+      "loc_key": "dialog.e020b.window",
+      "effects": [
+        {
+          "op": "set_rank",
+          "value": "waichang"
+        },
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": 6
+        },
+        {
+          "op": "add",
+          "key": "stat_credit_market",
+          "value": 10
+        },
+        {
+          "op": "add",
+          "key": "stat_network",
+          "value": 5
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_e020b_done",
+          "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_jufeng_offer_open",
+          "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_grudge_window_light",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e020c_start",
+      "event_id": "E020C",
+      "speaker": "narrator",
+      "loc_key": "dialog.e020c.start",
+      "next": "dialog_e020c_admit"
+    },
+    {
+      "dialog_id": "dialog_e020c_admit",
+      "speaker": "char_bradley",
+      "loc_key": "dialog.e020c.admit",
+      "next": "dialog_e020c_title"
+    },
+    {
+      "dialog_id": "dialog_e020c_title",
+      "speaker": "narrator",
+      "loc_key": "dialog.e020c.title",
+      "next": "dialog_e020c_gift"
+    },
+    {
+      "dialog_id": "dialog_e020c_gift",
+      "speaker": "char_bradley",
+      "loc_key": "dialog.e020c.gift",
+      "next": "dialog_e020c_window"
+    },
+    {
+      "dialog_id": "dialog_e020c_window",
+      "speaker": "narrator",
+      "loc_key": "dialog.e020c.window",
+      "effects": [
+        {
+          "op": "set_rank",
+          "value": "waichang"
+        },
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": 3
+        },
+        {
+          "op": "add",
+          "key": "stat_credit_foreign",
+          "value": 10
+        },
+        {
+          "op": "add",
+          "meter": "impression_bradley",
+          "value": 5
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_e020c_done",
+          "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_foreign_door_known",
+          "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_grudge_window_light",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021_start",
+      "event_id": "E021",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.start",
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "grudge": "grudge_zian_slight",
+              "status": "open"
+            }
+          ],
+          "id": "dialog_e021_flash"
+        },
+        {
+          "default": "dialog_e021_skip"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021_flash",
+      "speaker": "narrator",
+      "loc_key": "dialog.grudge.zian_slight.flash",
+      "tags": [
+        "flashback"
+      ],
+      "next": "dialog_e021_setup"
+    },
+    {
+      "dialog_id": "dialog_e021_setup",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.slight.setup",
+      "next": "dialog_e021_choice"
+    },
+    {
+      "dialog_id": "dialog_e021_choice",
+      "event_id": "E021",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.slight.choice",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e021.slight.a",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_slight",
+              "mode": "punish"
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_zian",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -10
+            },
+            {
+              "op": "add",
+              "key": "stat_trust_firm",
+              "value": 5
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_grudge_window_light",
+              "value": false
+            }
+          ],
+          "next": "dialog_e021_punish"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e021.slight.b",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_slight",
+              "mode": "forgive"
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_zian",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -5
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_lin_ruisheng",
+                "to": "char_qian_zian"
+              },
+              "key": "leverage",
+              "value": "当众放过少爷一次"
+            },
+            {
+              "op": "add",
+              "key": "stat_network",
+              "value": 5
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_grudge_window_light",
+              "value": false
+            }
+          ],
+          "next": "dialog_e021_forgive"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.slight.punish",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.slight.forgive",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021_skip",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.skip",
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_grudge_window_light",
+          "value": false
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021b_start",
+      "event_id": "E021B",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.start",
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "grudge": "grudge_zian_slight",
+              "status": "open"
+            }
+          ],
+          "id": "dialog_e021b_flash"
+        },
+        {
+          "default": "dialog_e021b_skip"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021b_flash",
+      "speaker": "narrator",
+      "loc_key": "dialog.grudge.zian_slight.flash",
+      "tags": [
+        "flashback"
+      ],
+      "next": "dialog_e021b_choice"
+    },
+    {
+      "dialog_id": "dialog_e021b_choice",
+      "event_id": "E021B",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.slight.choice",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e021b.slight.a",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_slight",
+              "mode": "punish"
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_zian",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -10
+            },
+            {
+              "op": "add",
+              "key": "stat_credit_market",
+              "value": 5
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_grudge_window_light",
+              "value": false
+            }
+          ],
+          "next": "dialog_e021b_punish"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e021b.slight.b",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_slight",
+              "mode": "forgive"
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_lin_ruisheng",
+                "to": "char_qian_zian"
+              },
+              "key": "leverage",
+              "value": "市井上放过少爷一次"
+            },
+            {
+              "op": "add",
+              "key": "stat_network",
+              "value": 5
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_grudge_window_light",
+              "value": false
+            }
+          ],
+          "next": "dialog_e021b_forgive"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021b_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.slight.punish",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021b_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.slight.forgive",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021b_skip",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.skip",
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_grudge_window_light",
+          "value": false
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021c_start",
+      "event_id": "E021C",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.start",
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "grudge": "grudge_zian_slight",
+              "status": "open"
+            }
+          ],
+          "id": "dialog_e021c_flash"
+        },
+        {
+          "default": "dialog_e021c_skip"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021c_flash",
+      "speaker": "narrator",
+      "loc_key": "dialog.grudge.zian_slight.flash",
+      "tags": [
+        "flashback"
+      ],
+      "next": "dialog_e021c_choice"
+    },
+    {
+      "dialog_id": "dialog_e021c_choice",
+      "event_id": "E021C",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.slight.choice",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e021c.slight.a",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_slight",
+              "mode": "punish"
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_zian",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -12
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 5
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_grudge_window_light",
+              "value": false
+            }
+          ],
+          "next": "dialog_e021c_punish"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e021c.slight.b",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_slight",
+              "mode": "forgive"
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_lin_ruisheng",
+                "to": "char_qian_zian"
+              },
+              "key": "leverage",
+              "value": "借洋势压过又收手"
+            },
+            {
+              "op": "add",
+              "key": "stat_network",
+              "value": 5
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_grudge_window_light",
+              "value": false
+            }
+          ],
+          "next": "dialog_e021c_forgive"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021c_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.slight.punish",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021c_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.slight.forgive",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021c_skip",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.skip",
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_grudge_window_light",
+          "value": false
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_20_outro",
+      "speaker": "narrator",
+      "loc_key": "dialog.act.20.outro",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e010_start",
+      "event_id": "E010",
+      "speaker": "narrator",
+      "loc_key": "dialog.e010.start",
+      "next": "dialog_e010_notice"
+    },
+    {
+      "dialog_id": "dialog_e010_choice",
+      "event_id": "E010",
+      "speaker": "narrator",
+      "loc_key": "dialog.e010.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e010.choice.a",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 5
+            },
+            {
+              "op": "unlock_clue",
+              "id": "clue_light_crate"
+            }
+          ],
+          "next": "dialog_e010_outro_a"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e010.choice.b",
+          "check": {
+            "require": {
+              "key": "stat_intel",
+              "op": ">=",
+              "value": 15
+            },
+            "on_pass": {
+              "effects": [
+                {
+                  "op": "add",
+                  "key": "stat_intel",
+                  "value": 15
+                },
+                {
+                  "op": "add",
+                  "key": "stat_suspicion",
+                  "value": 15
+                },
+                {
+                  "op": "unlock_clue",
+                  "id": "clue_light_crate",
+                  "quality": "partial"
+                }
+              ],
+              "next": "dialog_e010_outro_b_ok"
+            },
+            "on_fail": {
+              "effects": [
+                {
+                  "op": "add",
+                  "key": "stat_suspicion",
+                  "value": 25
+                },
+                {
+                  "op": "add",
+                  "key": "stat_trust_firm",
+                  "value": -15
+                },
+                {
+                  "op": "add",
+                  "edge": {
+                    "from": "char_qian_demao",
+                    "to": "char_lin_ruisheng"
+                  },
+                  "key": "score",
+                  "value": -10
+                }
+              ],
+              "next": "dialog_e010_outro_b_fail"
+            }
+          }
+        },
+        {
+          "id": "C",
+          "loc_key": "dialog.e010.choice.c",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 3
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_e010_delayed",
+              "value": true
+            }
+          ],
+          "next": "dialog_e010_outro_c"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e010_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e010.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e010_outro_c",
+      "speaker": "narrator",
+      "loc_key": "dialog.e010.outro.c",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e010b_start",
+      "event_id": "E010b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e010b.start",
+      "next": "dialog_e010b_choice"
+    },
+    {
+      "dialog_id": "dialog_e010b_choice",
+      "event_id": "E010b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e010b.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e010b.choice.a",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 5
+            },
+            {
+              "op": "unlock_clue",
+              "id": "clue_light_crate"
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_e010_delayed",
+              "value": false
+            }
+          ],
+          "next": "dialog_e010b_outro_a"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e010b.choice.b",
+          "check": {
+            "require": {
+              "key": "stat_intel",
+              "op": ">=",
+              "value": 15
+            },
+            "on_pass": {
+              "effects": [
+                {
+                  "op": "add",
+                  "key": "stat_intel",
+                  "value": 15
+                },
+                {
+                  "op": "add",
+                  "key": "stat_suspicion",
+                  "value": 15
+                },
+                {
+                  "op": "unlock_clue",
+                  "id": "clue_light_crate",
+                  "quality": "partial"
+                },
+                {
+                  "op": "set_flag",
+                  "key": "flag_e010_delayed",
+                  "value": false
+                }
+              ],
+              "next": "dialog_e010b_outro_b_ok"
+            },
+            "on_fail": {
+              "effects": [
+                {
+                  "op": "add",
+                  "key": "stat_suspicion",
+                  "value": 25
+                },
+                {
+                  "op": "add",
+                  "key": "stat_trust_firm",
+                  "value": -15
+                },
+                {
+                  "op": "add",
+                  "edge": {
+                    "from": "char_qian_demao",
+                    "to": "char_lin_ruisheng"
+                  },
+                  "key": "score",
+                  "value": -10
+                },
+                {
+                  "op": "set_flag",
+                  "key": "flag_e010_delayed",
+                  "value": false
+                }
+              ],
+              "next": "dialog_e010b_outro_b_fail"
+            }
+          }
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e011_start",
+      "event_id": "E011",
+      "speaker": "narrator",
+      "loc_key": "dialog.e011.start",
+      "next": "dialog_e011_bradley"
+    },
+    {
+      "dialog_id": "dialog_e011_choice",
+      "event_id": "E011",
+      "speaker": "narrator",
+      "loc_key": "dialog.e011.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e011.choice.a",
+          "require": [
+            {
+              "key": "stat_intel",
+              "op": ">=",
+              "value": 20
+            }
+          ],
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "meter": "impression_bradley",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_bradley",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 12
+            },
+            {
+              "op": "add",
+              "key": "stat_trust_firm",
+              "value": -5
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -5
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "suspicion",
+              "value": 1
+            }
+          ],
+          "next": "dialog_e011_outro_a"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e011.choice.b",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 8
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_saw_bradley_spy",
+              "value": true
+            },
+            {
+              "op": "grant_item",
+              "id": "item_bradley_spy_note"
+            }
+          ],
+          "next": "dialog_e011_outro_b"
+        },
+        {
+          "id": "C",
+          "loc_key": "dialog.e011.choice.c",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_trust_firm",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "suspicion",
+              "value": -1
+            },
+            {
+              "op": "add",
+              "meter": "impression_bradley",
+              "value": -5
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_bradley",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -5
+            }
+          ],
+          "next": "dialog_e011_outro_c"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e012_start",
+      "event_id": "E012",
+      "speaker": "narrator",
+      "loc_key": "dialog.e012.start",
+      "next": "dialog_e012_liu_line"
+    },
+    {
+      "dialog_id": "dialog_e012_choice",
+      "event_id": "E012",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e012.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e012.choice.a",
+          "effects": [
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_liu_ruyan",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -5
+            },
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 15
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_qian_zian",
+                "to": "char_liu_ruyan"
+              },
+              "key": "leverage",
+              "value": "受礼把柄"
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_liu_spy",
+              "value": true
+            }
+          ],
+          "next": "dialog_e012_outro_a"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e012.choice.b",
+          "effects": [
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_liu_ruyan",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_zian",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -10
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_qian_zian",
+                "to": "char_liu_ruyan"
+              },
+              "key": "leverage",
+              "value": "无"
+            },
+            {
+              "op": "add",
+              "meter": "pursuit",
+              "value": 5
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_liu_channel_closed",
+              "value": true
+            }
+          ],
+          "next": "dialog_e012_outro_b"
+        },
+        {
+          "id": "C",
+          "loc_key": "dialog.e012.choice.c",
+          "effects": [
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_liu_ruyan",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 5
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_qian_zian",
+                "to": "char_liu_ruyan"
+              },
+              "key": "leverage",
+              "value": "半收半拖"
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_liu_channel_half",
+              "value": true
+            }
+          ],
+          "next": "dialog_e012_outro_c"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e013_start",
+      "event_id": "E013",
+      "speaker": "narrator",
+      "loc_key": "dialog.e013.start",
+      "next": "dialog_e013_ledger"
+    },
+    {
+      "dialog_id": "dialog_e013_choice",
+      "event_id": "E013",
+      "speaker": "narrator",
+      "loc_key": "dialog.e013.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e013.choice.a",
+          "require": [
+            {
+              "key": "stat_intel",
+              "op": ">=",
+              "value": 30
+            }
+          ],
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 5
+            },
+            {
+              "op": "unlock_clue",
+              "id": "clue_special_goods"
+            },
+            {
+              "op": "add",
+              "org": "org_qianji",
+              "key": "firm_heat",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "org": "org_qianji",
+              "key": "liquidity",
+              "value": -3
+            }
+          ],
+          "next": "dialog_e013_outro_a"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e013.choice.b",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 20
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 25
+            },
+            {
+              "op": "unlock_clue",
+              "id": "clue_special_goods",
+              "quality": "physical"
+            },
+            {
+              "op": "grant_item",
+              "id": "item_special_ledger_copy"
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_ledger_stolen",
+              "value": true
+            },
+            {
+              "op": "add",
+              "org": "org_qianji",
+              "key": "firm_dark",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "org": "org_qianji",
+              "key": "firm_heat",
+              "value": 4
+            }
+          ],
+          "next": "dialog_e013_outro_b"
+        },
+        {
+          "id": "C",
+          "loc_key": "dialog.e013.choice.c",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 10
+            },
+            {
+              "op": "unlock_clue",
+              "id": "clue_special_goods",
+              "quality": "partial"
+            }
+          ],
+          "next": "dialog_e013_outro_c"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e022_start",
+      "event_id": "E022",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022.start",
+      "next": "dialog_e022_flash"
+    },
+    {
+      "dialog_id": "dialog_e022_flash",
+      "speaker": "narrator",
+      "loc_key": "dialog.grudge.zian_fiancee.flash",
+      "tags": [
+        "flashback"
+      ],
+      "next": "dialog_e022_setup"
+    },
+    {
+      "dialog_id": "dialog_e022_setup",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022.setup",
+      "next": "dialog_e022_choice"
+    },
+    {
+      "dialog_id": "dialog_e022_choice",
+      "event_id": "E022",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022.choice",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e022.choice.a",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_fiancee",
+              "mode": "punish"
+            },
+            {
+              "op": "add",
+              "meter": "pursuit",
+              "value": -30
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_zian",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -20
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_liu_ruyan",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "meter": "father_son",
+              "value": -10
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_marriage_agency_reclaimed",
+              "value": true
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_e022_done",
+              "value": true
+            },
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_slight",
+              "mode": "punish",
+              "if_open": true
+            }
+          ],
+          "next": "dialog_e022_punish"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e022.choice.b",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_fiancee",
+              "mode": "forgive"
+            },
+            {
+              "op": "add",
+              "meter": "pursuit",
+              "value": -20
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_lin_ruisheng",
+                "to": "char_qian_zian"
+              },
+              "key": "leverage",
+              "value": "婚事上被你放过一次"
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_liu_ruyan",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "stat_network",
+              "value": 8
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_marriage_agency_reclaimed",
+              "value": true
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_e022_done",
+              "value": true
+            },
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_slight",
+              "mode": "forgive",
+              "if_open": true
+            }
+          ],
+          "next": "dialog_e022_forgive"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e022_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022.punish",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e022_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022.forgive",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e022b_start",
+      "event_id": "E022B",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022b.start",
+      "next": "dialog_e022b_flash"
+    },
+    {
+      "dialog_id": "dialog_e022b_flash",
+      "speaker": "narrator",
+      "loc_key": "dialog.grudge.zian_fiancee.flash",
+      "tags": [
+        "flashback"
+      ],
+      "next": "dialog_e022b_setup"
+    },
+    {
+      "dialog_id": "dialog_e022b_setup",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022b.setup",
+      "next": "dialog_e022b_choice"
+    },
+    {
+      "dialog_id": "dialog_e022b_choice",
+      "event_id": "E022B",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022b.choice",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e022b.choice.a",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_fiancee",
+              "mode": "punish"
+            },
+            {
+              "op": "add",
+              "meter": "pursuit",
+              "value": -30
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_zian",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -20
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_liu_ruyan",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "stat_credit_market",
+              "value": 8
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_marriage_agency_reclaimed",
+              "value": true
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_e022b_done",
+              "value": true
+            },
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_slight",
+              "mode": "punish",
+              "if_open": true
+            }
+          ],
+          "next": "dialog_e022b_punish"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e022b.choice.b",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_fiancee",
+              "mode": "forgive"
+            },
+            {
+              "op": "add",
+              "meter": "pursuit",
+              "value": -20
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_lin_ruisheng",
+                "to": "char_qian_zian"
+              },
+              "key": "leverage",
+              "value": "截胡当面放过一次"
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_liu_ruyan",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "stat_network",
+              "value": 8
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_marriage_agency_reclaimed",
+              "value": true
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_e022b_done",
+              "value": true
+            },
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_slight",
+              "mode": "forgive",
+              "if_open": true
+            }
+          ],
+          "next": "dialog_e022b_forgive"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e022b_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022b.punish",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e022b_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022b.forgive",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e022c_start",
+      "event_id": "E022C",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022c.start",
+      "next": "dialog_e022c_flash"
+    },
+    {
+      "dialog_id": "dialog_e022c_flash",
+      "speaker": "narrator",
+      "loc_key": "dialog.grudge.zian_fiancee.flash",
+      "tags": [
+        "flashback"
+      ],
+      "next": "dialog_e022c_setup"
+    },
+    {
+      "dialog_id": "dialog_e022c_setup",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022c.setup",
+      "next": "dialog_e022c_choice"
+    },
+    {
+      "dialog_id": "dialog_e022c_choice",
+      "event_id": "E022C",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022c.choice",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e022c.choice.a",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_fiancee",
+              "mode": "punish"
+            },
+            {
+              "op": "add",
+              "meter": "pursuit",
+              "value": -30
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_zian",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -25
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_liu_ruyan",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "stat_credit_foreign",
+              "value": 5
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_marriage_agency_reclaimed",
+              "value": true
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_e022c_done",
+              "value": true
+            },
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_slight",
+              "mode": "punish",
+              "if_open": true
+            }
+          ],
+          "next": "dialog_e022c_punish"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e022c.choice.b",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_fiancee",
+              "mode": "forgive"
+            },
+            {
+              "op": "add",
+              "meter": "pursuit",
+              "value": -20
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_lin_ruisheng",
+                "to": "char_qian_zian"
+              },
+              "key": "leverage",
+              "value": "洋势压场后又收手"
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "stat_network",
+              "value": 6
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_marriage_agency_reclaimed",
+              "value": true
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_e022c_done",
+              "value": true
+            },
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_zian_slight",
+              "mode": "forgive",
+              "if_open": true
+            }
+          ],
+          "next": "dialog_e022c_forgive"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e022c_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022c.punish",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e022c_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022c.forgive",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e018_start",
+      "event_id": "E018",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.start",
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "flag": "flag_fired",
+              "value": true
+            }
+          ],
+          "id": "dialog_e018_fail_fired"
+        },
+        {
+          "require": [
+            {
+              "flag": "flag_purged",
+              "value": true
+            }
+          ],
+          "id": "dialog_e018_fail_purged"
+        },
+        {
+          "require": [
+            {
+              "flag": "flag_liu_betrayed",
+              "value": true
+            }
+          ],
+          "id": "dialog_e018_fail_liu"
+        },
+        {
+          "require": [
+            {
+              "or": [
+                {
+                  "key": "stat_suspicion",
+                  "op": ">=",
+                  "value": 100
+                },
+                {
+                  "key": "stat_trust_firm",
+                  "op": "<=",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "id": "dialog_e018_fail_stats"
+        },
+        {
+          "require": [
+            {
+              "flag": "route_endure",
+              "value": true
+            },
+            {
+              "key": "stat_trust_firm",
+              "op": ">=",
+              "value": 50
+            },
+            {
+              "key": "stat_intel",
+              "op": ">=",
+              "value": 35
+            }
+          ],
+          "id": "dialog_e018_a_narr"
+        },
+        {
+          "require": [
+            {
+              "flag": "route_defect",
+              "value": true
+            },
+            {
+              "key": "stat_network",
+              "op": ">=",
+              "value": 35
+            }
+          ],
+          "id": "dialog_e018_b_narr"
+        },
+        {
+          "require": [
+            {
+              "flag": "route_foreign",
+              "value": true
+            },
+            {
+              "or": [
+                {
+                  "flag": "flag_ending_c_ready",
+                  "value": true
+                },
+                {
+                  "flag": "flag_foreign_door_known",
+                  "value": true
+                }
+              ]
+            }
+          ],
+          "id": "dialog_e018_c_narr"
+        },
+        {
+          "default": "dialog_e018_fail_stats"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e018_a_narr",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.a.narr",
+      "next": "dialog_e018_a_qian",
+      "tags": [
+        "mainline",
+        "ending"
+      ]
+    },
+    {
+      "dialog_id": "dialog_e018_a_qian",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.e018.a.qian",
+      "next": "dialog_e018_a_demao"
+    },
+    {
+      "dialog_id": "dialog_e018_a_demao",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.a.demao_grudge",
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "grudge": "grudge_demao_defer",
+              "status": "open"
+            }
+          ],
+          "id": "dialog_e018_a_demao_choice"
+        },
+        {
+          "default": "dialog_e018_a_title"
+        }
+      ],
+      "next": "",
+      "tags": [
+        "mainline",
+        "ending",
+        "flashback"
+      ]
+    },
+    {
+      "dialog_id": "dialog_e018_a_demao_choice",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.a.demao_grudge",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e018.a.demao.punish",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_demao_defer",
+              "mode": "punish"
+            }
+          ],
+          "next": "dialog_e018_a_title"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e018.a.demao.forgive",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_demao_defer",
+              "mode": "forgive"
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_lin_ruisheng",
+                "to": "char_qian_demao"
+              },
+              "key": "leverage",
+              "value": "东家欠你一个满师"
+            }
+          ],
+          "next": "dialog_e018_a_title"
+        }
+      ],
+      "next": "",
+      "tags": [
+        "mainline",
+        "ending",
+        "flashback",
+        "choice"
+      ]
+    },
+    {
+      "dialog_id": "dialog_e018_a_title",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.a.title",
+      "effects": [
+        {
+          "op": "set_rank",
+          "value": "paojie"
+        },
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": 5
+        },
+        {
+          "op": "add",
+          "key": "stat_trust_firm",
+          "value": 10
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_ending_a",
+          "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_houtang_door_ajar",
+          "value": true
+        }
+      ],
+      "next": "dialog_e018_a_close",
+      "tags": [
+        "mainline",
+        "ending"
+      ]
+    },
+    {
+      "dialog_id": "dialog_e018_a_close",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.a.close",
+      "next": "",
+      "tags": [
+        "mainline",
+        "ending"
+      ]
+    },
+    {
+      "dialog_id": "dialog_e018_b_narr",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.b.narr",
+      "next": "dialog_e018_b_zhao",
+      "tags": [
+        "mainline",
+        "ending"
+      ]
+    },
+    {
+      "dialog_id": "dialog_e018_b_zhao",
+      "speaker": "char_zhao_hongyun",
+      "loc_key": "dialog.e018.b.zhao",
+      "next": "dialog_e018_b_title"
+    },
+    {
+      "dialog_id": "dialog_e018_b_title",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.b.title",
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_rank_jufeng_paojie",
+          "value": true
+        },
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": 10
+        },
+        {
+          "op": "add",
+          "key": "stat_credit_market",
+          "value": 15
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_ending_b",
+          "value": true
+        }
+      ],
+      "next": "dialog_e018_b_close"
+    },
+    {
+      "dialog_id": "dialog_e018_b_close",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.b.close",
+      "next": "",
+      "tags": [
+        "mainline",
+        "ending"
+      ]
+    },
+    {
+      "dialog_id": "dialog_e018_c_narr",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.c.narr",
+      "next": "dialog_e018_c_bradley",
+      "tags": [
+        "mainline",
+        "ending"
+      ]
+    },
+    {
+      "dialog_id": "dialog_e018_c_bradley",
+      "speaker": "char_bradley",
+      "loc_key": "dialog.e018.c.bradley",
+      "next": "dialog_e018_c_close"
+    },
+    {
+      "dialog_id": "dialog_e018_c_close",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.c.close",
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_rank_foreign_agent",
+          "value": true
+        },
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": 20
+        },
+        {
+          "op": "add",
+          "key": "stat_credit_foreign",
+          "value": 20
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_ending_c",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e018_fail_fired",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.fail.fired",
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_ending_fail",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e018_fail_purged",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.fail.purged",
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_ending_fail",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e018_fail_liu",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.fail.liu",
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_ending_fail",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e018_fail_stats",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.fail.stats",
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_ending_fail",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_f001_start",
+      "event_id": "F001",
+      "speaker": "narrator",
+      "loc_key": "dialog.f001.start",
+      "next": "dialog_f001_qian"
+    },
+    {
+      "dialog_id": "dialog_f001_qian",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.f001.qian",
+      "next": "dialog_f001_outro"
+    },
+    {
+      "dialog_id": "dialog_f001_outro",
+      "speaker": "narrator",
+      "loc_key": "dialog.f001.outro",
+      "effects": [
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_qian_demao",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "value": -5
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_f002_start",
+      "event_id": "F002",
+      "speaker": "narrator",
+      "loc_key": "dialog.f002.start",
+      "next": "dialog_f002_qian"
+    },
+    {
+      "dialog_id": "dialog_f002_qian",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.f002.qian",
+      "next": "dialog_f002_outro"
+    },
+    {
+      "dialog_id": "dialog_f002_outro",
+      "speaker": "narrator",
+      "loc_key": "dialog.f002.outro",
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_demoted",
+          "value": true
+        },
+        {
+          "op": "set_rank",
+          "value": "apprentice"
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_qian_demao",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "value": -10
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_f003_start",
+      "event_id": "F003",
+      "speaker": "narrator",
+      "loc_key": "dialog.f003.start",
+      "next": "dialog_f003_qian"
+    },
+    {
+      "dialog_id": "dialog_f003_qian",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.f003.qian",
+      "next": "dialog_f003_outro"
+    },
+    {
+      "dialog_id": "dialog_f003_outro",
+      "speaker": "narrator",
+      "loc_key": "dialog.f003.outro",
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_fired",
+          "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "route_endure_failed",
+          "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_ending_fail",
+          "value": true
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_qian_demao",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "value": -40
+        },
+        {
+          "op": "end_run",
+          "reason": "fired"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_f004_start",
+      "event_id": "F004",
+      "speaker": "narrator",
+      "loc_key": "dialog.f004.start",
+      "next": "dialog_f004_overhear"
+    },
+    {
+      "dialog_id": "dialog_f004_overhear",
+      "speaker": "narrator",
+      "loc_key": "dialog.f004.overhear",
+      "next": "dialog_f004_zian"
+    },
+    {
+      "dialog_id": "dialog_f004_zian",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.f004.zian",
+      "next": "dialog_f004_outro"
+    },
+    {
+      "dialog_id": "dialog_f004_outro",
+      "speaker": "narrator",
+      "loc_key": "dialog.f004.outro",
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_suspicion",
+          "value": 30
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_qian_zian",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "value": -20
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_liu_ruyan",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "value": -15
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_liu_betrayed",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_f005_start",
+      "event_id": "F005",
+      "speaker": "narrator",
+      "loc_key": "dialog.f005.start",
+      "next": "dialog_f005_watch"
+    },
+    {
+      "dialog_id": "dialog_f005_watch",
+      "speaker": "narrator",
+      "loc_key": "dialog.f005.watch",
+      "next": "dialog_f005_frame"
+    },
+    {
+      "dialog_id": "dialog_f005_frame",
+      "speaker": "narrator",
+      "loc_key": "dialog.f005.frame",
+      "next": "dialog_f005_out"
+    },
+    {
+      "dialog_id": "dialog_f005_out",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.f005.out",
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_purged",
+          "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_ending_fail",
+          "value": true
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_qian_demao",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "value": -50
+        },
+        {
+          "op": "end_run",
+          "reason": "purged"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e010_notice",
+      "speaker": "narrator",
+      "loc_key": "dialog.e010.notice",
+      "next": "dialog_e010_doubt"
+    },
+    {
+      "dialog_id": "dialog_e010_doubt",
+      "speaker": "narrator",
+      "loc_key": "dialog.e010.doubt",
+      "next": "dialog_e010_choice"
+    },
+    {
+      "dialog_id": "dialog_e010_outro_b_ok",
+      "speaker": "narrator",
+      "loc_key": "dialog.e010.outro.b_ok",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e010_outro_b_fail",
+      "speaker": "narrator",
+      "loc_key": "dialog.e010.outro.b_fail",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e010b_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e010b.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e010b_outro_b_ok",
+      "speaker": "narrator",
+      "loc_key": "dialog.e010b.outro.b_ok",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e010b_outro_b_fail",
+      "speaker": "narrator",
+      "loc_key": "dialog.e010b.outro.b_fail",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e011_bradley",
+      "speaker": "char_bradley",
+      "loc_key": "dialog.e011.bradley",
+      "next": "dialog_e011_qian"
+    },
+    {
+      "dialog_id": "dialog_e011_qian",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.e011.qian",
+      "next": "dialog_e011_bradley_2"
+    },
+    {
+      "dialog_id": "dialog_e011_bradley_2",
+      "speaker": "char_bradley",
+      "loc_key": "dialog.e011.bradley_2",
+      "next": "dialog_e011_spy"
+    },
+    {
+      "dialog_id": "dialog_e011_spy",
+      "speaker": "narrator",
+      "loc_key": "dialog.e011.spy",
+      "next": "dialog_e011_choice"
+    },
+    {
+      "dialog_id": "dialog_e011_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e011.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e011_outro_b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e011.outro.b",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e011_outro_c",
+      "speaker": "narrator",
+      "loc_key": "dialog.e011.outro.c",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e012_liu_line",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.e012.liu_line",
+      "next": "dialog_e012_choice"
+    },
+    {
+      "dialog_id": "dialog_e012_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e012.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e012_outro_b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e012.outro.b",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e012_outro_c",
+      "speaker": "narrator",
+      "loc_key": "dialog.e012.outro.c",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e013_ledger",
+      "speaker": "narrator",
+      "loc_key": "dialog.e013.ledger",
+      "next": "dialog_e013_realize"
+    },
+    {
+      "dialog_id": "dialog_e013_realize",
+      "speaker": "narrator",
+      "loc_key": "dialog.e013.realize",
+      "next": "dialog_e013_choice"
+    },
+    {
+      "dialog_id": "dialog_e013_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e013.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e013_outro_b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e013.outro.b",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e013_outro_c",
+      "speaker": "narrator",
+      "loc_key": "dialog.e013.outro.c",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e014_start",
+      "event_id": "E014",
+      "speaker": "narrator",
+      "loc_key": "dialog.e014.start",
+      "next": "dialog_e014_overhear"
+    },
+    {
+      "dialog_id": "dialog_e014_overhear",
+      "speaker": "narrator",
+      "loc_key": "dialog.e014.overhear",
+      "next": "dialog_e014_zian_1"
+    },
+    {
+      "dialog_id": "dialog_e014_zian_1",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.e014.zian_1",
+      "next": "dialog_e014_retainer"
+    },
+    {
+      "dialog_id": "dialog_e014_retainer",
+      "speaker": "narrator",
+      "loc_key": "dialog.e014.retainer",
+      "next": "dialog_e014_zian_2"
+    },
+    {
+      "dialog_id": "dialog_e014_zian_2",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.e014.zian_2",
+      "next": "dialog_e014_realize"
+    },
+    {
+      "dialog_id": "dialog_e014_realize",
+      "speaker": "narrator",
+      "loc_key": "dialog.e014.realize",
+      "next": "dialog_e014_choice"
+    },
+    {
+      "dialog_id": "dialog_e014_choice",
+      "event_id": "E014",
+      "speaker": "narrator",
+      "loc_key": "dialog.e014.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e014.choice.a",
+          "require": [
+            {
+              "key": "stat_support_mid",
+              "op": ">=",
+              "value": 40
+            },
+            {
+              "key": "stat_support_low",
+              "op": ">=",
+              "value": 40
+            }
+          ],
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "meter": "impression_qing",
+              "value": 30
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qing_daren",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 25
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_zhou_guanshi",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 20
+            },
+            {
+              "op": "grant_item",
+              "id": "item_qing_letter"
+            }
+          ],
+          "next": "dialog_e014_outro_a"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e014.choice.b",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_trust_firm",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "suspicion",
+              "value": 1
+            },
+            {
+              "op": "add",
+              "meter": "father_son",
+              "value": -25
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_qian_zian"
+              },
+              "key": "score",
+              "value": -15
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_qian_zian",
+                "to": "char_qian_demao"
+              },
+              "key": "score",
+              "value": -10
+            }
+          ],
+          "next": "dialog_e014_outro_b"
+        },
+        {
+          "id": "C",
+          "loc_key": "dialog.e014.choice.c",
+          "effects": [
+            {
+              "op": "add",
+              "meter": "father_son",
+              "value": -40
+            },
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 5
+            },
+            {
+              "op": "set_flag",
+              "key": "route_foreign_closed",
+              "value": true
+            }
+          ],
+          "next": "dialog_e014_outro_c"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e014_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e014.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e014_outro_b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e014.outro.b",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e014_outro_c",
+      "speaker": "narrator",
+      "loc_key": "dialog.e014.outro.c",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e015_start",
+      "event_id": "E015",
+      "speaker": "narrator",
+      "loc_key": "dialog.e015.start",
+      "next": "dialog_e015_open"
+    },
+    {
+      "dialog_id": "dialog_e015_open",
+      "speaker": "narrator",
+      "loc_key": "dialog.e015.open",
+      "next": "dialog_e015_know"
+    },
+    {
+      "dialog_id": "dialog_e015_know",
+      "speaker": "narrator",
+      "loc_key": "dialog.e015.know",
+      "next": "dialog_e015_legal"
+    },
+    {
+      "dialog_id": "dialog_e015_legal",
+      "speaker": "narrator",
+      "loc_key": "dialog.e015.legal",
+      "next": "dialog_e015_smuggle"
+    },
+    {
+      "dialog_id": "dialog_e015_smuggle",
+      "speaker": "narrator",
+      "loc_key": "dialog.e015.smuggle",
+      "next": "dialog_e015_puzzle"
+    },
+    {
+      "dialog_id": "dialog_e015_puzzle",
+      "speaker": "narrator",
+      "loc_key": "dialog.e015.puzzle",
+      "next": "dialog_e015_weight"
+    },
+    {
+      "dialog_id": "dialog_e015_weight",
+      "speaker": "narrator",
+      "loc_key": "dialog.e015.weight",
+      "next": "dialog_e015_choice"
+    },
+    {
+      "dialog_id": "dialog_e015_choice",
+      "event_id": "E015",
+      "speaker": "narrator",
+      "loc_key": "dialog.e015.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e015.choice.a",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 30
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 10
+            },
+            {
+              "op": "unlock_clue",
+              "id": "clue_opium_secret"
+            },
+            {
+              "op": "grant_item",
+              "id": "item_opium_sample"
+            }
+          ],
+          "next": "dialog_e015_outro_a"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e015.choice.b",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 15
+            },
+            {
+              "op": "unlock_clue",
+              "id": "clue_opium_infer"
+            }
+          ],
+          "next": "dialog_e015_outro_b"
+        },
+        {
+          "id": "C",
+          "loc_key": "dialog.e015.choice.c",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_money",
+              "value": 100
+            },
+            {
+              "op": "add",
+              "key": "stat_intel",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 40
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_dirty_money_marked",
+              "value": true
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_qian_demao",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "leverage",
+              "value": "盗卖把柄"
+            },
+            {
+              "op": "unlock_clue",
+              "id": "clue_opium_infer"
+            },
+            {
+              "op": "add",
+              "org": "org_qianji",
+              "key": "cash_dark",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "org": "org_qianji",
+              "key": "firm_dark",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "org": "org_qianji",
+              "key": "firm_heat",
+              "value": 10
+            }
+          ],
+          "next": "dialog_e015_outro_c"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e015_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e015.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e015_outro_b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e015.outro.b",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e015_outro_c",
+      "speaker": "narrator",
+      "loc_key": "dialog.e015.outro.c",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e016_start",
+      "event_id": "E016",
+      "speaker": "narrator",
+      "loc_key": "dialog.e016.start",
+      "next": "dialog_e016_choice"
+    },
+    {
+      "dialog_id": "dialog_e016_choice",
+      "event_id": "E016",
+      "speaker": "narrator",
+      "loc_key": "dialog.e016.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e016.choice.a",
+          "next": "dialog_e016_a_lin"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e016.choice.b",
+          "require": [
+            {
+              "meter": "pursuit",
+              "op": ">=",
+              "value": 40
+            }
+          ],
+          "next": "dialog_e016_b_liu"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e016_a_lin",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e016.a.lin",
+      "next": "dialog_e016_a_zian"
+    },
+    {
+      "dialog_id": "dialog_e016_a_zian",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.e016.a.zian",
+      "next": "dialog_e016_a_lin2"
+    },
+    {
+      "dialog_id": "dialog_e016_a_lin2",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e016.a.lin2",
+      "next": "dialog_e016_a_zian2"
+    },
+    {
+      "dialog_id": "dialog_e016_a_zian2",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.e016.a.zian2",
+      "effects": [
+        {
+          "op": "add",
+          "meter": "father_son",
+          "value": -15
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_qian_zian",
+            "to": "char_qian_demao"
+          },
+          "key": "score",
+          "value": -10
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_power_shift_visible",
+          "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_qian_infighting",
+          "value": true
+        }
+      ],
+      "next": "dialog_e016_outro_a"
+    },
+    {
+      "dialog_id": "dialog_e016_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e016.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e016_b_liu",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.e016.b.liu",
+      "next": "dialog_e016_b_zian"
+    },
+    {
+      "dialog_id": "dialog_e016_b_zian",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.e016.b.zian",
+      "next": "dialog_e016_b_liu2"
+    },
+    {
+      "dialog_id": "dialog_e016_b_liu2",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.e016.b.liu2",
+      "effects": [
+        {
+          "op": "add",
+          "meter": "father_son",
+          "value": -20
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_qian_zian",
+            "to": "char_liu_ruyan"
+          },
+          "key": "suspicion",
+          "value": 1
+        },
+        {
+          "op": "add",
+          "meter": "liu_source_risk",
+          "value": 10
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_power_shift_visible",
+          "value": true
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_qian_infighting",
+          "value": true
+        }
+      ],
+      "next": "dialog_e016_outro_b"
+    },
+    {
+      "dialog_id": "dialog_e016_outro_b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e016.outro.b",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e017_start",
+      "event_id": "E017",
+      "speaker": "narrator",
+      "loc_key": "dialog.e017.start",
+      "next": "dialog_e017_lin_hint"
+    },
+    {
+      "dialog_id": "dialog_e017_lin_hint",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e017.lin_hint",
+      "next": "dialog_e017_bradley_probe"
+    },
+    {
+      "dialog_id": "dialog_e017_bradley_probe",
+      "speaker": "char_bradley",
+      "loc_key": "dialog.e017.bradley_probe",
+      "next": "dialog_e017_lin_hedge"
+    },
+    {
+      "dialog_id": "dialog_e017_lin_hedge",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e017.lin_hedge",
+      "next": "dialog_e017_bradley_ask_narr"
+    },
+    {
+      "dialog_id": "dialog_e017_bradley_ask_narr",
+      "speaker": "narrator",
+      "loc_key": "dialog.e017.bradley_ask_narr",
+      "next": "dialog_e017_bradley_ask"
+    },
+    {
+      "dialog_id": "dialog_e017_bradley_ask",
+      "speaker": "char_bradley",
+      "loc_key": "dialog.e017.bradley_ask",
+      "next": "dialog_e017_choice"
+    },
+    {
+      "dialog_id": "dialog_e017_choice",
+      "event_id": "E017",
+      "speaker": "narrator",
+      "loc_key": "dialog.e017.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e017.choice.a",
+          "require": [
+            {
+              "meter": "impression_qing",
+              "op": ">=",
+              "value": 30
+            },
+            {
+              "item": "item_qing_letter",
+              "owned": true
+            }
+          ],
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_credit_foreign",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "meter": "impression_bradley",
+              "value": 25
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_bradley",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 20
+            },
+            {
+              "op": "add",
+              "meter": "eval",
+              "value": -10
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_ending_c_ready",
+              "value": true
+            }
+          ],
+          "next": "dialog_e017_outro_a_line"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e017.choice.b",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_credit_foreign",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "meter": "impression_bradley",
+              "value": 15
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_bradley",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 10
+            }
+          ],
+          "next": "dialog_e017_outro_b"
+        },
+        {
+          "id": "C",
+          "loc_key": "dialog.e017.choice.c",
+          "effects": [
+            {
+              "op": "add",
+              "key": "stat_credit_foreign",
+              "value": 3
+            },
+            {
+              "op": "add",
+              "meter": "impression_bradley",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_bradley",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 3
+            }
+          ],
+          "next": "dialog_e017_outro_c"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e017_outro_a_line",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e017.outro.a_line",
+      "next": "dialog_e017_outro_a"
+    },
+    {
+      "dialog_id": "dialog_e017_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.e017.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e017_outro_b",
+      "speaker": "narrator",
+      "loc_key": "dialog.e017.outro.b",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e017_outro_c",
+      "speaker": "narrator",
+      "loc_key": "dialog.e017.outro.c",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_r001_start",
+      "event_id": "R001",
+      "speaker": "narrator",
+      "loc_key": "dialog.r001.start",
+      "next": "dialog_r001_broker",
+      "tags": [
+        "random",
+        "r001"
+      ]
+    },
+    {
+      "dialog_id": "dialog_r001_pay",
+      "speaker": "narrator",
+      "loc_key": "dialog.r001.pay",
+      "tags": [
+        "random",
+        "r001"
+      ],
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": -5
+        },
+        {
+          "op": "add_range",
+          "key": "stat_intel",
+          "min": 3,
+          "max": 8
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_r002_start",
+      "event_id": "R002",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.r002.start",
+      "next": "dialog_r002_tip",
+      "tags": [
+        "random",
+        "r002"
+      ]
+    },
+    {
+      "dialog_id": "dialog_r002_tip",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.r002.tip",
+      "tags": [
+        "random",
+        "r002"
+      ],
+      "next": "dialog_r002_outro"
+    },
+    {
+      "dialog_id": "dialog_r003_start",
+      "event_id": "R003",
+      "speaker": "narrator",
+      "loc_key": "dialog.r003.start",
+      "next": "dialog_r003_zian"
+    },
+    {
+      "dialog_id": "dialog_r003_zian",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.r003.zian",
+      "next": "dialog_r003_outro"
+    },
+    {
+      "dialog_id": "dialog_r003_outro",
+      "speaker": "narrator",
+      "loc_key": "dialog.r003.outro",
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_suspicion",
+          "value": 10
+        },
+        {
+          "op": "add",
+          "key": "stat_trust_firm",
+          "value": -5
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_qian_zian",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "value": -5
+        },
+        {
+          "op": "unlock_grudge",
+          "id": "grudge_zian_slight"
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_zian_slight_worsened",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_r004_start",
+      "event_id": "R004",
+      "speaker": "narrator",
+      "loc_key": "dialog.r004.start",
+      "next": "dialog_r004_liu"
+    },
+    {
+      "dialog_id": "dialog_r004_liu",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.r004.liu",
+      "next": "dialog_r004_choice"
+    },
+    {
+      "dialog_id": "dialog_r004_choice",
+      "event_id": "R004",
+      "speaker": "narrator",
+      "loc_key": "dialog.r004.choice_prompt",
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.r004.choice.a",
+          "effects": [
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_liu_ruyan",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": 10
+            }
+          ],
+          "next": "dialog_r004_outro_a"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.r004.choice.b",
+          "effects": [
+            {
+              "op": "add",
+              "edge": {
+                "from": "char_liu_ruyan",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "value": -10
+            }
+          ],
+          "next": "dialog_r004_outro_b"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_r004_outro_a",
+      "speaker": "narrator",
+      "loc_key": "dialog.r004.outro.a",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_r004_outro_b",
+      "speaker": "narrator",
+      "loc_key": "dialog.r004.outro.b",
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_r005_start",
+      "event_id": "R005",
+      "speaker": "narrator",
+      "loc_key": "dialog.r005.start",
+      "next": "dialog_r005_zhao"
+    },
+    {
+      "dialog_id": "dialog_r005_zhao",
+      "speaker": "char_zhao_hongyun",
+      "loc_key": "dialog.r005.zhao",
+      "next": "dialog_r005_outro"
+    },
+    {
+      "dialog_id": "dialog_r005_outro",
+      "speaker": "narrator",
+      "loc_key": "dialog.r005.outro",
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_credit_market",
+          "value": 10
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_zhao_hongyun",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "value": 10
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_zhao_contacted",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_r006_start",
+      "event_id": "R006",
+      "speaker": "narrator",
+      "loc_key": "dialog.r006.start",
+      "next": "dialog_r006_clerk",
+      "tags": [
+        "random",
+        "r006"
+      ]
+    },
+    {
+      "dialog_id": "dialog_r006_clerk",
+      "speaker": "char_bank_clerk",
+      "loc_key": "dialog.r006.clerk",
+      "tags": [
+        "random",
+        "r006"
+      ],
+      "next": "dialog_r006_outro"
+    },
+    {
+      "dialog_id": "dialog_r007_start",
+      "event_id": "R007",
+      "speaker": "narrator",
+      "loc_key": "dialog.r007.start",
+      "next": "dialog_r007_warn",
+      "tags": [
+        "random",
+        "pressure",
+        "r007"
+      ]
+    },
+    {
+      "dialog_id": "dialog_r007_feel",
+      "speaker": "narrator",
+      "loc_key": "dialog.r007.feel",
+      "tags": [
+        "random",
+        "pressure",
+        "r007"
+      ],
+      "effects": [
+        {
+          "op": "set_temp",
+          "key": "plot_success_mod",
+          "value": -0.3
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_surveilled_today",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_r008_start",
+      "event_id": "R008",
+      "speaker": "narrator",
+      "loc_key": "dialog.r008.start",
+      "next": "dialog_r008_gossip",
+      "tags": [
+        "random",
+        "r008"
+      ]
+    },
+    {
+      "dialog_id": "dialog_r008_gossip",
+      "speaker": "char_firm_hand",
+      "loc_key": "dialog.r008.gossip",
+      "tags": [
+        "random",
+        "r008"
+      ],
+      "next": "dialog_r008_outro"
+    },
+    {
+      "dialog_id": "dialog_r009_start",
+      "event_id": "R009",
+      "speaker": "narrator",
+      "loc_key": "dialog.r009.start",
+      "next": "dialog_r009_bradley",
+      "tags": [
+        "random",
+        "foreign",
+        "r009"
+      ]
+    },
+    {
+      "dialog_id": "dialog_r009_outro",
+      "speaker": "narrator",
+      "loc_key": "dialog.r009.outro",
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_credit_foreign",
+          "value": 5
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_bradley",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "value": 5
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_bradley_invite",
+          "value": true
+        }
+      ],
+      "next": "",
+      "tags": [
+        "random",
+        "foreign",
+        "r009"
+      ]
+    },
+    {
+      "dialog_id": "dialog_r010_start",
+      "event_id": "R010",
+      "speaker": "narrator",
+      "loc_key": "dialog.r010.start",
+      "next": "dialog_r010_crowd"
+    },
+    {
+      "dialog_id": "dialog_r010_crowd",
+      "speaker": "narrator",
+      "loc_key": "dialog.r010.crowd",
+      "next": "dialog_r010_outro"
+    },
+    {
+      "dialog_id": "dialog_r010_outro",
+      "speaker": "narrator",
+      "loc_key": "dialog.r010.outro",
+      "effects": [
+        {
+          "op": "unlock_grudge",
+          "id": "grudge_onlooker"
+        },
+        {
+          "op": "add",
+          "key": "stat_suspicion",
+          "value": 3
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_lin_ruisheng",
+            "to": "char_zhou_guanshi"
+          },
+          "key": "score",
+          "value": -5
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_11_menu",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_11.menu",
+      "tags": [
+        "action",
+        "act_11"
+      ],
+      "choices": [
+        {
+          "id": "loan",
+          "loc_key": "dialog.act_11.choice.loan",
+          "require": [
+            {
+              "key": "stat_money",
+              "op": ">=",
+              "value": 10
+            },
+            {
+              "flag": "flag_bank_loan_active",
+              "op": "!=",
+              "value": true
+            }
+          ],
+          "next": "dialog_act_11_loan"
+        },
+        {
+          "id": "repay",
+          "loc_key": "dialog.act_11.choice.repay",
+          "require": [
+            {
+              "flag": "flag_bank_loan_active",
+              "value": true
+            }
+          ],
+          "next": "dialog_act_11_repay"
+        },
+        {
+          "id": "rollover",
+          "loc_key": "dialog.act_11.choice.rollover",
+          "require": [
+            {
+              "flag": "flag_bank_loan_active",
+              "value": true
+            },
+            {
+              "flag": "flag_bank_tier2",
+              "value": true
+            }
+          ],
+          "next": "dialog_act_11_rollover"
+        },
+        {
+          "id": "remit",
+          "loc_key": "dialog.act_11.choice.remit",
+          "require": [
+            {
+              "key": "stat_money",
+              "op": ">=",
+              "value": 20
+            }
+          ],
+          "next": "dialog_act_11_remit"
+        },
+        {
+          "id": "market",
+          "loc_key": "dialog.act_11.choice.market",
+          "require": [
+            {
+              "key": "stat_money",
+              "op": ">=",
+              "value": 10
+            }
+          ],
+          "next": "dialog_act_11_market"
+        },
+        {
+          "id": "tier2",
+          "loc_key": "dialog.act_11.choice.tier2",
+          "require": [
+            {
+              "flag": "flag_bank_tier2",
+              "value": true
+            }
+          ],
+          "next": "dialog_act_11_tier2"
+        },
+        {
+          "id": "leave",
+          "loc_key": "dialog.act_11.choice.leave",
+          "require": [],
+          "next": ""
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_11_loan",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_11.loan",
+      "tags": [
+        "action",
+        "act_11",
+        "finance"
+      ],
+      "effects": [
+        {
+          "op": "open_service",
+          "id": "svc_bank_loan_short"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_11_repay",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_11.repay",
+      "tags": [
+        "action",
+        "act_11",
+        "finance"
+      ],
+      "effects": [
+        {
+          "op": "repay_debt",
+          "service_id": "svc_bank_loan_short",
+          "from_money": true,
+          "pay_all": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_11_rollover",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_11.rollover",
+      "tags": [
+        "action",
+        "act_11",
+        "finance"
+      ],
+      "effects": [
+        {
+          "op": "open_service",
+          "id": "svc_bank_rollover"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_11_remit",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_11.remit",
+      "tags": [
+        "action",
+        "act_11",
+        "finance"
+      ],
+      "effects": [
+        {
+          "op": "open_service",
+          "id": "svc_bank_remit_home"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_11_market",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_11.market",
+      "tags": [
+        "action",
+        "act_11",
+        "finance"
+      ],
+      "effects": [
+        {
+          "op": "open_service",
+          "id": "svc_bank_market_info"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_11_tier2",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_11.tier2",
+      "tags": [
+        "action",
+        "act_11"
+      ],
+      "effects": [
+        {
+          "op": "add_range",
+          "key": "stat_network",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_11_outro_tight",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_11.outro.tight",
+      "tags": [
+        "action",
+        "act_11",
+        "money_tight"
+      ],
+      "next": "dialog_act_11_menu"
+    },
+    {
+      "dialog_id": "dialog_act_11_outro_mid",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_11.outro.mid",
+      "tags": [
+        "action",
+        "act_11"
+      ],
+      "next": "dialog_act_11_menu"
+    },
+    {
+      "dialog_id": "dialog_act_11_outro_well",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_11.outro.well",
+      "tags": [
+        "action",
+        "act_11",
+        "money_well"
+      ],
+      "next": "dialog_act_11_menu"
+    },
+    {
+      "dialog_id": "dialog_act_12f_idle",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_12f.idle",
+      "tags": [
+        "action",
+        "act_foreign"
+      ],
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_credit_foreign",
+          "value": 1
+        },
+        {
+          "op": "add",
+          "org": "org_baoshun",
+          "key": "channel_hunger",
+          "value": -1
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_12f_ready",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_12f.ready",
+      "tags": [
+        "action",
+        "act_foreign"
+      ],
+      "choices": [
+        {
+          "id": "commission",
+          "loc_key": "dialog.act_12f.choice.commission",
+          "require": [
+            {
+              "flag": "flag_ending_c_ready",
+              "value": true
+            }
+          ],
+          "next": "dialog_act_12f_commission"
+        },
+        {
+          "id": "leave",
+          "loc_key": "dialog.act_12f.choice.leave",
+          "require": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_act_12f_commission",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_12f.commission",
+      "tags": [
+        "action",
+        "act_foreign",
+        "finance",
+        "ending"
+      ],
+      "effects": [
+        {
+          "op": "open_service",
+          "id": "svc_foreign_commission"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_01_outro_well",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_01.outro.well",
+      "tags": [
+        "action",
+        "act_01",
+        "money_well"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_04_outro_default",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_04.outro.default",
+      "tags": [
+        "action",
+        "act_04"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_04_outro_tight",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_04.outro.tight",
+      "tags": [
+        "action",
+        "act_04",
+        "money_tight"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_04_outro_well",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_04.outro.well",
+      "tags": [
+        "action",
+        "act_04",
+        "money_well"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_05_outro_default",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_05.outro.default",
+      "tags": [
+        "action",
+        "act_05"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_05_outro_tight",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_05.outro.tight",
+      "tags": [
+        "action",
+        "act_05",
+        "money_tight"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_05_outro_well",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_05.outro.well",
+      "tags": [
+        "action",
+        "act_05",
+        "money_well"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_06_outro_default",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_06.outro.default",
+      "tags": [
+        "action",
+        "act_06"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_06_outro_tight",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_06.outro.tight",
+      "tags": [
+        "action",
+        "act_06",
+        "money_tight"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_06_outro_marriage_pressure",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_06.outro.marriage_pressure",
+      "tags": [
+        "action",
+        "act_06",
+        "marriage_pressure"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_06_outro_gift",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_06.outro.gift",
+      "tags": [
+        "action",
+        "act_06",
+        "optional_gift"
+      ],
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": -3
+        },
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_liu_ruyan",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "value": 3
+        },
+        {
+          "op": "set",
+          "edge": {
+            "from": "char_liu_ruyan",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "debt",
+          "value": "收过你的小心意"
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_liu_gift_today",
+          "value": true
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_07_outro_default",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_07.outro.default",
+      "tags": [
+        "action",
+        "act_07"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_07_outro_tight",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_07.outro.tight",
+      "tags": [
+        "action",
+        "act_07",
+        "money_tight"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_07_outro_well",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_07.outro.well",
+      "tags": [
+        "action",
+        "act_07",
+        "money_well"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_08_outro_default",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_08.outro.default",
+      "tags": [
+        "action",
+        "act_08"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_08_outro_tight",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_08.outro.tight",
+      "tags": [
+        "action",
+        "act_08",
+        "money_tight"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_08_outro_marriage_pressure",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_08.outro.marriage_pressure",
+      "tags": [
+        "action",
+        "act_08",
+        "marriage_pressure"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_08_outro_suspicion",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_08.outro.suspicion",
+      "tags": [
+        "action",
+        "act_08",
+        "high_suspicion"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_09_outro_default",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_09.outro.default",
+      "tags": [
+        "action",
+        "act_09"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_10_outro_default",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_10.outro.default",
+      "tags": [
+        "action",
+        "act_10"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_10_outro_tight",
+      "speaker": "char_zhao_hongyun",
+      "loc_key": "dialog.act_10.outro.tight",
+      "tags": [
+        "action",
+        "act_10",
+        "money_tight"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_10_outro_well",
+      "speaker": "char_zhao_hongyun",
+      "loc_key": "dialog.act_10.outro.well",
+      "tags": [
+        "action",
+        "act_10",
+        "money_well"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_act_12_outro_default",
+      "speaker": "narrator",
+      "loc_key": "dialog.act_12.outro.default",
+      "tags": [
+        "action",
+        "act_12"
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_r002_outro",
+      "speaker": "narrator",
+      "loc_key": "dialog.r002.outro",
+      "tags": [
+        "random",
+        "r002"
+      ],
+      "effects": [
+        {
+          "op": "add_range",
+          "key": "stat_intel",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_r009_bradley",
+      "speaker": "char_bradley",
+      "loc_key": "dialog.r009.bradley",
+      "tags": [
+        "random",
+        "foreign",
+        "r009"
+      ],
+      "next": "dialog_r009_outro"
+    },
+    {
+      "dialog_id": "dialog_r001_broker",
+      "speaker": "char_msg_broker",
+      "loc_key": "dialog.r001.broker",
+      "tags": [
+        "random",
+        "r001"
+      ],
+      "next": "dialog_r001_pay"
+    },
+    {
+      "dialog_id": "dialog_r006_outro",
+      "speaker": "narrator",
+      "loc_key": "dialog.r006.outro",
+      "tags": [
+        "random",
+        "r006"
+      ],
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_bank_tier2",
+          "value": true
+        },
+        {
+          "op": "add",
+          "key": "stat_credit_bank",
+          "value": 15
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_r007_warn",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.r007.warn",
+      "tags": [
+        "random",
+        "pressure",
+        "r007"
+      ],
+      "next": "dialog_r007_feel"
+    },
+    {
+      "dialog_id": "dialog_r008_outro",
+      "speaker": "narrator",
+      "loc_key": "dialog.r008.outro",
+      "tags": [
+        "random",
+        "r008"
+      ],
+      "effects": [
+        {
+          "op": "add_range",
+          "key": "stat_intel",
+          "min": 2,
+          "max": 5
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_chat_generic_nod",
+      "speaker": "narrator",
+      "loc_key": "dialog.chat.generic.nod",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_generic_repeat",
+      "speaker": "narrator",
+      "loc_key": "dialog.chat.generic.repeat",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_lin_ruisheng_fallback",
+      "speaker": "narrator",
+      "loc_key": "dialog.chat.lin_ruisheng.fallback",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_lin_ruisheng_money",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.chat.lin_ruisheng.money",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_lin_ruisheng_heat",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.chat.lin_ruisheng.heat",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_lin_ruisheng_dawn",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.chat.lin_ruisheng.dawn",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_qian_demao_fallback",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.chat.qian_demao.fallback",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_qian_demao_early",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.chat.qian_demao.early",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_qian_demao_warm",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.chat.qian_demao.warm",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_qian_demao_heat",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.chat.qian_demao.heat",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_qian_demao_evening",
+      "speaker": "char_qian_demao",
+      "loc_key": "dialog.chat.qian_demao.evening",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_qian_zian_fallback",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.chat.qian_zian.fallback",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_qian_zian_mock",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.chat.qian_zian.mock",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_qian_zian_bad",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.chat.qian_zian.bad",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_qian_zian_pursuit",
+      "speaker": "char_qian_zian",
+      "loc_key": "dialog.chat.qian_zian.pursuit",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_liu_ruyan_fallback",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.chat.liu_ruyan.fallback",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_liu_ruyan_soft",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.chat.liu_ruyan.soft",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_liu_ruyan_money",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.chat.liu_ruyan.money",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_liu_ruyan_good",
+      "speaker": "char_liu_ruyan",
+      "loc_key": "dialog.chat.liu_ruyan.good",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_zhou_guanshi_fallback",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.chat.zhou_guanshi.fallback",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_zhou_guanshi_rule",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.chat.zhou_guanshi.rule",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_zhou_guanshi_trust",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.chat.zhou_guanshi.trust",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_wang_pangzi_fallback",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.chat.wang_pangzi.fallback",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_wang_pangzi_gossip",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.chat.wang_pangzi.gossip",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_intel",
+          "value": 1
+        }
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_wang_pangzi_wine",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.chat.wang_pangzi.wine",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_wang_pangzi_pal",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.chat.wang_pangzi.pal",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_bradley_fallback",
+      "speaker": "char_bradley",
+      "loc_key": "dialog.chat.bradley.fallback",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_bradley_wait",
+      "speaker": "char_bradley",
+      "loc_key": "dialog.chat.bradley.wait",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_bradley_impress",
+      "speaker": "char_bradley",
+      "loc_key": "dialog.chat.bradley.impress",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_zhao_hongyun_fallback",
+      "speaker": "char_zhao_hongyun",
+      "loc_key": "dialog.chat.zhao_hongyun.fallback",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_zhao_hongyun_probe",
+      "speaker": "char_zhao_hongyun",
+      "loc_key": "dialog.chat.zhao_hongyun.probe",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_zhao_hongyun_route",
+      "speaker": "char_zhao_hongyun",
+      "loc_key": "dialog.chat.zhao_hongyun.route",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_qing_daren_fallback",
+      "speaker": "char_qing_daren",
+      "loc_key": "dialog.chat.qing_daren.fallback",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_qing_daren_cold",
+      "speaker": "char_qing_daren",
+      "loc_key": "dialog.chat.qing_daren.cold",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_qing_daren_heat",
+      "speaker": "char_qing_daren",
+      "loc_key": "dialog.chat.qing_daren.heat",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_msg_broker_fallback",
+      "speaker": "char_msg_broker",
+      "loc_key": "dialog.chat.msg_broker.fallback",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_msg_broker_sell",
+      "speaker": "char_msg_broker",
+      "loc_key": "dialog.chat.msg_broker.sell",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_msg_broker_hint",
+      "speaker": "char_msg_broker",
+      "loc_key": "dialog.chat.msg_broker.hint",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_intel",
+          "value": 1
+        }
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_bank_clerk_fallback",
+      "speaker": "char_bank_clerk",
+      "loc_key": "dialog.chat.bank_clerk.fallback",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_bank_clerk_credit",
+      "speaker": "char_bank_clerk",
+      "loc_key": "dialog.chat.bank_clerk.credit",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_bank_clerk_good",
+      "speaker": "char_bank_clerk",
+      "loc_key": "dialog.chat.bank_clerk.good",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_firm_hand_fallback",
+      "speaker": "char_firm_hand",
+      "loc_key": "dialog.chat.firm_hand.fallback",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_firm_hand_work",
+      "speaker": "char_firm_hand",
+      "loc_key": "dialog.chat.firm_hand.work",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_firm_hand_pal",
+      "speaker": "char_firm_hand",
+      "loc_key": "dialog.chat.firm_hand.pal",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1078 @@
+{
+  "rows": [
+    {
+      "event_id": "E001",
+      "loc_key": "event.e001.name",
+      "dialog_entry": "dialog_e001_start",
+      "effects_when": "dialog",
+      "require": [],
+      "effects": []
+    },
+    {
+      "event_id": "E002",
+      "loc_key": "event.e002.name",
+      "dialog_entry": "dialog_e002_start",
+      "effects_when": "dialog",
+      "require": [],
+      "effects": []
+    },
+    {
+      "event_id": "E003",
+      "loc_key": "event.e003.name",
+      "dialog_entry": "dialog_e003_start",
+      "effects_when": "dialog",
+      "require": [],
+      "effects": []
+    },
+    {
+      "event_id": "E004",
+      "loc_key": "event.e004.name",
+      "dialog_entry": "dialog_e004_start",
+      "effects_when": "dialog",
+      "require": [],
+      "effects": []
+    },
+    {
+      "event_id": "E005",
+      "loc_key": "event.e005.name",
+      "dialog_entry": "dialog_e005_start",
+      "effects_when": "dialog",
+      "require": [],
+      "effects": []
+    },
+    {
+      "event_id": "E006",
+      "loc_key": "event.e006.name",
+      "dialog_entry": "dialog_e006_start",
+      "effects_when": "dialog",
+      "require": [],
+      "effects": []
+    },
+    {
+      "event_id": "E007",
+      "loc_key": "event.e007.name",
+      "dialog_entry": "dialog_e007_start",
+      "effects_when": "dialog",
+      "require": [],
+      "effects": []
+    },
+    {
+      "event_id": "E008",
+      "loc_key": "event.e008.name",
+      "dialog_entry": "dialog_e008_start",
+      "effects_when": "dialog",
+      "require": [],
+      "effects": []
+    },
+    {
+      "event_id": "E009",
+      "loc_key": "event.e009.name",
+      "dialog_entry": "dialog_e009_start",
+      "effects_when": "dialog",
+      "require": [],
+      "effects": []
+    },
+    {
+      "event_id": "E019",
+      "loc_key": "event.e019.name",
+      "dialog_entry": "dialog_e019_start",
+      "effects_when": "dialog",
+      "mutex_group": "",
+      "route_tags": [],
+      "require": [
+        {
+          "flag": "flag_e019_done",
+          "value": false
+        },
+        {
+          "key": "stat_intel",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "effects": []
+    },
+    {
+      "event_id": "E020",
+      "loc_key": "event.e020.name",
+      "dialog_entry": "dialog_e020_start",
+      "effects_when": "dialog",
+      "mutex_group": "chapter2.rankup",
+      "route_tags": [
+        "route_endure"
+      ],
+      "require": [
+        {
+          "rank": "apprentice"
+        },
+        {
+          "key": "stat_trust_firm",
+          "op": ">=",
+          "value": 45
+        },
+        {
+          "key": "stat_intel",
+          "op": ">=",
+          "value": 20
+        },
+        {
+          "flag": "flag_e020b_done",
+          "value": false
+        },
+        {
+          "flag": "flag_e020c_done",
+          "value": false
+        }
+      ],
+      "effects": []
+    },
+    {
+      "event_id": "E020B",
+      "loc_key": "event.e020b.name",
+      "dialog_entry": "dialog_e020b_start",
+      "effects_when": "dialog",
+      "mutex_group": "chapter2.rankup",
+      "route_tags": [
+        "route_defect"
+      ],
+      "require": [
+        {
+          "rank": "apprentice"
+        },
+        {
+          "flag": "route_defect",
+          "value": true
+        },
+        {
+          "key": "stat_intel",
+          "op": ">=",
+          "value": 20
+        },
+        {
+          "flag": "flag_e020b_done",
+          "value": false
+        },
+        {
+          "flag": "flag_rank_waichang_ceremony",
+          "value": false
+        }
+      ],
+      "effects": []
+    },
+    {
+      "event_id": "E020C",
+      "loc_key": "event.e020c.name",
+      "dialog_entry": "dialog_e020c_start",
+      "effects_when": "dialog",
+      "mutex_group": "chapter2.rankup",
+      "route_tags": [
+        "route_foreign"
+      ],
+      "require": [
+        {
+          "rank": "apprentice"
+        },
+        {
+          "flag": "route_foreign",
+          "value": true
+        },
+        {
+          "key": "stat_intel",
+          "op": ">=",
+          "value": 20
+        },
+        {
+          "flag": "flag_e020c_done",
+          "value": false
+        },
+        {
+          "flag": "flag_rank_waichang_ceremony",
+          "value": false
+        }
+      ],
+      "effects": []
+    },
+    {
+      "event_id": "E021",
+      "loc_key": "event.e021.name",
+      "dialog_entry": "dialog_e021_start",
+      "effects_when": "dialog",
+      "mutex_group": "chapter2.light_reckoning",
+      "route_tags": [
+        "route_endure"
+      ],
+      "require": [
+        {
+          "flag": "flag_grudge_window_light",
+          "value": true
+        },
+        {
+          "rank_in": [
+            "waichang",
+            "paojie"
+          ]
+        },
+        {
+          "flag": "flag_e020b_done",
+          "value": false
+        },
+        {
+          "flag": "flag_e020c_done",
+          "value": false
+        }
+      ],
+      "effects": []
+    },
+    {
+      "event_id": "E021B",
+      "loc_key": "event.e021b.name",
+      "dialog_entry": "dialog_e021b_start",
+      "effects_when": "dialog",
+      "mutex_group": "chapter2.light_reckoning",
+      "route_tags": [
+        "route_defect"
+      ],
+      "require": [
+        {
+          "flag": "flag_grudge_window_light",
+          "value": true
+        },
+        {
+          "flag": "flag_e020b_done",
+          "value": true
+        },
+        {
+          "rank_in": [
+            "waichang",
+            "paojie"
+          ]
+        }
+      ],
+      "effects": []
+    },
+    {
+      "event_id": "E021C",
+      "loc_key": "event.e021c.name",
+      "dialog_entry": "dialog_e021c_start",
+      "effects_when": "dialog",
+      "mutex_group": "chapter2.light_reckoning",
+      "route_tags": [
+        "route_foreign"
+      ],
+      "require": [
+        {
+          "flag": "flag_grudge_window_light",
+          "value": true
+        },
+        {
+          "flag": "flag_e020c_done",
+          "value": true
+        },
+        {
+          "rank_in": [
+            "waichang",
+            "paojie"
+          ]
+        }
+      ],
+      "effects": []
+    },
+    {
+      "event_id": "E010",
+      "loc_key": "event.e010.name",
+      "dialog_entry": "dialog_e010_start",
+      "mutex_group": "chapter2.night_cargo",
+      "route_tags": [],
+      "require": [
+        {
+          "key": "stat_intel",
+          "op": ">=",
+          "value": 10
+        },
+        {
+          "clue": "clue_suspicious_manifest",
+          "owned": true
+        },
+        {
+          "flag": "flag_day3_ignored",
+          "value": false
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "E010b",
+      "loc_key": "event.e010b.name",
+      "dialog_entry": "dialog_e010b_start",
+      "mutex_group": "chapter2.night_cargo",
+      "route_tags": [],
+      "require": [
+        {
+          "flag": "flag_e010_delayed",
+          "value": true
+        },
+        {
+          "key": "stat_intel",
+          "op": ">=",
+          "value": 10
+        },
+        {
+          "clue": "clue_suspicious_manifest",
+          "owned": true
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "E011",
+      "loc_key": "event.e011.name",
+      "dialog_entry": "dialog_e011_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "require": [
+        {
+          "flag": "flag_know_bradley_scouting",
+          "value": true
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "E012",
+      "loc_key": "event.e012.name",
+      "dialog_entry": "dialog_e012_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "require": [
+        {
+          "flag": "flag_endure_preview",
+          "value": true
+        },
+        {
+          "edge": {
+            "from": "char_liu_ruyan",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "op": ">=",
+          "value": 40
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "E013",
+      "loc_key": "event.e013.name",
+      "dialog_entry": "dialog_e013_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "require": [
+        {
+          "key": "stat_intel",
+          "op": ">=",
+          "value": 25
+        },
+        {
+          "clue": "clue_light_crate",
+          "owned": true
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "E022",
+      "loc_key": "event.e022.name",
+      "dialog_entry": "dialog_e022_start",
+      "mutex_group": "chapter3.main_reckoning",
+      "route_tags": [
+        "route_endure"
+      ],
+      "require": [
+        {
+          "grudge": "grudge_zian_fiancee",
+          "status": "open"
+        },
+        {
+          "rank_in": [
+            "waichang",
+            "paojie"
+          ]
+        },
+        {
+          "flag": "flag_e020b_done",
+          "value": false
+        },
+        {
+          "flag": "flag_e020c_done",
+          "value": false
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "E022B",
+      "loc_key": "event.e022b.name",
+      "dialog_entry": "dialog_e022b_start",
+      "mutex_group": "chapter3.main_reckoning",
+      "route_tags": [
+        "route_defect"
+      ],
+      "require": [
+        {
+          "grudge": "grudge_zian_fiancee",
+          "status": "open"
+        },
+        {
+          "or": [
+            {
+              "flag": "flag_e020b_done",
+              "value": true
+            },
+            {
+              "flag": "flag_jufeng_offer_open",
+              "value": true
+            }
+          ]
+        },
+        {
+          "flag": "flag_e020c_done",
+          "value": false
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "E022C",
+      "loc_key": "event.e022c.name",
+      "dialog_entry": "dialog_e022c_start",
+      "mutex_group": "chapter3.main_reckoning",
+      "route_tags": [
+        "route_foreign"
+      ],
+      "require": [
+        {
+          "grudge": "grudge_zian_fiancee",
+          "status": "open"
+        },
+        {
+          "or": [
+            {
+              "flag": "flag_e020c_done",
+              "value": true
+            },
+            {
+              "flag": "flag_foreign_door_known",
+              "value": true
+            }
+          ]
+        },
+        {
+          "flag": "flag_e020b_done",
+          "value": false
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "E018",
+      "loc_key": "event.e018.name",
+      "dialog_entry": "dialog_e018_start",
+      "mutex_group": "chapter3.finale",
+      "route_tags": [
+        "route_endure",
+        "route_defect",
+        "route_foreign"
+      ],
+      "require": [
+        {
+          "or": [
+            {
+              "flag": "flag_e022_done",
+              "value": true
+            },
+            {
+              "flag": "flag_e022b_done",
+              "value": true
+            },
+            {
+              "flag": "flag_e022c_done",
+              "value": true
+            },
+            {
+              "flag": "flag_marriage_agency_reclaimed",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "F001",
+      "loc_key": "event.f001.name",
+      "dialog_entry": "dialog_f001_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "require": [
+        {
+          "key": "stat_suspicion",
+          "op": ">=",
+          "value": 30
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "F002",
+      "loc_key": "event.f002.name",
+      "dialog_entry": "dialog_f002_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "require": [
+        {
+          "key": "stat_suspicion",
+          "op": ">=",
+          "value": 50
+        },
+        {
+          "key": "stat_trust_firm",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "F003",
+      "loc_key": "event.f003.name",
+      "dialog_entry": "dialog_f003_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "require": [
+        {
+          "key": "stat_suspicion",
+          "op": ">=",
+          "value": 70
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "F004",
+      "loc_key": "event.f004.name",
+      "dialog_entry": "dialog_f004_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "require": [
+        {
+          "edge": {
+            "from": "char_liu_ruyan",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "op": "<=",
+          "value": -20
+        },
+        {
+          "meter": "pursuit",
+          "op": ">=",
+          "value": 60
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "F005",
+      "loc_key": "event.f005.name",
+      "dialog_entry": "dialog_f005_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "require": [
+        {
+          "edge": {
+            "from": "char_qian_demao",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "suspicion",
+          "op": ">=",
+          "value": 4
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "E014",
+      "loc_key": "event.e014.name",
+      "dialog_entry": "dialog_e014_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "require": [
+        {
+          "key": "stat_intel",
+          "op": ">=",
+          "value": 35
+        },
+        {
+          "clue": "clue_special_goods",
+          "owned": true
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "E015",
+      "loc_key": "event.e015.name",
+      "dialog_entry": "dialog_e015_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "require": [
+        {
+          "key": "stat_intel",
+          "op": ">=",
+          "value": 35
+        },
+        {
+          "clue": "clue_special_goods",
+          "owned": true
+        },
+        {
+          "or": [
+            {
+              "edge": {
+                "from": "char_wang_pangzi",
+                "to": "char_lin_ruisheng"
+              },
+              "key": "score",
+              "op": ">=",
+              "value": 35
+            },
+            {
+              "key": "stat_network",
+              "op": ">=",
+              "value": 25
+            }
+          ]
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "E016",
+      "loc_key": "event.e016.name",
+      "dialog_entry": "dialog_e016_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "require": [
+        {
+          "key": "stat_intel",
+          "op": ">=",
+          "value": 35
+        },
+        {
+          "meter": "father_son",
+          "op": "<=",
+          "value": 45
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "E017",
+      "loc_key": "event.e017.name",
+      "dialog_entry": "dialog_e017_start",
+      "mutex_group": "",
+      "route_tags": [
+        "route_foreign"
+      ],
+      "require": [
+        {
+          "meter": "impression_qing",
+          "op": ">=",
+          "value": 30
+        },
+        {
+          "meter": "impression_bradley",
+          "op": ">=",
+          "value": 10
+        },
+        {
+          "flag": "route_foreign",
+          "value": true
+        },
+        {
+          "flag": "route_foreign_closed",
+          "value": false
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "R001",
+      "loc_key": "event.r001.name",
+      "dialog_entry": "dialog_r001_start",
+      "event_type": "random",
+      "mutex_group": "",
+      "route_tags": [],
+      "once": true,
+      "cooldown_days": 0,
+      "require": [
+        {
+          "loc": "loc_03"
+        },
+        {
+          "slot_in": [
+            "evening"
+          ]
+        },
+        {
+          "key": "stat_money",
+          "op": ">=",
+          "value": 5
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "R002",
+      "loc_key": "event.r002.name",
+      "dialog_entry": "dialog_r002_start",
+      "event_type": "random",
+      "mutex_group": "",
+      "route_tags": [],
+      "once": false,
+      "cooldown_days": 5,
+      "require": [
+        {
+          "loc": "loc_02"
+        },
+        {
+          "slot_in": [
+            "noon",
+            "afternoon",
+            "evening"
+          ]
+        },
+        {
+          "edge": {
+            "from": "char_wang_pangzi",
+            "to": "char_lin_ruisheng"
+          },
+          "tier_in": [
+            "相善",
+            "厚交"
+          ]
+        },
+        {
+          "edge": {
+            "from": "char_wang_pangzi",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "score",
+          "op": ">=",
+          "value": 40
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "R003",
+      "loc_key": "event.r003.name",
+      "dialog_entry": "dialog_r003_start",
+      "event_type": "random",
+      "mutex_group": "",
+      "route_tags": [],
+      "once": true,
+      "cooldown_days": 0,
+      "require": [
+        {
+          "loc": "loc_01"
+        },
+        {
+          "slot_in": [
+            "morning",
+            "noon",
+            "afternoon"
+          ]
+        },
+        {
+          "flag": "flag_zian_arrived",
+          "value": true
+        },
+        {
+          "edge": {
+            "from": "char_qian_zian",
+            "to": "char_lin_ruisheng"
+          },
+          "tier_in": [
+            "仇隙",
+            "不睦"
+          ]
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "R004",
+      "loc_key": "event.r004.name",
+      "dialog_entry": "dialog_r004_start",
+      "event_type": "random",
+      "mutex_group": "",
+      "route_tags": [],
+      "once": true,
+      "cooldown_days": 0,
+      "require": [
+        {
+          "loc": "loc_06"
+        },
+        {
+          "slot_in": [
+            "evening"
+          ]
+        },
+        {
+          "edge": {
+            "from": "char_liu_ruyan",
+            "to": "char_lin_ruisheng"
+          },
+          "tier_in": [
+            "相善",
+            "厚交"
+          ]
+        },
+        {
+          "meter": "pursuit",
+          "op": ">=",
+          "value": 30
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "R005",
+      "loc_key": "event.r005.name",
+      "dialog_entry": "dialog_r005_start",
+      "event_type": "random",
+      "mutex_group": "",
+      "route_tags": [
+        "route_defect"
+      ],
+      "once": true,
+      "cooldown_days": 0,
+      "require": [
+        {
+          "loc": "loc_03"
+        },
+        {
+          "slot_in": [
+            "noon",
+            "afternoon",
+            "evening"
+          ]
+        },
+        {
+          "key": "stat_network",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "R006",
+      "loc_key": "event.r006.name",
+      "dialog_entry": "dialog_r006_start",
+      "event_type": "random",
+      "mutex_group": "",
+      "route_tags": [],
+      "once": true,
+      "cooldown_days": 0,
+      "require": [
+        {
+          "loc": "loc_04"
+        },
+        {
+          "slot_in": [
+            "morning",
+            "noon"
+          ]
+        },
+        {
+          "key": "stat_money",
+          "op": ">=",
+          "value": 40
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "R007",
+      "loc_key": "event.r007.name",
+      "dialog_entry": "dialog_r007_start",
+      "event_type": "random",
+      "mutex_group": "",
+      "route_tags": [],
+      "once": false,
+      "cooldown_days": 0,
+      "require": [
+        {
+          "loc": "loc_02"
+        },
+        {
+          "slot_in": [
+            "noon",
+            "afternoon",
+            "evening",
+            "late_night"
+          ]
+        },
+        {
+          "edge": {
+            "from": "char_qian_demao",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "suspicion",
+          "op": ">=",
+          "value": 2
+        },
+        {
+          "flag": "flag_surveilled_today",
+          "value": false
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "R008",
+      "loc_key": "event.r008.name",
+      "dialog_entry": "dialog_r008_start",
+      "event_type": "random",
+      "mutex_group": "",
+      "route_tags": [],
+      "once": true,
+      "cooldown_days": 0,
+      "require": [
+        {
+          "loc": "loc_02"
+        },
+        {
+          "slot_in": [
+            "noon",
+            "afternoon"
+          ]
+        },
+        {
+          "key": "stat_trust_firm",
+          "op": ">=",
+          "value": 40
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "R009",
+      "loc_key": "event.r009.name",
+      "dialog_entry": "dialog_r009_start",
+      "event_type": "random",
+      "mutex_group": "",
+      "route_tags": [
+        "route_foreign"
+      ],
+      "once": true,
+      "cooldown_days": 0,
+      "require": [
+        {
+          "loc": "loc_03"
+        },
+        {
+          "slot_in": [
+            "afternoon",
+            "evening"
+          ]
+        },
+        {
+          "meter": "impression_bradley",
+          "op": ">=",
+          "value": 20
+        },
+        {
+          "flag": "route_foreign",
+          "value": true
+        },
+        {
+          "flag": "route_foreign_closed",
+          "value": false
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    },
+    {
+      "event_id": "R010",
+      "loc_key": "event.r010.name",
+      "dialog_entry": "dialog_r010_start",
+      "event_type": "random",
+      "mutex_group": "",
+      "route_tags": [],
+      "once": true,
+      "cooldown_days": 0,
+      "require": [
+        {
+          "loc": "loc_01"
+        },
+        {
+          "slot_in": [
+            "morning",
+            "noon",
+            "afternoon"
+          ]
+        },
+        {
+          "flag": "flag_zian_arrived",
+          "value": true
+        },
+        {
+          "grudge": "grudge_onlooker",
+          "status": "latent"
+        },
+        {
+          "edge": {
+            "from": "char_qian_zian",
+            "to": "char_lin_ruisheng"
+          },
+          "tier_in": [
+            "仇隙",
+            "不睦"
+          ]
+        }
+      ],
+      "effects": [],
+      "effects_when": "dialog"
+    }
+  ]
+}

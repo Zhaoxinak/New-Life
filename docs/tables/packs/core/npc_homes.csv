@@ -1,9 +1,0 @@
-﻿npc_id,home_x,home_y,show_cottage,tint,street_dialogue_id,notes,location_id
-tea_waiter,0.300,0.495,1,6a9a78,dlg_street_waiter,茶馆东南岔路小屋（勿挡茶馆出门道）,nh_tea_waiter
-stall_aunt,0.355,0.705,1,d07880,dlg_street_aunt,广场东南方岔路小屋（落点偏南，免得卡墙）,nh_stall_aunt
-garage_hand,0.245,0.775,1,7a7a88,dlg_street_garage,车行东侧路边屋,nh_garage_hand
-dock_foreman,0.455,0.695,1,9a7048,dlg_street_foreman,码头脊西侧工棚,nh_dock_foreman
-zhou_shaoting,0.605,0.450,1,c4a060,dlg_street_son,码头脊东侧岔路（北街以南、勿占大路）,nh_zhou_shaoting
-chen_manager,0.755,0.430,1,3a8a6a,dlg_street_chen,交易所支路北侧宅（勿挡东支路）,nh_chen_manager
-su_qing,0.520,0.300,0,7a8ab0,dlg_street_su,住主角自宅线,
-zhou_hongye,0.195,0.300,0,8a6040,dlg_street_boss,多在公司,

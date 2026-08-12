@@ -1,0 +1,411 @@
+{
+  "pack_id": "base",
+  "events": [
+    {
+      "event_id": "E001",
+      "chapter": 1,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e001_start",
+      "status": "active"
+    },
+    {
+      "event_id": "E002",
+      "chapter": 1,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e002_start",
+      "status": "active"
+    },
+    {
+      "event_id": "E003",
+      "chapter": 1,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e003_start",
+      "status": "active"
+    },
+    {
+      "event_id": "E004",
+      "chapter": 1,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e004_start",
+      "status": "active"
+    },
+    {
+      "event_id": "E005",
+      "chapter": 1,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e005_start",
+      "status": "active"
+    },
+    {
+      "event_id": "E006",
+      "chapter": 1,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e006_start",
+      "status": "active"
+    },
+    {
+      "event_id": "E007",
+      "chapter": 1,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e007_start",
+      "status": "active"
+    },
+    {
+      "event_id": "E008",
+      "chapter": 1,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e008_start",
+      "status": "active"
+    },
+    {
+      "event_id": "E009",
+      "chapter": 1,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e009_start",
+      "status": "active"
+    },
+    {
+      "event_id": "E019",
+      "chapter": 2,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e019_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "E020",
+      "chapter": 2,
+      "event_type": "mainline_variant",
+      "dialog_entry": "dialog_e020_start",
+      "mutex_group": "chapter2.rankup",
+      "route_tags": [
+        "route_endure"
+      ],
+      "status": "active"
+    },
+    {
+      "event_id": "E020B",
+      "chapter": 2,
+      "event_type": "mainline_variant",
+      "dialog_entry": "dialog_e020b_start",
+      "mutex_group": "chapter2.rankup",
+      "route_tags": [
+        "route_defect"
+      ],
+      "status": "active"
+    },
+    {
+      "event_id": "E020C",
+      "chapter": 2,
+      "event_type": "mainline_variant",
+      "dialog_entry": "dialog_e020c_start",
+      "mutex_group": "chapter2.rankup",
+      "route_tags": [
+        "route_foreign"
+      ],
+      "status": "active"
+    },
+    {
+      "event_id": "E021",
+      "chapter": 2,
+      "event_type": "mainline_variant",
+      "dialog_entry": "dialog_e021_start",
+      "mutex_group": "chapter2.light_reckoning",
+      "route_tags": [
+        "route_endure"
+      ],
+      "status": "active"
+    },
+    {
+      "event_id": "E021B",
+      "chapter": 2,
+      "event_type": "mainline_variant",
+      "dialog_entry": "dialog_e021b_start",
+      "mutex_group": "chapter2.light_reckoning",
+      "route_tags": [
+        "route_defect"
+      ],
+      "status": "active"
+    },
+    {
+      "event_id": "E021C",
+      "chapter": 2,
+      "event_type": "mainline_variant",
+      "dialog_entry": "dialog_e021c_start",
+      "mutex_group": "chapter2.light_reckoning",
+      "route_tags": [
+        "route_foreign"
+      ],
+      "status": "active"
+    },
+    {
+      "event_id": "E010",
+      "chapter": 2,
+      "event_type": "mainline_variant",
+      "dialog_entry": "dialog_e010_start",
+      "mutex_group": "chapter2.night_cargo",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "E010b",
+      "chapter": 2,
+      "event_type": "mainline_retry",
+      "dialog_entry": "dialog_e010b_start",
+      "mutex_group": "chapter2.night_cargo",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "E011",
+      "chapter": 2,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e011_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "E012",
+      "chapter": 2,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e012_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "E013",
+      "chapter": 2,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e013_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "E022",
+      "chapter": 2,
+      "event_type": "mainline_variant",
+      "dialog_entry": "dialog_e022_start",
+      "mutex_group": "chapter3.main_reckoning",
+      "route_tags": [
+        "route_endure"
+      ],
+      "status": "active"
+    },
+    {
+      "event_id": "E022B",
+      "chapter": 2,
+      "event_type": "mainline_variant",
+      "dialog_entry": "dialog_e022b_start",
+      "mutex_group": "chapter3.main_reckoning",
+      "route_tags": [
+        "route_defect"
+      ],
+      "status": "active"
+    },
+    {
+      "event_id": "E022C",
+      "chapter": 2,
+      "event_type": "mainline_variant",
+      "dialog_entry": "dialog_e022c_start",
+      "mutex_group": "chapter3.main_reckoning",
+      "route_tags": [
+        "route_foreign"
+      ],
+      "status": "active"
+    },
+    {
+      "event_id": "E018",
+      "chapter": 2,
+      "event_type": "ending",
+      "dialog_entry": "dialog_e018_start",
+      "mutex_group": "chapter3.finale",
+      "route_tags": [
+        "route_endure",
+        "route_defect",
+        "route_foreign"
+      ],
+      "status": "active"
+    },
+    {
+      "event_id": "F001",
+      "chapter": 0,
+      "event_type": "failure",
+      "dialog_entry": "dialog_f001_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "F002",
+      "chapter": 0,
+      "event_type": "failure",
+      "dialog_entry": "dialog_f002_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "F003",
+      "chapter": 0,
+      "event_type": "failure",
+      "dialog_entry": "dialog_f003_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "F004",
+      "chapter": 0,
+      "event_type": "failure",
+      "dialog_entry": "dialog_f004_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "F005",
+      "chapter": 0,
+      "event_type": "failure",
+      "dialog_entry": "dialog_f005_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "E014",
+      "chapter": 3,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e014_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "E015",
+      "chapter": 3,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e015_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "E016",
+      "chapter": 3,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e016_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "E017",
+      "chapter": 3,
+      "event_type": "mainline",
+      "dialog_entry": "dialog_e017_start",
+      "mutex_group": "",
+      "route_tags": [
+        "route_foreign"
+      ],
+      "status": "active"
+    },
+    {
+      "event_id": "R001",
+      "chapter": 0,
+      "event_type": "random",
+      "dialog_entry": "dialog_r001_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "R002",
+      "chapter": 0,
+      "event_type": "random",
+      "dialog_entry": "dialog_r002_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "R003",
+      "chapter": 0,
+      "event_type": "random",
+      "dialog_entry": "dialog_r003_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "R004",
+      "chapter": 0,
+      "event_type": "random",
+      "dialog_entry": "dialog_r004_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "R005",
+      "chapter": 0,
+      "event_type": "random",
+      "dialog_entry": "dialog_r005_start",
+      "mutex_group": "",
+      "route_tags": [
+        "route_defect"
+      ],
+      "status": "active"
+    },
+    {
+      "event_id": "R006",
+      "chapter": 0,
+      "event_type": "random",
+      "dialog_entry": "dialog_r006_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "R007",
+      "chapter": 0,
+      "event_type": "random",
+      "dialog_entry": "dialog_r007_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "R008",
+      "chapter": 0,
+      "event_type": "random",
+      "dialog_entry": "dialog_r008_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    },
+    {
+      "event_id": "R009",
+      "chapter": 0,
+      "event_type": "random",
+      "dialog_entry": "dialog_r009_start",
+      "mutex_group": "",
+      "route_tags": [
+        "route_foreign"
+      ],
+      "status": "active"
+    },
+    {
+      "event_id": "R010",
+      "chapter": 0,
+      "event_type": "random",
+      "dialog_entry": "dialog_r010_start",
+      "mutex_group": "",
+      "route_tags": [],
+      "status": "active"
+    }
+  ]
+}

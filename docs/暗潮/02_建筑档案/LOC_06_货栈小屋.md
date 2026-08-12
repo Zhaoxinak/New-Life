@@ -32,7 +32,7 @@
 | `act_12` | 无 | 情报整理；E015 变现前置 |
 | R004 | 柳→林 相善+ pursuit≥30 | 晚上哭诉；选 comfort/cold 改 score |
 
-口风池：[`DIALOG_ACT_POOL`](../../11_对话档案/DIALOG_ACT_POOL.md) · `dialog.act_06.*` / `act_08.*` / `act_12.*`
+口风池：[`DIALOG_ACT_POOL`](../11_对话档案/DIALOG_ACT_POOL.md) · `dialog.act_06.*` / `act_08.*` / `act_12.*`
 
 ---
 

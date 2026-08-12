@@ -1,0 +1,136 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/DialogueBox.gd" id="1_box"]
+
+[node name="DialogueBox" type="Control"]
+visible = false
+z_index = 40
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_box")
+
+[node name="DialogRoot" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -220.0
+offset_right = -48.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Margin" type="MarginContainer" parent="DialogRoot"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="HBox" type="HBoxContainer" parent="DialogRoot/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="PortraitPlate" type="ColorRect" parent="DialogRoot/Margin/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(88, 100)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.35, 0.3, 0.26, 1)
+
+[node name="PortraitTex" type="TextureRect" parent="DialogRoot/Margin/HBox/PortraitPlate"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PortraitGlyph" type="Label" parent="DialogRoot/Margin/HBox/PortraitPlate"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -28.0
+offset_right = 20.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 42
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "·"
+
+[node name="PortraitHit" type="Button" parent="DialogRoot/Margin/HBox/PortraitPlate"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+text = ""
+
+[node name="Accent" type="ColorRect" parent="DialogRoot/Margin/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.72, 0.55, 0.32, 1)
+
+[node name="Col" type="VBoxContainer" parent="DialogRoot/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Head" type="HBoxContainer" parent="DialogRoot/Margin/HBox/Col"]
+layout_mode = 2
+
+[node name="SpeakerBtn" type="Button" parent="DialogRoot/Margin/HBox/Col/Head"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+alignment = 0
+text = "旁白"
+
+[node name="StageTag" type="Label" parent="DialogRoot/Margin/HBox/Col/Head"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.7, 0.45, 1)
+theme_override_font_sizes/font_size = 14
+text = ""
+
+[node name="Body" type="RichTextLabel" parent="DialogRoot/Margin/HBox/Col"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 88)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+text = ""
+
+[node name="ChoiceRow" type="VBoxContainer" parent="DialogRoot/Margin/HBox/Col"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4

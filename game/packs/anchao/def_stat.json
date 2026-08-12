@@ -1,0 +1,14 @@
+{
+  "rows": [
+    { "stat_id": "stat_money", "initial": 30, "loc_key": "stat.money" },
+    { "stat_id": "stat_intel", "initial": 5, "loc_key": "stat.intel" },
+    { "stat_id": "stat_network", "initial": 15, "loc_key": "stat.network" },
+    { "stat_id": "stat_trust_firm", "initial": 40, "loc_key": "stat.trust_firm" },
+    { "stat_id": "stat_suspicion", "initial": 0, "loc_key": "stat.suspicion" },
+    { "stat_id": "stat_support_mid", "initial": 15, "loc_key": "stat.support_mid" },
+    { "stat_id": "stat_support_low", "initial": 20, "loc_key": "stat.support_low" },
+    { "stat_id": "stat_credit_bank", "initial": 0, "loc_key": "stat.credit_bank" },
+    { "stat_id": "stat_credit_market", "initial": 0, "loc_key": "stat.credit_market" },
+    { "stat_id": "stat_credit_foreign", "initial": 0, "loc_key": "stat.credit_foreign" }
+  ]
+}

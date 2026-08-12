@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/LedgerOverlay.gd" id="1_ledger"]
+
+[node name="LedgerOverlay" type="CanvasLayer"]
+layer = 40
+script = ExtResource("1_ledger")
+
+[node name="Root" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.04, 0.03, 0.72)
+
+[node name="Panel" type="PanelContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -260.0
+offset_right = 420.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="Root/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="VBox" type="VBoxContainer" parent="Root/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Head" type="HBoxContainer" parent="Root/Panel/Margin/VBox"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Root/Panel/Margin/VBox/Head"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "账簿"
+
+[node name="CloseBtn" type="Button" parent="Root/Panel/Margin/VBox/Head"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "收起"
+
+[node name="TabBar" type="HBoxContainer" parent="Root/Panel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Content" type="HBoxContainer" parent="Root/Panel/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="SideList" type="ItemList" parent="Root/Panel/Margin/VBox/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Body" type="RichTextLabel" parent="Root/Panel/Margin/VBox/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = false
+scroll_active = true
+text = ""

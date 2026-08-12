@@ -1,6 +1,0 @@
-id,day,period,weather_id,priority,notes
-ws_d1_clear,1,morning,clear,20,开局晴·顺风感
-ws_d20_storm_m,20,morning,storm,100,台风眼外
-ws_d20_storm_n,20,afternoon,storm,100,台风眼外
-ws_d20_storm_e,20,evening,storm,100,台风眼外
-ws_d22_rain,22,evening,rain,100,雨夜对质

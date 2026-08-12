@@ -35,7 +35,7 @@
 | R007 | 钱→林 疑心≥2 | 当日全天阴谋 -30%；Feel 在后院触发 |
 | R008 | 商行信任≥40 | 免费八卦；信任是门槛不是钱 |
 
-口风池：[`DIALOG_ACT_POOL`](../../11_对话档案/DIALOG_ACT_POOL.md) · `dialog.act_02.*` / `act_05.*` / `act_09.*`
+口风池：[`DIALOG_ACT_POOL`](../11_对话档案/DIALOG_ACT_POOL.md) · `dialog.act_02.*` / `act_05.*` / `act_09.*`
 
 ---
 

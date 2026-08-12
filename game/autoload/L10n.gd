@@ -1,66 +1,35 @@
 extends Node
+## 本地化。文案只走 loc_key；存档不存显示名。
 
-
-signal locale_changed(locale: String)
-
-var locale: String = "zh_CN"
 var _strings: Dictionary = {}
+var locale: String = "zh_CN"
 
 
-func _ready() -> void :
+func _ready() -> void:
 	if not PackDB.pack_loaded.is_connected(_on_pack_loaded):
 		PackDB.pack_loaded.connect(_on_pack_loaded)
 	if PackDB.loaded:
-		_reload()
+		_reload_from_pack()
 
 
-func _on_pack_loaded(_pack_id: String) -> void :
-	_reload()
+func _on_pack_loaded(_pack_id: String) -> void:
+	_reload_from_pack()
 
 
-func set_locale(new_locale: String) -> void :
-	if new_locale == locale and not _strings.is_empty():
-		return
-	locale = new_locale
-	_reload()
-	locale_changed.emit(locale)
-
-
-func _reload() -> void :
-	_strings.clear()
-	if PackDB.packs_root_abs.is_empty():
-		return
-	var path: = PackDB.l10n_path(locale)
-	var rows: Array[Dictionary] = CsvUtil.load_table(path)
-	for row in rows:
-		var key: = str(row.get("key", ""))
-		if key.is_empty():
-			continue
-		_strings[key] = str(row.get("text", ""))
-	print("L10n: %s (%d keys) from %s" % [locale, _strings.size(), path])
-
-
-func has_key(key: String) -> bool:
-	return _strings.has(key)
+func _reload_from_pack() -> void:
+	var l10n: Dictionary = PackDB.get_table_dict("def_loc_string")
+	var by_locale: Variant = l10n.get(locale, l10n.get("zh_CN", {}))
+	if typeof(by_locale) == TYPE_DICTIONARY:
+		_strings = by_locale
+	else:
+		_strings = {}
 
 
 func t(key: String, fallback: String = "") -> String:
+	if key.is_empty():
+		return fallback
 	if _strings.has(key):
-		return str(_strings[key])
-	if fallback != "":
+		return String(_strings[key])
+	if not fallback.is_empty():
 		return fallback
 	return key
-
-
-## Returns translation only when the key exists; otherwise "".
-func t_if(key: String) -> String:
-	if _strings.has(key):
-		return str(_strings[key])
-	return ""
-
-
-func tf(key: String, fields: Dictionary, fallback: String = "") -> String:
-	var text: = t(key, fallback)
-	for k in fields.keys():
-		text = text.replace("{%s}" % str(k), str(fields[k]))
-	return text

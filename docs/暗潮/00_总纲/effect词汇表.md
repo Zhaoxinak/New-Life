@@ -58,7 +58,8 @@
 | `set` + `edge` | edge, key=`debt`, value | 记人情债/口头账 |
 | `set` + `edge` | edge, key=`leverage`, value | 记把柄/担保/卡脖子点 |
 
-`trust` / `suspicion` / `fear`：Demo **必须用整数档** `0=低 1=中 2=高 3=极高`，`add` 按档步进。  
+`trust` / `fear`：Demo **必须用整数档** `0=低 1=中 2=高 3=极高`，`add` 按档步进。  
+`suspicion`：同上，另可到 `4=杀意`（触发 F005）。日末若钱→林 suspicion ≥3，自动 −1。  
 **禁止**在 require/effect 里写 `high` / `mid` / `extreme` 等字符串。
 
 ```yaml

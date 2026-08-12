@@ -1,279 +1,143 @@
 extends Node
+## 职级系统：set_rank 后兑现升职四件套（仪式/称呼/权限/月例）+ 恩怨窗提示。
+
+const RANK_TITLE := {
+	"apprentice": "学徒",
+	"waichang": "外场",
+	"paojie": "跑街",
+	"houtang": "后堂",
+}
+
+## 月例档（演示数值；文案强调「月例」）
+const MONTHLY_STIPEND := {
+	"apprentice": 2,
+	"waichang": 5,
+	"paojie": 8,
+	"houtang": 12,
+}
+
+var last_ceremony: Dictionary = {}
 
 
-
-func get_status() -> Dictionary:
-	if GameState.employer_id == GameState.EMPLOYER_NONE or GameState.active_career_track == "":
-		return {
-			"employed": false, 
-			"at_max": false, 
-			"ready": false, 
-			"checks": [], 
-			"ask_action_id": "", 
-			"hint": L10n.t("ui.promo.unemployed_hint", "无业：先靠码头/广场谋生，或争取通洋入职。"), 
-		}
-	var cur_rank: = GameState.get_rank_id()
-	var gate: = _active_gate()
-	if not gate.is_empty():
-		return _status_for_gate(gate, cur_rank)
-	var next: = GameState.get_next_rank_info()
-	if next.is_empty():
-		return {
-			"employed": true, 
-			"at_max": true, 
-			"ready": false, 
-			"current_rank_id": cur_rank, 
-			"next_rank_id": "", 
-			"stat_id": "", 
-			"current": 0.0, 
-			"need": 0.0, 
-			"checks": [], 
-			"ask_action_id": "", 
-			"gate_id": "", 
-			"hint": L10n.t("ui.hud.rank_max", "已在当前职涯顶端"), 
-		}
-
-	var stat_id: = str(next.get("stat_id", "trust"))
-	var current: = float(next.get("current", 0))
-	var need: = float(next.get("need_stat", 0))
-	var checks: Array = [_check_stat(stat_id, current, need)]
-	var from_name: = L10n.t("ranks.%s.name" % cur_rank, cur_rank)
-	var to_name: = L10n.t("ranks.%s.name" % str(next.get("rank_id", "")), str(next.get("rank_id", "")))
-	return {
-		"employed": true, 
-		"at_max": false, 
-		"ready": false, 
-		"current_rank_id": cur_rank, 
-		"next_rank_id": str(next.get("rank_id", "")), 
-		"stat_id": stat_id, 
-		"current": current, 
-		"need": need, 
-		"checks": checks, 
-		"ask_action_id": "", 
-		"gate_id": "", 
-		"title": L10n.tf(
-			"ui.promo.title", 
-			{"from": from_name, "to": to_name}, 
-			"晋升进度  %s → %s" % [from_name, to_name]
-		), 
-		"hint": L10n.t("ui.promo.hint_passive", "攒满主条即可进入下一职级带。"), 
-	}
+func _ready() -> void:
+	if not DomainBus.rank_changed.is_connected(_on_rank_changed):
+		DomainBus.rank_changed.connect(_on_rank_changed)
 
 
-func can_ask(action_id: String) -> Dictionary:
-	var st: = get_status()
-	if not bool(st.get("employed", false)):
-		return {"ok": false, "reason": L10n.t("ui.promo.unemployed_hint", "无业无法申请晋升")}
-	if bool(st.get("at_max", false)):
-		return {"ok": false, "reason": L10n.t("ui.hud.rank_max", "已在当前职涯顶端")}
-	var ask: = str(st.get("ask_action_id", ""))
-	if ask.is_empty():
-		return {"ok": false, "reason": L10n.t("ui.promo.passive_rank", "继续办事攒信任，职级会自动跟上")}
-	if ask != action_id:
-		return {"ok": false, "reason": L10n.t("ui.promo.wrong_ask", "此处不能申请该档晋升")}
-	if not bool(st.get("ready", false)):
-		for c in st.get("checks", []):
-			if not bool(c.get("ok", false)):
-				return {"ok": false, "reason": str(c.get("label", L10n.t("ui.promo.not_ready", "晋升条件未齐")))}
-		return {"ok": false, "reason": L10n.t("ui.promo.not_ready", "晋升条件未齐，打开档案查看")}
-	return {"ok": true, "reason": ""}
+func title_for(rank: String) -> String:
+	return String(RANK_TITLE.get(rank, rank))
 
 
-func claim_next() -> void :
-	var gate: = _active_gate()
-	if gate.is_empty():
+func monthly_for(rank: String) -> int:
+	return int(MONTHLY_STIPEND.get(rank, 0))
+
+
+func next_rank_id(rank: String) -> String:
+	match rank:
+		"apprentice":
+			return "waichang"
+		"waichang":
+			return "paojie"
+		"paojie":
+			return "houtang"
+		_:
+			return ""
+
+
+func next_gate_lines(rank: String = "") -> PackedStringArray:
+	## 下一阶门槛 + 当前进度，给 HUD 悬停用。
+	if rank.is_empty():
+		rank = RunState.player_rank()
+	var lines: PackedStringArray = []
+	var nxt := next_rank_id(rank)
+	if nxt.is_empty():
+		lines.append(L10n.t("hud.tip.rank.gate_top", "已近号内高位，暂无再升阶门槛。"))
+		return lines
+	lines.append(L10n.t("hud.tip.rank.gate_to", "升向【%s】需：") % title_for(nxt))
+	match rank:
+		"apprentice":
+			lines.append_array(_gate_stat("stat_trust_firm", 45, L10n.t("stat.trust_firm", "商行信任")))
+			lines.append_array(_gate_stat("stat_intel", 20, L10n.t("stat.intel", "情报")))
+			if RunState.get_flag("flag_demoted", false) or RunState.get_flag("flag_fired", false):
+				lines.append(L10n.t("hud.tip.rank.gate_bad", "✗ 已被降/开出——先把位子稳住"))
+			else:
+				lines.append(L10n.t("hud.tip.rank.gate_clean", "✓ 未降职、未开出"))
+			lines.append(L10n.t("hud.tip.rank.gate_e020", "抬位事件：E020 / E020B / E020C（看你走哪条路）"))
+		"waichang":
+			lines.append_array(_gate_stat("stat_trust_firm", 50, L10n.t("stat.trust_firm", "商行信任")))
+			lines.append(L10n.t("hud.tip.rank.gate_e018", "章终抬位：把暗账与站位顶到能改口「跑街」"))
+		"paojie":
+			lines.append(L10n.t("hud.tip.rank.gate_houtang", "后堂门槛未正式开放（章终只留门缝）"))
+		_:
+			pass
+	return lines
+
+
+func _gate_stat(stat_id: String, need: float, label: String) -> PackedStringArray:
+	var cur := float(RunState.get_stat(stat_id, 0))
+	var ok := cur >= need
+	var mark := "✓" if ok else "✗"
+	return PackedStringArray([
+		L10n.t("hud.tip.rank.gate_stat", "%s %s：%s / %s") % [mark, label, _fmt(cur), _fmt(need)]
+	])
+
+
+func _fmt(v: float) -> String:
+	if is_equal_approx(v, roundf(v)):
+		return str(int(roundf(v)))
+	return "%.1f" % v
+
+
+func _rank_index(rank: String) -> int:
+	var order: PackedStringArray = ["apprentice", "waichang", "paojie", "houtang"]
+	return order.find(rank)
+
+
+func _on_rank_changed(old_rank: String, new_rank: String) -> void:
+	var title := title_for(new_rank)
+	var monthly := monthly_for(new_rank)
+	RunState.meta["monthly_stipend"] = monthly
+	RunState.meta["rank_title"] = title
+	RunState.set_flag("unlock_act_waichang_patrol", new_rank != "apprentice")
+
+	var delta := _rank_index(new_rank) - _rank_index(old_rank)
+	if delta < 0:
+		RunState.append_history("rank", new_rank, "history.rank.demote", {"title": title, "monthly": monthly})
+		DomainBus.tip.emit(L10n.t("promo.demote_tip", "降为%s · 月例档 %d 两") % [title, monthly])
+		DomainBus.emit_domain("demotion_applied", {
+			"old_rank": old_rank,
+			"new_rank": new_rank,
+			"title": title,
+			"monthly": monthly,
+		})
 		return
-	var claim: = str(gate.get("claim_flag", ""))
-	if claim != "":
-		GameState.set_flag(claim, 1)
-	if claim == "claimed_promo_manager":
-		GameState.set_flag("claimed_hongyuan_promo", 1)
-	var track: = PackDB.get_row("rank_tracks", str(gate.get("track_id", "")))
-	var stat_id: = str(track.get("stat_id", "trust")) if not track.is_empty() else "trust"
-	var need: = _effective_stat_min(gate, float(str(gate.get("stat_min", 0))))
-	if GameState.get_stat(stat_id) < need:
-		GameState.set_stat(stat_id, need)
-	else:
-		GameState.set_stat(stat_id, GameState.get_stat(stat_id) + 3.0)
+	if delta == 0:
+		return
 
-
-func _status_for_gate(gate: Dictionary, cur_rank: String) -> Dictionary:
-	var target: = str(gate.get("target_rank_id", ""))
-	var track: = PackDB.get_row("rank_tracks", str(gate.get("track_id", "")))
-	var stat_id: = str(track.get("stat_id", "trust")) if not track.is_empty() else "trust"
-	var current: = GameState.get_stat(stat_id)
-	var need: = _effective_stat_min(gate, float(str(gate.get("stat_min", 0))))
-	var checks: Array = [_check_stat(stat_id, current, need)]
-	checks.append_array(_gate_checks(gate))
-	var ready: = true
-	for c in checks:
-		if not bool(c.get("ok", false)):
-			ready = false
-			break
-	var ask_id: = str(gate.get("ask_action_id", ""))
-	var from_name: = L10n.t("ranks.%s.name" % cur_rank, cur_rank)
-	var to_name: = L10n.t("ranks.%s.name" % target, target)
-	return {
-		"employed": true, 
-		"at_max": false, 
-		"ready": ready and ask_id != "", 
-		"current_rank_id": cur_rank, 
-		"next_rank_id": target, 
-		"stat_id": stat_id, 
-		"current": current, 
-		"need": need, 
-		"checks": checks, 
-		"ask_action_id": ask_id, 
-		"gate_id": str(gate.get("id", "")), 
-		"title": L10n.tf(
-			"ui.promo.title", 
-			{"from": from_name, "to": to_name}, 
-			"晋升进度  %s → %s" % [from_name, to_name]
-		), 
-		"hint": _ready_hint(ready, ask_id), 
+	# 四件套 payload（表现层订阅，不在此改无关数值）
+	var unlocks: PackedStringArray = []
+	if new_rank != "apprentice":
+		unlocks.append(L10n.t("promo.unlock.waichang", "外场巡街可走"))
+	if new_rank == "paojie" or new_rank == "houtang":
+		unlocks.append(L10n.t("promo.unlock.paojie", "跑街账路加宽"))
+	if new_rank == "houtang":
+		unlocks.append(L10n.t("promo.unlock.houtang", "后堂席位"))
+	last_ceremony = {
+		"old_rank": old_rank,
+		"new_rank": new_rank,
+		"title": title,
+		"monthly": monthly,
+		"unlocks": unlocks,
+		"beats": [
+			{"id": "ritual", "loc_key": "promo.beat.ritual"},
+			{"id": "title", "loc_key": "promo.beat.title", "title": title},
+			{"id": "permission", "loc_key": "promo.beat.permission", "unlocks": unlocks},
+			{"id": "pay", "loc_key": "promo.beat.pay", "monthly": monthly},
+		],
 	}
+	if RunState.get_flag("flag_grudge_window_light", false):
+		last_ceremony["beats"].append({"id": "grudge_window", "loc_key": "promo.beat.grudge_window"})
 
-
-func _ready_hint(ready: bool, ask_id: String) -> String:
-	if ask_id == "":
-		return L10n.t("ui.promo.hint_passive", "攒满主条即可进入下一职级带。")
-	if ready:
-		return L10n.t("ui.promo.hint_ready", "条件已齐——去老板处/通洋办公室申请晋升。")
-	return L10n.t("ui.promo.hint_blocked", "先凑齐下方条件，再申请晋升。")
-
-
-
-func _active_gate() -> Dictionary:
-	var best: Dictionary = {}
-	var best_order: = 999
-	for row in PackDB.get_table("promotion_gates"):
-		if str(row.get("enabled", "1")) == "0":
-			continue
-		if str(row.get("track_id", "")) != GameState.active_career_track:
-			continue
-		var claim: = str(row.get("claim_flag", "")).strip_edges()
-		if claim != "" and GameState.get_flag(claim) != 0:
-			continue
-		var target: = str(row.get("target_rank_id", ""))
-		var rank_row: = PackDB.get_row("ranks", target)
-		var order: = int(rank_row.get("sort_order", 999)) if not rank_row.is_empty() else 999
-		if order < best_order:
-			best_order = order
-			best = row
-	return best
-
-
-func _effective_stat_min(gate: Dictionary, fallback: float) -> float:
-	if gate.is_empty():
-		return fallback
-	var base: = float(str(gate.get("stat_min", fallback)))
-	var alt_flag: = str(gate.get("alt_if_flag", "")).strip_edges()
-	var alt: = str(gate.get("stat_min_alt", "")).strip_edges()
-	if alt_flag != "" and alt != "" and float(alt) > 0.0 and GameState.get_flag(alt_flag) != 0:
-		var claim: = str(gate.get("claim_flag", ""))
-		if claim == "" or GameState.get_flag(claim) == 0:
-			return float(alt)
-	return base if base > 0.0 else fallback
-
-
-func _check_stat(stat_id: String, current: float, need: float) -> Dictionary:
-	var sname: = L10n.t("stats.%s.name" % stat_id, stat_id)
-	return {
-		"id": "stat_%s" % stat_id, 
-		"ok": current + 0.0001 >= need, 
-		"label": L10n.tf(
-			"ui.promo.check_stat", 
-			{"stat": sname, "cur": int(current), "need": int(need)}, 
-			"%s  %d / %d" % [sname, int(current), int(need)]
-		), 
-		"is_main": true, 
-	}
-
-
-func _gate_checks(gate: Dictionary) -> Array:
-	var out: Array = []
-	var npc: = str(gate.get("relation_npc", "")).strip_edges()
-	if npc != "":
-		var tmin: = str(gate.get("relation_trust_min", "")).strip_edges()
-		if tmin != "" and float(tmin) > 0.0:
-			var tv: = GameState.get_relation(npc, "player", "trust")
-			var need_t: = float(tmin)
-			var nname: = L10n.t("npcs.%s.name" % npc, npc)
-			out.append({
-				"id": "rel_trust", 
-				"ok": tv + 0.0001 >= need_t, 
-				"label": L10n.tf(
-					"ui.promo.check_boss_trust", 
-					{"npc": nname, "cur": int(tv), "need": int(need_t)}, 
-					"%s信任  %d / %d" % [nname, int(tv), int(need_t)]
-				), 
-			})
-		var fmin: = str(gate.get("relation_favor_min", "")).strip_edges()
-		if fmin != "" and float(fmin) > 0.0:
-			var fv: = GameState.get_relation(npc, "player", "favor")
-			var need_f: = float(fmin)
-			var nname2: = L10n.t("npcs.%s.name" % npc, npc)
-			out.append({
-				"id": "rel_favor", 
-				"ok": fv + 0.0001 >= need_f, 
-				"label": L10n.tf(
-					"ui.promo.check_boss_favor", 
-					{"npc": nname2, "cur": int(fv), "need": int(need_f)}, 
-					"%s好感  %d / %d" % [nname2, int(fv), int(need_f)]
-				), 
-			})
-	var smax: = str(gate.get("suspicion_max", "")).strip_edges()
-	if smax != "":
-		var sus: = GameState.get_stat("suspicion")
-		var limit: = float(smax)
-		out.append({
-			"id": "suspicion", 
-			"ok": sus < limit - 0.0001, 
-			"label": L10n.tf(
-				"ui.promo.check_suspicion", 
-				{"cur": int(sus), "max": int(limit)}, 
-				"嫌疑  %d ＜ %d" % [int(sus), int(limit)]
-			), 
-		})
-	var tmax: = str(gate.get("tension_max", "")).strip_edges()
-	if tmax != "":
-		var ten: = GameState.get_stat("father_son_tension")
-		var tlimit: = float(tmax)
-		out.append({
-			"id": "tension", 
-			"ok": ten < tlimit - 0.0001, 
-			"label": L10n.tf(
-				"ui.promo.check_tension", 
-				{"cur": int(ten), "max": int(tlimit)}, 
-				"父子张力  %d ＜ %d" % [int(ten), int(tlimit)]
-			), 
-		})
-	var req_flag: = str(gate.get("require_flag", "")).strip_edges()
-	if req_flag != "":
-		var want: = int(float(str(gate.get("require_flag_eq", "1"))))
-		var got: = GameState.get_flag(req_flag)
-		out.append({
-			"id": "flag_%s" % req_flag, 
-			"ok": got == want, 
-			"label": L10n.t(
-				"ui.promo.flag.%s" % req_flag, 
-				L10n.t("flags.%s.description" % req_flag, req_flag)
-			), 
-		})
-	var any_flags: = str(gate.get("require_any_flags", "")).strip_edges()
-	if any_flags != "":
-		var ok_any: = false
-		for p in any_flags.split("|"):
-			var fid: = str(p).strip_edges()
-			if fid != "" and GameState.get_flag(fid) != 0:
-				ok_any = true
-				break
-		out.append({
-			"id": "any_flags", 
-			"ok": ok_any, 
-			"label": L10n.t(
-				"ui.promo.any_flags.%s" % str(gate.get("id", "")), 
-				L10n.t("ui.promo.check_any_flags", "完成情报售卖或挖人铺垫")
-			), 
-		})
-	return out
+	RunState.append_history("rank", new_rank, "history.rank.promote", {"title": title, "monthly": monthly})
+	DomainBus.emit_domain("promotion_ceremony", last_ceremony)
+	DomainBus.tip.emit(L10n.t("promo.tip", "升任%s · 月例档 %d 两") % [title, monthly])

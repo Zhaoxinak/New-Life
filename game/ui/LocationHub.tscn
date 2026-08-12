@@ -1,0 +1,310 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/LocationHub.gd" id="1_hub"]
+
+[node name="LocationHub" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hub")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.07, 0.06, 1)
+
+[node name="Accent" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+color = Color(0.55, 0.22, 0.16, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TopRow" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Brand" type="Label" parent="Margin/VBox/TopRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.78, 0.55, 1)
+theme_override_font_sizes/font_size = 18
+text = "暗潮"
+
+[node name="DayLabel" type="Label" parent="Margin/VBox/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 22
+text = "第 1 日 · 清晨"
+
+[node name="BtnNew" type="Button" parent="Margin/VBox/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "新开局"
+
+[node name="BtnSave" type="Button" parent="Margin/VBox/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "存档"
+
+[node name="BtnLoad" type="Button" parent="Margin/VBox/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "读档"
+
+[node name="BtnRest" type="Button" parent="Margin/VBox/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "歇一口气"
+
+[node name="BtnHelp" type="Button" parent="Margin/VBox/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "说明"
+
+[node name="StatsLabel" type="Label" parent="Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.8, 0.66, 1)
+autowrap_mode = 3
+text = "stats"
+
+[node name="GrudgeLabel" type="Label" parent="Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.58, 0.48, 1)
+autowrap_mode = 3
+text = "恩怨"
+
+[node name="TipLabel" type="Label" parent="Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.68, 0.58, 1)
+autowrap_mode = 3
+text = ""
+
+[node name="Body" type="HBoxContainer" parent="Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="LocCol" type="VBoxContainer" parent="Margin/VBox/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LocTitle" type="Label" parent="Margin/VBox/Body/LocCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.7, 0.6, 1)
+text = "地点"
+
+[node name="LocList" type="ItemList" parent="Margin/VBox/Body/LocCol"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 160)
+
+[node name="ActCol" type="VBoxContainer" parent="Margin/VBox/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActTitle" type="Label" parent="Margin/VBox/Body/ActCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.7, 0.6, 1)
+text = "行动（单击执行）"
+
+[node name="ActList" type="ItemList" parent="Margin/VBox/Body/ActCol"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 160)
+
+[node name="StagePanel" type="PanelContainer" parent="Margin/VBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+custom_minimum_size = Vector2(0, 250)
+
+[node name="StageMargin" type="MarginContainer" parent="Margin/VBox/StagePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="EventBox" type="VBoxContainer" parent="Margin/VBox/StagePanel/StageMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StageHeader" type="HBoxContainer" parent="Margin/VBox/StagePanel/StageMargin/EventBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PortraitPlate" type="ColorRect" parent="Margin/VBox/StagePanel/StageMargin/EventBox/StageHeader"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 90)
+layout_mode = 2
+color = Color(0.35, 0.3, 0.26, 1)
+
+[node name="PortraitTex" type="TextureRect" parent="Margin/VBox/StagePanel/StageMargin/EventBox/StageHeader/PortraitPlate"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="PortraitGlyph" type="Label" parent="Margin/VBox/StagePanel/StageMargin/EventBox/StageHeader/PortraitPlate"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.95, 0.9, 0.8, 1)
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "旁"
+mouse_filter = 2
+
+[node name="HeaderCol" type="VBoxContainer" parent="Margin/VBox/StagePanel/StageMargin/EventBox/StageHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="NameRow" type="HBoxContainer" parent="Margin/VBox/StagePanel/StageMargin/EventBox/StageHeader/HeaderCol"]
+layout_mode = 2
+
+[node name="SpeakerLabel" type="Label" parent="Margin/VBox/StagePanel/StageMargin/EventBox/StageHeader/HeaderCol/NameRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.95, 0.82, 0.55, 1)
+theme_override_font_sizes/font_size = 18
+text = "旁白"
+
+[node name="StageTag" type="Label" parent="Margin/VBox/StagePanel/StageMargin/EventBox/StageHeader/HeaderCol/NameRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.6, 0.5, 1)
+text = ""
+
+[node name="StageAccent" type="ColorRect" parent="Margin/VBox/StagePanel/StageMargin/EventBox/StageHeader/HeaderCol"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.55, 0.22, 0.16, 1)
+
+[node name="EventText" type="RichTextLabel" parent="Margin/VBox/StagePanel/StageMargin/EventBox"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = true
+custom_minimum_size = Vector2(0, 100)
+text = ""
+
+[node name="ChoiceRow" type="VBoxContainer" parent="Margin/VBox/StagePanel/StageMargin/EventBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="HelpLayer" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="HelpDim" type="ColorRect" parent="HelpLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.02, 0.02, 0.72)
+
+[node name="HelpPanel" type="PanelContainer" parent="HelpLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -240.0
+offset_right = 360.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HelpMargin" type="MarginContainer" parent="HelpLayer/HelpPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 18
+
+[node name="HelpVBox" type="VBoxContainer" parent="HelpLayer/HelpPanel/HelpMargin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HelpTitle" type="Label" parent="HelpLayer/HelpPanel/HelpMargin/HelpVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.92, 0.78, 0.55, 1)
+text = "暗潮 · 试玩说明"
+
+[node name="HelpBody" type="RichTextLabel" parent="HelpLayer/HelpPanel/HelpMargin/HelpVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = false
+scroll_active = true
+custom_minimum_size = Vector2(0, 320)
+text = ""
+
+[node name="BtnHelpClose" type="Button" parent="HelpLayer/HelpPanel/HelpMargin/HelpVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "合上（Esc）"

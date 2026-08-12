@@ -1,0 +1,60 @@
+{
+  "rows": [
+    {
+      "from": "char_qian_demao",
+      "to": "char_lin_ruisheng",
+      "score": 35,
+      "suspicion": 0,
+      "trust": 1,
+      "fear": 0
+    },
+    {
+      "from": "char_liu_ruyan",
+      "to": "char_lin_ruisheng",
+      "score": 55,
+      "suspicion": 0,
+      "trust": 2,
+      "fear": 0
+    },
+    {
+      "from": "char_qian_zian",
+      "to": "char_lin_ruisheng",
+      "score": 10,
+      "suspicion": 0,
+      "trust": 0,
+      "fear": 0
+    },
+    {
+      "from": "char_wang_pangzi",
+      "to": "char_lin_ruisheng",
+      "score": 45,
+      "suspicion": 0,
+      "trust": 1,
+      "fear": 0
+    },
+    {
+      "from": "char_zhao_hongyun",
+      "to": "char_lin_ruisheng",
+      "score": 10,
+      "suspicion": 0,
+      "trust": 0,
+      "fear": 0
+    },
+    {
+      "from": "char_bradley",
+      "to": "char_lin_ruisheng",
+      "score": 5,
+      "suspicion": 0,
+      "trust": 0,
+      "fear": 0
+    },
+    {
+      "from": "char_lin_ruisheng",
+      "to": "char_zhou_guanshi",
+      "score": 0,
+      "suspicion": 0,
+      "trust": 0,
+      "fear": 0
+    }
+  ]
+}

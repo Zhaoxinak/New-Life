@@ -10,43 +10,44 @@ config_version=5
 
 [application]
 
-config/name="码头风云：复仇之路"
-config/description="近代港口开放式策略 RPG Demo"
-config/version="0.5.0"
-run/main_scene="res://ui/TitleMenu.tscn"
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/name="暗潮"
+config/description="清光绪十六年天津 · 内容平台战役 Demo"
+config/version="1.10.3-kairo"
+run/main_scene="res://scenes/Main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 
 [autoload]
 
+LogGuard="*res://autoload/LogGuard.gd"
 PackDB="*res://autoload/PackDB.gd"
 L10n="*res://autoload/L10n.gd"
-UnlockScheduler="*res://systems/UnlockScheduler.gd"
-GameState="*res://autoload/GameState.gd"
-WorldClock="*res://autoload/WorldClock.gd"
-EffectApplier="*res://systems/EffectApplier.gd"
-ConditionEval="*res://systems/ConditionEval.gd"
-CheckResolver="*res://systems/CheckResolver.gd"
-StockEngine="*res://systems/StockEngine.gd"
-EndingChecker="*res://systems/EndingChecker.gd"
-ThresholdWatcher="*res://systems/ThresholdWatcher.gd"
-IdleChatter="*res://systems/IdleChatter.gd"
-ActionPipeline="*res://systems/ActionPipeline.gd"
-ConsequenceText="*res://systems/ConsequenceText.gd"
-PromotionSystem="*res://systems/PromotionSystem.gd"
-WeatherSystem="*res://systems/WeatherSystem.gd"
-EventScheduler="*res://systems/EventScheduler.gd"
-EventStaging="*res://systems/EventStaging.gd"
+DomainBus="*res://autoload/DomainBus.gd"
+RunState="*res://autoload/RunState.gd"
 SaveSystem="*res://autoload/SaveSystem.gd"
-GameFlow="*res://autoload/GameFlow.gd"
-SfxPlayer="*res://autoload/SfxPlayer.gd"
-VoicePlayer="*res://autoload/VoicePlayer.gd"
-GameSettings="*res://autoload/GameSettings.gd"
-TipSystem="*res://autoload/TipSystem.gd"
-QuestGuide="*res://autoload/QuestGuide.gd"
-NpcScheduler="*res://systems/NpcScheduler.gd"
-RelationJournal="*res://systems/RelationJournal.gd"
-NpcWorldSim="*res://systems/NpcWorldSim.gd"
+ConditionEval="*res://systems/ConditionEval.gd"
+EffectApplier="*res://systems/EffectApplier.gd"
+TickPipeline="*res://systems/TickPipeline.gd"
+DialogueRunner="*res://systems/DialogueRunner.gd"
+RouteMutex="*res://systems/RouteMutex.gd"
+PromotionSystem="*res://systems/PromotionSystem.gd"
+FailureScanner="*res://systems/FailureScanner.gd"
+RandomScanner="*res://systems/RandomScanner.gd"
+FinanceService="*res://systems/FinanceService.gd"
+ChatterSystem="*res://systems/ChatterSystem.gd"
+KairoStyle="*res://ui/KairoStyle.gd"
+
+[debug]
+
+file_logging/enable_file_logging=true
+file_logging/max_log_files=5
+gdscript/warnings/inference_on_variant=1
+gdscript/warnings/treat_warnings_as_errors=false
 
 [display]
 
@@ -55,48 +56,6 @@ window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
-[editor_overrides]
+[internationalization]
 
-text_editor/behavior/indent/type=0
-text_editor/behavior/indent/size=4
-
-[input]
-
-move_left={
-"deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-]
-}
-move_right={
-"deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-]
-}
-move_up={
-"deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-]
-}
-move_down={
-"deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-]
-}
-toggle_minimap={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":77,"key_label":0,"unicode":109,"location":0,"echo":false,"script":null)
-]
-}
-toggle_dossier={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":67,"key_label":0,"unicode":99,"location":0,"echo":false,"script":null)
-]
-}
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
+locale/fallback="zh_CN"

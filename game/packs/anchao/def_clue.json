@@ -1,0 +1,29 @@
+{
+  "rows": [
+    {
+      "clue_id": "clue_suspicious_manifest",
+      "loc_key": "clue.suspicious_manifest",
+      "arc": "opium"
+    },
+    {
+      "clue_id": "clue_light_crate",
+      "loc_key": "clue.light_crate",
+      "arc": "opium"
+    },
+    {
+      "clue_id": "clue_special_goods",
+      "loc_key": "clue.special_goods",
+      "arc": "opium"
+    },
+    {
+      "clue_id": "clue_opium_secret",
+      "loc_key": "clue.opium_secret",
+      "arc": "opium"
+    },
+    {
+      "clue_id": "clue_opium_infer",
+      "loc_key": "clue.opium_infer",
+      "arc": "opium"
+    }
+  ]
+}

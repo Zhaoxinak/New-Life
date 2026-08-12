@@ -15,7 +15,7 @@ loc_key: dialog.f005.start
 text_zh: |
   东家的疑心已经压不住了。先是盯梢，再是栽赃，最后是一纸「送客」。
 require:
-  - { edge: {from: char_qian_demao, to: char_lin_ruisheng}, key: suspicion, op: ">=", value: 3 }
+  - { edge: {from: char_qian_demao, to: char_lin_ruisheng}, key: suspicion, op: ">=", value: 4 }
 tags: [failure, ending]
 next: dialog_f005_watch
 

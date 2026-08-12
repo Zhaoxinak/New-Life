@@ -1,0 +1,59 @@
+{
+  "rows": [
+    {
+      "loc_id": "loc_01",
+      "loc_key": "loc.01.name",
+      "blurb_key": "loc.01.blurb",
+      "open_slots": ["morning", "noon", "afternoon"],
+      "hotspots": [
+        {"id": "hz_front_hall", "loc_key": "hz.front_hall", "x": 0.42, "y": 0.58},
+        {"id": "hz_front_door", "loc_key": "hz.front_door", "x": 0.78, "y": 0.62}
+      ]
+    },
+    {
+      "loc_id": "loc_02",
+      "loc_key": "loc.02.name",
+      "blurb_key": "loc.02.blurb",
+      "open_slots": ["morning", "noon", "afternoon", "evening"],
+      "hotspots": [
+        {"id": "hz_yard", "loc_key": "hz.yard", "x": 0.5, "y": 0.55}
+      ]
+    },
+    {
+      "loc_id": "loc_03",
+      "loc_key": "loc.03.name",
+      "blurb_key": "loc.03.blurb",
+      "open_slots": ["morning", "noon", "afternoon", "evening"],
+      "hotspots": [
+        {"id": "hz_market", "loc_key": "hz.market", "x": 0.48, "y": 0.6}
+      ]
+    },
+    {
+      "loc_id": "loc_04",
+      "loc_key": "loc.04.name",
+      "blurb_key": "loc.04.blurb",
+      "open_slots": ["morning", "noon", "afternoon"],
+      "hotspots": [
+        {"id": "hz_bank", "loc_key": "hz.bank", "x": 0.52, "y": 0.56}
+      ]
+    },
+    {
+      "loc_id": "loc_05",
+      "loc_key": "loc.05.name",
+      "blurb_key": "loc.05.blurb",
+      "open_slots": ["morning", "noon", "afternoon"],
+      "hotspots": [
+        {"id": "hz_foreign", "loc_key": "hz.foreign", "x": 0.55, "y": 0.54}
+      ]
+    },
+    {
+      "loc_id": "loc_06",
+      "loc_key": "loc.06.name",
+      "blurb_key": "loc.06.blurb",
+      "open_slots": ["morning", "noon", "afternoon", "evening", "late_night"],
+      "hotspots": [
+        {"id": "hz_cottage", "loc_key": "hz.cottage", "x": 0.46, "y": 0.58}
+      ]
+    }
+  ]
+}

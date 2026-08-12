@@ -30,7 +30,7 @@
 | `act_01` | 无 | 月例外活钱；`<20` 时是主要收入来源 |
 | R003 | 无 | 钱子安当众发难；丢信任比丢钱更疼 |
 
-口风池：[`DIALOG_ACT_POOL`](../../11_对话档案/DIALOG_ACT_POOL.md) · `dialog.act_01.*`
+口风池：[`DIALOG_ACT_POOL`](../11_对话档案/DIALOG_ACT_POOL.md) · `dialog.act_01.*`
 
 ---
 

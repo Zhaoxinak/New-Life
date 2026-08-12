@@ -1,0 +1,77 @@
+{
+  "pack_id": "anchao",
+  "display_name": "暗潮",
+  "schema_version": "0.1",
+  "content_version": "1.10.3-kairo",
+  "depends_on": [],
+  "tables": [
+    {
+      "name": "def_stat",
+      "file": "def_stat.json"
+    },
+    {
+      "name": "def_char",
+      "file": "def_char.json"
+    },
+    {
+      "name": "def_location",
+      "file": "def_location.json"
+    },
+    {
+      "name": "def_action",
+      "file": "def_action.json"
+    },
+    {
+      "name": "def_event",
+      "file": "def_event.json"
+    },
+    {
+      "name": "def_dialog",
+      "file": "def_dialog.json"
+    },
+    {
+      "name": "def_chatter",
+      "file": "def_chatter.json"
+    },
+    {
+      "name": "def_edge_init",
+      "file": "def_edge_init.json"
+    },
+    {
+      "name": "def_grudge",
+      "file": "def_grudge.json"
+    },
+    {
+      "name": "def_clue",
+      "file": "def_clue.json"
+    },
+    {
+      "name": "def_calendar",
+      "file": "def_calendar.json"
+    },
+    {
+      "name": "def_finance_service",
+      "file": "def_finance_service.json"
+    },
+    {
+      "name": "def_tick",
+      "file": "def_tick.json"
+    },
+    {
+      "name": "def_org_init",
+      "file": "def_org_init.json"
+    },
+    {
+      "name": "def_meter_init",
+      "file": "def_meter_init.json"
+    },
+    {
+      "name": "registry_events",
+      "file": "registry/events.json"
+    },
+    {
+      "name": "def_loc_string",
+      "file": "l10n/zh_CN.json"
+    }
+  ]
+}

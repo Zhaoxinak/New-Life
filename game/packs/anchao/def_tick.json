@@ -1,0 +1,42 @@
+{
+  "rows": [
+    {
+      "tick_id": "tick_living_cost",
+      "when": "on_day_end",
+      "require": [],
+      "effects": [
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "tick_id": "tick_demao_suspicion_decay",
+      "when": "on_day_end",
+      "require": [
+        {
+          "edge": {
+            "from": "char_qian_demao",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "suspicion",
+          "op": ">=",
+          "value": 3
+        }
+      ],
+      "effects": [
+        {
+          "op": "add",
+          "edge": {
+            "from": "char_qian_demao",
+            "to": "char_lin_ruisheng"
+          },
+          "key": "suspicion",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,0 @@
-[gd_scene format=3]
-
-[ext_resource type="Script" uid="uid://d1km52smk3obt" path="res://ui/SettingsPanel.gd" id="1"]
-
-[node name="SettingsPanel" type="CanvasLayer" unique_id=235509718]
-layer = 40
-script = ExtResource("1")

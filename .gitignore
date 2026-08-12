@@ -3,7 +3,7 @@
 Thumbs.db
 
 # Godot 4
-.godot/
+**/.godot/
 *.translation
 export_presets.cfg.bak
 
@@ -14,7 +14,6 @@ dist/
 *.aab
 *.zip
 *.dmg
-*.exe
 *.app/
 
 # Editors / env
@@ -24,39 +23,16 @@ dist/
 .env
 .env.*
 
-# Python tooling (if any)
+# Python
 __pycache__/
 *.pyc
 .venv/
 venv/
 
-# Temporary
+# Temp
 *.tmp
 *.bak
 *~
 
-# Local engine downloads
-.tools/
+# Local Godot editor downloads (keep binaries out of git)
 Godot_v*/
-Godot.app/
-Godot.app
-*.tpz
-
-# Local experiments (keep out of main game commits)
-demo_ai_town/
-
-# PCK / GDRE recovery scratch
-_pck_extract/
-_gdre_recover/
-_gdre_recover_verbose/
-_restore_*.json
-_smoke_*.log
-_gdre_verbose_full.log
-
-# Accidental Godot sidecars under docs tables
-docs/tables/**/*.import
-docs/tables/**/*.uid
-
-# Local Godot conversion cache / orphan stubs
-game/.autoconverted/
-game/art/town/

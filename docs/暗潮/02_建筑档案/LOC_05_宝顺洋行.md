@@ -50,7 +50,7 @@
 |---|---|---|
 | 首次进前庭 | `flag_bradley_invite == true` | R009 或 E017A outro 后 |
 | 正式会谈（办公室） | `flag_ending_c_ready == true` | 仅 E017A 亮手书 |
-| E018C 终局 | 上项 + 非 `route_foreign_closed` + 数值门槛 | 见 [`阶段性结局`](../../10_路线与结局/阶段性结局.md) |
+| E018C 终局 | 上项 + 非 `route_foreign_closed` + 数值门槛 | 见 [`阶段性结局`](../10_路线与结局/阶段性结局.md) |
 | 深谈/高价口径 | `stat_credit_foreign` 越高越稳 | 与 `meter.impression_bradley` 配合，不互替 |
 
 ### 3.3 价码对照（叙事口径）
@@ -73,7 +73,7 @@
 | E018C 开价 | `dialog.e018.c.price` | 「那你开个价。」 |
 | E018C 落账 | `dialog.e018.c.close` | 代理人 + 分成抽头 |
 
-对话权威：[`DIALOG_R009`](../../11_对话档案/DIALOG_R009.md) · [`DIALOG_E017`](../../11_对话档案/DIALOG_E017.md) · [`DIALOG_E018`](../../11_对话档案/DIALOG_E018.md)
+对话权威：[`DIALOG_R009`](../11_对话档案/DIALOG_R009.md) · [`DIALOG_E017`](../11_对话档案/DIALOG_E017.md) · [`DIALOG_E018`](../11_对话档案/DIALOG_E018.md)
 
 ---
 
