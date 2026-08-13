@@ -101,6 +101,43 @@ func eval_one(req: Dictionary) -> bool:
 		MeetingSystem.ensure_state()
 		return String(RunState.meeting.get("attendance_tier", "listen")) == String(req["meeting_tier"])
 
+	if req.has("meeting_days_leq"):
+		MeetingSystem.ensure_state()
+		return int(RunState.meeting.get("days_until_next", 99)) <= int(req["meeting_days_leq"])
+
+	if req.has("meeting_tasks_incomplete"):
+		MeetingSystem.ensure_state()
+		var want_inc := bool(req["meeting_tasks_incomplete"])
+		return MeetingSystem.has_incomplete_weekly_tasks() == want_inc
+
+	if req.has("council_has"):
+		MeetingSystem.ensure_state()
+		var want_c := String(req["council_has"])
+		var q: Array = RunState.meeting.get("council_queue", [])
+		return q.has(want_c)
+
+	if req.has("cycle_mod"):
+		MeetingSystem.ensure_state()
+		var modn := maxi(1, int(req["cycle_mod"]))
+		var eq := int(req.get("equals", 0))
+		return int(RunState.meeting.get("cycle_index", 0)) % modn == eq
+
+	if req.has("council_last_spoke"):
+		var want_spoke := bool(req["council_last_spoke"])
+		return MeetingSystem.last_council_spoke_entry().is_empty() != want_spoke
+
+	if req.has("council_brief"):
+		var want_brief := bool(req["council_brief"])
+		return MeetingSystem.is_council_brief() == want_brief
+
+	if req.has("rival_is"):
+		## 当前池主劲敌（primary_rival）是否为指定人
+		return MeetingSystem.primary_rival() == String(req["rival_is"])
+
+	if req.has("ladder_pool"):
+		MeetingSystem.ensure_state()
+		return String(RunState.ladder.get("pool_id", "")) == String(req["ladder_pool"])
+
 	if req.has("edge"):
 		return _eval_edge(req)
 

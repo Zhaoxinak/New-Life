@@ -76,21 +76,32 @@ grow_horizontal = 2
 [node name="GoalLabel" type="Label" parent="GoalBar"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.82, 0.62, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.22, 0.14, 0.1, 1)
+theme_override_font_sizes/font_size = 15
 horizontal_alignment = 1
 text = ""
 
-[node name="TipLabel" type="Label" parent="."]
+[node name="TipBanner" type="PanelContainer" parent="."]
 unique_name_in_owner = true
+visible = false
+z_index = 25
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = 180.0
 offset_top = 92.0
-offset_bottom = 118.0
+offset_right = -180.0
+offset_bottom = 128.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.95, 0.88, 0.7, 1)
+mouse_filter = 2
+
+[node name="TipLabel" type="Label" parent="TipBanner"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.18, 0.12, 0.08, 1)
+theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
+autowrap_mode = 3
 text = ""
 
 [node name="LocNavPanel" type="PanelContainer" parent="."]
@@ -116,10 +127,120 @@ layout_mode = 2
 alignment = 1
 theme_override_constants/separation = 8
 
+[node name="DutyRail" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 20
+clip_contents = true
+custom_minimum_size = Vector2(220, 240)
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 100.0
+offset_right = 1260.0
+offset_bottom = 360.0
+mouse_filter = 0
+
+[node name="DutyMargin" type="MarginContainer" parent="DutyRail"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 24
+
+[node name="DutyVBox" type="VBoxContainer" parent="DutyRail/DutyMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="DutyHeader" type="PanelContainer" parent="DutyRail/DutyMargin/DutyVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 13
+
+[node name="DutyHeaderRow" type="HBoxContainer" parent="DutyRail/DutyMargin/DutyVBox/DutyHeader"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="DutyTitle" type="Label" parent="DutyRail/DutyMargin/DutyVBox/DutyHeader/DutyHeaderRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.22, 0.14, 0.1, 1)
+theme_override_font_sizes/font_size = 16
+text = "差事 · 序位"
+
+[node name="DutyBtnLadder" type="Button" parent="DutyRail/DutyMargin/DutyVBox/DutyHeader/DutyHeaderRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(40, 28)
+focus_mode = 0
+text = "序"
+
+[node name="DutyBtnCollapse" type="Button" parent="DutyRail/DutyMargin/DutyVBox/DutyHeader/DutyHeaderRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(48, 28)
+focus_mode = 0
+text = "收起"
+
+[node name="DutyScroll" type="ScrollContainer" parent="DutyRail/DutyMargin/DutyVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 1
+
+[node name="DutyBody" type="RichTextLabel" parent="DutyRail/DutyMargin/DutyVBox/DutyScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 3
+theme_override_colors/default_color = Color(0.18, 0.12, 0.08, 1)
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_font_size = 17
+theme_override_constants/line_separation = 5
+text = ""
+
+[node name="DutyResize" type="Button" parent="DutyRail"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+flat = true
+text = "◢"
+tooltip_text = "拖角改大小"
+
 [node name="ActSheet" parent="." instance=ExtResource("4_sheet")]
 unique_name_in_owner = true
 
-[node name="DialogueBox" parent="." instance=ExtResource("3_box")]
+[node name="DialogueLayer" type="CanvasLayer" parent="."]
+layer = 28
+
+[node name="DialogueBox" parent="DialogueLayer" instance=ExtResource("3_box")]
 unique_name_in_owner = true
 
 [node name="HelpLayer" type="Control" parent="."]

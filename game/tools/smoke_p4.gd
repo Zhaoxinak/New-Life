@@ -52,6 +52,15 @@ func _run() -> void:
 	if not RunState.get_flag("flag_marriage_agency_reclaimed", false):
 		push_error("SMOKE FAIL: marriage agency")
 		ok = false
+	if not RunState.get_flag("flag_reckoning_zian_started", false):
+		push_error("SMOKE FAIL: reckoning started flag")
+		ok = false
+	if String(RunState.meta.get("rank_address", "")) != PromotionSystem.address_for():
+		push_error("SMOKE FAIL: post-E022 address=%s" % str(RunState.meta.get("rank_address", "")))
+		ok = false
+	if PackDB.get_row_by_id("def_dialog", "dialog_id", "dialog_e022_punish_lin").is_empty():
+		push_error("SMOKE FAIL: missing punish_lin")
+		ok = false
 
 	# E018 门槛
 	RunState.set_stat("stat_trust_firm", 55)
@@ -68,6 +77,16 @@ func _run() -> void:
 	if RunState.player_rank() != "paojie":
 		push_error("SMOKE FAIL: rank not paojie got %s" % RunState.player_rank())
 		ok = false
+	if String(RunState.meta.get("rank_address", "")) != PromotionSystem.address_for("paojie"):
+		push_error("SMOKE FAIL: ending address=%s" % str(RunState.meta.get("rank_address", "")))
+		ok = false
+	if String(PromotionSystem.last_ceremony.get("address", "")) != L10n.t("promo.address.paojie", "林跑街"):
+		push_error("SMOKE FAIL: ceremony address=%s" % str(PromotionSystem.last_ceremony.get("address", "")))
+		ok = false
+	for did in ["dialog_e018_a_standing", "dialog_e018_a_crowd", "dialog_e018_a_land"]:
+		if PackDB.get_row_by_id("def_dialog", "dialog_id", did).is_empty():
+			push_error("SMOKE FAIL: missing %s" % did)
+			ok = false
 	if RunState.get_flag("seen_event_E022B", false) or RunState.get_flag("seen_event_E022C", false):
 		push_error("SMOKE FAIL: main reckoning mutex broken")
 		ok = false

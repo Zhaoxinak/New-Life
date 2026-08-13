@@ -1042,7 +1042,11 @@
       "event_id": "E020",
       "speaker": "narrator",
       "loc_key": "dialog.e020.start",
-      "next": "dialog_e020_announce"
+      "next": "dialog_e020_announce",
+      "tags": [
+        "mainline",
+        "rank_up"
+      ]
     },
     {
       "dialog_id": "dialog_e020_announce",
@@ -1054,13 +1058,34 @@
       "dialog_id": "dialog_e020_title",
       "speaker": "narrator",
       "loc_key": "dialog.e020.title",
-      "next": "dialog_e020_pay"
+      "next": "dialog_e020_crowd",
+      "tags": [
+        "mainline",
+        "rank_up",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
     },
     {
       "dialog_id": "dialog_e020_pay",
       "speaker": "char_qian_demao",
       "loc_key": "dialog.e020.pay",
-      "next": "dialog_e020_window"
+      "next": "dialog_e020_window",
+      "tags": [
+        "mainline",
+        "rank_up"
+      ]
     },
     {
       "dialog_id": "dialog_e020_window",
@@ -1109,7 +1134,12 @@
       "event_id": "E020B",
       "speaker": "narrator",
       "loc_key": "dialog.e020b.start",
-      "next": "dialog_e020b_quote"
+      "next": "dialog_e020b_quote",
+      "tags": [
+        "mainline",
+        "rank_up",
+        "route_b"
+      ]
     },
     {
       "dialog_id": "dialog_e020b_quote",
@@ -1121,7 +1151,25 @@
       "dialog_id": "dialog_e020b_title",
       "speaker": "narrator",
       "loc_key": "dialog.e020b.title",
-      "next": "dialog_e020b_money"
+      "next": "dialog_e020b_crowd",
+      "tags": [
+        "mainline",
+        "rank_up",
+        "route_b",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
     },
     {
       "dialog_id": "dialog_e020b_money",
@@ -1181,7 +1229,12 @@
       "event_id": "E020C",
       "speaker": "narrator",
       "loc_key": "dialog.e020c.start",
-      "next": "dialog_e020c_admit"
+      "next": "dialog_e020c_admit",
+      "tags": [
+        "mainline",
+        "rank_up",
+        "route_c"
+      ]
     },
     {
       "dialog_id": "dialog_e020c_admit",
@@ -1193,7 +1246,25 @@
       "dialog_id": "dialog_e020c_title",
       "speaker": "narrator",
       "loc_key": "dialog.e020c.title",
-      "next": "dialog_e020c_gift"
+      "next": "dialog_e020c_crowd",
+      "tags": [
+        "mainline",
+        "rank_up",
+        "route_c",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
     },
     {
       "dialog_id": "dialog_e020c_gift",
@@ -1257,6 +1328,15 @@
         {
           "require": [
             {
+              "grudge": "grudge_onlooker",
+              "status": "open"
+            }
+          ],
+          "id": "dialog_e021_flash_onlooker"
+        },
+        {
+          "require": [
+            {
               "grudge": "grudge_zian_slight",
               "status": "open"
             }
@@ -1267,7 +1347,11 @@
           "default": "dialog_e021_skip"
         }
       ],
-      "next": ""
+      "next": "",
+      "tags": [
+        "mainline",
+        "reckoning"
+      ]
     },
     {
       "dialog_id": "dialog_e021_flash",
@@ -1282,7 +1366,11 @@
       "dialog_id": "dialog_e021_setup",
       "speaker": "narrator",
       "loc_key": "dialog.e021.slight.setup",
-      "next": "dialog_e021_choice"
+      "next": "dialog_e021_address",
+      "tags": [
+        "mainline",
+        "reckoning"
+      ]
     },
     {
       "dialog_id": "dialog_e021_choice",
@@ -1368,13 +1456,13 @@
       "dialog_id": "dialog_e021_punish",
       "speaker": "narrator",
       "loc_key": "dialog.e021.slight.punish",
-      "next": ""
+      "next": "dialog_e021_land_punish"
     },
     {
       "dialog_id": "dialog_e021_forgive",
       "speaker": "narrator",
       "loc_key": "dialog.e021.slight.forgive",
-      "next": ""
+      "next": "dialog_e021_land_forgive"
     },
     {
       "dialog_id": "dialog_e021_skip",
@@ -1398,6 +1486,15 @@
         {
           "require": [
             {
+              "grudge": "grudge_onlooker",
+              "status": "open"
+            }
+          ],
+          "id": "dialog_e021b_flash_onlooker"
+        },
+        {
+          "require": [
+            {
               "grudge": "grudge_zian_slight",
               "status": "open"
             }
@@ -1408,7 +1505,12 @@
           "default": "dialog_e021b_skip"
         }
       ],
-      "next": ""
+      "next": "",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b"
+      ]
     },
     {
       "dialog_id": "dialog_e021b_flash",
@@ -1417,7 +1519,7 @@
       "tags": [
         "flashback"
       ],
-      "next": "dialog_e021b_choice"
+      "next": "dialog_e021b_setup"
     },
     {
       "dialog_id": "dialog_e021b_choice",
@@ -1494,13 +1596,13 @@
       "dialog_id": "dialog_e021b_punish",
       "speaker": "narrator",
       "loc_key": "dialog.e021b.slight.punish",
-      "next": ""
+      "next": "dialog_e021b_land_punish"
     },
     {
       "dialog_id": "dialog_e021b_forgive",
       "speaker": "narrator",
       "loc_key": "dialog.e021b.slight.forgive",
-      "next": ""
+      "next": "dialog_e021b_land_forgive"
     },
     {
       "dialog_id": "dialog_e021b_skip",
@@ -1524,6 +1626,15 @@
         {
           "require": [
             {
+              "grudge": "grudge_onlooker",
+              "status": "open"
+            }
+          ],
+          "id": "dialog_e021c_flash_onlooker"
+        },
+        {
+          "require": [
+            {
               "grudge": "grudge_zian_slight",
               "status": "open"
             }
@@ -1534,7 +1645,12 @@
           "default": "dialog_e021c_skip"
         }
       ],
-      "next": ""
+      "next": "",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c"
+      ]
     },
     {
       "dialog_id": "dialog_e021c_flash",
@@ -1543,7 +1659,7 @@
       "tags": [
         "flashback"
       ],
-      "next": "dialog_e021c_choice"
+      "next": "dialog_e021c_setup"
     },
     {
       "dialog_id": "dialog_e021c_choice",
@@ -1620,13 +1736,13 @@
       "dialog_id": "dialog_e021c_punish",
       "speaker": "narrator",
       "loc_key": "dialog.e021c.slight.punish",
-      "next": ""
+      "next": "dialog_e021c_land_punish"
     },
     {
       "dialog_id": "dialog_e021c_forgive",
       "speaker": "narrator",
       "loc_key": "dialog.e021c.slight.forgive",
-      "next": ""
+      "next": "dialog_e021c_land_forgive"
     },
     {
       "dialog_id": "dialog_e021c_skip",
@@ -2258,7 +2374,11 @@
       "event_id": "E022",
       "speaker": "narrator",
       "loc_key": "dialog.e022.start",
-      "next": "dialog_e022_flash"
+      "next": "dialog_e022_flash",
+      "tags": [
+        "mainline",
+        "reckoning"
+      ]
     },
     {
       "dialog_id": "dialog_e022_flash",
@@ -2273,7 +2393,18 @@
       "dialog_id": "dialog_e022_setup",
       "speaker": "narrator",
       "loc_key": "dialog.e022.setup",
-      "next": "dialog_e022_choice"
+      "next": "dialog_e022_address",
+      "tags": [
+        "mainline",
+        "reckoning"
+      ],
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_reckoning_zian_started",
+          "value": true
+        }
+      ]
     },
     {
       "dialog_id": "dialog_e022_choice",
@@ -2341,10 +2472,11 @@
               "op": "resolve_grudge",
               "id": "grudge_zian_slight",
               "mode": "punish",
-              "if_open": true
+              "if_open": true,
+              "silent": true
             }
           ],
-          "next": "dialog_e022_punish"
+          "next": "dialog_e022_punish_lin"
         },
         {
           "id": "B",
@@ -2406,32 +2538,51 @@
               "op": "resolve_grudge",
               "id": "grudge_zian_slight",
               "mode": "forgive",
-              "if_open": true
+              "if_open": true,
+              "silent": true
             }
           ],
-          "next": "dialog_e022_forgive"
+          "next": "dialog_e022_forgive_lin"
         }
       ],
-      "next": ""
+      "next": "",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "choice"
+      ]
     },
     {
       "dialog_id": "dialog_e022_punish",
       "speaker": "narrator",
-      "loc_key": "dialog.e022.punish",
-      "next": ""
+      "loc_key": "dialog.e022.punish.crowd",
+      "next": "dialog_e022_land_punish",
+      "tags": [
+        "mainline",
+        "reckoning"
+      ]
     },
     {
       "dialog_id": "dialog_e022_forgive",
       "speaker": "narrator",
-      "loc_key": "dialog.e022.forgive",
-      "next": ""
+      "loc_key": "dialog.e022.forgive.crowd",
+      "next": "dialog_e022_land_forgive",
+      "tags": [
+        "mainline",
+        "reckoning"
+      ]
     },
     {
       "dialog_id": "dialog_e022b_start",
       "event_id": "E022B",
       "speaker": "narrator",
       "loc_key": "dialog.e022b.start",
-      "next": "dialog_e022b_flash"
+      "next": "dialog_e022b_flash",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b"
+      ]
     },
     {
       "dialog_id": "dialog_e022b_flash",
@@ -2446,7 +2597,19 @@
       "dialog_id": "dialog_e022b_setup",
       "speaker": "narrator",
       "loc_key": "dialog.e022b.setup",
-      "next": "dialog_e022b_choice"
+      "next": "dialog_e022b_address",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b"
+      ],
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_reckoning_zian_started",
+          "value": true
+        }
+      ]
     },
     {
       "dialog_id": "dialog_e022b_choice",
@@ -2505,7 +2668,8 @@
               "op": "resolve_grudge",
               "id": "grudge_zian_slight",
               "mode": "punish",
-              "if_open": true
+              "if_open": true,
+              "silent": true
             }
           ],
           "next": "dialog_e022b_punish"
@@ -2561,32 +2725,54 @@
               "op": "resolve_grudge",
               "id": "grudge_zian_slight",
               "mode": "forgive",
-              "if_open": true
+              "if_open": true,
+              "silent": true
             }
           ],
           "next": "dialog_e022b_forgive"
         }
       ],
-      "next": ""
+      "next": "",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b",
+        "choice"
+      ]
     },
     {
       "dialog_id": "dialog_e022b_punish",
       "speaker": "narrator",
       "loc_key": "dialog.e022b.punish",
-      "next": ""
+      "next": "dialog_e022b_crowd_punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b"
+      ]
     },
     {
       "dialog_id": "dialog_e022b_forgive",
       "speaker": "narrator",
       "loc_key": "dialog.e022b.forgive",
-      "next": ""
+      "next": "dialog_e022b_crowd_forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b"
+      ]
     },
     {
       "dialog_id": "dialog_e022c_start",
       "event_id": "E022C",
       "speaker": "narrator",
       "loc_key": "dialog.e022c.start",
-      "next": "dialog_e022c_flash"
+      "next": "dialog_e022c_flash",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c"
+      ]
     },
     {
       "dialog_id": "dialog_e022c_flash",
@@ -2601,7 +2787,19 @@
       "dialog_id": "dialog_e022c_setup",
       "speaker": "narrator",
       "loc_key": "dialog.e022c.setup",
-      "next": "dialog_e022c_choice"
+      "next": "dialog_e022c_address",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c"
+      ],
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_reckoning_zian_started",
+          "value": true
+        }
+      ]
     },
     {
       "dialog_id": "dialog_e022c_choice",
@@ -2665,7 +2863,8 @@
               "op": "resolve_grudge",
               "id": "grudge_zian_slight",
               "mode": "punish",
-              "if_open": true
+              "if_open": true,
+              "silent": true
             }
           ],
           "next": "dialog_e022c_punish"
@@ -2721,25 +2920,42 @@
               "op": "resolve_grudge",
               "id": "grudge_zian_slight",
               "mode": "forgive",
-              "if_open": true
+              "if_open": true,
+              "silent": true
             }
           ],
           "next": "dialog_e022c_forgive"
         }
       ],
-      "next": ""
+      "next": "",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c",
+        "choice"
+      ]
     },
     {
       "dialog_id": "dialog_e022c_punish",
       "speaker": "narrator",
       "loc_key": "dialog.e022c.punish",
-      "next": ""
+      "next": "dialog_e022c_crowd_punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c"
+      ]
     },
     {
       "dialog_id": "dialog_e022c_forgive",
       "speaker": "narrator",
       "loc_key": "dialog.e022c.forgive",
-      "next": ""
+      "next": "dialog_e022c_crowd_forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c"
+      ]
     },
     {
       "dialog_id": "dialog_e018_start",
@@ -2867,7 +3083,7 @@
       "dialog_id": "dialog_e018_a_qian",
       "speaker": "char_qian_demao",
       "loc_key": "dialog.e018.a.qian",
-      "next": "dialog_e018_a_demao"
+      "next": "dialog_e018_a_seat"
     },
     {
       "dialog_id": "dialog_e018_a_demao",
@@ -2906,7 +3122,8 @@
             {
               "op": "resolve_grudge",
               "id": "grudge_demao_defer",
-              "mode": "punish"
+              "mode": "punish",
+              "silent": true
             }
           ],
           "next": "dialog_e018_a_title"
@@ -2918,7 +3135,8 @@
             {
               "op": "resolve_grudge",
               "id": "grudge_demao_defer",
-              "mode": "forgive"
+              "mode": "forgive",
+              "silent": true
             },
             {
               "op": "set",
@@ -2971,11 +3189,26 @@
           "value": true
         }
       ],
-      "next": "dialog_e018_a_close",
+      "next": "dialog_e018_a_standing",
       "tags": [
         "mainline",
-        "ending"
-      ]
+        "ending",
+        "rank_up",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
     },
     {
       "dialog_id": "dialog_e018_a_close",
@@ -2984,8 +3217,22 @@
       "next": "",
       "tags": [
         "mainline",
-        "ending"
-      ]
+        "ending",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
     },
     {
       "dialog_id": "dialog_e018_b_narr",
@@ -3027,9 +3274,32 @@
           "op": "set_flag",
           "key": "flag_ending_b",
           "value": true
+        },
+        {
+          "op": "external_rank_ceremony",
+          "value": "jufeng_paojie"
         }
       ],
-      "next": "dialog_e018_b_close"
+      "next": "dialog_e018_b_crowd",
+      "tags": [
+        "mainline",
+        "ending",
+        "rank_up",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
     },
     {
       "dialog_id": "dialog_e018_b_close",
@@ -3038,8 +3308,22 @@
       "next": "",
       "tags": [
         "mainline",
-        "ending"
-      ]
+        "ending",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
     },
     {
       "dialog_id": "dialog_e018_c_narr",
@@ -3055,35 +3339,32 @@
       "dialog_id": "dialog_e018_c_bradley",
       "speaker": "char_bradley",
       "loc_key": "dialog.e018.c.bradley",
-      "next": "dialog_e018_c_close"
+      "next": "dialog_e018_c_title"
     },
     {
       "dialog_id": "dialog_e018_c_close",
       "speaker": "narrator",
       "loc_key": "dialog.e018.c.close",
-      "effects": [
-        {
-          "op": "set_flag",
-          "key": "flag_rank_foreign_agent",
-          "value": true
-        },
-        {
-          "op": "add",
-          "key": "stat_money",
-          "value": 20
-        },
-        {
-          "op": "add",
-          "key": "stat_credit_foreign",
-          "value": 20
-        },
-        {
-          "op": "set_flag",
-          "key": "flag_ending_c",
-          "value": true
-        }
+      "effects": [],
+      "next": "",
+      "tags": [
+        "mainline",
+        "ending",
+        "rank_address",
+        "keyword_highlight"
       ],
-      "next": ""
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
     },
     {
       "dialog_id": "dialog_e018_fail_fired",
@@ -5979,7 +6260,30 @@
       "next": "dialog_m001_zhou_order",
       "tags": [
         "meeting",
-        "m001"
+        "m001",
+        "seg_rollcall",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "segment": "rollcall",
+        "keywords": [
+          "跑街",
+          "满师",
+          "特别货",
+          "货单",
+          "聚丰",
+          "外场",
+          "学徒",
+          "后院",
+          "差事"
+        ],
+        "camera": "listen"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "rollcall"
+        }
       ]
     },
     {
@@ -5989,7 +6293,17 @@
       "next": "dialog_m001_rollcall",
       "tags": [
         "meeting",
-        "m001"
+        "m001",
+        "seg_rollcall"
+      ],
+      "stage": {
+        "segment": "rollcall"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "rollcall"
+        }
       ]
     },
     {
@@ -5999,7 +6313,30 @@
       "next": "dialog_m001_report_wang",
       "tags": [
         "meeting",
-        "m001"
+        "m001",
+        "seg_rollcall",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "segment": "rollcall",
+        "keywords": [
+          "跑街",
+          "满师",
+          "特别货",
+          "货单",
+          "聚丰",
+          "外场",
+          "学徒",
+          "后院",
+          "差事"
+        ],
+        "camera": "listen"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "rollcall"
+        }
       ]
     },
     {
@@ -6010,8 +6347,12 @@
       "tags": [
         "meeting",
         "ladder",
-        "m001"
-      ]
+        "m001",
+        "seg_report"
+      ],
+      "stage": {
+        "segment": "report"
+      }
     },
     {
       "dialog_id": "dialog_m001_demao_comment",
@@ -6020,8 +6361,12 @@
       "next": "dialog_m001_paojie_echo",
       "tags": [
         "meeting",
-        "m001"
-      ]
+        "m001",
+        "seg_report"
+      ],
+      "stage": {
+        "segment": "report"
+      }
     },
     {
       "dialog_id": "dialog_m001_paojie_echo",
@@ -6031,8 +6376,24 @@
       "tags": [
         "meeting",
         "keyword_highlight",
-        "m001"
-      ]
+        "m001",
+        "seg_report"
+      ],
+      "stage": {
+        "segment": "report",
+        "keywords": [
+          "跑街",
+          "满师",
+          "特别货",
+          "货单",
+          "聚丰",
+          "外场",
+          "学徒",
+          "后院",
+          "差事"
+        ],
+        "camera": "listen"
+      }
     },
     {
       "dialog_id": "dialog_m001_manshi_hint",
@@ -6041,8 +6402,25 @@
       "next": "dialog_m001_council_zhou",
       "tags": [
         "meeting",
-        "m001"
-      ]
+        "m001",
+        "seg_report",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "segment": "report",
+        "keywords": [
+          "跑街",
+          "满师",
+          "特别货",
+          "货单",
+          "聚丰",
+          "外场",
+          "学徒",
+          "后院",
+          "差事"
+        ],
+        "camera": "listen"
+      }
     },
     {
       "dialog_id": "dialog_m001_council_zhou",
@@ -6052,9 +6430,15 @@
       "tags": [
         "meeting",
         "council",
-        "m001"
+        "m001",
+        "seg_council",
+        "keyword_highlight"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        },
         {
           "op": "record_council_speech",
           "char": "char_zhou_guanshi",
@@ -6067,7 +6451,22 @@
           "key": "bright_steady",
           "value": 2
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council",
+        "keywords": [
+          "跑街",
+          "满师",
+          "特别货",
+          "货单",
+          "聚丰",
+          "外场",
+          "学徒",
+          "后院",
+          "差事"
+        ],
+        "camera": "listen"
+      }
     },
     {
       "dialog_id": "dialog_m001_council_wang_pass",
@@ -6077,7 +6476,9 @@
       "tags": [
         "meeting",
         "council",
-        "m001"
+        "m001",
+        "seg_council",
+        "keyword_highlight"
       ],
       "effects": [
         {
@@ -6086,7 +6487,22 @@
           "spoke": false,
           "mode": "pass"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council",
+        "keywords": [
+          "跑街",
+          "满师",
+          "特别货",
+          "货单",
+          "聚丰",
+          "外场",
+          "学徒",
+          "后院",
+          "差事"
+        ],
+        "camera": "listen"
+      }
     },
     {
       "dialog_id": "dialog_m001_policy_wood",
@@ -6095,7 +6511,17 @@
       "next": "dialog_m001_tasks",
       "tags": [
         "meeting",
-        "m001"
+        "m001",
+        "seg_policy"
+      ],
+      "stage": {
+        "segment": "policy"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "policy"
+        }
       ]
     },
     {
@@ -6105,9 +6531,14 @@
       "next": "dialog_m001_close",
       "tags": [
         "meeting",
-        "m001"
+        "m001",
+        "seg_tasks"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "tasks"
+        },
         {
           "op": "init_ladder_pool",
           "pool_id": "pool_apprentice"
@@ -6139,7 +6570,10 @@
           "op": "add_meeting_report",
           "value": 0
         }
-      ]
+      ],
+      "stage": {
+        "segment": "tasks"
+      }
     },
     {
       "dialog_id": "dialog_m001_close",
@@ -6148,14 +6582,22 @@
       "next": "",
       "tags": [
         "meeting",
-        "m001"
+        "m001",
+        "seg_tasks"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "tasks"
+        },
         {
           "op": "complete_meeting_cycle",
           "summary_key": "meeting.summary.m001"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "tasks"
+      }
     },
     {
       "dialog_id": "dialog_m002_start",
@@ -6164,7 +6606,17 @@
       "next": "dialog_m002_zhou_rollcall",
       "tags": [
         "meeting",
-        "m002"
+        "m002",
+        "seg_rollcall"
+      ],
+      "stage": {
+        "segment": "rollcall"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "rollcall"
+        }
       ]
     },
     {
@@ -6174,7 +6626,17 @@
       "next": "dialog_e004_start",
       "tags": [
         "meeting",
-        "m002"
+        "m002",
+        "seg_rollcall"
+      ],
+      "stage": {
+        "segment": "rollcall"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "rollcall"
+        }
       ]
     },
     {
@@ -6184,8 +6646,12 @@
       "next": "dialog_m002_player_named",
       "tags": [
         "meeting",
-        "m002"
-      ]
+        "m002",
+        "seg_report"
+      ],
+      "stage": {
+        "segment": "report"
+      }
     },
     {
       "dialog_id": "dialog_m002_player_named",
@@ -6194,8 +6660,24 @@
       "next": "dialog_e006_start",
       "tags": [
         "meeting",
-        "m002"
-      ]
+        "m002",
+        "seg_report",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "segment": "report",
+        "keywords": [
+          "跑街",
+          "满师",
+          "特别货",
+          "货单",
+          "聚丰",
+          "外场",
+          "学徒",
+          "后院",
+          "差事"
+        ]
+      }
     },
     {
       "dialog_id": "dialog_m002_ladder_read",
@@ -6205,9 +6687,15 @@
       "tags": [
         "meeting",
         "ladder",
-        "m002"
+        "m002",
+        "seg_report",
+        "keyword_highlight"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "report"
+        },
         {
           "op": "bias_ladder_npc",
           "char": "char_qian_zian",
@@ -6228,7 +6716,21 @@
           "key": "seen_event_E006",
           "value": true
         }
-      ]
+      ],
+      "stage": {
+        "segment": "report",
+        "keywords": [
+          "跑街",
+          "满师",
+          "特别货",
+          "货单",
+          "聚丰",
+          "外场",
+          "学徒",
+          "后院",
+          "差事"
+        ]
+      }
     },
     {
       "dialog_id": "dialog_m002_council_zian",
@@ -6238,9 +6740,14 @@
       "tags": [
         "meeting",
         "council",
-        "m002"
+        "m002",
+        "seg_council"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        },
         {
           "op": "record_council_speech",
           "char": "char_qian_zian",
@@ -6253,7 +6760,10 @@
           "key": "son_first",
           "value": 3
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_m002_council_zhou_pass",
@@ -6263,16 +6773,24 @@
       "tags": [
         "meeting",
         "council",
-        "m002"
+        "m002",
+        "seg_council"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        },
         {
           "op": "record_council_speech",
           "char": "char_zhou_guanshi",
           "spoke": false,
           "mode": "pass"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_m002_council_wang",
@@ -6282,7 +6800,8 @@
       "tags": [
         "meeting",
         "council",
-        "m002"
+        "m002",
+        "seg_council"
       ],
       "effects": [
         {
@@ -6297,7 +6816,10 @@
           "key": "bright_steady",
           "value": 1
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_m002_policy_son",
@@ -6306,7 +6828,17 @@
       "next": "dialog_m002_task_humiliate",
       "tags": [
         "meeting",
-        "m002"
+        "m002",
+        "seg_policy"
+      ],
+      "stage": {
+        "segment": "policy"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "policy"
+        }
       ]
     },
     {
@@ -6316,9 +6848,14 @@
       "next": "dialog_m002_close",
       "tags": [
         "meeting",
-        "m002"
+        "m002",
+        "seg_tasks"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "tasks"
+        },
         {
           "op": "assign_weekly_tasks",
           "ids": [
@@ -6330,7 +6867,10 @@
           "op": "set_meeting_tier",
           "value": "listen"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "tasks"
+      }
     },
     {
       "dialog_id": "dialog_m002_close",
@@ -6339,25 +6879,38 @@
       "next": "",
       "tags": [
         "meeting",
-        "m002"
+        "m002",
+        "seg_tasks"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "tasks"
+        },
         {
           "op": "complete_meeting_cycle",
           "summary_key": "meeting.summary.m002"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "tasks"
+      }
     },
     {
       "dialog_id": "dialog_council_zhou_order",
       "speaker": "char_zhou_guanshi",
       "loc_key": "council.zhou.order",
-      "next": "dialog_council_wang_front",
+      "next": "dialog_council_after_zhou",
       "tags": [
         "meeting",
-        "council"
+        "council",
+        "seg_rollcall"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "rollcall"
+        },
         {
           "op": "record_council_speech",
           "char": "char_zhou_guanshi",
@@ -6370,34 +6923,46 @@
           "key": "bright_steady",
           "value": 2
         }
-      ]
+      ],
+      "stage": {
+        "segment": "rollcall"
+      }
     },
     {
       "dialog_id": "dialog_council_zhou_pass",
       "speaker": "narrator",
       "loc_key": "council.zhou.pass",
-      "next": "dialog_council_wang_front",
+      "next": "dialog_council_after_zhou",
       "tags": [
         "meeting",
-        "council"
+        "council",
+        "seg_council"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        },
         {
           "op": "record_council_speech",
           "char": "char_zhou_guanshi",
           "spoke": false,
           "mode": "pass"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_council_wang_front",
       "speaker": "char_wang_pangzi",
       "loc_key": "council.wang.front_busy",
-      "next": "dialog_meeting_council_player_pick",
+      "next": "dialog_council_after_wang",
       "tags": [
         "meeting",
-        "council"
+        "council",
+        "seg_council"
       ],
       "effects": [
         {
@@ -6411,16 +6976,20 @@
           "key": "bright_steady",
           "value": 1
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_council_wang_pass",
       "speaker": "narrator",
       "loc_key": "council.wang.pass",
-      "next": "dialog_meeting_council_player_pick",
+      "next": "dialog_council_after_wang",
       "tags": [
         "meeting",
-        "council"
+        "council",
+        "seg_council"
       ],
       "effects": [
         {
@@ -6429,18 +6998,26 @@
           "spoke": false,
           "mode": "pass"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_council_zian_show",
       "speaker": "char_qian_zian",
       "loc_key": "council.zian.show",
-      "next": "dialog_meeting_council_next",
+      "next": "dialog_council_after_zian",
       "tags": [
         "meeting",
-        "council"
+        "council",
+        "seg_council"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        },
         {
           "op": "record_council_speech",
           "char": "char_qian_zian",
@@ -6457,7 +7034,10 @@
           "meter": "father_son",
           "value": -5
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_meeting_council_player_pick",
@@ -6465,7 +7045,8 @@
       "loc_key": "council.player.pick",
       "tags": [
         "meeting",
-        "council"
+        "council",
+        "seg_council"
       ],
       "choices": [
         {
@@ -6474,9 +7055,31 @@
           "next": "dialog_meeting_council_topic"
         },
         {
+          "id": "council_endorse",
+          "loc_key": "council.choice.endorse",
+          "require": [
+            {
+              "meeting_tier": "decide"
+            },
+            {
+              "council_last_spoke": true
+            }
+          ],
+          "next": "dialog_meeting_council_endorse"
+        },
+        {
           "id": "council_silent",
           "loc_key": "council.choice.silent",
           "next": "dialog_meeting_council_player_pass"
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
         }
       ]
     },
@@ -6486,7 +7089,8 @@
       "loc_key": "council.player.topic",
       "tags": [
         "meeting",
-        "council"
+        "council",
+        "seg_council"
       ],
       "choices": [
         {
@@ -6516,7 +7120,10 @@
           ],
           "next": "dialog_council_player_risk"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_council_player_steady",
@@ -6525,7 +7132,8 @@
       "next": "dialog_meeting_council_demao_nod",
       "tags": [
         "meeting",
-        "council"
+        "council",
+        "seg_council"
       ],
       "effects": [
         {
@@ -6545,7 +7153,10 @@
           "key": "stat_trust_firm",
           "value": 2
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_council_player_market",
@@ -6554,7 +7165,8 @@
       "next": "dialog_meeting_council_demao_nod",
       "tags": [
         "meeting",
-        "council"
+        "council",
+        "seg_council"
       ],
       "effects": [
         {
@@ -6574,7 +7186,10 @@
           "key": "stat_network",
           "value": 2
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_council_player_look_away",
@@ -6583,7 +7198,8 @@
       "next": "dialog_meeting_council_demao_nod",
       "tags": [
         "meeting",
-        "council"
+        "council",
+        "seg_council"
       ],
       "effects": [
         {
@@ -6598,7 +7214,10 @@
           "key": "look_away",
           "value": 2
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_council_player_risk",
@@ -6607,7 +7226,8 @@
       "next": "dialog_meeting_council_demao_cut",
       "tags": [
         "meeting",
-        "council"
+        "council",
+        "seg_council"
       ],
       "effects": [
         {
@@ -6632,7 +7252,10 @@
           "key": "stat_suspicion",
           "value": 3
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_meeting_council_player_pass",
@@ -6641,7 +7264,8 @@
       "next": "dialog_meeting_council_next",
       "tags": [
         "meeting",
-        "council"
+        "council",
+        "seg_council"
       ],
       "effects": [
         {
@@ -6650,7 +7274,10 @@
           "spoke": false,
           "mode": "pass"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_meeting_council_demao_nod",
@@ -6659,8 +7286,12 @@
       "next": "dialog_meeting_council_next",
       "tags": [
         "meeting",
-        "council"
-      ]
+        "council",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_meeting_council_demao_cut",
@@ -6669,8 +7300,12 @@
       "next": "dialog_meeting_council_next",
       "tags": [
         "meeting",
-        "council"
-      ]
+        "council",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_meeting_council_next",
@@ -6679,8 +7314,12 @@
       "next": "dialog_meeting_policy_resolve",
       "tags": [
         "meeting",
-        "council"
-      ]
+        "council",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council"
+      }
     },
     {
       "dialog_id": "dialog_m003_start",
@@ -6689,9 +7328,14 @@
       "next": "dialog_m003_enter_hall",
       "tags": [
         "meeting",
-        "m003"
+        "m003",
+        "seg_rollcall"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "rollcall"
+        },
         {
           "op": "set_flag",
           "key": "flag_in_m003",
@@ -6701,7 +7345,10 @@
           "op": "clear_flag",
           "key": "flag_in_m000"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "rollcall"
+      }
     },
     {
       "dialog_id": "dialog_m003_enter_hall",
@@ -6710,7 +7357,17 @@
       "next": "dialog_m003_report_choice",
       "tags": [
         "meeting",
-        "m003"
+        "m003",
+        "seg_rollcall"
+      ],
+      "stage": {
+        "segment": "rollcall"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "rollcall"
+        }
       ]
     },
     {
@@ -6719,7 +7376,8 @@
       "loc_key": "dialog.m003.report_choice",
       "tags": [
         "meeting",
-        "m003"
+        "m003",
+        "seg_report"
       ],
       "choices": [
         {
@@ -6737,7 +7395,10 @@
           "loc_key": "dialog.m003.choice.hold",
           "next": "dialog_m003_report_c"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "report"
+      }
     },
     {
       "dialog_id": "dialog_m003_report_a",
@@ -6746,7 +7407,8 @@
       "next": "",
       "tags": [
         "meeting",
-        "m003"
+        "m003",
+        "seg_report"
       ],
       "effects": [
         {
@@ -6777,7 +7439,10 @@
         {
           "default": "dialog_e020_start"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "report"
+      }
     },
     {
       "dialog_id": "dialog_m003_report_b",
@@ -6786,7 +7451,8 @@
       "next": "",
       "tags": [
         "meeting",
-        "m003"
+        "m003",
+        "seg_report"
       ],
       "effects": [
         {
@@ -6821,7 +7487,10 @@
         {
           "default": "dialog_e020_start"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "report"
+      }
     },
     {
       "dialog_id": "dialog_m003_report_c",
@@ -6830,7 +7499,8 @@
       "next": "",
       "tags": [
         "meeting",
-        "m003"
+        "m003",
+        "seg_report"
       ],
       "effects": [
         {
@@ -6861,7 +7531,10 @@
         {
           "default": "dialog_e020_start"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "report"
+      }
     },
     {
       "dialog_id": "dialog_m003_policy",
@@ -6870,9 +7543,18 @@
       "next": "dialog_meeting_policy_resolve",
       "tags": [
         "meeting",
-        "m003"
+        "m003",
+        "seg_policy"
       ],
-      "effects": []
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "policy"
+        }
+      ],
+      "stage": {
+        "segment": "policy"
+      }
     },
     {
       "dialog_id": "dialog_m003_tasks",
@@ -6881,9 +7563,14 @@
       "next": "dialog_m003_close",
       "tags": [
         "meeting",
-        "m003"
+        "m003",
+        "seg_tasks"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "tasks"
+        },
         {
           "op": "set_flag",
           "key": "flag_meeting_report_eligible",
@@ -6904,7 +7591,10 @@
           "op": "init_ladder_pool",
           "pool_id": "pool_waichang"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "tasks"
+      }
     },
     {
       "dialog_id": "dialog_m003_close",
@@ -6913,9 +7603,14 @@
       "next": "",
       "tags": [
         "meeting",
-        "m003"
+        "m003",
+        "seg_tasks"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "tasks"
+        },
         {
           "op": "complete_meeting_cycle",
           "summary_key": "meeting.summary.m003"
@@ -6924,7 +7619,10 @@
           "op": "clear_flag",
           "key": "flag_in_m003"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "tasks"
+      }
     },
     {
       "dialog_id": "dialog_meeting_policy_resolve",
@@ -6933,9 +7631,14 @@
       "next": "",
       "tags": [
         "meeting",
-        "policy"
+        "policy",
+        "seg_policy"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "policy"
+        },
         {
           "op": "resolve_meeting_policy"
         }
@@ -6992,7 +7695,10 @@
         {
           "default": "dialog_meeting_policy_bright"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "policy"
+      }
     },
     {
       "dialog_id": "dialog_meeting_policy_bright",
@@ -7001,7 +7707,17 @@
       "next": "dialog_meeting_policy_to_tasks",
       "tags": [
         "meeting",
-        "policy"
+        "policy",
+        "seg_policy"
+      ],
+      "stage": {
+        "segment": "policy"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "policy"
+        }
       ]
     },
     {
@@ -7011,7 +7727,17 @@
       "next": "dialog_meeting_policy_to_tasks",
       "tags": [
         "meeting",
-        "policy"
+        "policy",
+        "seg_policy"
+      ],
+      "stage": {
+        "segment": "policy"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "policy"
+        }
       ]
     },
     {
@@ -7021,7 +7747,17 @@
       "next": "dialog_meeting_policy_to_tasks",
       "tags": [
         "meeting",
-        "policy"
+        "policy",
+        "seg_policy"
+      ],
+      "stage": {
+        "segment": "policy"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "policy"
+        }
       ]
     },
     {
@@ -7031,7 +7767,17 @@
       "next": "dialog_meeting_policy_to_tasks",
       "tags": [
         "meeting",
-        "policy"
+        "policy",
+        "seg_policy"
+      ],
+      "stage": {
+        "segment": "policy"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "policy"
+        }
       ]
     },
     {
@@ -7041,7 +7787,17 @@
       "next": "dialog_meeting_policy_to_tasks",
       "tags": [
         "meeting",
-        "policy"
+        "policy",
+        "seg_policy"
+      ],
+      "stage": {
+        "segment": "policy"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "policy"
+        }
       ]
     },
     {
@@ -7051,7 +7807,17 @@
       "next": "dialog_meeting_policy_to_tasks",
       "tags": [
         "meeting",
-        "policy"
+        "policy",
+        "seg_policy"
+      ],
+      "stage": {
+        "segment": "policy"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "policy"
+        }
       ]
     },
     {
@@ -7061,7 +7827,8 @@
       "next": "",
       "tags": [
         "meeting",
-        "policy"
+        "policy",
+        "seg_policy"
       ],
       "next_by_condition": [
         {
@@ -7085,6 +7852,15 @@
         {
           "default": "dialog_m000_tasks"
         }
+      ],
+      "stage": {
+        "segment": "policy"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "policy"
+        }
       ]
     },
     {
@@ -7094,9 +7870,14 @@
       "next": "dialog_m000_rollcall",
       "tags": [
         "meeting",
-        "m000"
+        "m000",
+        "seg_rollcall"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "rollcall"
+        },
         {
           "op": "set_flag",
           "key": "flag_in_m000",
@@ -7112,7 +7893,10 @@
         {
           "op": "init_default_council"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "rollcall"
+      }
     },
     {
       "dialog_id": "dialog_m000_rollcall",
@@ -7121,7 +7905,17 @@
       "next": "dialog_m000_ladder",
       "tags": [
         "meeting",
-        "m000"
+        "m000",
+        "seg_rollcall"
+      ],
+      "stage": {
+        "segment": "rollcall"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "rollcall"
+        }
       ]
     },
     {
@@ -7132,7 +7926,17 @@
       "tags": [
         "meeting",
         "ladder",
-        "m000"
+        "m000",
+        "seg_report"
+      ],
+      "stage": {
+        "segment": "report"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "report"
+        }
       ]
     },
     {
@@ -7142,8 +7946,12 @@
       "next": "dialog_m000_after_report",
       "tags": [
         "meeting",
-        "m000"
-      ]
+        "m000",
+        "seg_report"
+      ],
+      "stage": {
+        "segment": "report"
+      }
     },
     {
       "dialog_id": "dialog_m000_after_report",
@@ -7152,7 +7960,8 @@
       "next": "",
       "tags": [
         "meeting",
-        "m000"
+        "m000",
+        "seg_report"
       ],
       "next_by_condition": [
         {
@@ -7177,7 +7986,10 @@
         {
           "default": "dialog_m000_council_gate"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "report"
+      }
     },
     {
       "dialog_id": "dialog_m000_player_report",
@@ -7185,7 +7997,8 @@
       "loc_key": "dialog.m000.player_report",
       "tags": [
         "meeting",
-        "m000"
+        "m000",
+        "seg_report"
       ],
       "choices": [
         {
@@ -7227,17 +8040,20 @@
           ],
           "next": "dialog_m000_council_gate"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "report"
+      }
     },
     {
       "dialog_id": "dialog_m000_council_gate",
       "speaker": "narrator",
       "loc_key": "dialog.m000.council_gate",
-      "next": "",
       "tags": [
         "meeting",
         "council",
-        "m000"
+        "m000",
+        "seg_council"
       ],
       "next_by_condition": [
         {
@@ -7257,10 +8073,19 @@
               ]
             }
           ],
-          "id": "dialog_council_zhou_order"
+          "id": "dialog_council_zhou_pick"
         },
         {
           "default": "dialog_m000_council_listen"
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
         }
       ]
     },
@@ -7268,11 +8093,13 @@
       "dialog_id": "dialog_m000_council_listen",
       "speaker": "narrator",
       "loc_key": "dialog.m000.council_listen",
-      "next": "dialog_m000_council_listen_wang",
+      "next": "",
       "tags": [
         "meeting",
         "council",
-        "m000"
+        "m000",
+        "seg_council",
+        "keyword_highlight"
       ],
       "effects": [
         {
@@ -7287,6 +8114,66 @@
           "key": "bright_steady",
           "value": 2
         }
+      ],
+      "stage": {
+        "segment": "council",
+        "keywords": [
+          "跑街",
+          "满师",
+          "特别货",
+          "货单",
+          "聚丰",
+          "外场",
+          "学徒",
+          "后院",
+          "差事"
+        ],
+        "camera": "listen"
+      },
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "council_has": "char_apprentice_sun_liu"
+            }
+          ],
+          "id": "dialog_m000_council_listen_rival"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_apprentice_xiao_chen"
+            }
+          ],
+          "id": "dialog_m000_council_listen_chen"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_li_waichang"
+            }
+          ],
+          "id": "dialog_m000_council_listen_li"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_zhao_waichang"
+            }
+          ],
+          "id": "dialog_m000_council_listen_zhao"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_qian_zian"
+            }
+          ],
+          "id": "dialog_m000_council_listen_zian"
+        },
+        {
+          "default": "dialog_m000_council_listen_wang"
+        }
       ]
     },
     {
@@ -7297,7 +8184,9 @@
       "tags": [
         "meeting",
         "council",
-        "m000"
+        "m000",
+        "seg_council",
+        "keyword_highlight"
       ],
       "effects": [
         {
@@ -7306,7 +8195,22 @@
           "spoke": false,
           "mode": "pass"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "council",
+        "keywords": [
+          "跑街",
+          "满师",
+          "特别货",
+          "货单",
+          "聚丰",
+          "外场",
+          "学徒",
+          "后院",
+          "差事"
+        ],
+        "camera": "listen"
+      }
     },
     {
       "dialog_id": "dialog_m000_tasks",
@@ -7315,13 +8219,21 @@
       "next": "dialog_m000_close",
       "tags": [
         "meeting",
-        "m000"
+        "m000",
+        "seg_tasks"
       ],
       "effects": [
         {
+          "op": "set_meeting_segment",
+          "value": "tasks"
+        },
+        {
           "op": "assign_rank_tasks"
         }
-      ]
+      ],
+      "stage": {
+        "segment": "tasks"
+      }
     },
     {
       "dialog_id": "dialog_m000_close",
@@ -7330,9 +8242,14 @@
       "next": "",
       "tags": [
         "meeting",
-        "m000"
+        "m000",
+        "seg_tasks"
       ],
       "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "tasks"
+        },
         {
           "op": "complete_meeting_cycle",
           "summary_key": "meeting.summary.m000"
@@ -7340,6 +8257,2659 @@
         {
           "op": "clear_flag",
           "key": "flag_in_m000"
+        }
+      ],
+      "stage": {
+        "segment": "tasks"
+      }
+    },
+    {
+      "dialog_id": "dialog_council_zhou_manifest",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "council.zhou.manifest",
+      "next": "dialog_council_after_zhou",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        },
+        {
+          "op": "record_council_speech",
+          "char": "char_zhou_guanshi",
+          "spoke": true,
+          "topic_key": "council.zhou.manifest",
+          "stance": "bright_steady"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 2
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      }
+    },
+    {
+      "dialog_id": "dialog_council_zhou_yard",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "council.zhou.yard",
+      "next": "dialog_council_after_zhou",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        },
+        {
+          "op": "record_council_speech",
+          "char": "char_zhou_guanshi",
+          "spoke": true,
+          "topic_key": "council.zhou.yard",
+          "stance": "look_away"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "look_away",
+          "value": 1
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      }
+    },
+    {
+      "dialog_id": "dialog_council_wang_street",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "council.wang.street",
+      "next": "dialog_council_after_wang",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_wang_pangzi",
+          "spoke": true,
+          "stance": "watch_jufeng"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "watch_jufeng",
+          "value": 1
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      }
+    },
+    {
+      "dialog_id": "dialog_council_wang_hands",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "council.wang.hands",
+      "next": "dialog_council_after_wang",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_wang_pangzi",
+          "spoke": true,
+          "stance": "bright_steady"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 1
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      }
+    },
+    {
+      "dialog_id": "dialog_council_zian_boast",
+      "speaker": "char_qian_zian",
+      "loc_key": "council.zian.boast",
+      "next": "dialog_council_after_zian",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        },
+        {
+          "op": "record_council_speech",
+          "char": "char_qian_zian",
+          "spoke": true,
+          "stance": "son_first"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "son_first",
+          "value": 2
+        },
+        {
+          "op": "add",
+          "meter": "father_son",
+          "value": -3
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      }
+    },
+    {
+      "dialog_id": "dialog_council_sun_step",
+      "speaker": "char_apprentice_sun_liu",
+      "loc_key": "council.sun.step",
+      "next": "dialog_council_after_rival",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_apprentice_sun_liu",
+          "spoke": true,
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 1
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_apprentice_sun_liu",
+          "value": 4
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_lin_ruisheng",
+          "value": -3
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      }
+    },
+    {
+      "dialog_id": "dialog_council_sun_flatter",
+      "speaker": "char_apprentice_sun_liu",
+      "loc_key": "council.sun.flatter",
+      "next": "dialog_council_after_rival",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_apprentice_sun_liu",
+          "spoke": true,
+          "stance": "son_first",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "son_first",
+          "value": 1
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_apprentice_sun_liu",
+          "value": 5
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_lin_ruisheng",
+          "value": -2
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      }
+    },
+    {
+      "dialog_id": "dialog_council_zhao_step",
+      "speaker": "char_zhao_waichang",
+      "loc_key": "council.zhao.step",
+      "next": "dialog_council_after_rival",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_zhao_waichang",
+          "spoke": true,
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 1
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_zhao_waichang",
+          "value": 4
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_lin_ruisheng",
+          "value": -4
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      }
+    },
+    {
+      "dialog_id": "dialog_council_zhao_sneer",
+      "speaker": "char_zhao_waichang",
+      "loc_key": "council.zhao.sneer",
+      "next": "dialog_council_after_rival",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_zhao_waichang",
+          "spoke": true,
+          "stance": "watch_jufeng",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "watch_jufeng",
+          "value": 1
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_zhao_waichang",
+          "value": 3
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_lin_ruisheng",
+          "value": -3
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      }
+    },
+    {
+      "dialog_id": "dialog_council_zhou_pick",
+      "speaker": "narrator",
+      "loc_key": "council.pick.zhou",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council"
+      },
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        }
+      ],
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "council_brief": true
+            }
+          ],
+          "id": "dialog_council_zhou_order"
+        },
+        {
+          "require": [
+            {
+              "cycle_mod": 3,
+              "equals": 1
+            }
+          ],
+          "id": "dialog_council_zhou_manifest"
+        },
+        {
+          "require": [
+            {
+              "cycle_mod": 3,
+              "equals": 2
+            }
+          ],
+          "id": "dialog_council_zhou_yard"
+        },
+        {
+          "default": "dialog_council_zhou_order"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_after_zhou",
+      "speaker": "narrator",
+      "loc_key": "council.after.zhou",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council"
+      },
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "council_brief": true
+            }
+          ],
+          "id": "dialog_council_wang_front"
+        },
+        {
+          "require": [
+            {
+              "cycle_mod": 3,
+              "equals": 1
+            }
+          ],
+          "id": "dialog_council_wang_street"
+        },
+        {
+          "require": [
+            {
+              "cycle_mod": 3,
+              "equals": 2
+            }
+          ],
+          "id": "dialog_council_wang_pass"
+        },
+        {
+          "require": [
+            {
+              "cycle_mod": 2,
+              "equals": 0
+            }
+          ],
+          "id": "dialog_council_wang_hands"
+        },
+        {
+          "default": "dialog_council_wang_front"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_after_wang",
+      "speaker": "narrator",
+      "loc_key": "council.after.wang",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council"
+      },
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "council_has": "char_qian_zian"
+            },
+            {
+              "cycle_mod": 2,
+              "equals": 1
+            }
+          ],
+          "id": "dialog_council_zian_boast"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_qian_zian"
+            }
+          ],
+          "id": "dialog_council_zian_show"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_apprentice_sun_liu"
+            },
+            {
+              "cycle_mod": 2,
+              "equals": 0
+            }
+          ],
+          "id": "dialog_council_sun_flatter"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_apprentice_sun_liu"
+            }
+          ],
+          "id": "dialog_council_sun_step"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_apprentice_xiao_chen"
+            },
+            {
+              "cycle_mod": 2,
+              "equals": 1
+            }
+          ],
+          "id": "dialog_council_chen_pass"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_apprentice_xiao_chen"
+            }
+          ],
+          "id": "dialog_council_chen_steady"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_li_waichang"
+            },
+            {
+              "cycle_mod": 2,
+              "equals": 1
+            }
+          ],
+          "id": "dialog_council_li_pass"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_li_waichang"
+            }
+          ],
+          "id": "dialog_council_li_work"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_zhao_waichang"
+            },
+            {
+              "cycle_mod": 2,
+              "equals": 1
+            }
+          ],
+          "id": "dialog_council_zhao_sneer"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_zhao_waichang"
+            }
+          ],
+          "id": "dialog_council_zhao_step"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_lin_ruisheng"
+            }
+          ],
+          "id": "dialog_meeting_council_player_pick"
+        },
+        {
+          "default": "dialog_meeting_policy_resolve"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_after_rival",
+      "speaker": "narrator",
+      "loc_key": "council.after.rival",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council"
+      },
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "council_has": "char_lin_ruisheng"
+            }
+          ],
+          "id": "dialog_meeting_council_player_pick"
+        },
+        {
+          "default": "dialog_meeting_policy_resolve"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_after_zian",
+      "speaker": "narrator",
+      "loc_key": "council.after.zian",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council"
+      },
+      "next_by_condition": [
+        {
+          "require": [
+            {
+              "council_has": "char_apprentice_sun_liu"
+            },
+            {
+              "cycle_mod": 2,
+              "equals": 0
+            }
+          ],
+          "id": "dialog_council_sun_flatter"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_apprentice_sun_liu"
+            }
+          ],
+          "id": "dialog_council_sun_step"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_apprentice_xiao_chen"
+            },
+            {
+              "cycle_mod": 2,
+              "equals": 1
+            }
+          ],
+          "id": "dialog_council_chen_pass"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_apprentice_xiao_chen"
+            }
+          ],
+          "id": "dialog_council_chen_steady"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_li_waichang"
+            },
+            {
+              "cycle_mod": 2,
+              "equals": 1
+            }
+          ],
+          "id": "dialog_council_li_pass"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_li_waichang"
+            }
+          ],
+          "id": "dialog_council_li_work"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_zhao_waichang"
+            },
+            {
+              "cycle_mod": 2,
+              "equals": 1
+            }
+          ],
+          "id": "dialog_council_zhao_sneer"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_zhao_waichang"
+            }
+          ],
+          "id": "dialog_council_zhao_step"
+        },
+        {
+          "require": [
+            {
+              "council_has": "char_lin_ruisheng"
+            }
+          ],
+          "id": "dialog_meeting_council_player_pick"
+        },
+        {
+          "default": "dialog_meeting_policy_resolve"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_council_listen_rival",
+      "speaker": "narrator",
+      "loc_key": "dialog.m000.council_listen_rival",
+      "next": "dialog_meeting_policy_resolve",
+      "tags": [
+        "meeting",
+        "council",
+        "m000",
+        "keyword_highlight",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council",
+        "keywords": [
+          "孙六",
+          "跑街",
+          "满师",
+          "东家",
+          "货单"
+        ],
+        "camera": "listen"
+      },
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_apprentice_sun_liu",
+          "spoke": true,
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_council_listen_zian",
+      "speaker": "narrator",
+      "loc_key": "dialog.m000.council_listen_zian",
+      "next": "dialog_meeting_policy_resolve",
+      "tags": [
+        "meeting",
+        "council",
+        "m000",
+        "keyword_highlight",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council",
+        "keywords": [
+          "少爷",
+          "排场",
+          "聚丰"
+        ],
+        "camera": "listen"
+      },
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_qian_zian",
+          "spoke": true,
+          "stance": "son_first",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "son_first",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_meeting_council_endorse",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "council.player.endorse",
+      "next": "dialog_meeting_council_demao_nod",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council"
+      },
+      "effects": [
+        {
+          "op": "endorse_last_council"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_council_listen_brief",
+      "speaker": "narrator",
+      "loc_key": "dialog.m000.council_listen_brief",
+      "next": "dialog_meeting_policy_resolve",
+      "tags": [
+        "meeting",
+        "council",
+        "m000",
+        "keyword_highlight",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council",
+        "camera": "listen",
+        "keywords": [
+          "货单",
+          "按章",
+          "东家"
+        ]
+      },
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_zhou_guanshi",
+          "spoke": true,
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 2
+        },
+        {
+          "op": "record_council_speech",
+          "char": "char_wang_pangzi",
+          "spoke": false,
+          "mode": "pass"
+        },
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_e020_crowd",
+      "speaker": "narrator",
+      "loc_key": "dialog.e020.crowd",
+      "next": "dialog_e020_pay",
+      "tags": [
+        "mainline",
+        "rank_up",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e020b_crowd",
+      "speaker": "narrator",
+      "loc_key": "dialog.e020b.crowd",
+      "next": "dialog_e020b_money",
+      "tags": [
+        "mainline",
+        "rank_up",
+        "route_b",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e020c_crowd",
+      "speaker": "narrator",
+      "loc_key": "dialog.e020c.crowd",
+      "next": "dialog_e020c_gift",
+      "tags": [
+        "mainline",
+        "rank_up",
+        "route_c",
+        "keyword_highlight"
+      ],
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e018_c_title",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.c.title",
+      "next": "dialog_e018_c_standing",
+      "tags": [
+        "mainline",
+        "ending",
+        "rank_up",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "effects": [
+        {
+          "op": "set_flag",
+          "key": "flag_rank_foreign_agent",
+          "value": true
+        },
+        {
+          "op": "add",
+          "key": "stat_money",
+          "value": 20
+        },
+        {
+          "op": "add",
+          "key": "stat_credit_foreign",
+          "value": 20
+        },
+        {
+          "op": "set_flag",
+          "key": "flag_ending_c",
+          "value": true
+        },
+        {
+          "op": "external_rank_ceremony",
+          "value": "foreign_agent"
+        }
+      ],
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021_address",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.slight.address",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e021_choice",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021_land_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.slight.land.punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021_land_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.slight.land.forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021b_setup",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.slight.setup",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b"
+      ],
+      "next": "dialog_e021b_address"
+    },
+    {
+      "dialog_id": "dialog_e021b_address",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.slight.address",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e021b_choice",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021b_land_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.slight.land.punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021b_land_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.slight.land.forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021c_setup",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.slight.setup",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c"
+      ],
+      "next": "dialog_e021c_address"
+    },
+    {
+      "dialog_id": "dialog_e021c_address",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.slight.address",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e021c_choice",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021c_land_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.slight.land.punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021c_land_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.slight.land.forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021_flash_onlooker",
+      "speaker": "narrator",
+      "loc_key": "dialog.grudge.onlooker.flash",
+      "tags": [
+        "flashback"
+      ],
+      "next": "dialog_e021_onlooker_setup"
+    },
+    {
+      "dialog_id": "dialog_e021_onlooker_setup",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.onlooker.setup",
+      "tags": [
+        "mainline",
+        "reckoning"
+      ],
+      "next": "dialog_e021_onlooker_address"
+    },
+    {
+      "dialog_id": "dialog_e021_onlooker_address",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.onlooker.address",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e021_onlooker_choice",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021_onlooker_choice",
+      "event_id": "E021",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.onlooker.choice",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "choice"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e021.onlooker.a",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_onlooker",
+              "mode": "punish"
+            },
+            {
+              "op": "add",
+              "key": "stat_support_low",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "key": "stat_network",
+              "value": 3
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_grudge_window_light",
+              "value": false
+            }
+          ],
+          "next": "dialog_e021_onlooker_punish"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e021.onlooker.b",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_onlooker",
+              "mode": "forgive"
+            },
+            {
+              "op": "add",
+              "key": "stat_support_low",
+              "value": 8
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_lin_ruisheng",
+                "to": "char_zhou_guanshi"
+              },
+              "key": "debt",
+              "value": "看客被你放过，欠一声"
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_grudge_window_light",
+              "value": false
+            }
+          ],
+          "next": "dialog_e021_onlooker_forgive"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021_onlooker_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.onlooker.punish",
+      "tags": [
+        "mainline",
+        "reckoning"
+      ],
+      "next": "dialog_e021_onlooker_land_punish"
+    },
+    {
+      "dialog_id": "dialog_e021_onlooker_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.onlooker.forgive",
+      "tags": [
+        "mainline",
+        "reckoning"
+      ],
+      "next": "dialog_e021_onlooker_land_forgive"
+    },
+    {
+      "dialog_id": "dialog_e021_onlooker_land_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.onlooker.land.punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021_onlooker_land_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021.onlooker.land.forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021b_flash_onlooker",
+      "speaker": "narrator",
+      "loc_key": "dialog.grudge.onlooker.flash",
+      "tags": [
+        "flashback"
+      ],
+      "next": "dialog_e021b_onlooker_setup"
+    },
+    {
+      "dialog_id": "dialog_e021b_onlooker_setup",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.onlooker.setup",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b"
+      ],
+      "next": "dialog_e021b_onlooker_address"
+    },
+    {
+      "dialog_id": "dialog_e021b_onlooker_address",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.onlooker.address",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e021b_onlooker_choice",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021b_onlooker_choice",
+      "event_id": "E021B",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.onlooker.choice",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b",
+        "choice"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e021b.onlooker.a",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_onlooker",
+              "mode": "punish"
+            },
+            {
+              "op": "add",
+              "key": "stat_support_low",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "stat_credit_market",
+              "value": 5
+            },
+            {
+              "op": "add",
+              "key": "stat_network",
+              "value": 3
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_grudge_window_light",
+              "value": false
+            }
+          ],
+          "next": "dialog_e021b_onlooker_punish"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e021b.onlooker.b",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_onlooker",
+              "mode": "forgive"
+            },
+            {
+              "op": "add",
+              "key": "stat_support_low",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "stat_credit_market",
+              "value": 3
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_lin_ruisheng",
+                "to": "char_zhou_guanshi"
+              },
+              "key": "debt",
+              "value": "街市上被你放过，欠一声"
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_grudge_window_light",
+              "value": false
+            }
+          ],
+          "next": "dialog_e021b_onlooker_forgive"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021b_onlooker_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.onlooker.punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b"
+      ],
+      "next": "dialog_e021b_onlooker_land_punish"
+    },
+    {
+      "dialog_id": "dialog_e021b_onlooker_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.onlooker.forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b"
+      ],
+      "next": "dialog_e021b_onlooker_land_forgive"
+    },
+    {
+      "dialog_id": "dialog_e021b_onlooker_land_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.onlooker.land.punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021b_onlooker_land_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021b.onlooker.land.forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021c_flash_onlooker",
+      "speaker": "narrator",
+      "loc_key": "dialog.grudge.onlooker.flash",
+      "tags": [
+        "flashback"
+      ],
+      "next": "dialog_e021c_onlooker_setup"
+    },
+    {
+      "dialog_id": "dialog_e021c_onlooker_setup",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.onlooker.setup",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c"
+      ],
+      "next": "dialog_e021c_onlooker_address"
+    },
+    {
+      "dialog_id": "dialog_e021c_onlooker_address",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.onlooker.address",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e021c_onlooker_choice",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021c_onlooker_choice",
+      "event_id": "E021C",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.onlooker.choice",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c",
+        "choice"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.e021c.onlooker.a",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_onlooker",
+              "mode": "punish"
+            },
+            {
+              "op": "add",
+              "key": "stat_support_low",
+              "value": 8
+            },
+            {
+              "op": "add",
+              "key": "stat_suspicion",
+              "value": 4
+            },
+            {
+              "op": "add",
+              "key": "stat_credit_foreign",
+              "value": 3
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_grudge_window_light",
+              "value": false
+            }
+          ],
+          "next": "dialog_e021c_onlooker_punish"
+        },
+        {
+          "id": "B",
+          "loc_key": "dialog.e021c.onlooker.b",
+          "effects": [
+            {
+              "op": "resolve_grudge",
+              "id": "grudge_onlooker",
+              "mode": "forgive"
+            },
+            {
+              "op": "add",
+              "key": "stat_support_low",
+              "value": 6
+            },
+            {
+              "op": "add",
+              "key": "stat_network",
+              "value": 5
+            },
+            {
+              "op": "set",
+              "edge": {
+                "from": "char_lin_ruisheng",
+                "to": "char_zhou_guanshi"
+              },
+              "key": "debt",
+              "value": "借势压过又放过"
+            },
+            {
+              "op": "set_flag",
+              "key": "flag_grudge_window_light",
+              "value": false
+            }
+          ],
+          "next": "dialog_e021c_onlooker_forgive"
+        }
+      ],
+      "next": ""
+    },
+    {
+      "dialog_id": "dialog_e021c_onlooker_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.onlooker.punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c"
+      ],
+      "next": "dialog_e021c_onlooker_land_punish"
+    },
+    {
+      "dialog_id": "dialog_e021c_onlooker_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.onlooker.forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c"
+      ],
+      "next": "dialog_e021c_onlooker_land_forgive"
+    },
+    {
+      "dialog_id": "dialog_e021c_onlooker_land_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.onlooker.land.punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e021c_onlooker_land_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e021c.onlooker.land.forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e022_address",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022.address",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e022_choice",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e022_punish_lin",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e022.punish.lin",
+      "tags": [
+        "mainline",
+        "reckoning"
+      ],
+      "next": "dialog_e022_punish"
+    },
+    {
+      "dialog_id": "dialog_e022_forgive_lin",
+      "speaker": "char_lin_ruisheng",
+      "loc_key": "dialog.e022.forgive.lin",
+      "tags": [
+        "mainline",
+        "reckoning"
+      ],
+      "next": "dialog_e022_forgive"
+    },
+    {
+      "dialog_id": "dialog_e022_land_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022.land.punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e022_land_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022.land.forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e022b_address",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022b.address",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e022b_choice",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e022b_crowd_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022b.crowd.punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b"
+      ],
+      "next": "dialog_e022b_land_punish"
+    },
+    {
+      "dialog_id": "dialog_e022b_crowd_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022b.crowd.forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b"
+      ],
+      "next": "dialog_e022b_land_forgive"
+    },
+    {
+      "dialog_id": "dialog_e022b_land_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022b.land.punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e022b_land_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022b.land.forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_b",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e022c_address",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022c.address",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e022c_choice",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e022c_crowd_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022c.crowd.punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c"
+      ],
+      "next": "dialog_e022c_land_punish"
+    },
+    {
+      "dialog_id": "dialog_e022c_crowd_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022c.crowd.forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c"
+      ],
+      "next": "dialog_e022c_land_forgive"
+    },
+    {
+      "dialog_id": "dialog_e022c_land_punish",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022c.land.punish",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e022c_land_forgive",
+      "speaker": "narrator",
+      "loc_key": "dialog.e022c.land.forgive",
+      "tags": [
+        "mainline",
+        "reckoning",
+        "route_c",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e018_a_seat",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.a.seat",
+      "tags": [
+        "mainline",
+        "ending"
+      ],
+      "next": "dialog_e018_a_demao"
+    },
+    {
+      "dialog_id": "dialog_e018_a_standing",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.a.standing",
+      "tags": [
+        "mainline",
+        "ending",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e018_a_crowd",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e018_a_crowd",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.a.crowd",
+      "tags": [
+        "mainline",
+        "ending",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e018_a_land",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e018_a_land",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.a.land",
+      "tags": [
+        "mainline",
+        "ending",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e018_a_close",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e018_b_crowd",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.b.crowd",
+      "tags": [
+        "mainline",
+        "ending",
+        "route_b",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e018_b_land",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e018_b_land",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.b.land",
+      "tags": [
+        "mainline",
+        "ending",
+        "route_b",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e018_b_close",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e018_c_standing",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.c.standing",
+      "tags": [
+        "mainline",
+        "ending",
+        "route_c",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e018_c_crowd",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e018_c_crowd",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.c.crowd",
+      "tags": [
+        "mainline",
+        "ending",
+        "route_c",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e018_c_land",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_e018_c_land",
+      "speaker": "narrator",
+      "loc_key": "dialog.e018.c.land",
+      "tags": [
+        "mainline",
+        "ending",
+        "route_c",
+        "rank_address",
+        "keyword_highlight"
+      ],
+      "next": "dialog_e018_c_close",
+      "stage": {
+        "keywords": [
+          "聚丰的林跑街",
+          "林先生",
+          "林外场",
+          "林朋友",
+          "林跑街",
+          "外场",
+          "月例",
+          "跑街"
+        ]
+      }
+    },
+    {
+      "dialog_id": "dialog_chat_zhou_guanshi_duty_nudge",
+      "speaker": "char_zhou_guanshi",
+      "loc_key": "dialog.chat.zhou_guanshi.duty_nudge",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_wang_pangzi_rival_nudge",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.chat.wang_pangzi.rival_sun",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_council_chen_steady",
+      "speaker": "char_apprentice_xiao_chen",
+      "loc_key": "council.chen.steady",
+      "next": "dialog_council_after_rival",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        },
+        {
+          "op": "record_council_speech",
+          "char": "char_apprentice_xiao_chen",
+          "spoke": true,
+          "topic_key": "council.chen.steady",
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 2
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_apprentice_xiao_chen",
+          "value": 5
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      }
+    },
+    {
+      "dialog_id": "dialog_council_chen_pass",
+      "speaker": "char_apprentice_xiao_chen",
+      "loc_key": "council.chen.pass",
+      "next": "dialog_council_after_rival",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        },
+        {
+          "op": "record_council_speech",
+          "char": "char_apprentice_xiao_chen",
+          "spoke": true,
+          "topic_key": "council.chen.pass",
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 1
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_apprentice_xiao_chen",
+          "value": 3
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      }
+    },
+    {
+      "dialog_id": "dialog_council_li_work",
+      "speaker": "char_li_waichang",
+      "loc_key": "council.li.work",
+      "next": "dialog_council_after_rival",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        },
+        {
+          "op": "record_council_speech",
+          "char": "char_li_waichang",
+          "spoke": true,
+          "topic_key": "council.li.work",
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 2
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_li_waichang",
+          "value": 5
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_lin_ruisheng",
+          "value": -2
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      }
+    },
+    {
+      "dialog_id": "dialog_council_li_pass",
+      "speaker": "char_li_waichang",
+      "loc_key": "council.li.pass",
+      "next": "dialog_council_after_rival",
+      "tags": [
+        "meeting",
+        "council",
+        "seg_council"
+      ],
+      "effects": [
+        {
+          "op": "set_meeting_segment",
+          "value": "council"
+        },
+        {
+          "op": "record_council_speech",
+          "char": "char_li_waichang",
+          "spoke": true,
+          "topic_key": "council.li.pass",
+          "stance": "watch_jufeng",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "watch_jufeng",
+          "value": 1
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_li_waichang",
+          "value": 4
+        }
+      ],
+      "stage": {
+        "segment": "council"
+      }
+    },
+    {
+      "dialog_id": "dialog_m000_council_listen_chen",
+      "speaker": "narrator",
+      "loc_key": "dialog.m000.council_listen_chen",
+      "next": "dialog_meeting_policy_resolve",
+      "tags": [
+        "meeting",
+        "council",
+        "m000",
+        "keyword_highlight",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council",
+        "keywords": [
+          "小陈",
+          "货单",
+          "满师",
+          "明面"
+        ],
+        "camera": "listen"
+      },
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_apprentice_xiao_chen",
+          "spoke": true,
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 1
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_apprentice_xiao_chen",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_council_listen_li",
+      "speaker": "narrator",
+      "loc_key": "dialog.m000.council_listen_li",
+      "next": "dialog_meeting_policy_resolve",
+      "tags": [
+        "meeting",
+        "council",
+        "m000",
+        "keyword_highlight",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council",
+        "keywords": [
+          "李外场",
+          "差事",
+          "街面",
+          "回"
+        ],
+        "camera": "listen"
+      },
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_li_waichang",
+          "spoke": true,
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 1
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_li_waichang",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_m000_council_listen_zhao",
+      "speaker": "narrator",
+      "loc_key": "dialog.m000.council_listen_zhao",
+      "next": "dialog_meeting_policy_resolve",
+      "tags": [
+        "meeting",
+        "council",
+        "m000",
+        "keyword_highlight",
+        "seg_council"
+      ],
+      "stage": {
+        "segment": "council",
+        "keywords": [
+          "赵外场",
+          "客",
+          "嘴皮子",
+          "东家"
+        ],
+        "camera": "listen"
+      },
+      "effects": [
+        {
+          "op": "record_council_speech",
+          "char": "char_zhao_waichang",
+          "spoke": true,
+          "stance": "bright_steady",
+          "mode": "speak"
+        },
+        {
+          "op": "add_policy_draft",
+          "key": "bright_steady",
+          "value": 1
+        },
+        {
+          "op": "add_ladder_score",
+          "char": "char_zhao_waichang",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_wang_pangzi_rival_sun",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.chat.wang_pangzi.rival_sun",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_wang_pangzi_rival_chen",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.chat.wang_pangzi.rival_chen",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_wang_pangzi_rival_li",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.chat.wang_pangzi.rival_li",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_wang_pangzi_rival_zhao",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.chat.wang_pangzi.rival_zhao",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
+        }
+      ]
+    },
+    {
+      "dialog_id": "dialog_chat_wang_pangzi_rival_zian",
+      "speaker": "char_wang_pangzi",
+      "loc_key": "dialog.chat.wang_pangzi.rival_zian",
+      "tags": [
+        "chatter"
+      ],
+      "effects": [],
+      "choices": [
+        {
+          "id": "A",
+          "loc_key": "dialog.chat.opt.bye",
+          "effects": [],
+          "next": ""
         }
       ]
     }

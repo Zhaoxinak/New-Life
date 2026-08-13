@@ -8,9 +8,13 @@ const WOOD_DARK := Color(0.48, 0.32, 0.18)
 const SKY := Color(0.62, 0.78, 0.92)
 const COIN := Color(1.0, 0.82, 0.28)
 const INK := Color(0.22, 0.16, 0.12)
-const SOFT_INK := Color(0.42, 0.34, 0.28)
-const ACCENT := Color(0.86, 0.42, 0.28)
-const GOOD := Color(0.35, 0.62, 0.38)
+const SOFT_INK := Color(0.36, 0.28, 0.22) ## 次要字也要够深
+const ACCENT := Color(0.86, 0.42, 0.28) ## 边框/点缀；奶油底上勿作正文色
+const ACCENT_INK := Color(0.58, 0.24, 0.12) ## 奶油底上的强调字
+const GOOD := Color(0.28, 0.52, 0.32)
+const GOOD_INK := Color(0.22, 0.42, 0.26)
+const DANGER := Color(0.72, 0.22, 0.14)
+const READ_MIN := 15 ## 中文可读下限（字号）
 
 ## loc_id -> default ambient NPC sprites (char ids)
 const LOC_CAST := {
@@ -38,8 +42,8 @@ const HZ_ICON := {
 static func style_button(btn: Button, big: bool = false) -> void:
 	btn.add_theme_color_override("font_color", INK)
 	btn.add_theme_color_override("font_hover_color", WOOD_DARK)
-	btn.add_theme_color_override("font_pressed_color", ACCENT)
-	btn.add_theme_font_size_override("font_size", 18 if big else 15)
+	btn.add_theme_color_override("font_pressed_color", ACCENT_INK)
+	btn.add_theme_font_size_override("font_size", 18 if big else 16)
 	var sb := StyleBoxFlat.new()
 	sb.bg_color = PANEL
 	sb.border_color = WOOD
@@ -90,11 +94,44 @@ static func style_bubble(panel: PanelContainer) -> void:
 	panel.add_theme_stylebox_override("panel", sb)
 
 
+## 奶油底上的正文 Label：深墨 + 足够字号
+static func style_readable_label(lb: Label, size: int = 16, emphasize: bool = false) -> void:
+	if lb == null:
+		return
+	lb.add_theme_color_override("font_color", ACCENT_INK if emphasize else INK)
+	lb.add_theme_font_size_override("font_size", maxi(READ_MIN, size))
+
+
+## 奶油底上的 RichText：深墨正文
+static func style_readable_rich(rt: RichTextLabel, size: int = 16, bold_size: int = -1) -> void:
+	if rt == null:
+		return
+	rt.add_theme_color_override("default_color", INK)
+	rt.add_theme_font_size_override("normal_font_size", maxi(READ_MIN, size))
+	rt.add_theme_font_size_override("bold_font_size", maxi(READ_MIN + 1, bold_size if bold_size > 0 else size + 2))
+	rt.add_theme_constant_override("line_separation", 6)
+
+
+## 浅色/强调色字贴在场景上：加奶油描边，避免糊进背景
+static func outline_for_light_text(ctrl: Control, outline_size: int = 4) -> void:
+	if ctrl == null:
+		return
+	ctrl.add_theme_color_override("font_outline_color", Color(1.0, 0.95, 0.85, 0.95))
+	ctrl.add_theme_constant_override("outline_size", outline_size)
+
+
 static func rank_label_for(char_id: String) -> String:
 	if char_id.is_empty() or char_id == "narrator":
 		return ""
-	## 场上/对话铭牌：玩家标「本人」，职级只在 HUD / 本档里看
+	## 玩家铭牌：学徒仍「本人」；升阶后改社交称呼（林外场 / 聚丰的林跑街 / 林朋友）
 	if char_id == "char_lin_ruisheng":
+		var addr := String(RunState.meta.get("rank_address", ""))
+		if addr.is_empty() and Engine.get_main_loop() != null:
+			addr = PromotionSystem.address_for()
+		if not addr.is_empty() and addr != L10n.t("promo.address.apprentice", "瑞生"):
+			return addr
+		if RunState.player_rank() != "apprentice":
+			return PromotionSystem.address_for(RunState.player_rank())
 		return L10n.t("ui.self", "本人")
 	var row: Dictionary = PackDB.get_row_by_id("def_char", "char_id", char_id)
 	return String(row.get("rank_label", ""))
@@ -102,7 +139,10 @@ static func rank_label_for(char_id: String) -> String:
 
 static func nameplate(char_id: String) -> String:
 	if char_id == "char_lin_ruisheng":
-		return L10n.t("ui.you_self", "你〔本人〕")
+		var label := rank_label_for(char_id)
+		if label == L10n.t("ui.self", "本人"):
+			return L10n.t("ui.you_self", "你〔本人〕")
+		return L10n.t("ui.you_address", "你〔%s〕") % label
 	var name := L10n.t(char_id, char_id) if char_id != "narrator" else L10n.t("char.narrator", "旁白")
 	if char_id.is_empty() or char_id == "narrator":
 		return name

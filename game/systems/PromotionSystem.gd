@@ -17,6 +17,7 @@ const MONTHLY_STIPEND := {
 }
 
 var last_ceremony: Dictionary = {}
+var suppress_ceremony: bool = false
 
 
 func _ready() -> void:
@@ -26,6 +27,30 @@ func _ready() -> void:
 
 func title_for(rank: String) -> String:
 	return String(RANK_TITLE.get(rank, rank))
+
+
+func address_for(rank: String = "", seat: String = "") -> String:
+	## 社交称呼：林外场 / 林跑街 / 聚丰的林跑街 / 林朋友……
+	if seat.is_empty():
+		if bool(RunState.get_flag("flag_rank_jufeng_paojie", false)):
+			seat = "jufeng_paojie"
+		elif bool(RunState.get_flag("flag_rank_foreign_agent", false)):
+			seat = "foreign_agent"
+	match seat:
+		"jufeng_paojie":
+			return L10n.t("promo.address.jufeng_paojie", "聚丰的林跑街")
+		"foreign_agent":
+			return L10n.t("promo.address.foreign", "林朋友")
+	var r := rank if not rank.is_empty() else RunState.player_rank()
+	match r:
+		"waichang":
+			return L10n.t("promo.address.waichang", "林外场")
+		"paojie":
+			return L10n.t("promo.address.paojie", "林跑街")
+		"houtang":
+			return L10n.t("promo.address.houtang", "林先生")
+		_:
+			return L10n.t("promo.address.apprentice", "瑞生")
 
 
 func monthly_for(rank: String) -> int:
@@ -95,23 +120,33 @@ func _rank_index(rank: String) -> int:
 
 func _on_rank_changed(old_rank: String, new_rank: String) -> void:
 	var title := title_for(new_rank)
+	var address := address_for(new_rank)
 	var monthly := monthly_for(new_rank)
 	RunState.meta["monthly_stipend"] = monthly
 	RunState.meta["rank_title"] = title
+	RunState.meta["rank_address"] = address
 	RunState.set_flag("unlock_act_waichang_patrol", new_rank != "apprentice")
 
 	var delta := _rank_index(new_rank) - _rank_index(old_rank)
 	if delta < 0:
-		RunState.append_history("rank", new_rank, "history.rank.demote", {"title": title, "monthly": monthly})
+		RunState.append_history("rank", new_rank, "history.rank.demote", {"title": title, "address": address, "monthly": monthly})
 		DomainBus.tip.emit(L10n.t("promo.demote_tip", "降为%s · 月例档 %d 两") % [title, monthly])
 		DomainBus.emit_domain("demotion_applied", {
 			"old_rank": old_rank,
 			"new_rank": new_rank,
 			"title": title,
+			"address": address,
 			"monthly": monthly,
 		})
 		return
 	if delta == 0:
+		return
+	if suppress_ceremony:
+		suppress_ceremony = false
+		RunState.append_history("rank", new_rank, "history.rank.promote", {
+			"title": title, "address": address, "monthly": monthly, "silent": true,
+		})
+		DomainBus.tip.emit(L10n.t("promo.tip_address", "众人改口：%s · 月例档 %d 两") % [address, monthly])
 		return
 
 	# 四件套 payload（表现层订阅，不在此改无关数值）
@@ -122,15 +157,22 @@ func _on_rank_changed(old_rank: String, new_rank: String) -> void:
 		unlocks.append(L10n.t("promo.unlock.paojie", "跑街账路加宽"))
 	if new_rank == "houtang":
 		unlocks.append(L10n.t("promo.unlock.houtang", "后堂席位"))
+	var standing_key := "promo.beat.standing"
+	if new_rank == "paojie":
+		standing_key = "promo.beat.standing_paojie"
+	elif new_rank == "houtang":
+		standing_key = "promo.beat.standing"
 	last_ceremony = {
 		"old_rank": old_rank,
 		"new_rank": new_rank,
 		"title": title,
+		"address": address,
 		"monthly": monthly,
 		"unlocks": unlocks,
 		"beats": [
 			{"id": "ritual", "loc_key": "promo.beat.ritual"},
-			{"id": "title", "loc_key": "promo.beat.title", "title": title},
+			{"id": "title", "loc_key": "promo.beat.title", "title": address},
+			{"id": "standing", "loc_key": standing_key},
 			{"id": "permission", "loc_key": "promo.beat.permission", "unlocks": unlocks},
 			{"id": "pay", "loc_key": "promo.beat.pay", "monthly": monthly},
 		],
@@ -138,6 +180,56 @@ func _on_rank_changed(old_rank: String, new_rank: String) -> void:
 	if RunState.get_flag("flag_grudge_window_light", false):
 		last_ceremony["beats"].append({"id": "grudge_window", "loc_key": "promo.beat.grudge_window"})
 
-	RunState.append_history("rank", new_rank, "history.rank.promote", {"title": title, "monthly": monthly})
+	RunState.append_history("rank", new_rank, "history.rank.promote", {
+		"title": title, "address": address, "monthly": monthly,
+	})
 	DomainBus.emit_domain("promotion_ceremony", last_ceremony)
-	DomainBus.tip.emit(L10n.t("promo.tip", "升任%s · 月例档 %d 两") % [title, monthly])
+	if new_rank == "paojie":
+		DomainBus.tip.emit(L10n.t("promo.tip_ending_a", "章终落定：%s · 月例档 %d 两") % [address, monthly])
+	else:
+		DomainBus.tip.emit(L10n.t("promo.tip_address", "众人改口：%s · 月例档 %d 两") % [address, monthly])
+
+
+func emit_external_ceremony(seat: String) -> void:
+	## B/C 外座：不改 player_rank 阶梯，但要仪式与称呼钉死。
+	var address := address_for("", seat)
+	var unlocks: PackedStringArray = []
+	var ritual_key := "promo.beat.ritual"
+	var standing_key := "promo.beat.standing"
+	var monthly := int(RunState.meta.get("monthly_stipend", monthly_for(RunState.player_rank())))
+	match seat:
+		"jufeng_paojie":
+			unlocks.append(L10n.t("promo.unlock.jufeng", "聚丰跑街账路"))
+			ritual_key = "promo.beat.ritual_jufeng"
+			standing_key = "promo.beat.standing_jufeng"
+			monthly = maxi(monthly, monthly_for("paojie"))
+		"foreign_agent":
+			unlocks.append(L10n.t("promo.unlock.foreign", "洋行往来资格"))
+			ritual_key = "promo.beat.ritual_foreign"
+			standing_key = "promo.beat.standing_foreign"
+			monthly = maxi(monthly, monthly_for("paojie"))
+		_:
+			pass
+	RunState.meta["rank_address"] = address
+	RunState.meta["monthly_stipend"] = monthly
+	last_ceremony = {
+		"old_rank": RunState.player_rank(),
+		"new_rank": RunState.player_rank(),
+		"seat": seat,
+		"title": address,
+		"address": address,
+		"monthly": monthly,
+		"unlocks": unlocks,
+		"beats": [
+			{"id": "ritual", "loc_key": ritual_key},
+			{"id": "title", "loc_key": "promo.beat.title", "title": address},
+			{"id": "standing", "loc_key": standing_key},
+			{"id": "permission", "loc_key": "promo.beat.permission", "unlocks": unlocks},
+			{"id": "pay", "loc_key": "promo.beat.pay", "monthly": monthly},
+		],
+	}
+	RunState.append_history("rank", seat, "history.rank.promote", {
+		"title": address, "address": address, "monthly": monthly, "seat": seat,
+	})
+	DomainBus.emit_domain("promotion_ceremony", last_ceremony)
+	DomainBus.tip.emit(L10n.t("promo.tip_external", "外座落定：%s") % address)

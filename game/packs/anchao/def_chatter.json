@@ -519,6 +519,102 @@
           ]
         }
       ]
+    },
+    {
+      "chatter_id": "chatter_zhou_guanshi_duty_nudge",
+      "char_id": "char_zhou_guanshi",
+      "dialog_id": "dialog_chat_zhou_guanshi_duty_nudge",
+      "priority": 55,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "meeting_days_leq": 2
+        },
+        {
+          "meeting_tasks_incomplete": true
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_wang_pangzi_rival_sun",
+      "char_id": "char_wang_pangzi",
+      "dialog_id": "dialog_chat_wang_pangzi_rival_nudge",
+      "priority": 54,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "meeting_days_leq": 2
+        },
+        {
+          "rival_is": "char_apprentice_sun_liu"
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_wang_pangzi_rival_chen",
+      "char_id": "char_wang_pangzi",
+      "dialog_id": "dialog_chat_wang_pangzi_rival_chen",
+      "priority": 54,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "meeting_days_leq": 2
+        },
+        {
+          "rival_is": "char_apprentice_xiao_chen"
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_wang_pangzi_rival_li",
+      "char_id": "char_wang_pangzi",
+      "dialog_id": "dialog_chat_wang_pangzi_rival_li",
+      "priority": 54,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "meeting_days_leq": 2
+        },
+        {
+          "rival_is": "char_li_waichang"
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_wang_pangzi_rival_zhao",
+      "char_id": "char_wang_pangzi",
+      "dialog_id": "dialog_chat_wang_pangzi_rival_zhao",
+      "priority": 54,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "meeting_days_leq": 2
+        },
+        {
+          "rival_is": "char_zhao_waichang"
+        }
+      ]
+    },
+    {
+      "chatter_id": "chatter_wang_pangzi_rival_zian",
+      "char_id": "char_wang_pangzi",
+      "dialog_id": "dialog_chat_wang_pangzi_rival_zian",
+      "priority": 54,
+      "once": false,
+      "once_per_slot": true,
+      "require": [
+        {
+          "meeting_days_leq": 2
+        },
+        {
+          "rival_is": "char_qian_zian"
+        }
+      ]
     }
   ]
 }

@@ -9,7 +9,7 @@ signal load_done(slot_id: int)
 signal help_requested
 signal tutorial_requested
 
-enum Mode { ROOT, SAVE, LOAD }
+enum Mode { ROOT, SAVE, LOAD, DISPLAY }
 
 @onready var root_panel: PanelContainer = %RootPanel
 @onready var title_label: Label = %Title
@@ -30,6 +30,7 @@ func _ready() -> void:
 	title_label.add_theme_color_override("font_color", KairoStyle.INK)
 	title_label.add_theme_font_size_override("font_size", 22)
 	hint_label.add_theme_color_override("font_color", KairoStyle.SOFT_INK)
+	hint_label.add_theme_font_size_override("font_size", 15)
 	KairoStyle.style_button(btn_back)
 	btn_back.pressed.connect(_on_back)
 
@@ -61,17 +62,91 @@ func _unhandled_input(event: InputEvent) -> void:
 func _show_root() -> void:
 	_mode = Mode.ROOT
 	title_label.text = L10n.t("ui.settings", "设置")
-	hint_label.text = L10n.t("ui.settings_hint", "Esc 关闭 · 存档写入本机 user://saves")
+	hint_label.text = L10n.t("ui.settings_hint", "Esc 关闭 · 存档写入本机 · 显示支持 2K/4K")
 	btn_back.text = L10n.t("ui.close", "关闭")
 	slot_box.visible = false
 	menu_box.visible = true
 	_clear(menu_box)
-	_add_menu_btn(L10n.t("ui.save", "存档"), _enter_save, _allow_save and RunState.is_running())
+	_add_menu_btn(L10n.t("ui.display", "显示（分辨率 / 全屏）"), _enter_display, true)
+	var in_run := _allow_save and RunState.is_running()
+	_add_menu_btn(L10n.t("ui.save", "存档"), _enter_save, in_run)
 	_add_menu_btn(L10n.t("ui.load", "读档"), _enter_load, true)
 	_add_menu_btn(L10n.t("ui.help", "说明"), func(): help_requested.emit(); close_settings(), true)
-	_add_menu_btn(L10n.t("ui.tutorial_restart", "重开操作引导"), func(): tutorial_requested.emit(), true)
-	_add_menu_btn(L10n.t("ui.return_title", "返回主界面"), func(): return_to_title_requested.emit(), true)
+	if in_run or _allow_save:
+		_add_menu_btn(L10n.t("ui.tutorial_restart", "重开操作引导"), func(): tutorial_requested.emit(), true)
+		_add_menu_btn(L10n.t("ui.return_title", "返回主界面"), func(): return_to_title_requested.emit(), true)
 	_add_menu_btn(L10n.t("ui.quit_game", "退出游戏"), func(): quit_requested.emit(), true)
+
+
+func _enter_display() -> void:
+	_mode = Mode.DISPLAY
+	title_label.text = L10n.t("ui.display", "显示")
+	btn_back.text = L10n.t("ui.back", "返回")
+	menu_box.visible = true
+	slot_box.visible = false
+	_rebuild_display_menu()
+
+
+func _rebuild_display_menu() -> void:
+	_clear(menu_box)
+	var screen := DisplayServer.screen_get_size(DisplayServer.get_primary_screen())
+	hint_label.text = L10n.t(
+		"ui.display_hint",
+		"本机屏幕 %d×%d · 点按钮切换，立即生效并记住"
+	) % [screen.x, screen.y]
+	_add_menu_btn(
+		L10n.t("ui.display_mode_btn", "模式：%s") % DisplaySettings.mode_label(),
+		_on_display_cycle_mode,
+		true
+	)
+	_add_menu_btn(
+		L10n.t("ui.display_size_btn", "分辨率：%s") % DisplaySettings.size_label(),
+		_on_display_cycle_size,
+		true
+	)
+	_add_menu_btn(
+		L10n.t("ui.display_scale_btn", "界面倍率：×%.2f") % DisplaySettings.ui_scale,
+		_on_display_cycle_scale,
+		true
+	)
+	_add_menu_btn(
+		L10n.t("ui.display_auto", "按屏幕自动适配（推荐 2K/4K）"),
+		_on_display_auto,
+		true
+	)
+	_add_menu_btn(
+		L10n.t("ui.display_fullscreen_4k", "全屏（适合 4K 整屏玩）"),
+		_on_display_fullscreen,
+		true
+	)
+
+
+func _on_display_cycle_mode() -> void:
+	DisplaySettings.cycle_mode()
+	_rebuild_display_menu()
+
+
+func _on_display_cycle_size() -> void:
+	DisplaySettings.cycle_size()
+	_rebuild_display_menu()
+
+
+func _on_display_cycle_scale() -> void:
+	DisplaySettings.cycle_ui_scale()
+	_rebuild_display_menu()
+
+
+func _on_display_auto() -> void:
+	DisplaySettings.mode = DisplaySettings.MODE_WINDOWED
+	DisplaySettings.size_key = DisplaySettings.SIZE_AUTO
+	DisplaySettings.ui_scale = DisplaySettings.default_ui_scale_for_screen()
+	DisplaySettings.apply()
+	_rebuild_display_menu()
+
+
+func _on_display_fullscreen() -> void:
+	DisplaySettings.set_mode(DisplaySettings.MODE_FULLSCREEN)
+	_rebuild_display_menu()
 
 
 func _enter_save() -> void:

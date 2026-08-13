@@ -2,7 +2,7 @@
   "pack_id": "anchao",
   "display_name": "暗潮",
   "schema_version": "0.1",
-  "content_version": "1.11.1-kairo",
+  "content_version": "1.23.0-display-2k4k",
   "depends_on": [],
   "tables": [
     {
@@ -64,6 +64,10 @@
     {
       "name": "def_meter_init",
       "file": "def_meter_init.json"
+    },
+    {
+      "name": "def_meeting_stage",
+      "file": "def_meeting_stage.json"
     },
     {
       "name": "registry_events",

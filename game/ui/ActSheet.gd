@@ -60,6 +60,7 @@ func _rebuild() -> void:
 	if not any:
 		var empty := Label.new()
 		empty.add_theme_color_override("font_color", KairoStyle.SOFT_INK)
+		empty.add_theme_font_size_override("font_size", 16)
 		empty.text = L10n.t("ui.no_actions", "此刻此处无可做之事")
 		list.add_child(empty)
 	close_btn.text = L10n.t("ui.close", "收起")

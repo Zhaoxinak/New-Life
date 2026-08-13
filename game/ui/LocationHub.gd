@@ -491,4 +491,4 @@ func _on_tip(text: String) -> void:
 		_tip_tween.kill()
 	_tip_tween = create_tween()
 	_tip_tween.tween_interval(2.8)
-	_tip_tween.tween_property(tip_label, "modulate:a", 0.35, 0.6)
+	_tip_tween.tween_property(tip_label, "modulate:a", 0.0, 0.45)

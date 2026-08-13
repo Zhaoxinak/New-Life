@@ -1,0 +1,126 @@
+{
+  "stage_id": "meeting_front_hall",
+  "loc_id": "loc_01",
+  "default_keywords": [
+    "跑街",
+    "满师",
+    "特别货",
+    "货单",
+    "聚丰",
+    "外场",
+    "学徒",
+    "后院"
+  ],
+  "simple_hide_seats": [
+    "seat_paojie"
+  ],
+  "rival_pool": [
+    "char_apprentice_xiao_chen",
+    "char_apprentice_sun_liu",
+    "char_li_waichang",
+    "char_zhao_waichang",
+    "char_qian_zian"
+  ],
+  "segments": {
+    "rollcall": {
+      "label_key": "meeting.seg.rollcall",
+      "label": "① 开门点名"
+    },
+    "report": {
+      "label_key": "meeting.seg.report",
+      "label": "② 分铺汇报"
+    },
+    "ceremony": {
+      "label_key": "meeting.seg.ceremony",
+      "label": "③ 仪典升降"
+    },
+    "council": {
+      "label_key": "meeting.seg.council",
+      "label": "④ 诸人建言"
+    },
+    "policy": {
+      "label_key": "meeting.seg.policy",
+      "label": "⑤ 东家定调"
+    },
+    "tasks": {
+      "label_key": "meeting.seg.tasks",
+      "label": "⑥ 摊派差事"
+    }
+  },
+  "seat_order": [
+    "seat_zhou",
+    "seat_wang",
+    "seat_paojie",
+    "seat_zian",
+    "seat_player",
+    "seat_rival_0",
+    "seat_master"
+  ],
+  "seats": [
+    {
+      "id": "seat_master",
+      "char": "char_qian_demao",
+      "role": "master",
+      "x": 0.5,
+      "y": 0.18,
+      "scale": 1.15
+    },
+    {
+      "id": "seat_paojie",
+      "char": "",
+      "role": "paojie",
+      "x": 0.22,
+      "y": 0.38,
+      "scale": 1.0
+    },
+    {
+      "id": "seat_zhou",
+      "char": "char_zhou_guanshi",
+      "role": "zhou",
+      "x": 0.4,
+      "y": 0.36,
+      "scale": 1.0
+    },
+    {
+      "id": "seat_zian",
+      "char": "char_qian_zian",
+      "role": "zian",
+      "x": 0.6,
+      "y": 0.36,
+      "scale": 1.0,
+      "require_flag": "flag_zian_arrived"
+    },
+    {
+      "id": "seat_wang",
+      "char": "char_wang_pangzi",
+      "role": "wang",
+      "x": 0.28,
+      "y": 0.58,
+      "scale": 1.0
+    },
+    {
+      "id": "seat_player",
+      "char": "char_lin_ruisheng",
+      "role": "player",
+      "x": 0.5,
+      "y": 0.58,
+      "scale": 1.0
+    },
+    {
+      "id": "seat_rival_0",
+      "char": "",
+      "role": "rival",
+      "x": 0.74,
+      "y": 0.56,
+      "scale": 1.08
+    },
+    {
+      "id": "seat_listen",
+      "char": "char_lin_ruisheng",
+      "role": "listen",
+      "x": 0.5,
+      "y": 0.78,
+      "scale": 0.85
+    }
+  ]
+}

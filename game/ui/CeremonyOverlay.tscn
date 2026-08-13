@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://ui/CeremonyOverlay.gd" id="1_ov"]
 
 [node name="CeremonyOverlay" type="CanvasLayer"]
-layer = 30
+layer = 32
 script = ExtResource("1_ov")
 
 [node name="Dim" type="ColorRect" parent="."]
@@ -13,81 +13,161 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.02, 0.02, 0.02, 0.78)
+color = Color(0.12, 0.07, 0.04, 0.55)
+
+[node name="BottomVeil" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -240.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.1, 0.06, 0.04, 0.82)
+
+[node name="Glow" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -260.0
+offset_right = 220.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.95, 0.72, 0.32, 0.12)
 
 [node name="TitleSplash" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
+z_index = 4
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -220.0
-offset_right = 200.0
-offset_bottom = -160.0
+offset_left = -280.0
+offset_top = -268.0
+offset_right = 280.0
+offset_bottom = -188.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.95, 0.86, 0.55, 1)
-theme_override_font_sizes/font_size = 42
+theme_override_colors/font_color = Color(0.98, 0.92, 0.55, 1)
+theme_override_colors/font_shadow_color = Color(0.12, 0.06, 0.02, 0.9)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_colors/font_outline_color = Color(0.18, 0.1, 0.05, 0.85)
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+text = ""
+
+[node name="RankPathBanner" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.0
+offset_top = 64.0
+offset_right = 280.0
+offset_bottom = 108.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="RankPath" type="Label" parent="RankPathBanner"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16, 0.1, 0.06, 1)
+theme_override_font_sizes/font_size = 18
 horizontal_alignment = 1
 text = ""
 
 [node name="Panel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -150.0
-offset_right = 320.0
-offset_bottom = 150.0
+offset_left = -380.0
+offset_top = -160.0
+offset_right = 380.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Margin" type="MarginContainer" parent="Panel"]
 layout_mode = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 18
-theme_override_constants/margin_right = 24
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 28
 theme_override_constants/margin_bottom = 18
 
 [node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 14
 
 [node name="Header" type="HBoxContainer" parent="Panel/Margin/VBox"]
 layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Seal" type="Label" parent="Panel/Margin/VBox/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.28, 0.18, 1)
+theme_override_font_sizes/font_size = 20
+text = "印"
 
 [node name="TitleLabel" type="Label" parent="Panel/Margin/VBox/Header"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.22, 0.14, 0.1, 1)
+theme_override_font_sizes/font_size = 26
 text = "升职"
 
 [node name="BeatLabel" type="Label" parent="Panel/Margin/VBox/Header"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7, 0.65, 0.55, 1)
-text = "1 / 4"
+theme_override_colors/font_color = Color(0.42, 0.26, 0.14, 1)
+theme_override_font_sizes/font_size = 16
+text = "仪式"
+
+[node name="StepDots" type="HBoxContainer" parent="Panel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 8
 
 [node name="UnlockLabel" type="Label" parent="Panel/Margin/VBox"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.95, 0.9, 1)
+theme_override_colors/font_color = Color(0.18, 0.12, 0.08, 1)
+theme_override_font_sizes/font_size = 18
 autowrap_mode = 3
 text = ""
 
 [node name="BodyLabel" type="RichTextLabel" parent="Panel/Margin/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 bbcode_enabled = true
 fit_content = true
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 120)
+theme_override_colors/default_color = Color(0.16, 0.1, 0.06, 1)
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 26
+theme_override_constants/line_separation = 8
 text = ""
 
 [node name="StrikeWrap" type="Control" parent="Panel/Margin/VBox"]

@@ -48,6 +48,9 @@ func apply_one(fx: Dictionary, reason: String = "") -> bool:
 			return _clear_flag(fx, reason)
 		"set_rank":
 			return _set_rank(fx, reason)
+		"external_rank_ceremony":
+			PromotionSystem.emit_external_ceremony(String(fx.get("value", fx.get("seat", ""))))
+			return true
 		"unlock_clue":
 			return _clue(fx, true, reason)
 		"revoke_clue":
@@ -81,14 +84,19 @@ func apply_one(fx: Dictionary, reason: String = "") -> bool:
 					or String(RunState.grudges[gid_pre].get("status", "")) != "open":
 					return true
 			var ok_g := _grudge_status(fx, mapped, reason)
-			if ok_g:
+			if ok_g and not bool(fx.get("silent", false)):
 				var gid2 := String(fx.get("id", fx.get("grudge_id", "")))
 				var def_g: Dictionary = PackDB.get_row_by_id("def_grudge", "grudge_id", gid2)
+				var window := "main" if gid2 == "grudge_zian_fiancee" else "light"
+				if fx.has("window"):
+					window = String(fx.get("window", window))
 				DomainBus.emit_domain("grudge_resolved", {
 					"id": gid2,
 					"mode": mode,
 					"status": mapped,
 					"flashback_key": String(def_g.get("flashback_key", "")),
+					"address": PromotionSystem.address_for(),
+					"window": window,
 				})
 			return ok_g
 		"expire_grudge":
@@ -135,11 +143,17 @@ func apply_one(fx: Dictionary, reason: String = "") -> bool:
 		"set_meeting_tier":
 			MeetingSystem.set_meeting_tier(String(fx.get("value", "")))
 			return true
+		"set_meeting_segment":
+			MeetingSystem.set_meeting_segment(String(fx.get("value", fx.get("segment", ""))))
+			return true
 		"init_council_queue":
 			MeetingSystem.init_council_queue(fx.get("ids", []))
 			return true
 		"record_council_speech":
 			MeetingSystem.record_council_speech(fx)
+			return true
+		"endorse_last_council":
+			MeetingSystem.endorse_last_council()
 			return true
 		"add_policy_draft":
 			MeetingSystem.add_policy_draft(String(fx.get("key", "")), float(fx.get("value", 0)))

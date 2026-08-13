@@ -38,8 +38,8 @@ var _current_speaker: String = ""
 
 func _ready() -> void:
 	KairoStyle.style_bubble(root_panel)
-	body.add_theme_color_override("default_color", KairoStyle.INK)
-	stage_tag.add_theme_color_override("font_color", KairoStyle.ACCENT)
+	KairoStyle.style_readable_rich(body, 18, 20)
+	KairoStyle.style_readable_label(stage_tag, 16, true)
 	portrait_tex.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	portrait_glyph.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_style_hit_button(portrait_hit)
@@ -64,7 +64,7 @@ func _style_speaker_button(btn: Button) -> void:
 	btn.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	btn.add_theme_color_override("font_color", KairoStyle.INK)
-	btn.add_theme_color_override("font_hover_color", KairoStyle.ACCENT)
+	btn.add_theme_color_override("font_hover_color", KairoStyle.ACCENT_INK)
 	btn.add_theme_color_override("font_pressed_color", KairoStyle.WOOD_DARK)
 	btn.add_theme_font_size_override("font_size", 20)
 	var empty := StyleBoxEmpty.new()
@@ -98,9 +98,20 @@ func present_node(node: Dictionary) -> void:
 	var tags: Array = node.get("tags", [])
 	_set_speaker_caption(speaker_id)
 	_apply_style(speaker_id, tags)
+	## 旁听朝账 / 升职称呼拍：keyword_highlight，或 listen 机位 meeting，或 rank_address
+	var want_kw := tags.has("keyword_highlight") or tags.has("rank_address")
+	if not want_kw and tags.has("meeting"):
+		var tier := String(RunState.meeting.get("attendance_tier", ""))
+		if tier == "listen":
+			want_kw = true
+	if want_kw:
+		text_body = _apply_keyword_highlight(text_body, node)
 	if tags.has("flashback"):
 		stage_tag.text = L10n.t("ui.flashback", "【闪回】")
 		body.text = "[i]%s[/i]" % text_body
+	elif tags.has("rank_address"):
+		stage_tag.text = L10n.t("ui.tag_address", "称呼")
+		body.text = text_body
 	elif tags.has("failure"):
 		stage_tag.text = L10n.t("ui.tag_failure", "风波")
 		body.text = text_body
@@ -110,6 +121,12 @@ func present_node(node: Dictionary) -> void:
 	elif tags.has("random"):
 		stage_tag.text = L10n.t("ui.tag_random", "街市风声")
 		body.text = text_body
+	elif tags.has("meeting") and tags.has("council"):
+		stage_tag.text = L10n.t("ui.tag_council", "建言")
+		body.text = text_body
+	elif tags.has("meeting"):
+		stage_tag.text = L10n.t("ui.tag_meeting", "朝账")
+		body.text = text_body
 	elif speaker_id == "narrator":
 		stage_tag.text = ""
 		body.text = "[i]%s[/i]" % text_body
@@ -118,6 +135,74 @@ func present_node(node: Dictionary) -> void:
 		body.text = text_body
 	clear_choices()
 	_fade_in()
+
+
+func _address_keywords() -> Array:
+	## 长词在前，避免「林跑街」被「跑街」拆坏（占位替换时再排序一次）
+	return [
+		L10n.t("promo.address.jufeng_paojie", "聚丰的林跑街"),
+		L10n.t("promo.address.waichang", "林外场"),
+		L10n.t("promo.address.paojie", "林跑街"),
+		L10n.t("promo.address.foreign", "林朋友"),
+		L10n.t("promo.address.houtang", "林先生"),
+		"林外场", "林跑街", "林朋友", "林先生", "聚丰的林跑街",
+	]
+
+
+func _default_meeting_keywords() -> Array:
+	return ["跑街", "满师", "特别货", "货单", "聚丰", "外场", "学徒", "后院", "差事", "月例"]
+
+
+func _keyword_list_for(node: Dictionary) -> Array:
+	var words: Array = []
+	var stage_v: Variant = node.get("stage", {})
+	if typeof(stage_v) == TYPE_DICTIONARY:
+		var kw: Variant = (stage_v as Dictionary).get("keywords", [])
+		if typeof(kw) == TYPE_ARRAY:
+			words = (kw as Array).duplicate()
+	var tags: Array = node.get("tags", [])
+	if tags.has("rank_address") or tags.has("rank_up") or tags.has("ending"):
+		for w in _address_keywords():
+			if not words.has(w):
+				words.append(w)
+	if words.is_empty():
+		var raw: Variant = PackDB.tables.get("def_meeting_stage", {})
+		if typeof(raw) == TYPE_DICTIONARY:
+			var dk: Variant = (raw as Dictionary).get("default_keywords", [])
+			if typeof(dk) == TYPE_ARRAY:
+				words = (dk as Array).duplicate()
+	if words.is_empty():
+		words = _default_meeting_keywords()
+	## 升职相关对白始终并入称呼词
+	if tags.has("keyword_highlight") and (tags.has("rank_up") or tags.has("reckoning") or tags.has("ending")):
+		for w in _address_keywords():
+			if not words.has(w):
+				words.append(w)
+	return words
+
+
+func _apply_keyword_highlight(text: String, node: Dictionary) -> String:
+	## BBCode 高亮关键字；长词优先占位，防止短词拆坏长称呼。
+	var words: Array = _keyword_list_for(node)
+	words.sort_custom(func(a, b): return String(a).length() > String(b).length())
+	var out := text
+	var placeholders: Dictionary = {}
+	var i := 0
+	for w in words:
+		var word := String(w)
+		if word.is_empty() or not out.contains(word):
+			continue
+		## 已是占位/已高亮则跳过
+		var already := "[color=#7a3214][b]%s[/b][/color]" % word
+		if out.contains(already):
+			continue
+		var ph := "§KW%d§" % i
+		i += 1
+		placeholders[ph] = already
+		out = out.replace(word, ph)
+	for ph in placeholders.keys():
+		out = out.replace(String(ph), String(placeholders[ph]))
+	return out
 
 
 func show_continue_button() -> void:

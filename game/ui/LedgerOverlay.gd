@@ -23,7 +23,10 @@ func _ready() -> void:
 	if panel:
 		KairoStyle.style_panel(panel)
 	title_label.add_theme_color_override("font_color", KairoStyle.INK)
-	body.add_theme_color_override("default_color", KairoStyle.INK)
+	title_label.add_theme_font_size_override("font_size", 22)
+	KairoStyle.style_readable_rich(body, 17, 19)
+	side_list.add_theme_color_override("font_color", KairoStyle.INK)
+	side_list.add_theme_font_size_override("font_size", 15)
 	KairoStyle.style_button(close_btn)
 	# 点遮罩也可收起
 	var dim: ColorRect = root.get_node_or_null("Dim") as ColorRect
@@ -85,6 +88,7 @@ func _build_tabs() -> void:
 		c.queue_free()
 	for pair in [
 		["self", "本档"],
+		["meeting", "朝账"],
 		["people", "人物"],
 		["history", "往来"],
 		["clues", "暗线"],
@@ -116,6 +120,8 @@ func _refresh() -> void:
 	match _tab:
 		"self":
 			body.text = _self_text()
+		"meeting":
+			body.text = _meeting_text()
 		"people":
 			_fill_people()
 		"history":
@@ -175,8 +181,101 @@ func _self_text() -> String:
 	lines.append("[b]%s[/b]" % L10n.t("ledger.sec.relations", "人物关系"))
 	lines.append_array(_player_relation_lines())
 	lines.append("")
+	lines.append("[b]%s[/b]" % L10n.t("ledger.sec.meeting_brief", "朝账摘记"))
+	lines.append_array(_meeting_brief_lines())
+	lines.append("")
 	lines.append("[b]%s[/b]" % L10n.t("ledger.sec.recent", "近期往来"))
 	lines.append_array(_history_lines_for("", 6))
+	return "\n".join(lines)
+
+
+func _meeting_brief_lines() -> PackedStringArray:
+	MeetingSystem.ensure_state()
+	var lines: PackedStringArray = []
+	var summary := String(RunState.meeting.get("last_summary_key", ""))
+	if summary.is_empty():
+		lines.append(L10n.t("ledger.meeting_none", "尚未落过朝账"))
+	else:
+		lines.append("· %s" % L10n.t(summary, summary))
+	var policy := String(RunState.meeting.get("last_policy", ""))
+	if not policy.is_empty():
+		lines.append("· %s：%s" % [
+			L10n.t("ledger.meeting_policy", "定调"),
+			L10n.t("meeting.policy.%s" % policy, policy),
+		])
+	var days := int(RunState.meeting.get("days_until_next", 0))
+	if MeetingSystem.is_meeting_day():
+		lines.append("· %s" % L10n.t("ui.meeting_today", "今日朝账"))
+	else:
+		lines.append("· %s" % L10n.t("ui.meeting_in_days", "距朝账 %d日") % days)
+	return lines
+
+
+func _meeting_text() -> String:
+	MeetingSystem.ensure_state()
+	var lines: PackedStringArray = []
+	lines.append("[b]%s[/b]" % L10n.t("ledger.tab.meeting", "朝账"))
+	lines.append("")
+	var cycle := int(RunState.meeting.get("cycle_index", 0))
+	var tier := String(RunState.meeting.get("attendance_tier", "listen"))
+	lines.append("%s：%d · %s：%s" % [
+		L10n.t("ledger.meeting_cycle", "已过朝账"),
+		cycle,
+		L10n.t("ledger.meeting_tier", "席位"),
+		L10n.t("meeting.tier.%s" % tier, tier),
+	])
+	var summary := String(RunState.meeting.get("last_summary_key", ""))
+	lines.append("")
+	lines.append("[b]%s[/b]" % L10n.t("ledger.meeting_last", "上次朝账"))
+	if summary.is_empty():
+		lines.append(L10n.t("ledger.meeting_none", "尚未落过朝账"))
+	else:
+		lines.append(L10n.t(summary, summary))
+	var policy := String(RunState.meeting.get("last_policy", ""))
+	if not policy.is_empty():
+		lines.append("%s：%s" % [
+			L10n.t("ledger.meeting_policy", "定调"),
+			L10n.t("meeting.policy.%s" % policy, policy),
+		])
+	lines.append("")
+	lines.append("[b]%s[/b]" % L10n.t("ledger.meeting_tasks", "本周差事"))
+	var tasks: Array = RunState.meeting.get("weekly_tasks", [])
+	if tasks.is_empty():
+		lines.append(L10n.t("ledger.meeting_tasks_empty", "尚无摊派"))
+	else:
+		for t in tasks:
+			if typeof(t) != TYPE_DICTIONARY:
+				continue
+			var prog := int(t.get("progress", 0))
+			var target := int(t.get("target", 1))
+			var mark := "✓" if prog >= target else "%d/%d" % [prog, target]
+			lines.append("· %s 〔%s〕" % [
+				L10n.t(String(t.get("label_key", "")), String(t.get("id", ""))),
+				mark,
+			])
+	var days := int(RunState.meeting.get("days_until_next", 0))
+	lines.append("")
+	if MeetingSystem.is_meeting_day():
+		lines.append(L10n.t("ui.meeting_today", "今日朝账"))
+	else:
+		lines.append(L10n.t("ui.meeting_in_days", "距朝账 %d日") % days)
+	## 最近朝账履历
+	lines.append("")
+	lines.append("[b]%s[/b]" % L10n.t("ledger.meeting_history", "朝账履历"))
+	var any_m := false
+	var hist: Array = RunState.history
+	var n := 0
+	for i in range(hist.size() - 1, -1, -1):
+		var e: Dictionary = hist[i]
+		if String(e.get("kind", "")) != "meeting":
+			continue
+		any_m = true
+		n += 1
+		lines.append("· D%d — %s" % [int(e.get("day", 0)), _history_summary(e)])
+		if n >= 5:
+			break
+	if not any_m:
+		lines.append(L10n.t("ledger.meeting_history_empty", "尚无朝账履历"))
 	return "\n".join(lines)
 
 
@@ -504,6 +603,8 @@ func _history_summary(e: Dictionary) -> String:
 			return L10n.t(String(e.get("summary_key", "")), L10n.t("history.debt.opened", "票号债开立"))
 		"route":
 			return L10n.t(String(e.get("summary_key", "")), String(e.get("ref", "")))
+		"meeting":
+			return L10n.t(String(e.get("summary_key", "")), L10n.t("ledger.tab.meeting", "朝账"))
 		_:
 			var fallback := String(e.get("ref", e.get("summary_key", "")))
 			return L10n.t(String(e.get("summary_key", "")), fallback)
@@ -523,6 +624,16 @@ func _history_extra(e: Dictionary) -> String:
 		return L10n.t("history.rank.detail", "月例档 %d 两") % int(p.get("monthly", 0))
 	if kind == "grudge" and p.has("status"):
 		return L10n.t("grudge.status.%s" % String(p.get("status", "")), String(p.get("status", "")))
+	if kind == "meeting":
+		var bits: PackedStringArray = []
+		var pol := String(p.get("policy", ""))
+		if not pol.is_empty():
+			bits.append("%s：%s" % [L10n.t("ledger.meeting_policy", "定调"), L10n.t("meeting.policy.%s" % pol, pol)])
+		bits.append("%s %s / %s %s" % [
+			L10n.t("ledger.meeting_spoke", "言"), str(int(p.get("spoke", 0))),
+			L10n.t("ledger.meeting_pass", "默"), str(int(p.get("pass", 0))),
+		])
+		return " · ".join(bits)
 	if p.is_empty():
 		return ""
 	var bits: PackedStringArray = []

@@ -109,8 +109,9 @@ func _ready() -> void:
 	title_label.add_theme_color_override("font_color", KairoStyle.INK)
 	title_label.add_theme_font_size_override("font_size", 20)
 	body_label.add_theme_color_override("default_color", KairoStyle.INK)
-	body_label.add_theme_font_size_override("normal_font_size", 15)
+	body_label.add_theme_font_size_override("normal_font_size", 16)
 	step_label.add_theme_color_override("font_color", KairoStyle.SOFT_INK)
+	step_label.add_theme_font_size_override("font_size", 15)
 	KairoStyle.style_button(btn_next, true)
 	KairoStyle.style_button(btn_skip)
 	btn_next.pressed.connect(_on_next)
@@ -126,9 +127,9 @@ func _ready() -> void:
 	_hint.visible = false
 	_hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_hint.add_theme_font_size_override("font_size", 22)
-	_hint.add_theme_color_override("font_color", Color(1.0, 0.92, 0.55))
-	_hint.add_theme_color_override("font_outline_color", Color(0.1, 0.05, 0.02, 0.95))
-	_hint.add_theme_constant_override("outline_size", 6)
+	_hint.add_theme_color_override("font_color", Color(1.0, 0.94, 0.7))
+	_hint.add_theme_color_override("font_outline_color", Color(0.12, 0.06, 0.02, 0.98))
+	_hint.add_theme_constant_override("outline_size", 8)
 	_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	add_child(_hint)
 

@@ -64,6 +64,13 @@ func _run() -> void:
 	if RunState.get_flag("flag_grudge_window_light", false):
 		push_error("SMOKE FAIL: grudge window should clear")
 		ok = false
+	if String(RunState.meta.get("rank_address", "")) != PromotionSystem.address_for("waichang"):
+		push_error("SMOKE FAIL: E021 address=%s" % str(RunState.meta.get("rank_address", "")))
+		ok = false
+	for did in ["dialog_e021_address", "dialog_e021_land_punish", "dialog_e021_onlooker_setup"]:
+		if PackDB.get_row_by_id("def_dialog", "dialog_id", did).is_empty():
+			push_error("SMOKE FAIL: missing %s" % did)
+			ok = false
 
 	# 外场行动解锁
 	var has_act20 := false

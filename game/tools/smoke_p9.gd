@@ -54,6 +54,15 @@ func _run_route_b() -> bool:
 	if not _play_until(func() -> bool: return bool(RunState.get_flag("seen_event_E021B", false)), 200):
 		push_error("SMOKE B FAIL: E021B")
 		return false
+	if String(RunState.meta.get("rank_address", "")) != PromotionSystem.address_for("waichang") \
+		and not bool(RunState.get_flag("flag_rank_jufeng_paojie", false)):
+		# E020B 升外场后称呼应为林外场；外座仪式在 E018B
+		if String(RunState.meta.get("rank_address", "")) != L10n.t("promo.address.waichang", "林外场"):
+			push_error("SMOKE B FAIL: post-E021B address=%s" % str(RunState.meta.get("rank_address", "")))
+			return false
+	if RunState.get_flag("flag_grudge_window_light", false):
+		push_error("SMOKE B FAIL: light window still open")
+		return false
 
 	_seed_ch3_bridge()
 	if not _play_until(func() -> bool: return bool(RunState.get_flag("seen_event_E014", false)), 200):
@@ -73,6 +82,12 @@ func _run_route_b() -> bool:
 	if not _play_until(func() -> bool: return bool(RunState.get_flag("seen_event_E022B", false)), 200):
 		push_error("SMOKE B FAIL: E022B")
 		return false
+	if not RunState.get_flag("flag_marriage_agency_reclaimed", false):
+		push_error("SMOKE B FAIL: marriage agency after E022B")
+		return false
+	if not RunState.get_flag("flag_reckoning_zian_started", false):
+		push_error("SMOKE B FAIL: reckoning started")
+		return false
 
 	RunState.set_stat("stat_network", 45)
 	RunState.set_stat("stat_intel", 40)
@@ -87,10 +102,22 @@ func _run_route_b() -> bool:
 			RunState.get_stat("stat_network", 0),
 		])
 		return false
+	if String(RunState.meta.get("rank_address", "")) != PromotionSystem.address_for("", "jufeng_paojie"):
+		push_error("SMOKE B FAIL: address=%s" % str(RunState.meta.get("rank_address", "")))
+		return false
+	if String(PromotionSystem.last_ceremony.get("seat", "")) != "jufeng_paojie":
+		push_error("SMOKE B FAIL: ceremony seat")
+		return false
+	if PackDB.get_row_by_id("def_dialog", "dialog_id", "dialog_e018_b_land").is_empty():
+		push_error("SMOKE B FAIL: missing b land")
+		return false
 	if RunState.get_flag("flag_ending_a", false) or RunState.get_flag("flag_ending_c", false):
 		push_error("SMOKE B FAIL: wrong ending flags")
 		return false
-	print("SMOKE P9B OK ending_b jufeng=%s" % RunState.get_flag("flag_rank_jufeng_paojie", false))
+	print("SMOKE P9B OK ending_b jufeng=%s address=%s" % [
+		RunState.get_flag("flag_rank_jufeng_paojie", false),
+		RunState.meta.get("rank_address", ""),
+	])
 	return true
 
 
@@ -160,6 +187,9 @@ func _run_route_c() -> bool:
 	if not _play_until(func() -> bool: return bool(RunState.get_flag("seen_event_E022C", false)), 200):
 		push_error("SMOKE C FAIL: E022C")
 		return false
+	if not RunState.get_flag("flag_marriage_agency_reclaimed", false):
+		push_error("SMOKE C FAIL: marriage agency after E022C")
+		return false
 
 	RunState.set_stat("stat_intel", 40)
 	RunState.set_stat("stat_support_mid", 45)
@@ -172,10 +202,22 @@ func _run_route_c() -> bool:
 	if not RunState.get_flag("flag_ending_c", false):
 		push_error("SMOKE C FAIL: ending_c")
 		return false
+	if String(RunState.meta.get("rank_address", "")) != PromotionSystem.address_for("", "foreign_agent"):
+		push_error("SMOKE C FAIL: address=%s" % str(RunState.meta.get("rank_address", "")))
+		return false
+	if String(PromotionSystem.last_ceremony.get("seat", "")) != "foreign_agent":
+		push_error("SMOKE C FAIL: ceremony seat")
+		return false
+	if PackDB.get_row_by_id("def_dialog", "dialog_id", "dialog_e018_c_land").is_empty():
+		push_error("SMOKE C FAIL: missing c land")
+		return false
 	if RunState.get_flag("flag_ending_a", false) or RunState.get_flag("flag_ending_b", false):
 		push_error("SMOKE C FAIL: wrong ending")
 		return false
-	print("SMOKE P9C OK ending_c agent=%s" % RunState.get_flag("flag_rank_foreign_agent", false))
+	print("SMOKE P9C OK ending_c agent=%s address=%s" % [
+		RunState.get_flag("flag_rank_foreign_agent", false),
+		RunState.meta.get("rank_address", ""),
+	])
 	return true
 
 
@@ -197,6 +239,7 @@ func _seed_discovery_gates() -> void:
 func _seed_for_defect() -> void:
 	RunState.set_stat("stat_intel", max(28, int(RunState.get_stat("stat_intel", 0))))
 	RunState.set_stat("stat_network", max(30, int(RunState.get_stat("stat_network", 0))))
+	RunState.set_stat("stat_trust_firm", max(48, int(RunState.get_stat("stat_trust_firm", 0))))
 	RunState.set_flag("route_defect", true)
 	RunState.set_flag("route_endure", false)
 	RunState.set_flag("route_foreign", false)
@@ -208,6 +251,7 @@ func _seed_for_defect() -> void:
 
 func _seed_for_foreign() -> void:
 	RunState.set_stat("stat_intel", max(28, int(RunState.get_stat("stat_intel", 0))))
+	RunState.set_stat("stat_trust_firm", max(48, int(RunState.get_stat("stat_trust_firm", 0))))
 	RunState.set_flag("route_foreign", true)
 	RunState.set_flag("route_endure", false)
 	RunState.set_flag("route_defect", false)

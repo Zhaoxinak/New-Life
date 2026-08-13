@@ -116,8 +116,8 @@ text = "旁白"
 [node name="StageTag" type="Label" parent="DialogRoot/Margin/HBox/Col/Head"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.7, 0.45, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.22, 0.14, 0.1, 1)
+theme_override_font_sizes/font_size = 16
 text = ""
 
 [node name="Body" type="RichTextLabel" parent="DialogRoot/Margin/HBox/Col"]
@@ -128,6 +128,10 @@ size_flags_vertical = 3
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
+theme_override_colors/default_color = Color(0.18, 0.12, 0.08, 1)
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_constants/line_separation = 6
 text = ""
 
 [node name="ChoiceRow" type="VBoxContainer" parent="DialogRoot/Margin/HBox/Col"]

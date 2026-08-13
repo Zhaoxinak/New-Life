@@ -4,6 +4,7 @@ extends Control
 signal new_game_requested
 signal load_requested(slot_id: int)
 signal quit_requested
+signal settings_requested
 
 @onready var brand: Label = %Brand
 @onready var blurb: Label = %Blurb
@@ -15,8 +16,9 @@ signal quit_requested
 
 func _ready() -> void:
 	KairoStyle.style_panel(panel)
-	brand.add_theme_color_override("font_color", KairoStyle.ACCENT)
+	brand.add_theme_color_override("font_color", KairoStyle.WOOD_DARK)
 	blurb.add_theme_color_override("font_color", KairoStyle.SOFT_INK)
+	blurb.add_theme_font_size_override("font_size", 16)
 	KairoStyle.style_button(btn_back)
 	btn_back.pressed.connect(_show_menu)
 	brand.text = L10n.t("ui.title_brand", "暗潮")
@@ -35,6 +37,7 @@ func _show_menu() -> void:
 	_clear(menu)
 	_add(menu, L10n.t("ui.new_game", "新的一局"), func(): new_game_requested.emit())
 	_add(menu, L10n.t("ui.load", "读档"), _show_load, SaveSystem.any_slot())
+	_add(menu, L10n.t("ui.display", "显示（2K/4K）"), func(): settings_requested.emit())
 	_add(menu, L10n.t("ui.quit_game", "退出游戏"), func(): quit_requested.emit())
 
 

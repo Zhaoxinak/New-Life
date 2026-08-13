@@ -12,7 +12,7 @@ config_version=5
 
 config/name="暗潮"
 config/description="清光绪十六年天津 · 内容平台战役 Demo"
-config/version="1.11.1-kairo"
+config/version="1.23.0-display-2k4k"
 run/main_scene="res://scenes/Main.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -37,6 +37,7 @@ FinanceService="*res://systems/FinanceService.gd"
 MeetingSystem="*res://systems/MeetingSystem.gd"
 ChatterSystem="*res://systems/ChatterSystem.gd"
 KairoStyle="*res://ui/KairoStyle.gd"
+DisplaySettings="*res://autoload/DisplaySettings.gd"
 
 [debug]
 
@@ -48,8 +49,12 @@ gdscript/warnings/treat_warnings_as_errors=false
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/dpi/allow_hidpi=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/stretch/scale_mode="fractional"
 
 [internationalization]
 

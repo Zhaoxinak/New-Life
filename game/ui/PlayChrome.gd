@@ -16,8 +16,17 @@ signal return_to_title
 @onready var day_label: Label = %DayLabel
 @onready var hud_stats: HBoxContainer = %HudStats
 @onready var tip_label: Label = %TipLabel
+@onready var tip_banner: PanelContainer = %TipBanner
 @onready var goal_label: Label = %GoalLabel
 @onready var loc_nav: HBoxContainer = %LocNav
+@onready var duty_rail: Panel = %DutyRail
+@onready var duty_body: RichTextLabel = %DutyBody
+@onready var duty_header: PanelContainer = %DutyHeader
+@onready var duty_title: Label = %DutyTitle
+@onready var duty_btn_collapse: Button = %DutyBtnCollapse
+@onready var duty_btn_ladder: Button = %DutyBtnLadder
+@onready var duty_resize: Button = %DutyResize
+@onready var duty_scroll: ScrollContainer = %DutyScroll
 
 var _selected_loc: String = "loc_01"
 var _awaiting_continue: bool = false
@@ -26,10 +35,21 @@ var _nav_btns: Dictionary = {}
 var _pending_howto: bool = false
 var _pending_tutorial: bool = false
 var _hud_chips: Dictionary = {} ## id -> Label
+var _meeting_chrome_dimmed: bool = false
+var _duty_collapsed: bool = false ## 默认展开，看得见内容
+var _duty_dragging: bool = false
+var _duty_resizing: bool = false
+var _duty_drag_off: Vector2 = Vector2.ZERO
+var _duty_resize_start: Vector2 = Vector2.ZERO
+var _duty_size_start: Vector2 = Vector2.ZERO
+var _duty_layout_ready: bool = false
+var _duty_expanded_size: Vector2 = Vector2(240, 280)
+var _duty_pos: Vector2 = Vector2(1020, 100)
 
 
 func _ready() -> void:
 	_apply_kairo_chrome()
+	add_to_group("play_chrome")
 	DomainBus.tip.connect(_on_tip)
 	DomainBus.slot_changed.connect(_on_slot)
 	DomainBus.stat_changed.connect(func(_a, _b, _c): _refresh_hud(); _refresh_choices())
@@ -59,11 +79,14 @@ func _ready() -> void:
 	DomainBus.stat_changed.connect(_on_stat_fx)
 	_build_hud_chips()
 	_build_loc_nav()
+	_bind_duty_rail()
 	call_deferred("_bind_tutorial")
+	call_deferred("_bind_meeting_stage")
 
 
 func boot_new_game() -> void:
 	RunState.new_game()
+	_duty_layout_ready = false
 	TickPipeline.on_slot_enter()
 	_set_interactive(true)
 	_refresh_all()
@@ -91,6 +114,51 @@ func _bind_tutorial() -> void:
 	})
 	if not tutorial.finished.is_connected(_on_tutorial_finished):
 		tutorial.finished.connect(_on_tutorial_finished)
+
+
+func _bind_meeting_stage() -> void:
+	var ms := get_tree().get_first_node_in_group("meeting_stage")
+	if ms == null:
+		return
+	if ms.has_signal("stage_opened") and not ms.stage_opened.is_connected(_on_meeting_stage_opened):
+		ms.stage_opened.connect(_on_meeting_stage_opened)
+	if ms.has_signal("stage_closed") and not ms.stage_closed.is_connected(_on_meeting_stage_closed):
+		ms.stage_closed.connect(_on_meeting_stage_closed)
+
+
+func _on_meeting_stage_opened() -> void:
+	_set_meeting_chrome(true)
+
+
+func _on_meeting_stage_closed() -> void:
+	_set_meeting_chrome(false)
+
+
+func _set_meeting_chrome(dim: bool) -> void:
+	## 朝账中收起日常干扰：地点导航、歇息、目标条弱化；保留对白与会议芯片。
+	_meeting_chrome_dimmed = dim
+	var loc_panel: Control = get_node_or_null("LocNavPanel") as Control
+	if loc_panel:
+		loc_panel.visible = not dim
+	%BtnRest.visible = not dim
+	var goal_bar: Control = get_node_or_null("GoalBar") as Control
+	if goal_bar:
+		goal_bar.modulate.a = 0.7 if dim else 1.0
+	## HUD：只强调 meeting / ladder，其余略淡但不糊
+	for id in _hud_chips.keys():
+		var lb: Label = _hud_chips[id] as Label
+		if lb == null:
+			continue
+		if dim and id not in ["meeting", "ladder"]:
+			lb.modulate.a = 0.65
+		else:
+			lb.modulate.a = 1.0
+	act_sheet.visible = false
+	if dim:
+		stage.set_walk_frozen(true)
+	else:
+		stage.set_walk_frozen(DialogueRunner.is_active())
+	_refresh_duty_rail()
 
 
 func _start_tutorial() -> void:
@@ -144,6 +212,7 @@ func boot_from_load() -> void:
 	act_sheet.visible = false
 	dialogue.visible = false
 	_awaiting_continue = false
+	_duty_layout_ready = false
 	_set_interactive(not RunState.ended and not DialogueRunner.is_active())
 	_refresh_all()
 	_try_start_queued_event()
@@ -155,12 +224,34 @@ func _apply_kairo_chrome() -> void:
 		if p:
 			KairoStyle.style_panel(p)
 	day_label.add_theme_color_override("font_color", KairoStyle.INK)
-	goal_label.add_theme_color_override("font_color", KairoStyle.WOOD_DARK)
-	tip_label.add_theme_color_override("font_color", KairoStyle.ACCENT)
+	day_label.add_theme_font_size_override("font_size", 15)
+	goal_label.add_theme_color_override("font_color", KairoStyle.INK)
+	goal_label.add_theme_font_size_override("font_size", 16)
+	tip_label.add_theme_color_override("font_color", KairoStyle.INK)
+	tip_label.add_theme_font_size_override("font_size", 16)
+	if tip_banner:
+		var tip_sb := StyleBoxFlat.new()
+		tip_sb.bg_color = Color(1.0, 0.95, 0.84, 0.97)
+		tip_sb.border_color = Color(0.55, 0.34, 0.16, 1)
+		tip_sb.set_border_width_all(2)
+		tip_sb.set_corner_radius_all(10)
+		tip_sb.content_margin_left = 14
+		tip_sb.content_margin_right = 14
+		tip_sb.content_margin_top = 6
+		tip_sb.content_margin_bottom = 6
+		tip_sb.shadow_color = Color(0.12, 0.06, 0.04, 0.35)
+		tip_sb.shadow_size = 6
+		tip_sb.shadow_offset = Vector2(0, 2)
+		tip_banner.add_theme_stylebox_override("panel", tip_sb)
+		tip_banner.visible = false
 	var brand: Label = get_node_or_null("TopBar/Margin/HBox/Brand") as Label
 	if brand:
 		brand.text = "暗潮 · 钱记"
-		brand.add_theme_color_override("font_color", KairoStyle.ACCENT)
+		brand.add_theme_color_override("font_color", KairoStyle.WOOD_DARK)
+	if duty_title:
+		KairoStyle.style_readable_label(duty_title, 16)
+	if duty_body:
+		KairoStyle.style_readable_rich(duty_body, 15, 17)
 	for btn in [%BtnRest, %BtnSettings, %BtnHelpClose]:
 		KairoStyle.style_button(btn)
 	%BtnRest.text = L10n.t("ui.rest", "歇一口气")
@@ -184,7 +275,42 @@ func _on_return_title() -> void:
 	ledger.hide_ledger()
 	if ladder_board:
 		ladder_board.hide_board()
+	var ms := get_tree().get_first_node_in_group("meeting_stage")
+	if ms and ms.has_method("force_hide"):
+		ms.force_hide()
 	return_to_title.emit()
+
+
+func _input(event: InputEvent) -> void:
+	## 差事条拖动/缩放：全局跟踪，离开标题栏也不丢
+	if not visible or duty_rail == null or not duty_rail.visible:
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		if _duty_dragging or _duty_resizing:
+			if _duty_resizing and not _duty_collapsed:
+				_duty_expanded_size = duty_rail.size
+			_duty_pos = duty_rail.position
+			_duty_dragging = false
+			_duty_resizing = false
+			_clamp_duty_rail()
+			_persist_duty_layout()
+			get_viewport().set_input_as_handled()
+		return
+	if event is InputEventMouseMotion:
+		if _duty_dragging:
+			duty_rail.global_position = duty_rail.get_global_mouse_position() - _duty_drag_off
+			_duty_pos = duty_rail.position
+			_clamp_duty_rail()
+			get_viewport().set_input_as_handled()
+		elif _duty_resizing and not _duty_collapsed:
+			var delta: Vector2 = duty_rail.get_global_mouse_position() - _duty_resize_start
+			duty_rail.size = Vector2(
+				clampf(_duty_size_start.x + delta.x, 200.0, 480.0),
+				clampf(_duty_size_start.y + delta.y, 160.0, 560.0)
+			)
+			_duty_expanded_size = duty_rail.size
+			_clamp_duty_rail()
+			get_viewport().set_input_as_handled()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -248,10 +374,17 @@ func _on_domain(event_name: String, payload: Dictionary) -> void:
 		"promotion_ceremony", "demotion_applied":
 			_refresh_hud()
 			_refresh_loc_nav()
+			if event_name == "promotion_ceremony" and dialogue:
+				## 仪典期间压住底部对白，避免双「继续」
+				dialogue.visible = false
+		"ceremony_finished":
+			_refresh_hud()
+			_refresh_duty_rail()
 		"grudge_resolved":
 			_refresh_hud()
 		"ladder_rank_changed", "meeting_changed", "meeting_tasks_changed", "meeting_report_finalized":
 			_refresh_hud()
+			_refresh_duty_rail()
 			if event_name == "ladder_rank_changed":
 				var delta := int(payload.get("last_delta", 0))
 				if delta > 0:
@@ -489,13 +622,15 @@ func _build_hud_chips() -> void:
 			var sep := Label.new()
 			sep.text = "·"
 			sep.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			sep.add_theme_color_override("font_color", Color(0.55, 0.45, 0.35, 0.7))
+			sep.add_theme_color_override("font_color", KairoStyle.WOOD_DARK)
+			sep.add_theme_font_size_override("font_size", 15)
 			hud_stats.add_child(sep)
 		var id := String(ids[i])
 		var lb := Label.new()
 		lb.mouse_filter = Control.MOUSE_FILTER_STOP
 		lb.mouse_default_cursor_shape = Control.CURSOR_HELP
-		lb.add_theme_color_override("font_color", KairoStyle.SOFT_INK)
+		lb.add_theme_color_override("font_color", KairoStyle.INK)
+		lb.add_theme_font_size_override("font_size", 15)
 		lb.mouse_entered.connect(_on_hud_chip_hover.bind(id, true))
 		lb.mouse_exited.connect(_on_hud_chip_hover.bind(id, false))
 		if id == "ladder":
@@ -516,7 +651,7 @@ func _on_hud_chip_hover(id: String, on: bool) -> void:
 	var lb: Label = _hud_chips.get(id) as Label
 	if lb == null:
 		return
-	lb.add_theme_color_override("font_color", KairoStyle.ACCENT if on else KairoStyle.SOFT_INK)
+	lb.add_theme_color_override("font_color", KairoStyle.ACCENT_INK if on else KairoStyle.INK)
 
 
 func _refresh_hud() -> void:
@@ -524,7 +659,9 @@ func _refresh_hud() -> void:
 		return
 	var money := RunState.get_stat("stat_money")
 	var rank_id := RunState.player_rank()
-	var rank := PromotionSystem.title_for(rank_id)
+	var address := String(RunState.meta.get("rank_address", ""))
+	if address.is_empty():
+		address = PromotionSystem.address_for(rank_id)
 	var monthly := int(RunState.meta.get("monthly_stipend", PromotionSystem.monthly_for(rank_id)))
 	var heat := float(RunState.get_org_field("org_qianji", "firm_heat", 0))
 	var liq := float(RunState.get_org_field("org_qianji", "liquidity", 0))
@@ -534,7 +671,7 @@ func _refresh_hud() -> void:
 	var intel := RunState.get_stat("stat_intel")
 
 	_set_chip("money", "%s %s两" % [L10n.t("stat.money"), _fmt_num(money)], _tip_money(money, monthly, credit))
-	_set_chip("rank", "%s【%s】" % [L10n.t("ui.rank", "职级"), rank], _tip_rank(rank_id, rank, monthly))
+	_set_chip("rank", "%s【%s】" % [L10n.t("ui.rank", "职级"), address], _tip_rank(rank_id, address, monthly))
 	var ladder_txt := MeetingSystem.hud_ladder_text()
 	if ladder_txt.is_empty():
 		ladder_txt = L10n.t("ui.ladder_pending", "序位 —")
@@ -544,6 +681,231 @@ func _refresh_hud() -> void:
 	_set_chip("sus", "%s %s" % [L10n.t("stat.suspicion"), _fmt_num(sus)], _tip_sus(sus, trust, intel))
 	if RunState.ended:
 		day_label.tooltip_text = L10n.t("ui.run_ended", "本局结束：%s") % RunState.end_reason
+	_refresh_duty_rail()
+
+
+func _refresh_duty_rail() -> void:
+	if duty_rail == null or duty_body == null:
+		return
+	if _meeting_chrome_dimmed or RunState.ended:
+		duty_rail.visible = false
+		return
+	if not MeetingSystem.should_show_duty_rail():
+		duty_rail.visible = false
+		return
+	if not _duty_layout_ready:
+		_restore_duty_layout()
+	duty_body.text = MeetingSystem.duty_rail_bbcode()
+	duty_rail.visible = true
+	_apply_duty_chrome()
+	## 刷新只改文案，不重置尺寸（避免拖动/缩放被顶掉）
+	_sync_duty_collapse_widgets()
+	_update_duty_title()
+
+
+func _bind_duty_rail() -> void:
+	if duty_rail == null:
+		return
+	duty_rail.mouse_filter = Control.MOUSE_FILTER_STOP
+	if duty_header:
+		## 标题条整条可拖（按钮自己拦点击）
+		var hsb := StyleBoxFlat.new()
+		hsb.bg_color = Color(0.92, 0.82, 0.62, 0.95)
+		hsb.border_color = Color(0.62, 0.42, 0.22, 0.9)
+		hsb.set_border_width_all(2)
+		hsb.set_corner_radius_all(8)
+		hsb.content_margin_left = 8
+		hsb.content_margin_right = 6
+		hsb.content_margin_top = 4
+		hsb.content_margin_bottom = 4
+		duty_header.add_theme_stylebox_override("panel", hsb)
+		duty_header.mouse_filter = Control.MOUSE_FILTER_STOP
+		duty_header.mouse_default_cursor_shape = Control.CURSOR_MOVE
+		if not duty_header.gui_input.is_connected(_on_duty_header_input):
+			duty_header.gui_input.connect(_on_duty_header_input)
+	if duty_title:
+		duty_title.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		duty_title.tooltip_text = L10n.t("ui.duty_drag_hint", "按住此处拖动窗口")
+	if duty_btn_collapse and not duty_btn_collapse.pressed.is_connected(_toggle_duty_collapse):
+		duty_btn_collapse.pressed.connect(_toggle_duty_collapse)
+		KairoStyle.style_button(duty_btn_collapse)
+	if duty_btn_ladder and not duty_btn_ladder.pressed.is_connected(_open_duty_ladder):
+		duty_btn_ladder.pressed.connect(_open_duty_ladder)
+		KairoStyle.style_button(duty_btn_ladder)
+	if duty_resize:
+		duty_resize.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
+		if not duty_resize.button_down.is_connected(_on_duty_resize_down):
+			duty_resize.button_down.connect(_on_duty_resize_down)
+		KairoStyle.style_button(duty_resize)
+	if not duty_rail.gui_input.is_connected(_on_duty_rail_collapsed_click):
+		duty_rail.gui_input.connect(_on_duty_rail_collapsed_click)
+
+
+func _apply_duty_chrome() -> void:
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = Color(1.0, 0.96, 0.88, 0.97)
+	sb.border_color = Color(0.55, 0.36, 0.18, 1)
+	sb.set_border_width_all(3)
+	sb.set_corner_radius_all(14)
+	sb.shadow_color = Color(0.12, 0.06, 0.04, 0.35)
+	sb.shadow_size = 8
+	sb.shadow_offset = Vector2(0, 3)
+	var days := int(RunState.meeting.get("days_until_next", 0))
+	if days <= 2:
+		sb.border_color = Color(0.78, 0.28, 0.2)
+		sb.bg_color = Color(1.0, 0.94, 0.88, 0.97)
+	duty_rail.add_theme_stylebox_override("panel", sb)
+
+
+func _update_duty_title() -> void:
+	if duty_title == null:
+		return
+	MeetingSystem.ensure_state()
+	if _duty_collapsed:
+		var head := MeetingSystem.hud_meeting_text()
+		var rank := int(RunState.ladder.get("player_rank", 0))
+		var total := int(RunState.ladder.get("player_total", 0))
+		if total > 0 and rank > 0:
+			duty_title.text = "%s · %d/%d" % [head, rank, total]
+		else:
+			duty_title.text = head
+	else:
+		duty_title.text = L10n.t("ui.duty_rail_title", "差事 · 序位")
+	duty_rail.tooltip_text = L10n.t(
+		"ui.duty_rail_tip",
+		"拖标题栏移动 · 右下角◢改大小 · 「序」开榜 · 「收起/展开」"
+	)
+
+
+func _sync_duty_collapse_widgets() -> void:
+	## 只切换显隐与按钮字，不改 size（刷新时调用）
+	if duty_scroll:
+		duty_scroll.visible = not _duty_collapsed
+	if duty_body:
+		duty_body.visible = not _duty_collapsed
+	if duty_resize:
+		duty_resize.visible = not _duty_collapsed
+	if duty_btn_collapse:
+		duty_btn_collapse.text = L10n.t("ui.duty_expand", "展开") if _duty_collapsed else L10n.t("ui.duty_collapse", "收起")
+	var margin := duty_rail.get_node_or_null("DutyMargin") as MarginContainer
+	if margin:
+		margin.add_theme_constant_override("margin_bottom", 4 if _duty_collapsed else 24)
+		margin.add_theme_constant_override("margin_top", 4 if _duty_collapsed else 6)
+
+
+func _apply_duty_layout_size() -> void:
+	## 展开/收起时真正改尺寸
+	_sync_duty_collapse_widgets()
+	if _duty_collapsed:
+		duty_rail.custom_minimum_size = Vector2(200, 40)
+		duty_rail.size = Vector2(maxi(200, int(_duty_expanded_size.x)), 48)
+	else:
+		duty_rail.custom_minimum_size = Vector2(200, 160)
+		duty_rail.size = _duty_expanded_size
+	duty_rail.position = _duty_pos
+	_clamp_duty_rail()
+	_duty_pos = duty_rail.position
+
+
+func _toggle_duty_collapse() -> void:
+	if not _duty_collapsed:
+		## 收起前记住展开尺寸
+		_duty_expanded_size = duty_rail.size
+		_duty_pos = duty_rail.position
+	_duty_collapsed = not _duty_collapsed
+	_apply_duty_layout_size()
+	_update_duty_title()
+	_persist_duty_layout()
+
+
+func _open_duty_ladder() -> void:
+	if ladder_board:
+		ladder_board.show_board()
+
+
+func _on_duty_header_input(event: InputEvent) -> void:
+	if duty_rail == null:
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		## 点在「序 / 收起」上不拖
+		var hovered := get_viewport().gui_get_hovered_control()
+		if hovered is BaseButton and duty_header.is_ancestor_of(hovered):
+			return
+		_duty_dragging = true
+		_duty_drag_off = duty_rail.get_global_mouse_position() - duty_rail.global_position
+		get_viewport().set_input_as_handled()
+
+
+func _on_duty_rail_collapsed_click(event: InputEvent) -> void:
+	## 收起态点条身（非按钮）→ 展开
+	if not _duty_collapsed or duty_rail == null:
+		return
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var hovered := get_viewport().gui_get_hovered_control()
+		if hovered is BaseButton:
+			return
+		_duty_collapsed = false
+		_apply_duty_layout_size()
+		_update_duty_title()
+		_persist_duty_layout()
+		get_viewport().set_input_as_handled()
+
+
+func _on_duty_resize_down() -> void:
+	if _duty_collapsed or duty_rail == null:
+		return
+	_duty_resizing = true
+	_duty_resize_start = duty_rail.get_global_mouse_position()
+	_duty_size_start = duty_rail.size
+
+
+func _clamp_duty_rail() -> void:
+	if duty_rail == null:
+		return
+	var vp := get_viewport_rect().size
+	var sz := duty_rail.size
+	duty_rail.position = Vector2(
+		clampf(duty_rail.position.x, 4.0, maxf(4.0, vp.x - sz.x - 4.0)),
+		clampf(duty_rail.position.y, 88.0, maxf(88.0, vp.y - sz.y - 72.0))
+	)
+
+
+func _persist_duty_layout() -> void:
+	if duty_rail == null:
+		return
+	if not _duty_collapsed:
+		_duty_expanded_size = duty_rail.size
+	_duty_pos = duty_rail.position
+	RunState.meta["duty_rail_layout"] = {
+		"x": _duty_pos.x,
+		"y": _duty_pos.y,
+		"w": _duty_expanded_size.x,
+		"h": _duty_expanded_size.y,
+		"collapsed": _duty_collapsed,
+	}
+
+
+func _restore_duty_layout() -> void:
+	if duty_rail == null:
+		return
+	_duty_layout_ready = true
+	var lay: Variant = RunState.meta.get("duty_rail_layout", {})
+	var vp := get_viewport_rect().size
+	if typeof(lay) == TYPE_DICTIONARY and not (lay as Dictionary).is_empty():
+		var d: Dictionary = lay
+		_duty_collapsed = bool(d.get("collapsed", false))
+		_duty_pos = Vector2(float(d.get("x", vp.x - 260)), float(d.get("y", 100)))
+		_duty_expanded_size = Vector2(
+			clampf(float(d.get("w", 240)), 200.0, 480.0),
+			clampf(float(d.get("h", 280)), 160.0, 560.0)
+		)
+	else:
+		## 默认：右上角展开，不挡左上闲话
+		_duty_collapsed = false
+		_duty_expanded_size = Vector2(240, 280)
+		_duty_pos = Vector2(maxi(10.0, vp.x - 260.0), 100.0)
+	_apply_duty_layout_size()
+	_update_duty_title()
 
 
 func _tip_ladder() -> String:
@@ -633,11 +995,17 @@ func _tip_money(money: Variant, monthly: int, credit: Variant) -> String:
 
 
 func _tip_rank(rank_id: String, rank: String, monthly: int) -> String:
+	var seat_line := L10n.t("hud.tip.rank.seat", "站位：钱记门内 · 前堂后院都看着你")
+	if bool(RunState.get_flag("flag_rank_jufeng_paojie", false)):
+		seat_line = L10n.t("hud.tip.rank.seat_jufeng", "站位：聚丰柜前 · 钱记屋檐外的名字")
+	elif bool(RunState.get_flag("flag_rank_foreign_agent", false)):
+		seat_line = L10n.t("hud.tip.rank.seat_foreign", "站位：洋行往来 · 华界闲话里的靠山")
 	var lines: PackedStringArray = [
 		L10n.t("hud.tip.rank.title", "【职级】号里叫你什么、你能碰什么钱"),
 		L10n.t("hud.tip.rank.now", "当前：%s") % rank,
+		L10n.t("hud.tip.rank.ladder", "钱记阶：%s") % PromotionSystem.title_for(rank_id),
 		L10n.t("hud.tip.rank.monthly", "月例档：%d两") % monthly,
-		L10n.t("hud.tip.rank.seat", "站位：钱记门内 · 前堂后院都看着你"),
+		seat_line,
 		"",
 	]
 	lines.append_array(PromotionSystem.next_gate_lines(rank_id))
@@ -744,7 +1112,14 @@ func _refresh_goal() -> void:
 		hint = L10n.t(String(erow.get("loc_key", "")), eid)
 		break
 	if hint.is_empty():
-		goal_label.text = L10n.t("ui.goal_explore", "点热区行事，或歇一口气推进时辰")
+		MeetingSystem.ensure_state()
+		var days := int(RunState.meeting.get("days_until_next", 0))
+		if days <= 2 and MeetingSystem.has_incomplete_weekly_tasks():
+			goal_label.text = L10n.t("ui.goal_duty_urgent", "⚠ 距朝账 %d 日 · 差事未完") % maxi(days, 0)
+		elif days <= 2:
+			goal_label.text = L10n.t("ui.goal_meeting_soon", "⚠ 距朝账 %d 日 · 看序位") % maxi(days, 0)
+		else:
+			goal_label.text = L10n.t("ui.goal_explore", "点热区行事，或歇一口气推进时辰")
 	else:
 		goal_label.text = L10n.t("ui.goal_next", "今日暗流：%s") % hint
 
@@ -779,6 +1154,7 @@ func _on_dialogue_continue() -> void:
 
 func _on_dialog_finished(_event_id: String) -> void:
 	_awaiting_continue = false
+	_set_meeting_chrome(false)
 	_set_interactive(not RunState.ended)
 	## 只刷 HUD / 目标，别整场重建（会重置小人位置）
 	_refresh_hud()
@@ -808,6 +1184,7 @@ func _on_slot(day: int, slot: String) -> void:
 	day_label.text = L10n.t("ui.day_slot", "第 %d 日 · %s") % [day, _slot_name(slot)]
 	_refresh_loc_nav()
 	_refresh_goal()
+	_refresh_duty_rail()
 	if act_sheet.visible and not _loc_open(_selected_loc):
 		act_sheet.visible = false
 	else:
@@ -834,9 +1211,19 @@ func _on_tip(text: String) -> void:
 	if text.is_empty():
 		return
 	tip_label.text = text
+	if tip_banner:
+		tip_banner.visible = true
+		tip_banner.modulate = Color(1, 1, 1, 1)
 	tip_label.modulate = Color(1, 1, 1, 1)
 	if _tip_tween != null:
 		_tip_tween.kill()
 	_tip_tween = create_tween()
 	_tip_tween.tween_interval(2.8)
-	_tip_tween.tween_property(tip_label, "modulate:a", 0.35, 0.6)
+	var fade_target: CanvasItem = tip_banner if tip_banner else tip_label
+	_tip_tween.tween_property(fade_target, "modulate:a", 0.0, 0.45)
+	_tip_tween.tween_callback(func():
+		if tip_banner:
+			tip_banner.visible = false
+			tip_banner.modulate = Color(1, 1, 1, 1)
+		tip_label.text = ""
+	)

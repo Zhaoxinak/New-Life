@@ -1,0 +1,376 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/MeetingStage.gd" id="1_ms"]
+
+[node name="MeetingStage" type="CanvasLayer"]
+layer = 25
+script = ExtResource("1_ms")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Dim" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.18, 0.12, 0.08, 0.42)
+
+[node name="Hall" type="PanelContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 40.0
+offset_right = -36.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HallInner" type="Control" parent="Root/Hall"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HallBg" type="TextureRect" parent="Root/Hall/HallInner"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+modulate = Color(1, 1, 1, 1)
+
+[node name="CeilBand" type="ColorRect" parent="Root/Hall/HallInner"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 28.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.42, 0.28, 0.16, 0.35)
+
+[node name="FloorBand" type="ColorRect" parent="Root/Hall/HallInner"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.38, 0.24, 0.14, 0.25)
+
+[node name="Carpet" type="ColorRect" parent="Root/Hall/HallInner"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -120.0
+offset_right = 70.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.55, 0.22, 0.18, 0.12)
+
+[node name="LeftPillar" type="ColorRect" parent="Root/Hall/HallInner"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 22.0
+offset_bottom = -28.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.48, 0.32, 0.18, 0.28)
+
+[node name="RightPillar" type="ColorRect" parent="Root/Hall/HallInner"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = 24.0
+offset_right = -8.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.48, 0.32, 0.18, 0.28)
+
+[node name="WarmGlow" type="ColorRect" parent="Root/Hall/HallInner"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -160.0
+offset_top = 20.0
+offset_right = 160.0
+offset_bottom = 160.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.95, 0.78, 0.42, 0.08)
+
+[node name="Curtain" type="Control" parent="Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 40.0
+offset_right = -36.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CurtainVeil" type="ColorRect" parent="Root/Curtain"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.72, 0.58, 0.4, 0.38)
+
+[node name="CurtainStripe1" type="ColorRect" parent="Root/Curtain"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_right = 26.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.42, 0.28, 0.16, 0.35)
+
+[node name="CurtainStripe2" type="ColorRect" parent="Root/Curtain"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_right = 56.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.42, 0.28, 0.16, 0.28)
+
+[node name="CurtainStripe3" type="ColorRect" parent="Root/Curtain"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_right = -48.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.42, 0.28, 0.16, 0.28)
+
+[node name="CurtainStripe4" type="ColorRect" parent="Root/Curtain"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_right = -18.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.42, 0.28, 0.16, 0.35)
+
+[node name="DoorGap" type="ColorRect" parent="Root/Curtain"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.55
+anchor_right = 0.5
+anchor_bottom = 0.55
+offset_left = -90.0
+offset_top = -8.0
+offset_right = 90.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.95, 0.82, 0.55, 0.22)
+
+[node name="SeatLayer" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 40.0
+offset_right = -36.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SegmentBanner" type="PanelContainer" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 44.0
+grow_horizontal = 2
+
+[node name="SegmentLabel" type="Label" parent="Root/SegmentBanner"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.9, 0.62, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+text = "① 开门点名"
+
+[node name="ListenBadge" type="PanelContainer" parent="Root"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 52.0
+offset_top = -310.0
+offset_right = 250.0
+offset_bottom = -278.0
+grow_vertical = 0
+
+[node name="ListenBadgeLabel" type="Label" parent="Root/ListenBadge"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1.0, 0.94, 0.82, 1)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+text = "门外旁听 · 帘影"
+
+[node name="PolicySplash" type="Label" parent="Root"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -80.0
+offset_right = 220.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.98, 0.9, 0.62, 1)
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "定调"
+
+[node name="LadderSide" type="PanelContainer" parent="Root"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 52.0
+offset_right = 248.0
+offset_bottom = 290.0
+grow_horizontal = 0
+
+[node name="Margin" type="MarginContainer" parent="Root/LadderSide"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="LadderBody" type="RichTextLabel" parent="Root/LadderSide/Margin"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+theme_override_colors/default_color = Color(0.16, 0.1, 0.06, 1)
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 18
+theme_override_constants/line_separation = 4
+text = ""
+
+[node name="FocusRing" type="PanelContainer" parent="Root"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_top = 48.0
+offset_right = 140.0
+offset_bottom = 84.0
+grow_horizontal = 2
+
+[node name="FocusName" type="Label" parent="Root/FocusRing"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16, 0.1, 0.06, 1)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+text = ""
+
+[node name="SilenceMark" type="Label" parent="Root"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -100.0
+offset_right = 40.0
+offset_bottom = -60.0
+theme_override_colors/font_color = Color(0.18, 0.12, 0.08, 1)
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+text = "……"
+
+[node name="TaskFlyLayer" type="Control" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

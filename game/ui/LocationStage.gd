@@ -69,7 +69,9 @@ const PATHS := {
 func _ready() -> void:
 	KairoStyle.style_panel(loc_plate)
 	loc_title.add_theme_color_override("font_color", KairoStyle.INK)
+	loc_title.add_theme_font_size_override("font_size", 18)
 	loc_blurb.add_theme_color_override("font_color", KairoStyle.SOFT_INK)
+	loc_blurb.add_theme_font_size_override("font_size", 15)
 	actor_layer.z_index = 1
 	hotspot_layer.z_index = 5
 	hotspot_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -270,14 +272,15 @@ func spawn_pop(kind: String, amount: int = 0) -> void:
 	match kind:
 		"coin":
 			label.text = "+%d两" % amount if amount != 0 else "+银"
-			label.add_theme_color_override("font_color", KairoStyle.COIN)
+			label.add_theme_color_override("font_color", Color(0.72, 0.52, 0.12))
 		"heart":
 			label.text = "♥"
-			label.add_theme_color_override("font_color", Color(0.9, 0.35, 0.4))
+			label.add_theme_color_override("font_color", Color(0.72, 0.22, 0.28))
 		_:
 			label.text = "★"
-			label.add_theme_color_override("font_color", KairoStyle.ACCENT)
+			label.add_theme_color_override("font_color", KairoStyle.ACCENT_INK)
 	label.add_theme_font_size_override("font_size", 22)
+	KairoStyle.outline_for_light_text(label, 5)
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	fx_layer.add_child(label)
 	var sz := fx_layer.size
@@ -376,9 +379,10 @@ func _rebuild_actors(loc_id: String) -> void:
 		tag.text = plate
 		tag.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		tag.autowrap_mode = TextServer.AUTOWRAP_OFF
-		tag.add_theme_font_size_override("font_size", 11)
+		tag.add_theme_font_size_override("font_size", 14)
 		tag.add_theme_color_override("font_color", Color(0.16, 0.1, 0.05))
-		tag.add_theme_color_override("font_outline_color", Color(1, 0.95, 0.82, 0.92))
+		tag.add_theme_color_override("font_outline_color", Color(1, 0.95, 0.82, 0.95))
+		tag.add_theme_constant_override("outline_size", 4)
 		tag.add_theme_constant_override("outline_size", 4)
 		tag.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
 		tag.offset_top = -20

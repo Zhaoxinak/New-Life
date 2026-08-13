@@ -1,171 +1,81 @@
 # 对话 · 朝账诸人建言（共用池）
 
 > 服务例行朝账 ④ 段；剧情朝账 M001–M003 可 override 部分条目。  
-> 规则：[`../17_朝账系统/诸人建言.md`](../17_朝账系统/诸人建言.md)
+> 规则：[`../17_朝账系统/诸人建言.md`](../17_朝账系统/诸人建言.md)  
+> 生成：`game/tools/gen_p19_meeting_council_content.py`
 
 ---
 
-## 入口
+## 入口 / 路由
 
 | 节点 | 用途 |
 |---|---|
-| `dialog_meeting_council_turn` | 系统：轮到 `char_*`，判 speak / pass |
-| `dialog_meeting_council_player_pick` | 玩家建言话题分支 |
-| `dialog_meeting_council_player_pass` | 玩家「不言」 |
-| `dialog_meeting_council_endorse` | 玩家附议 |
+| `dialog_council_zhou_pick` | 周管事口径抽选（cycle_mod） |
+| `dialog_council_after_zhou` | → 王口径 |
+| `dialog_council_after_wang` | → 子安 / 仇人 / 玩家 / 定调 |
+| `dialog_council_after_zian` | → 仇人 / 玩家 |
+| `dialog_council_after_rival` | → 玩家 / 定调 |
+| `dialog_meeting_council_player_pick` | 玩家：建言 / 附议(decide) / 不言 |
+| `dialog_meeting_council_endorse` | 附议上一发言者 |
+| `dialog_m000_council_listen*` | 旁听碎片（含仇人/少爷/简席快过） |
+
+条件扩展：`council_has`、`cycle_mod`（见 ConditionEval）。
 
 ---
 
-## 周管事 · `char_zhou_guanshi`
+## 周管事 · 发言变体
 
-### 发言
-
-```yaml
-dialog_id: dialog_council_zhou_order
-speaker: char_zhou_guanshi
-loc_key: council.zhou.order
-text_zh: |
-  后院账房这几日按章走，货单别拖拉。谁要省事，最后省的是东家的脸。
-stance: bright_steady
-effects:
-  - { op: record_council_speech, char: char_zhou_guanshi, spoke: true, topic_key: council.zhou.order, stance: bright_steady }
-  - { op: add_policy_draft, key: bright_steady, value: 2 }
-```
-
-### 沉默
-
-```yaml
-dialog_id: dialog_council_zhou_pass
-speaker: narrator
-loc_key: council.zhou.pass
-text_zh: |
-  周管事目光一扫，没开口。
-effects:
-  - { op: record_council_speech, char: char_zhou_guanshi, spoke: false, mode: pass }
-```
+| dialog_id | stance | 一句 |
+|---|---|---|
+| `dialog_council_zhou_order` | bright_steady | 按章、货单、别省东家的脸 |
+| `dialog_council_zhou_manifest` | bright_steady | 货单墨色新旧不一，先对清楚 |
+| `dialog_council_zhou_yard` | look_away | 后院少问，明面先稳住 |
+| `dialog_council_zhou_pass` | — | 目光一扫，没开口 |
 
 ---
 
-## 王胖子 · `char_wang_pangzi`
+## 王胖子 · 发言变体
 
-### 发言
-
-```yaml
-dialog_id: dialog_council_wang_front
-speaker: char_wang_pangzi
-loc_key: council.wang.front_busy
-text_zh: |
-  前堂这几日货来货往，人手紧。要再减人，怕误了客。
-stance: bright_steady
-effects:
-  - { op: record_council_speech, char: char_wang_pangzi, spoke: true, stance: bright_steady }
-  - { op: add_policy_draft, key: bright_steady, value: 1 }
-```
-
-### 沉默
-
-```yaml
-dialog_id: dialog_council_wang_pass
-speaker: narrator
-text_zh: |
-  王胖子低头喝茶，没接话。
-effects:
-  - { op: record_council_speech, char: char_wang_pangzi, spoke: false, mode: pass }
-```
+| dialog_id | stance |
+|---|---|
+| `dialog_council_wang_front` | bright_steady · 人手紧 |
+| `dialog_council_wang_street` | watch_jufeng · 聚丰压价 |
+| `dialog_council_wang_hands` | bright_steady · 该出力还得出 |
+| `dialog_council_wang_pass` | 沉默喝茶 |
 
 ---
 
-## 钱子安 · `char_qian_zian`（`flag_zian_arrived`）
+## 钱子安
 
-### 发言
+| dialog_id | stance |
+|---|---|
+| `dialog_council_zian_show` | son_first · 摆排场 |
+| `dialog_council_zian_boast` | son_first · 洋人/面子自夸 |
+| `dialog_council_zian_pass` | 哼一声不说 |
 
-```yaml
-dialog_id: dialog_council_zian_show
-speaker: char_qian_zian
-loc_key: council.zian.show
-text_zh: |
-  我看街面上要摆排场，别老抠那几两银子。钱记的脸面，不能比聚丰矮一截。
-stance: son_first
-effects:
-  - { op: record_council_speech, char: char_qian_zian, spoke: true, stance: son_first }
-  - { op: add_policy_draft, key: son_first, value: 2 }
-  - { op: add, meter: father_son, value: -5 }
-```
+---
 
-### 沉默
+## 仇人踩线（满席 / 序位紧逼）
 
-```yaml
-dialog_id: dialog_council_zian_pass
-speaker: narrator
-text_zh: |
-  少爷钱子安哼了一声，竟也没再往下说。
-effects:
-  - { op: record_council_speech, char: char_qian_zian, spoke: false, mode: pass }
-```
+入队：`MeetingSystem.pick_meeting_rival()` → `council_queue`。
+
+| 角色 | dialog_id | 效果 |
+|---|---|---|
+| 孙六 | `dialog_council_sun_step` / `sun_flatter` | 当面踩玩家勤快假象；己序位+、玩家− |
+| 赵外场 | `dialog_council_zhao_step` / `zhao_sneer` | 外场嘴皮 vs 算账；序位对撞 |
+
+旁听碎片：`dialog_m000_council_listen_rival` / `_listen_zian`。
 
 ---
 
 ## 玩家 · 建言选项
 
-### `dialog_meeting_council_player_pick`
-
-```yaml
-choices:
-  - id: steady
-    label: 稳明面，紧货单
-    next: dialog_council_player_steady
-  - id: market
-    label: 盯聚丰压价
-    next: dialog_council_player_market
-  - id: look_away
-    label: 少问后院
-    next: dialog_council_player_look_away
-  - id: risk
-    label: 直报货单不对（要胆）
-    require: [{ key: stat_intel, op: ">=", value: 15 }]
-    next: dialog_council_player_risk
-```
-
-### `dialog_council_player_steady`
-
-```yaml
-speaker: char_lin_ruisheng
-text_zh: |
-  回东家，孙辈以为：明面货单先理清楚，比急着扩门面稳当。
-effects:
-  - { op: record_council_speech, char: char_lin_ruisheng, spoke: true, stance: bright_steady, mode: speak }
-  - { op: add_policy_draft, key: bright_steady, value: 2 }
-  - { op: add, key: stat_trust_firm, value: 2 }
-next: dialog_meeting_council_demao_nod
-```
-
-### `dialog_meeting_council_player_pass`
-
-```yaml
-speaker: char_lin_ruisheng
-text_zh: |
-  ……你退后半步，没接话。
-effects:
-  - { op: record_council_speech, char: char_lin_ruisheng, spoke: false, mode: pass }
-next: dialog_meeting_council_next
-```
+同前：稳明面 / 盯聚丰 / 少问后院 / 直报货单（要胆）。  
+`decide` 可附议：见 `dialog_meeting_council_endorse`（`endorse_last_council`）。  
+简席：`council_brief` 时压缩周/王变体与旁听时长。
 
 ---
 
-## 东家反应（④ 段末，进 ⑤ 前）
+## 东家反应
 
-```yaml
-dialog_id: dialog_meeting_council_demao_nod
-speaker: char_qian_demao
-text_zh: |
-  嗯。
-next: dialog_meeting_council_next
-
-dialog_id: dialog_meeting_council_demao_cut
-speaker: char_qian_demao
-text_zh: |
-  够了。这话到此为止。
-next: dialog_meeting_council_next
-```
-
-`dialog_meeting_council_next` 由系统推进 queue 中下一位或进入 ⑤ 定调。
+`dialog_meeting_council_demao_nod` / `demao_cut` → `dialog_meeting_council_next` → ⑤ 定调。

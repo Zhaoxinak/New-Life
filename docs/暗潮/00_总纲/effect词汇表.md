@@ -153,18 +153,21 @@
 | `set_meeting_tier` | `value`∈{listen,report,decide} | 写 `run_meeting.attendance_tier` |
 | `init_council_queue` | `ids: [char_*]` | 生成本局 ④ 段发言顺序 |
 | `record_council_speech` | `char`, `spoke`, `topic_key?`, `stance?`, `mode?` | 记发言/沉默/附议入 `council_log` |
+| `endorse_last_council` | （无） | decide：附议上一发言者 stance，`policy_draft+2`，trust+1 |
 | `add_policy_draft` | `key`, `value` | 累加 `policy_draft`，供 ⑤ 定调 |
+| `set_meeting_segment` | `value`∈{rollcall,report,ceremony,council,policy,tasks} | 仅发 `meeting_segment_changed`；表现层议场切段 |
 
 ```yaml
 - { op: assign_weekly_tasks, ids: [task_tidy_manifest, task_front_duty] }
 - { op: add_meeting_report, value: 8 }
 - { op: set_meeting_tier, value: report }
+- { op: set_meeting_segment, value: council }
 - { op: init_council_queue, ids: [char_zhou_guanshi, char_wang_pangzi] }
 - { op: record_council_speech, char: char_lin_ruisheng, spoke: true, stance: bright_steady, mode: speak }
 - { op: add_policy_draft, key: bright_steady, value: 2 }
 ```
 
-规则：[`../17_朝账系统/朝账系统规则.md`](../17_朝账系统/朝账系统规则.md) · 建言：[`../17_朝账系统/诸人建言.md`](../17_朝账系统/诸人建言.md)。
+规则：[`../17_朝账系统/朝账系统规则.md`](../17_朝账系统/朝账系统规则.md) · 建言：[`../17_朝账系统/诸人建言.md`](../17_朝账系统/诸人建言.md) · 议场：[`../17_朝账系统/朝账议场演出合同.md`](../17_朝账系统/朝账议场演出合同.md)。
 
 ### 2.8b 序位战
 
